@@ -7,21 +7,32 @@ import Title from "../shared/Title.astro";
 <section id="history">
     <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
         
+        <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
+            <div class="w-full h-80 sm:h-96 midmd:h-full relative rounded-3xl">
+                <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
+                <div class="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
+                
+                <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
+                <img src={"/images/noesis-history.png"} alt="history image"
+                width="1240" height="1385"
+                class="w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full shadow-2xl shadow-primary/50 rounded-lg" />
+            </div>
+        </div>
+
         <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
             <Title>
-                Our History and Experience in the Industry
+                The foundations of the concept
             </Title>
             <Paragraph className="mt-8">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                <br> 
-                Minus, saepe aliquid autem alias vero distinctio dignissimos consequatur?
+                The concept for a product  was born in 2023. 
+                One of our founders Marcin Markowski gave a set of lectures and podcast interviews presenting the topic to a wide group of IT specialists in Poland. 
+                The response was so positive that we decided to take the concept further and create Noesis. 
             </Paragraph>
             <Paragraph className="mt-2">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, saepe aliquid autem alias vero distinctio dignissimos consequatur?
-            </Paragraph>
+                The idea started under the name P3 model - taking name from the three perspectives of the model: Domain, Technology and People.            </Paragraph>
             <ul class="mt-8 space-y-4 text-heading-3 font-medium">
                 <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Founded in 2010
+                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Started in 2023
                 </li>
                 <li>
                     <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Over 1000 successful projects
@@ -33,18 +44,6 @@ import Title from "../shared/Title.astro";
                     <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Industry leading expertise
                 </li>
             </ul>
-        </div>
-
-        <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
-            <div class="w-full h-80 sm:h-96 midmd:h-full relative">
-                <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
-                <div class="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
-                
-                <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
-                <img src={"/images/history.webp"} alt="history image"
-                width="1240" height="1385"
-                class=" w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full" />
-            </div>
         </div>
     </Container>
 </section> 
