@@ -38,7 +38,7 @@ import NewsletterForm from "../elements/NewsletterForm.astro";
             ></span>
           </div>
       </div>
-      <div class="mx-auto text-center max-w-xl md:max-w-2xl relative">
+      <div class="mx-auto text-center max-w-xl sm:max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl relative">
           <h1
             class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight
             font-bold text-heading-1"
@@ -55,16 +55,20 @@ import NewsletterForm from "../elements/NewsletterForm.astro";
             ✅ A direct <strong>impact on product development</strong> with your feedback,<br>
             ✅ The chance to <strong>shape the future of AI-assisted programming</strong><br>
         </Paragraph>
-        <div class="mx-auto max-w-md flex justify-center pt-10">
-            <NewsletterForm variant="cta" />
-        </div>
-        <Paragraph className={"pt-10"}>
-            <strong>👥 Join our Discord community today</strong> and be at the forefront of smarter, faster development!
-        </Paragraph>
-        <div class="mx-auto max-w-md sm:max-w-xl pt-10">
-            <Button variant={"primary"}>
-                <a href="https://discord.gg/QF5PMX4Dqg" class="text-white relative z-[5]" target="_blank">Join our Discord now!</a>
-            </Button>
+        <div class="flex flex-col md:flex-row gap-8 md:gap-12 justify-center items-center pt-10">
+            <div class="w-full md:w-1/2 max-w-md flex-shrink-0">
+                <NewsletterForm variant="cta" />
+            </div>
+            <div class="w-full md:w-1/2 max-w-md flex flex-col items-center flex-shrink-0">
+                <div>
+                    <Button variant={"primary"}>
+                        <a href="https://discord.gg/QF5PMX4Dqg" class="text-white relative z-[5]" target="_blank">Join our Discord now!</a>
+                    </Button>
+                </div>
+                <Paragraph className="pt-4">
+                    <strong>👥 Join our Discord community today</strong> and be at the forefront of smarter, faster development!
+                </Paragraph>
+            </div>
         </div>
       </div>
     </div>
