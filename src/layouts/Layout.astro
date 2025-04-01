@@ -16,8 +16,7 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <!--<link rel="icon" type="image/svg+xml" href="/favicon.svg" />-->
     <link rel="shortcut icon" href="favicon.ico">
-
-      <meta name="generator" content={Astro.generator} />
+    <meta name="generator" content={Astro.generator} />
     <meta name="description" content="Noesis - Up-to-date knowledge about your system generated in real time from code.">
     <title>Noesis - {title}</title>
     <link
@@ -29,89 +28,91 @@ const { title } = Astro.props;
     <Navbar />
     <slot />
     <Footer />
-  </body>
-  <script>
-    const switchTheme = document.querySelector(
-      "[data-switch-theme]"
-    ) as HTMLButtonElement;
+    <script type="text/javascript">
+      window.cookieyes = window.cookieyes || {};
+      window.cookieyes.widget = {domain: "noesis.vision"};
+    </script>
+    <script src="https://cdn-cookieyes.com/client_data/fbd6d7186dddc4d44c31a17d/script.js" defer></script>
+    <script>
+      const switchTheme = document.querySelector(
+        "[data-switch-theme]"
+      ) as HTMLButtonElement;
 
-    if (
-      localStorage.getItem("appTheme") === "dark" ||
-      (!("appTheme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    if (switchTheme) {
-      switchTheme.addEventListener("click", (e) => {
-        e.preventDefault();
-        const doc = document.documentElement;
-        if (doc) {
-          if (localStorage.getItem("appTheme")) {
-            if (localStorage.getItem("appTheme") === "light") {
-              doc.classList.add("dark");
-              localStorage.setItem("appTheme", "dark");
+      if (
+        localStorage.getItem("appTheme") === "dark" ||
+        (!("appTheme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+      if (switchTheme) {
+        switchTheme.addEventListener("click", (e) => {
+          e.preventDefault();
+          const doc = document.documentElement;
+          if (doc) {
+            if (localStorage.getItem("appTheme")) {
+              if (localStorage.getItem("appTheme") === "light") {
+                doc.classList.add("dark");
+                localStorage.setItem("appTheme", "dark");
+              } else {
+                document.documentElement.classList.remove("dark");
+                localStorage.setItem("appTheme", "light");
+              }
             } else {
-              document.documentElement.classList.remove("dark");
-              localStorage.setItem("appTheme", "light");
-            }
-          } else {
-            if (doc.classList.contains("dark")) {
-              doc.classList.remove("dark");
-              localStorage.setItem("appTheme", "light");
-            } else {
-              doc.classList.add("dark");
-              localStorage.setItem("appTheme", "dark");
+              if (doc.classList.contains("dark")) {
+                doc.classList.remove("dark");
+                localStorage.setItem("appTheme", "light");
+              } else {
+                doc.classList.add("dark");
+                localStorage.setItem("appTheme", "dark");
+              }
             }
           }
-        }
-      });
-    }
-  </script>
-  <script>
-    const toggleMenu = document.querySelector(
-      "[data-toggle-nav]"
-    ) as HTMLButtonElement;
-    const navbar = document.querySelector("[data-navbar]") as HTMLDivElement;
-    const overlayNav = document.querySelector(
-      "[data-nav-overlay]"
-    ) as HTMLDivElement;
-    if (toggleMenu) {
-      toggleMenu.addEventListener("click", e => {
-        e.preventDefault();
-        if (toggleMenu.getAttribute("data-open-nav") === "false") {
-          toggleMenu.setAttribute("data-open-nav", "true");
-          overlayNav.setAttribute("data-is-visible", "true");
-          document.body.classList.add("!overflow-y-hidden");
-		  navbar.style.height = `${navbar.scrollHeight}px`
+        });
+      }
+    </script>
+    <script>
+      const toggleMenu = document.querySelector(
+        "[data-toggle-nav]"
+      ) as HTMLButtonElement;
+      const navbar = document.querySelector("[data-navbar]") as HTMLDivElement;
+      const overlayNav = document.querySelector(
+        "[data-nav-overlay]"
+      ) as HTMLDivElement;
+      if (toggleMenu) {
+        toggleMenu.addEventListener("click", e => {
+          e.preventDefault();
+          if (toggleMenu.getAttribute("data-open-nav") === "false") {
+            toggleMenu.setAttribute("data-open-nav", "true");
+            overlayNav.setAttribute("data-is-visible", "true");
+            document.body.classList.add("!overflow-y-hidden");
+            navbar.style.height = `${navbar.scrollHeight}px`
+          } else {
+            toggleMenu.setAttribute("data-open-nav", "false");
+            overlayNav.setAttribute("data-is-visible", "false");
+            document.body.classList.remove("!overflow-y-hidden");
+            navbar.style.height = "0px"
+          }
+        });
 
-        }else{
-			toggleMenu.setAttribute("data-open-nav", "false");
-        	overlayNav.setAttribute("data-is-visible", "false");
-        	document.body.classList.remove("!overflow-y-hidden");
-		  	navbar.style.height = "0px"
-		}
-		
-        
-      });
+        navbar.addEventListener("click", () => {
+          toggleMenu.setAttribute("data-open-nav", "false");
+          overlayNav.setAttribute("data-is-visible", "false");
+          document.body.classList.remove("!overflow-y-hidden");
+          navbar.style.height = "0px"
+        });
 
-      navbar.addEventListener("click", () => {
-        toggleMenu.setAttribute("data-open-nav", "false");
-        overlayNav.setAttribute("data-is-visible", "false");
-        document.body.classList.remove("!overflow-y-hidden");
-		  	navbar.style.height = "0px"
-      });
-
-      overlayNav.addEventListener("click", () => {
-        toggleMenu.setAttribute("data-open-nav", "false");
-        	overlayNav.setAttribute("data-is-visible", "false");
-        	document.body.classList.remove("!overflow-y-hidden");
-		  	navbar.style.height = "0px"
-      });
-    }
-  </script>
+        overlayNav.addEventListener("click", () => {
+          toggleMenu.setAttribute("data-open-nav", "false");
+          overlayNav.setAttribute("data-is-visible", "false");
+          document.body.classList.remove("!overflow-y-hidden");
+          navbar.style.height = "0px"
+        });
+      }
+    </script>
+  </body>
 </html>
 <style is:global>
   :root {
