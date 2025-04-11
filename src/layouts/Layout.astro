@@ -23,63 +23,19 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script type="text/javascript">
-      window.cookieyes = window.cookieyes || {};
-      window.cookieyes.widget = {domain: "noesis.vision"};
-    </script>
-    <script src="https://cdn-cookieyes.com/client_data/fbd6d7186dddc4d44c31a17d/script.js"></script>
     
-    <!-- Google consent mode - musi być przed tagiem GA -->
-    <script type="text/javascript">
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      
-      // Domyślnie ustawiamy wszystkie typy zgód na 'denied' (bez zgody)
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'denied',
-        'functionality_storage': 'denied',
-        'personalization_storage': 'denied',
-        'security_storage': 'granted' // to jest wyjątek, zawsze wymagany
-      });
-      
-      // Nasłuchiwanie na aktualizację zgód z CookieYes
-      window.addEventListener('cookieyes_consent_update', function(e) {
-        let consent = {
-          'ad_storage': 'denied',
-          'analytics_storage': 'denied',
-          'functionality_storage': 'denied',
-          'personalization_storage': 'denied',
-          'security_storage': 'granted'
-        };
-        
-        // Aktualizacja zgód na podstawie kategorii CookieYes
-        if (e.detail.accepted.includes('analytics')) {
-          consent.analytics_storage = 'granted';
-        }
-        
-        if (e.detail.accepted.includes('functional')) {
-          consent.functionality_storage = 'granted';
-        }
-        
-        if (e.detail.accepted.includes('advertisement')) {
-          consent.ad_storage = 'granted';
-          consent.personalization_storage = 'granted';
-        }
-        
-        // Aktualizacja zgód w Google
-        gtag('consent', 'update', consent);
-      });
-    </script>
+    <!-- Start cookieyes banner -->
+    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/fbd6d7186dddc4d44c31a17d/script.js"></script>
+    <!-- End cookieyes banner -->
     
-    <!-- Google Analytics - dodaj type="text/cookieyes" i data-cookieyes="analytics" -->
-    <script type="text/cookieyes" data-cookieyes="analytics">
+    <!-- Google tag (gtag.js) -->
+    <script async data-cookieyes="analytics" src="https://www.googletagmanager.com/gtag/js?id=G-2BF7VRSXYF"></script>
+    <script data-cookieyes="analytics">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-2BF7VRSXYF');
     </script>
-    <script type="text/cookieyes" data-cookieyes="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-2BF7VRSXYF"></script>
   </head>
   <body class="overflow-hidden overflow-y-auto bg-body">
     <Navbar />
