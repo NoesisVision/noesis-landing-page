@@ -8,12 +8,15 @@ interface Props {
 const { variant = 'hero' } = Astro.props;
 
 const containerClass = variant === 'hero' 
-    ? "newsletter-form-container flex justify-center w-full" 
-    : "newsletter-form-container";
+    ? "newsletter-form-container flex flex-col sm:flex-row justify-center w-full gap-4" 
+    : "newsletter-form-container flex flex-col sm:flex-row gap-4";
 ---
 
 <div class={containerClass}>
+    <Button variant="primary" onclick="window.open('https://tally.so/r/nGyxGj', '_blank')">
+        Scan my project!
+    </Button>
     <Button variant="primary" className="ml-onclick-form" onclick="ml('show', 'it64wG', true)">
-        Subscribe to updates!
+        Join newsletter/Discord!
     </Button>
 </div>

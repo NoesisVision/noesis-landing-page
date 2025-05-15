@@ -1,6 +1,10 @@
-<section id="demo" class="w-full py-16 bg-body">
+---
+import Button from "../shared/Button.astro";
+---
+
+<section id="demo" class="w-full py-8 bg-body">
   <div class="mx-auto max-w-7xl w-full px-5 sm:px-8 md:px-14 lg:px-5">
-    <div class="w-full max-w-[1920px] mx-auto">
+    <div class="w-full max-w-[1920px] mx-auto flex flex-col items-center gap-6">
       <video
         class="w-full h-auto rounded-lg shadow-2xl shadow-gray-400/50 dark:shadow-gray-900/50"
         autoplay
@@ -12,6 +16,9 @@
         <source src="/videos/noesis-demo-optimized.mp4" type="video/mp4">
         Twoja przeglądarka nie wspiera odtwarzania wideo.
       </video>
+      <Button variant="primary" onclick="window.open('https://tally.so/r/nGyxGj', '_blank')">
+        <span class="font-bold">Nice! Please scan my project as well! 💎</span>
+      </Button>
     </div>
   </div>
 </section> 
