@@ -1,0 +1,40 @@
+---
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import Title from "../shared/Title.astro";
+
+export interface Props {
+    className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<section class="relative" id="ai-future">
+    <Container className={className}>
+        <div class="text-center max-w-3xl mx-auto space-y-4 mt-10 mb-6">
+            <Title>
+                Our place in the AI future 
+            </Title>
+            <Paragraph>
+                To build truly useful AI assistants, we need more than raw code — <strong>we need grounded, structured knowledge</strong>.
+            </Paragraph>
+            <Paragraph>
+                Noesis extracts architecture, behavior and roles from real systems and turns them into a multi-perspective P3 ontology (People, Domain, Technology).
+                This becomes the foundation for explainable AI, automation, and accurate documentation — all grounded in how your system actually works.            
+            </Paragraph>
+        </div>
+        <div class="flex flex-col items-center justify-center py-1 md:py-2">
+            <div class="w-full max-w-screen-xl mx-auto overflow-hidden">
+                <div class="aspect-[16/9] w-full relative">
+                    <img 
+                        src="/images/noesis-diagram-2.png" 
+                        alt="AI Future" 
+                        class="w-full h-full object-contain"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        </div>
+    </Container>
+</section> 
