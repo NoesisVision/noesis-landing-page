@@ -1,0 +1,67 @@
+---
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import Title from "../shared/Title.astro";
+
+---
+
+<section id="faq">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        
+        <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
+            <Title>
+                FAQ
+            </Title>
+            <div class="mt-8 space-y-6">
+                <div class="space-y-2">
+                    <h3 class="text-lg font-semibold text-heading-1">
+                        Will Noesis scale to my monorepo?
+                    </h3>
+                    <p class="text-heading-3">
+                        Yes—our analysis engine handles >100 M LOC
+                    </p>
+                </div>
+                
+                <div class="space-y-2">
+                    <h3 class="text-lg font-semibold text-heading-1">
+                        Does it hallucinate like other AI tools?
+                    </h3>
+                    <p class="text-heading-3">
+                        No. We build answers from deterministic code graphs first, then enrich with AI, so every fact is traceable.
+                    </p>
+                </div>
+                
+                <div class="space-y-2">
+                    <h3 class="text-lg font-semibold text-heading-1">
+                        Do I still need to write docs?
+                    </h3>
+                    <p class="text-heading-3">
+                        We auto‑generate API docs and architecture diagrams, and keep them synchronized with every commit.
+                    </p>
+                </div>
+                
+                <div class="space-y-2">
+                    <h3 class="text-lg font-semibold text-heading-1">
+                        Is my code safe?
+                    </h3>
+                    <p class="text-heading-3">
+                        Absolutely. Choose on‑prem or single‑tenant SaaS; your code never leaves your environment.
+                    </p>
+                </div>
+            </div>
+        </div>
+     
+
+        <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
+            <div class="w-full h-[400px] sm:h-[500px] midmd:h-full relative">
+                <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
+                <div class="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
+                
+                <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
+                <img src={"/images/system-knowledge-2.webp"} alt="FAQ visualization"
+                width="1240" height="1385"
+                class="w-auto left-1/2 -translate-x-1/2 absolute sm:relative sm:w-full sm:h-full sm:left-0 sm:translate-x-0 lg:absolute lg:w-full lg:h-full object-cover shadow-2xl shadow-primary/50 rounded-lg" />
+            </div>
+        </div>
+    </Container>
+</section> 

@@ -3,7 +3,7 @@ import Button from "../shared/Button.astro";
 import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
-import NewsletterForm from "../elements/NewsletterForm.astro";
+import BtnLink from "../shared/BtnLink.astro";
 ---
 
 <section  id="cta" class="pb-20">
@@ -57,7 +57,10 @@ import NewsletterForm from "../elements/NewsletterForm.astro";
         </Paragraph>
         <div class="flex justify-center items-center pt-10">
             <div class="w-full max-w-md">
-                <NewsletterForm variant="cta" />
+                <div class="newsletter-form-container flex flex-col sm:flex-row gap-4">
+                    <BtnLink variant="primary" href="https://calendly.com/szymon-noesis/30min" text="Book a Demo" target="_blank" />
+                    <Button variant="secondary" className="ml-onclick-form" onclick="ml('show', 'it64wG', true)">Join newsletter/discord</Button>
+                </div>
             </div>
         </div>
       </div>

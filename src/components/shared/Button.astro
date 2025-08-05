@@ -11,7 +11,7 @@ const getThemeStyle = (variant:"primary"|"secondary")=>{
     if (variant === "primary") {
         return "bg-primary border-transparent relative after:bg-[#172554] hover:border-[#172554] text-white hover:text-white"
     }
-    return "text-primary hover:text-primary"
+    return "bg-transparent border-primary text-primary hover:bg-primary hover:text-white hover:border-transparent"
 }
 
 

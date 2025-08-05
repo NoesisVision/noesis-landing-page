@@ -2,8 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/sections/Hero.astro';
 import Demo from '../components/sections/Demo.astro';
-import Services from '../components/sections/Services.astro';
+import UseCases from '../components/sections/UseCases.astro';
 import Features from '../components/sections/Features.astro';
+import FAQ from '../components/sections/FAQ.astro';
 import Founders from '../components/sections/Founders.astro';
 import CTA from '../components/sections/CTA.astro';
 import Brands from '../components/sections/Brands.astro';
@@ -13,13 +14,12 @@ import AIFuture from '../components/sections/AIFuture.astro';
 ---
 
 <Layout title="Understand your system">
-	<main class="flex flex-col gap-y-8 md:gap-y-12 overflow-hidden">
-		<Demo/>
+	<main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
 		<Hero/>
 		<Architecture/>
-		<Services/>
-		<Features/>
-		<AIFuture/>
+		<UseCases/>
+		<Demo/>
+		<FAQ/>
 		<Founders/>
 		<CTA/>
 		<!-- <Brands/> -->
