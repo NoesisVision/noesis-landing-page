@@ -7,4 +7,16 @@ export default defineConfig({
   integrations: [tailwind()],
   // site: 'https://lszydlo.github.io',
   base: '/',
+  build: {
+    assets: 'assets'
+  },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: 'assets/[name].[hash][extname]'
+        }
+      }
+    }
+  }
 });
