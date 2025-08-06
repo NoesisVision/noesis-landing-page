@@ -3,6 +3,9 @@ import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
 
+// Import image
+import systemKnowledgeImage from "../../../public/images/system-knowledge-2.webp";
+
 ---
 
 <section id="faq">
@@ -58,7 +61,7 @@ import Title from "../shared/Title.astro";
                 <div class="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
                 
                 <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
-                <img src={"/images/system-knowledge-2.webp"} alt="FAQ visualization"
+                <img src={systemKnowledgeImage.src} alt="FAQ visualization"
                 width="1240" height="1385"
                 class="w-auto left-1/2 -translate-x-1/2 absolute sm:relative sm:w-full sm:h-full sm:left-0 sm:translate-x-0 lg:absolute lg:w-full lg:h-full object-cover shadow-2xl shadow-primary/50 rounded-lg" />
             </div>

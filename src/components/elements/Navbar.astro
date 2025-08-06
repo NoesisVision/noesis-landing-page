@@ -3,6 +3,9 @@ import BtnLink from "../shared/BtnLink.astro";
 import Container from "../shared/Container.astro";
 import  Navitem from "../shared/Navitem.astro";
 
+// Import logo
+import noesisLogo from "../../../public/logos/noesis.webp";
+
 const navItems = [
 
     {
@@ -44,7 +47,7 @@ const navItems = [
                     <!--    <span class="absolute w-4 h-4 -bottom-1 -left-1 bg-primary rounded-md rotate-45"></span>-->
                     <!--    <span class="absolute w-2 h-2 rounded-full bg-heading-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></span>-->
                     <!--</div>-->
-                    <img src="/logos/noesis.webp" alt="logo" class="w-8 h-8"/>
+                    <img src={noesisLogo.src} alt="logo" class="w-8 h-8"/>
                     <div class="inline-flex text-lg font-semibold text-heading-1">
                         Noesis
                     </div>

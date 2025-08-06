@@ -2,6 +2,11 @@
 import Container from "../shared/Container.astro";
 import Title from "../shared/Title.astro";
 
+// Import logos
+import spotifyLogo from "../../../public/logos/spotify.png";
+import slackLogo from "../../../public/logos/slack.png";
+import paypalLogo from "../../../public/logos/paypallogo.png";
+
 ---
 
 <section>
@@ -13,31 +18,22 @@ import Title from "../shared/Title.astro";
         </div>
         <div class="flex justify-center flex-wrap gap-4">
             <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
-                <img src="/logos/spotify.png" width="100" height="60" alt="spotify" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
+                <img src={spotifyLogo.src} width="100" height="60" alt="spotify" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
             </div>
             <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
-                <img src="/logos/slack.png" width="100" height="60" alt="slack" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
+                <img src={slackLogo.src} width="100" height="60" alt="slack" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
             </div>
             <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
-                <img src="/logos/paypallogo.png" width="100" height="60" alt="paypal" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
+                <img src={paypalLogo.src} width="100" height="60" alt="paypal" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
             </div>
             <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
-                <img src="/logos/spotify.png" width="100" height="60" alt="spotify" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
+                <img src={spotifyLogo.src} width="100" height="60" alt="spotify" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
             </div>
             <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
-                <img src="/logos/slack.png" width="100" height="60" alt="slack" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
+                <img src={slackLogo.src} width="100" height="60" alt="slack" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
             </div>
             <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
-                <img src="/logos/paypallogo.png" width="100" height="60" alt="paypal" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
-            </div>
-            <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
-                <img src="/logos/spotify.png" width="100" height="60" alt="spotify" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
-            </div>
-            <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
-                <img src="/logos/slack.png" width="100" height="60" alt="slack" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
-            </div>
-            <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
-                <img src="/logos/paypallogo.png" width="100" height="60" alt="paypal" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
+                <img src={paypalLogo.src} width="100" height="60" alt="paypal" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
             </div>
             <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
                 <img src="/logos/spotify.png" width="100" height="60" alt="spotify" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
@@ -47,6 +43,15 @@ import Title from "../shared/Title.astro";
             </div>
             <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
                 <img src="/logos/paypallogo.png" width="100" height="60" alt="paypal" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
+            </div>
+            <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
+                <img src={spotifyLogo.src} width="100" height="60" alt="spotify" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
+            </div>
+            <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
+                <img src={slackLogo.src} width="100" height="60" alt="slack" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
+            </div>
+            <div class="p-4 sm:p-5 rounded-xl bg-body border border-box-border group">
+                <img src={paypalLogo.src} width="100" height="60" alt="paypal" class="h-7 sm:h-10 w-auto ease-linear duration-300 grayscale group-hover:!grayscale-0 group-hover:scale-105">
             </div>
         </div>
     </Container>

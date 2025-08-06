@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "build:github": "astro build --config astro.config.github.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

@@ -1,5 +1,10 @@
 ---
 import Button from "../shared/Button.astro";
+
+// Import videos
+import demoVideoWebm from "../../../public/videos/noesis-demo-optimized.webm";
+import demoVideoMp4 from "../../../public/videos/noesis-demo-optimized.mp4";
+
 ---
 
 <section id="demo" class="w-full py-4 bg-body pt-24 lg:pt-28">
@@ -12,8 +17,8 @@ import Button from "../shared/Button.astro";
         muted
         playsinline
       >
-        <source src="/videos/noesis-demo-optimized.webm" type="video/webm">
-        <source src="/videos/noesis-demo-optimized.mp4" type="video/mp4">
+        <source src={demoVideoWebm} type="video/webm">
+        <source src={demoVideoMp4} type="video/mp4">
         Twoja przeglądarka nie wspiera odtwarzania wideo.
       </video>
       <div class="py-4">

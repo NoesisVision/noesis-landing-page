@@ -4,6 +4,11 @@ import Info from "../cards/Info.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
 
+// Import images
+import marcinImage from "../../../public/images/founders/marcin-smaller2.png";
+import szymonImage from "../../../public/images/founders/szymon-smaller.png";
+import lukaszImage from "../../../public/images/founders/lukasz-smaller.png";
+
 ---
 
 <section id="founders" class="py-8">
@@ -15,7 +20,7 @@ import Title from "../shared/Title.astro";
                 <div class="text-center">
                     <div class="mb-4">
                         <img 
-                            src="/images/founders/marcin-smaller2.png" 
+                            src={marcinImage.src} 
                             alt="Marcin Markowski" 
                             class="w-72 h-72 mx-auto object-contain"
                         />
@@ -34,7 +39,7 @@ import Title from "../shared/Title.astro";
                 <div class="text-center">
                     <div class="mb-4">
                         <img 
-                            src="/images/founders/szymon-smaller.png" 
+                            src={szymonImage.src} 
                             alt="Szymon Janikowski" 
                             class="w-72 h-72 mx-auto object-contain"
                         />
@@ -52,7 +57,7 @@ import Title from "../shared/Title.astro";
                 <div class="text-center">
                     <div class="mb-4">
                         <img 
-                            src="/images/founders/lukasz-smaller.png" 
+                            src={lukaszImage.src} 
                             alt="Łukasz Szydło" 
                             class="w-72 h-72 mx-auto object-contain"
                         />

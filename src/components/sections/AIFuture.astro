@@ -3,6 +3,9 @@ import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
 
+// Import image
+import noesisDiagram from "../../../public/images/noesis-diagram-2.png";
+
 export interface Props {
     className?: string;
 }
@@ -28,7 +31,7 @@ const { className } = Astro.props;
             <div class="w-full max-w-screen-xl mx-auto overflow-hidden">
                 <div class="aspect-[16/9] w-full relative">
                     <img 
-                        src="/images/noesis-diagram-2.png" 
+                        src={noesisDiagram.src} 
                         alt="AI Future" 
                         class="w-full h-full object-contain"
                         loading="lazy"
