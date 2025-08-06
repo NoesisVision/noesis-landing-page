@@ -11,18 +11,19 @@ import demoVideoMp4 from "../../../public/videos/noesis-demo-optimized.mp4";
   <div class="mx-auto max-w-7xl w-full px-5 sm:px-8 md:px-14 lg:px-5">
     <div class="w-full max-w-[1920px] mx-auto flex flex-col items-center gap-4">
       <video
-        class="w-full h-auto rounded-lg shadow-2xl shadow-gray-400/50 dark:shadow-gray-900/50"
-        autoplay
+        class="w-full h-auto rounded-lg shadow-2xl shadow-gray-400/50 dark:shadow-gray-900/50 cursor-pointer"
         loop
         muted
         playsinline
+        controls
+        preload="metadata"
       >
         <source src={demoVideoWebm} type="video/webm">
         <source src={demoVideoMp4} type="video/mp4">
         Twoja przeglądarka nie wspiera odtwarzania wideo.
       </video>
       <div class="py-4">
-        <Button variant="primary" onclick="window.open('https://calendly.com/szymon-noesis/30min', '_blank')">
+        <Button variant="secondary" onclick="window.open('https://calendly.com/szymon-noesis/30min', '_blank')">
           <span class="font-bold">Book a demo 💎</span>
         </Button>
       </div>
