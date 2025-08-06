@@ -1,48 +1,39 @@
 ---
+import Service from "../cards/Service.astro";
 import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
+import { useCases } from "../../utils/data.ts";
+
+
+type UseCasesProps = {
+    title: string;
+    description: string;
+    icon: string
+};
+
 
 ---
 
-<section id="features">
-    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
-        
-        <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
+<section id="use-cases">
+    <Container className="space-y-10 md:sapce-y-12">
+        <div class="text-center max-w-5xl mx-auto space-y-4">
             <Title>
-                Understand Your System's Complexity
+                Noesis: Comprehensive System Knowledge Platform
             </Title>
-            <Paragraph className="mt-8">
-                In modern software development, understanding complex systems is a challenge that every team faces:
-            </Paragraph>
-            <ul class="mt-8 space-y-4 text-heading-3 font-medium">
-                <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Which functionalities of the system are impacted by a change in a specific part of the code?
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> How can you maintain clear system documentation that's always up-to-date?
-                </li>
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> How do different parts of your system interact with each other?
-                </li>
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> What's the impact of architectural design decisions on your product?
-                </li>
-            </ul>
-            <Paragraph className="mt-8">
-                Noesis transforms your code into <strong>clear, real-time visualizations</strong> that help everyone understand your system's architecture. From developers to business stakeholders, we make complex systems <strong>accessible and comprehensible</strong> through automated, always up-to-date documentation.
+            <Paragraph>
+                Noesis provides a complete solution for understanding and managing system knowledge through three powerful features that bridge the gap between technical complexity and business understanding. Our platform ensures that both developers and non-technical stakeholders can effectively collaborate and make informed decisions about system architecture and functionality.
             </Paragraph>
         </div>
-     
-
-        <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
-            <div class="w-full h-[400px] sm:h-[500px] midmd:h-full relative">
-                <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
-                <div class="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
-                
-                <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
-                <img src={"/images/system-knowledge-1.webp"} alt="front end back end development"
-                width="1240" height="1385"
-                class="w-auto left-1/2 -translate-x-1/2 absolute sm:relative sm:w-full sm:h-full sm:left-0 sm:translate-x-0 lg:absolute lg:w-full lg:h-full object-cover shadow-2xl shadow-primary/50 rounded-lg" />
-            </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {
+                    useCases.map((useCase: UseCasesProps) => {
+                    return (
+                            <Service title={useCase.title} description={useCase.description} icon={useCase.icon}>
+                            </Service>
+                            );
+                    })
+            }
         </div>
     </Container>
-</section>
+</section> 

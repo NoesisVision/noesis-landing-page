@@ -1,39 +1,111 @@
 ---
-import Service from "../cards/Service.astro";
 import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
-import { useCases } from "../../utils/data.ts";
-
-
-type UseCasesProps = {
-    title: string;
-    description: string;
-    icon: string
-};
-
 
 ---
 
-<section id="use-cases">
-    <Container className="space-y-10 md:sapce-y-12">
-        <div class="text-center max-w-3xl mx-auto space-y-4">
+<section id="use-cases" class="mt-16 md:mt-24">
+    <Container className="space-y-10 md:space-y-12">
+        <div class="text-center max-w-5xl mx-auto space-y-4">
             <Title>
-                Noesis: Comprehensive System Knowledge Platform
+                Use Cases: Real-World Applications
             </Title>
             <Paragraph>
-                Noesis provides a complete solution for understanding and managing system knowledge through three powerful features that bridge the gap between technical complexity and business understanding. Our platform ensures that both developers and non-technical stakeholders can effectively collaborate and make informed decisions about system architecture and functionality.
+                Noesis transforms how teams approach complex software challenges. Discover how our platform addresses critical scenarios in modern software development and delivery.
             </Paragraph>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {
-                    useCases.map((useCase: UseCasesProps) => {
-                    return (
-                            <Service title={useCase.title} description={useCase.description} icon={useCase.icon}>
-                            </Service>
-                            );
-                    })
-            }
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project Takeover -->
+            <div class="bg-box-bg rounded-xl p-6 border border-box-border">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-heading-1">Project Takeover</h3>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    Accelerate onboarding when taking over existing projects. Noesis provides instant visibility into system architecture, dependencies, and business logic, reducing ramp-up time from weeks to days.
+                </p>
+            </div>
+
+            <!-- Documented Software Delivery -->
+            <div class="bg-box-bg rounded-xl p-6 border border-box-border">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-heading-1">Delivering Documented Software</h3>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    Deliver comprehensive documentation alongside your software. Generate up-to-date system documentation automatically, ensuring clients receive complete technical and business context.
+                </p>
+            </div>
+
+            <!-- Architecture Audit -->
+            <div class="bg-box-bg rounded-xl p-6 border border-box-border">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-heading-1">Architecture Audit/Review</h3>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    Conduct thorough architecture reviews with complete system visibility. Identify technical debt, dependency issues, and optimization opportunities through visual analysis.
+                </p>
+            </div>
+
+            <!-- Requirements Preparation -->
+            <div class="bg-box-bg rounded-xl p-6 border border-box-border">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-heading-1">Requirements Preparation</h3>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    Bridge technical and business requirements with clear system understanding. Translate complex technical constraints into business-friendly documentation for stakeholders.
+                </p>
+            </div>
+
+            <!-- Refactoring Planning -->
+            <div class="bg-box-bg rounded-xl p-6 border border-box-border">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-heading-1">Refactoring Planning</h3>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    Plan refactoring initiatives with confidence. Understand impact analysis, identify dependencies, and create safe migration strategies with comprehensive system mapping.
+                </p>
+            </div>
+
+            <!-- Knowledge Transfer -->
+            <div class="bg-box-bg rounded-xl p-6 border border-box-border">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-heading-1">Knowledge Transfer</h3>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    Facilitate smooth knowledge transfer between team members. Create living documentation that evolves with your codebase, ensuring institutional knowledge is preserved.
+                </p>
+            </div>
         </div>
     </Container>
 </section> 
