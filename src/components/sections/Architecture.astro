@@ -2,7 +2,7 @@
 import Container from "../shared/Container.astro";
 
 // Import image
-import architectureImage from "../../../public/images/noesis-architecture-2-1-conventions-simple.svg";
+import architectureImage from "../../../public/images/noesis-architecture-2-1-conventions-opaque.png";
 
 export interface Props {
     className?: string;
@@ -13,16 +13,14 @@ const { className } = Astro.props;
 
 <section class="relative" id="architecture">
     <Container className={className}>
-        <div class="flex flex-col items-center justify-center py-2 md:py-4">
-            <div class="w-full max-w-screen-xl mx-auto overflow-hidden">
-                <div class="aspect-[16/9] w-full relative">
-                    <img 
-                        src={architectureImage.src} 
-                        alt="System architecture" 
-                        class="w-full h-full object-contain"
-                        loading="lazy"
-                    />
-                </div>
+        <div class="flex flex-col items-center justify-center py-8 md:py-12">
+            <div class="w-full max-w-screen-xl mx-auto">
+                <img 
+                    src={architectureImage.src} 
+                    alt="System architecture" 
+                    class="w-full h-auto object-contain rounded-lg drop-shadow-2xl"
+                    loading="lazy"
+                />
             </div>
         </div>
     </Container>
