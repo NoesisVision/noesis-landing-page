@@ -1,0 +1,138 @@
+---
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import Title from "../shared/Title.astro";
+
+export interface Props {
+    className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<section class="relative py-16 md:py-20" id="knowledge-modeling">
+    <Container className={`space-y-6 md:space-y-8 ${className}`}>
+        <div class="text-center max-w-5xl mx-auto space-y-4">
+            <Title>
+                P3 Knowledge Modeling - Structured Intelligence
+            </Title>
+            <Paragraph>
+                Noesis doesn't just extract information - we model knowledge using our proprietary P3 (Process, People, Platform) framework. This structured approach transforms raw code analysis into meaningful, actionable insights that bridge the gap between technical implementation and business understanding.
+            </Paragraph>
+        </div>
+        
+        <div class="grid lg:grid-cols-3 gap-8">
+            <div class="bg-box-bg p-8 rounded-xl border border-box-border">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-blue-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-blue-600">Process</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <p class="text-heading-3 text-sm">Business workflows and use cases</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <p class="text-heading-3 text-sm">Domain-driven design patterns</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <p class="text-heading-3 text-sm">Data flow and transformations</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <p class="text-heading-3 text-sm">API contracts and integrations</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-box-bg p-8 rounded-xl border border-box-border">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-green-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-green-600">People</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <p class="text-heading-3 text-sm">Team ownership and responsibilities</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <p class="text-heading-3 text-sm">Developer expertise mapping</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <p class="text-heading-3 text-sm">Collaboration patterns</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <p class="text-heading-3 text-sm">Knowledge transfer opportunities</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-box-bg p-8 rounded-xl border border-box-border">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-purple-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 17.25v-.228a4.5 4.5 0 00-.12-1.03l-2.268-9.64a3.375 3.375 0 00-3.285-2.602H7.923a3.375 3.375 0 00-3.285 2.602l-2.268 9.64a4.5 4.5 0 00-.12 1.03v.228m19.5 0a3 3 0 01-3 3H5.25a3 3 0 01-3-3m19.5 0a3 3 0 00-3-3H5.25a3 3 0 00-3 3m16.5 0h.008v.008h-.008v-.008zm-3 0h.008v.008h-.008v-.008z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-purple-600">Platform</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <p class="text-heading-3 text-sm">Technology stack and architecture</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <p class="text-heading-3 text-sm">Infrastructure and deployment</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <p class="text-heading-3 text-sm">Code quality and patterns</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <p class="text-heading-3 text-sm">Performance and scalability</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-box-bg p-8 rounded-xl border border-box-border">
+                <h3 class="text-2xl font-bold mb-6 text-center text-heading-1">Why P3 Matters</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-blue-600">For Technical Teams</h4>
+                        <ul class="space-y-2 text-heading-3 text-sm">
+                            <li>• Understand system dependencies instantly</li>
+                            <li>• Identify technical debt and refactoring opportunities</li>
+                            <li>• Accelerate onboarding of new team members</li>
+                            <li>• Make informed architectural decisions</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-green-600">For Business Stakeholders</h4>
+                        <ul class="space-y-2 text-heading-3 text-sm">
+                            <li>• Visualize business processes in technical context</li>
+                            <li>• Understand impact of changes on business operations</li>
+                            <li>• Identify bottlenecks and optimization opportunities</li>
+                            <li>• Make data-driven decisions about system investments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>

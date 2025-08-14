@@ -8,9 +8,29 @@ export interface Props{
 }
 
 const {title, description, icon} = Astro.props
+
+// Funkcja do określania koloru na podstawie tytułu
+const getIconColor = (title: string) => {
+    if (title.includes("UI") || title.includes("Interface")) {
+        return "bg-blue-100 dark:bg-blue-900 text-blue-600";
+    } else if (title.includes("Documentation") || title.includes("Export")) {
+        return "bg-green-100 dark:bg-green-900 text-green-600";
+    } else if (title.includes("AI") || title.includes("MCP") || title.includes("Integration")) {
+        return "bg-purple-100 dark:bg-purple-900 text-purple-600";
+    } else if (title.includes("Domain") || title.includes("Process")) {
+        return "bg-blue-100 dark:bg-blue-900 text-blue-600";
+    } else if (title.includes("Technology") || title.includes("Platform")) {
+        return "bg-orange-100 dark:bg-orange-900 text-orange-600";
+    } else if (title.includes("People") || title.includes("Team")) {
+        return "bg-green-100 dark:bg-green-900 text-green-600";
+    }
+    return "bg-blue-100 dark:bg-blue-900 text-blue-600"; // domyślny kolor
+}
+
+const iconColorClass = getIconColor(title);
 ---
 <div class="p-5 sm:p-6 lg:p-8 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow relative overflow-hidden">
-    <div class="rounded-xl bg-gray-300 dark:bg-gray-950 p-3 text-heading-1 w-max relative">
+    <div class={`rounded-xl p-3 w-max relative ${iconColorClass}`}>
             <slot set:html={icon} />
     </div>
     <div class="mt-6 space-y-4 relative">

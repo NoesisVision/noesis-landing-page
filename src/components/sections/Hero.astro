@@ -9,26 +9,26 @@ import BtnLink from "../shared/BtnLink.astro";
 ---
 
 <section id="home" class="relative pt-24 lg:pt-36">
-    <Container className={"flex flex-col lg:flex-row gap-3 lg:gap-6"}>
+    <Container className={"flex flex-col lg:flex-row gap-3 lg:gap-6 justify-center items-center"}>
         <div class="absolute w-full lg:w-1/2 inset-y-0 lg:right-0 ">
             <span class="absolute -left-6 md:left-4 top-8 lg:top-12 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-green-400 blur-xl opacity-60 lg:opacity-95 lg:block hidden"></span>
             <span class="absolute right-4 bottom-8 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80"></span>
         </div>
         <span class="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90"></span>
-        <div class="relative flex flex-col items-center text-center lg:text-left py-1 lg:py-3 xl:py-4 
-        lg:items-center lg:max-w-none max-w-xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2 px-4 sm:px-6 lg:px-0">
+        <div class="relative flex flex-col items-center text-center py-1 lg:py-3 xl:py-4 
+        lg:items-center lg:max-w-3xl max-w-xl mx-auto lg:mx-0 lg:flex-1 px-4 sm:px-6 lg:px-0">
             <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight xl:text-7xl/tight
              font-bold text-heading-1">
                 <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"> Know </span> how your system <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">really</span> works
             </h1>
-            <Paragraph className="mt-3 lg:mt-4 text-base md:text-lg lg:text-xl text-center">
+            <Paragraph className="mt-3 lg:mt-4 text-base text-center">
                 Noesis <strong>deterministically</strong> turns source code into a <strong>living knowledge graph of essential concepts</strong> — helping developers and product teams move faster and with more confidence.        
             </Paragraph>
             <div class="mt-8 lg:mt-10 w-full flex justify-center">
                 <div class="w-full max-w-md">
                     <div class="newsletter-form-container flex flex-col sm:flex-row justify-center w-full gap-4">
-                        <BtnLink variant="primary" href="https://calendly.com/szymon-noesis/30min" text="Book a demo" target="_blank" />
-                        <BtnLink variant="secondary" className="ml-onclick-form" href="#demo" text="Watch video" />
+                        <BtnLink variant="primary" href="https://calendly.com/szymon-noesis/30min" text="Book a demo" target="_blank" className="text-base" />
+                        <BtnLink variant="secondary" className="ml-onclick-form text-base" href="#demo" text="Watch video" />
                     </div>
                 </div>
             </div>
