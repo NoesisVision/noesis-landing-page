@@ -25,7 +25,7 @@ const { className } = Astro.props;
         
         <div class="grid lg:grid-cols-2 gap-12">
             <!-- Traditional Approach -->
-            <div class="bg-red-50 dark:bg-red-900/20 p-8 rounded-xl border-2 border-red-200 dark:border-red-800">
+            <div class="bg-red-50 dark:bg-red-900/20 p-8 rounded-xl border-2 border-red-200 dark:border-red-800 flex flex-col">
                     <div class="text-center mb-6">
                         <div class="w-16 h-16 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-red-600">
@@ -35,48 +35,50 @@ const { className } = Astro.props;
                         <h3 class="text-2xl font-bold text-red-600">Traditional Manual Approach</h3>
                     </div>
                     
-                    <div class="space-y-6">
-                        <div class="bg-box-bg p-6 rounded-lg border border-box-border">
-                            <h4 class="font-semibold mb-3 text-heading-1">Time Investment</h4>
-                            <div class="space-y-2 text-sm text-heading-3">
-                                <div class="flex justify-between">
-                                    <span>Initial documentation setup</span>
-                                    <span class="font-semibold">40-80 hours</span>
+                    <div class="flex flex-col justify-between flex-1">
+                        <div class="space-y-6">
+                            <div class="bg-box-bg p-6 rounded-lg border border-box-border">
+                                <h4 class="font-semibold mb-3 text-heading-1">Time Investment</h4>
+                                <div class="space-y-2 text-sm text-heading-3">
+                                    <div class="flex justify-between">
+                                        <span>Initial documentation setup</span>
+                                        <span class="font-semibold">40-80 hours</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Monthly maintenance</span>
+                                        <span class="font-semibold">20-40 hours</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Annual updates (system review & major updates)</span>
+                                        <span class="font-semibold">60-120 hours</span>
+                                    </div>
                                 </div>
-                                <div class="flex justify-between">
-                                    <span>Monthly maintenance</span>
-                                    <span class="font-semibold">20-40 hours</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span>Annual updates (system review & major updates)</span>
-                                    <span class="font-semibold">60-120 hours</span>
+                            </div>
+                            
+                            <div class="bg-box-bg p-6 rounded-lg border border-box-border">
+                                <h4 class="font-semibold mb-3 text-heading-1">Cost Breakdown</h4>
+                                <div class="space-y-2 text-sm text-heading-3">
+                                    <div class="flex justify-between">
+                                        <span>Initial setup (40-80 hours @ €80/hour)</span>
+                                        <span class="font-semibold">€3,200-6,400</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Monthly maintenance (20-40h × 12 @ €80/hour)</span>
+                                        <span class="font-semibold">€19,200-38,400</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Annual updates (60-120 hours @ €80/hour)</span>
+                                        <span class="font-semibold">€4,800-9,600</span>
+                                    </div>
+                                    <div class="flex justify-between border-t pt-2">
+                                        <span class="font-semibold">Total annual cost</span>
+                                        <span class="font-bold text-red-600">€27,200-54,400</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="bg-box-bg p-6 rounded-lg border border-box-border">
-                            <h4 class="font-semibold mb-3 text-heading-1">Cost Breakdown</h4>
-                            <div class="space-y-2 text-sm text-heading-3">
-                                <div class="flex justify-between">
-                                    <span>Initial setup (40-80 hours @ €80/hour)</span>
-                                    <span class="font-semibold">€3,200-6,400</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span>Monthly maintenance (20-40h × 12 @ €80/hour)</span>
-                                    <span class="font-semibold">€19,200-38,400</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span>Annual updates (60-120 hours @ €80/hour)</span>
-                                    <span class="font-semibold">€4,800-9,600</span>
-                                </div>
-                                <div class="flex justify-between border-t pt-2">
-                                    <span class="font-semibold">Total annual cost</span>
-                                    <span class="font-bold text-red-600">€27,200-54,400</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-red-100 dark:bg-red-900/30 p-4 rounded-lg">
+                        <div class="bg-red-100 dark:bg-red-900/30 p-4 rounded-lg mt-6">
                             <h4 class="font-semibold mb-2 text-red-800 dark:text-red-200">Pain Points</h4>
                             <ul class="text-sm text-red-700 dark:text-red-300 space-y-1">
                                 <li>• Documentation quickly becomes outdated</li>
@@ -89,7 +91,7 @@ const { className } = Astro.props;
                 </div>
                 
                 <!-- Noesis Approach -->
-                <div class="bg-green-50 dark:bg-green-900/20 p-8 rounded-xl border-2 border-green-200 dark:border-green-800">
+                <div class="bg-green-50 dark:bg-green-900/20 p-8 rounded-xl border-2 border-green-200 dark:border-green-800 flex flex-col">
                     <div class="text-center mb-6">
                         <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-green-600">
@@ -99,28 +101,29 @@ const { className } = Astro.props;
                         <h3 class="text-2xl font-bold text-green-600">Noesis Automated Solution</h3>
                     </div>
                     
-                    <div class="space-y-6">
-                        <div class="bg-box-bg p-6 rounded-lg border border-box-border">
-                            <h4 class="font-semibold mb-3 text-heading-1">Time Investment</h4>
-                            <div class="space-y-2 text-sm text-heading-3">
+                    <div class="flex flex-col justify-between flex-1">
+                        <div class="space-y-6">
+                            <div class="bg-box-bg p-6 rounded-lg border border-box-border">
+                                <h4 class="font-semibold mb-3 text-heading-1">Time Investment</h4>
+                                                            <div class="space-y-2 text-sm text-heading-3">
                                 <div class="flex justify-between">
                                     <span>Initial setup</span>
-                                    <span class="font-semibold">2-4 hours</span>
+                                    <span class="font-semibold">4 hours</span>
                                 </div>
                                 <div class="flex justify-between">
                                     <span>Monthly maintenance</span>
-                                    <span class="font-semibold">0-2 hours</span>
+                                    <span class="font-semibold">1 hour</span>
                                 </div>
                                 <div class="flex justify-between">
                                     <span>Automatic updates</span>
                                     <span class="font-semibold">0 hours</span>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="bg-box-bg p-6 rounded-lg border border-box-border">
-                            <h4 class="font-semibold mb-3 text-heading-1">Cost Breakdown (for 200k LOC repository)</h4>
-                            <div class="space-y-2 text-sm text-heading-3">
+                            </div>
+                            
+                            <div class="bg-box-bg p-6 rounded-lg border border-box-border">
+                                <h4 class="font-semibold mb-3 text-heading-1">Cost Breakdown (for 200k LOC repository)</h4>
+                                                            <div class="space-y-2 text-sm text-heading-3">
                                 <div class="flex justify-between">
                                     <span>Noesis subscription (€40/month × 10 × 12)</span>
                                     <span class="font-semibold">€4,800</span>
@@ -134,17 +137,18 @@ const { className } = Astro.props;
                                     <span class="font-semibold">€48</span>
                                 </div>
                                 <div class="flex justify-between">
-                                    <span>Setup time (2-4 hours × €80)</span>
-                                    <span class="font-semibold">€160-320</span>
+                                    <span>Setup time (16 hours × €80)</span>
+                                    <span class="font-semibold">€1,280</span>
                                 </div>
                                 <div class="flex justify-between border-t pt-2">
                                     <span class="font-semibold">Total annual cost</span>
-                                    <span class="font-bold text-green-600">€5,028-5,188</span>
+                                    <span class="font-bold text-green-600">€6,148</span>
                                 </div>
+                            </div>
                             </div>
                         </div>
                         
-                        <div class="bg-green-100 dark:bg-green-900/30 p-4 rounded-lg">
+                        <div class="bg-green-100 dark:bg-green-900/30 p-4 rounded-lg mt-6">
                             <h4 class="font-semibold mb-2 text-green-800 dark:text-green-200">Benefits</h4>
                             <ul class="text-sm text-green-700 dark:text-green-300 space-y-1">
                                 <li>• Always up-to-date documentation</li>
@@ -163,22 +167,22 @@ const { className } = Astro.props;
                 <h3 class="text-2xl font-bold mb-6 text-center text-heading-1">Your Annual Savings</h3>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-blue-600 mb-2">€22,212-49,372</div>
+                        <div class="text-4xl font-bold text-blue-600 mb-2">€21,000-€48,000</div>
                         <div class="text-heading-3">Direct cost savings</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-green-600 mb-2">218-438</div>
+                        <div class="text-4xl font-bold text-green-600 mb-2">200+</div>
                         <div class="text-heading-3">Hours saved annually</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-purple-600 mb-2">81-91%</div>
+                        <div class="text-4xl font-bold text-purple-600 mb-2">75+%</div>
                         <div class="text-heading-3">Cost reduction</div>
                     </div>
                 </div>
                 
                 <div class="mt-8 text-center">
                     <p class="text-lg text-heading-3 mb-6">
-                        <strong>ROI: 428-982%</strong> - Your investment pays for itself in just 1.2-2.8 months
+                        <strong>ROI: 300-750%</strong> - Your investment pays for itself in just 1.5-3.5 months
                     </p>
                 </div>
             </div>
