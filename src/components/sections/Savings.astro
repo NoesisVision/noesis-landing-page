@@ -122,16 +122,16 @@ const { className } = Astro.props;
                             <h4 class="font-semibold mb-3 text-heading-1">Cost Breakdown (for 300k LOC repository)</h4>
                             <div class="space-y-2 text-sm text-heading-3">
                                 <div class="flex justify-between">
-                                    <span>Noesis subscription (€200/month × 12)</span>
-                                    <span class="font-semibold">€2,400</span>
+                                    <span>Noesis subscription (€200/month × 3 × 12)</span>
+                                    <span class="font-semibold">€7,200</span>
                                 </div>
                                 <div class="flex justify-between">
                                     <span>LLM initial analysis (€10/100k LOC × 3)</span>
                                     <span class="font-semibold">€30</span>
                                 </div>
                                 <div class="flex justify-between">
-                                    <span>LLM monthly updates (€1/100k LOC × 3 × 12)</span>
-                                    <span class="font-semibold">€36</span>
+                                    <span>LLM monthly updates (€2/100k LOC × 3 × 12)</span>
+                                    <span class="font-semibold">€72</span>
                                 </div>
                                 <div class="flex justify-between">
                                     <span>Setup time (2-4 hours × €80)</span>
@@ -139,7 +139,7 @@ const { className } = Astro.props;
                                 </div>
                                 <div class="flex justify-between border-t pt-2">
                                     <span class="font-semibold">Total annual cost</span>
-                                    <span class="font-bold text-green-600">€2,626-2,786</span>
+                                    <span class="font-bold text-green-600">€7,302-7,462</span>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +163,7 @@ const { className } = Astro.props;
                 <h3 class="text-2xl font-bold mb-6 text-center text-heading-1">Your Annual Savings</h3>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-blue-600 mb-2">€24,414-51,614</div>
+                        <div class="text-4xl font-bold text-blue-600 mb-2">€19,738-46,938</div>
                         <div class="text-heading-3">Direct cost savings</div>
                     </div>
                     <div class="text-center">
@@ -171,14 +171,14 @@ const { className } = Astro.props;
                         <div class="text-heading-3">Hours saved annually</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-purple-600 mb-2">90-95%</div>
+                        <div class="text-4xl font-bold text-purple-600 mb-2">73-87%</div>
                         <div class="text-heading-3">Cost reduction</div>
                     </div>
                 </div>
                 
                 <div class="mt-8 text-center">
                     <p class="text-lg text-heading-3 mb-6">
-                        <strong>ROI: 900-2000%</strong> - Your investment pays for itself in just 1-2 months
+                        <strong>ROI: 264-643%</strong> - Your investment pays for itself in just 2-4.5 months
                     </p>
                 </div>
             </div>
@@ -194,6 +194,7 @@ const { className } = Astro.props;
                             <li>• <a href="https://survey.stackoverflow.co/2024/" target="_blank" class="text-blue-600 hover:underline">Stack Overflow Developer Survey 2024</a>: "65,437 developers from 185 countries"</li>
                             <li>• <a href="https://octoverse.github.com/" target="_blank" class="text-blue-600 hover:underline">GitHub State of the Octoverse 2024</a>: "Developer productivity and tool adoption trends"</li>
                             <li>• <strong>Senior C# Developer rates:</strong> €80-100/hour in Europe (2024)</li>
+                            <li>• <strong>LLM costs:</strong> €5-10/100k LOC initial, €1-2/100k LOC monthly (2024)</li>
                         </ul>
                     </div>
                     <div>
@@ -210,80 +211,132 @@ const { className } = Astro.props;
             
             <!-- Pricing Tiers -->
             <div class="mt-16" id="pricing">
-                <h3 class="text-3xl font-bold mb-4 text-center text-heading-1">Simple, Transparent Pricing</h3>
+                <h3 class="text-3xl font-bold mb-4 text-center text-heading-1">Pricing</h3>
                 <p class="text-center text-heading-3 mb-12 max-w-2xl mx-auto">Pricing based on your codebase size. No hidden fees, no surprises.</p>
                 
-                <div class="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <!-- Starter Plan -->
-                    <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/20 dark:to-blue-800/20 rounded-full -translate-y-16 translate-x-16"></div>
-                        
-                        <div class="relative z-10">
-                            <div class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2">STARTER</div>
-                            <div class="text-4xl font-bold text-heading-1 mb-2">€20</div>
-                            <div class="text-heading-3 mb-6">per month</div>
+                    <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="text-center mb-6">
+                                <div class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">STARTER</div>
+                                <div class="text-4xl font-bold text-heading-1 mb-2">€20</div>
+                                <div class="text-heading-3">per month</div>
+                            </div>
                             
-                            <div class="space-y-4 mb-8">
-                                <div class="flex items-center text-heading-2">
-                                    <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                                    <span class="font-medium">Up to 20k lines of code</span>
+                            <div class="space-y-3 mb-6 flex-1">
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">Up to 20k lines of code</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">Noesis UI</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">Exportable Documentation</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">AI agents integration (MCP)</span>
                                 </div>
                             </div>
+                            
+                            <Button variant="secondary" onclick="window.open('https://calendly.com/szymon-noesis/30min', '_blank')" className="w-full">
+                                <span class="font-bold">Get Started</span>
+                            </Button>
                         </div>
                     </div>
                     
                     <!-- Professional Plan -->
-                    <div class="bg-gradient-to-br from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/20 p-8 rounded-2xl border-2 border-primary relative overflow-hidden transform scale-105">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-primary/30 rounded-full -translate-y-16 translate-x-16"></div>
+                    <div class="bg-white dark:bg-gray-900 rounded-xl border-2 border-primary shadow-lg relative flex flex-col">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold">RECOMMENDED</span>
+                        </div>
                         
-                        <div class="relative z-10">
-                            <div class="text-sm font-semibold text-primary mb-2">PROFESSIONAL</div>
-                            <div class="text-4xl font-bold text-heading-1 mb-2">€200</div>
-                            <div class="text-heading-3 mb-1">per 100k LOC/month*</div>
-                            <div class="text-sm text-heading-3 mb-6">or €2,000/year*</div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="text-center mb-6">
+                                <div class="text-sm font-semibold text-primary mb-2">PROFESSIONAL</div>
+                                <div class="text-4xl font-bold text-heading-1 mb-2">€200</div>
+                                <div class="text-heading-3 mb-1">per 100k LOC/month*</div>
+                                <div class="text-sm text-heading-3">or €2,000/year*</div>
+                            </div>
                             
-                            <div class="space-y-4 mb-8">
-                                <div class="flex items-center text-heading-2">
-                                    <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                                    <span class="font-medium">100k - 1M lines of code</span>
+                            <div class="space-y-3 mb-6 flex-1">
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">20k - 1M lines of code</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">Everything in Starter</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">Prioritized support</span>
                                 </div>
                             </div>
                             
-                            <div class="text-xs text-heading-3 mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <div class="text-xs text-heading-3 mb-6">
                                 * Limits for the code repos assignments apply
                             </div>
                             
-                            <div class="text-center mt-6">
-                                <span class="bg-gradient-to-r from-primary to-blue-600 text-white px-3 py-1 rounded-lg text-xs font-semibold border border-primary/20 shadow-sm">★ RECOMMENDED</span>
-                            </div>
+                            <Button variant="primary" onclick="window.open('https://calendly.com/szymon-noesis/30min', '_blank')" className="w-full">
+                                <span class="font-bold">Get Started</span>
+                            </Button>
                         </div>
                     </div>
                     
                     <!-- Enterprise Plan -->
-                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-8 rounded-2xl border border-purple-200 dark:border-purple-700 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900/20 dark:to-purple-800/20 rounded-full -translate-y-16 translate-x-16"></div>
-                        
-                        <div class="relative z-10">
-                            <div class="text-sm font-semibold text-purple-600 dark:text-purple-400 mb-2">ENTERPRISE</div>
-                            <div class="text-4xl font-bold text-heading-1 mb-2">Custom</div>
-                            <div class="text-heading-3 mb-6">pricing</div>
+                    <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="text-center mb-6">
+                                <div class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">ENTERPRISE</div>
+                                <div class="text-4xl font-bold text-heading-1 mb-2">Custom</div>
+                                <div class="text-heading-3">pricing</div>
+                            </div>
                             
-                            <div class="space-y-4 mb-8">
-                                <div class="flex items-center text-heading-2">
-                                    <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                                    <span class="font-medium">1M+ lines of code</span>
+                            <div class="space-y-3 mb-6 flex-1">
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">1M+ lines of code</span>
                                 </div>
-                                <div class="flex items-center text-heading-2">
-                                    <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                                    <span class="font-medium">Corporate SSO integration</span>
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">Corporate SSO integration</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">Custom enterprise integrations</span>
                                 </div>
                             </div>
+                            
+                            <Button variant="secondary" onclick="window.open('https://tally.so/r/m6gdNP', '_blank')" className="w-full">
+                                <span class="font-bold">Contact Sales</span>
+                            </Button>
                         </div>
                     </div>
-                </div>
-                
-                <div class="mt-12 text-center">
-                    <BtnLink variant="primary" href="https://calendly.com/szymon-noesis/30min" text="Book a Demo" target="_blank" />
                 </div>
             </div>
         </div>
