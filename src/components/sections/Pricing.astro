@@ -1,0 +1,158 @@
+---
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import Title from "../shared/Title.astro";
+import Button from "../shared/Button.astro";
+
+export interface Props {
+    className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<section class="relative py-16 md:py-20" id="pricing">
+    <Container className={`space-y-6 md:space-y-8 ${className}`}>
+        <div class="text-center max-w-5xl mx-auto space-y-4">
+            <Title>
+                Pricing
+            </Title>
+            <Paragraph>
+                Pricing based on your codebase size. No hidden fees, no surprises.
+            </Paragraph>
+        </div>
+        
+        <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Starter Plan -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="text-center mb-6">
+                        <div class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">STARTER</div>
+                        <div class="text-4xl font-bold text-heading-1 mb-2">Free</div>
+                        <div class="text-heading-3">&nbsp;</div>
+                    </div>
+                    
+                        <div class="space-y-3 mb-6 flex-1">
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">Unlimited scanning of public GitHub repos</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">Scanning private repos up to 20k LOC</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">Noesis UI</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">Exportable Documentation</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-heading-2">Community support on Discord</span>
+                                </div>
+                            </div>
+                            
+
+                    
+                    <Button variant="secondary" onclick="window.open('https://calendly.com/szymon-noesis/30min', '_blank')" className="w-full">
+                        <span class="font-bold">Get Started</span>
+                    </Button>
+                </div>
+            </div>
+            
+            <!-- Professional Plan -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl border-2 border-primary shadow-lg relative flex flex-col">
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <span class="bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold">RECOMMENDED</span>
+                </div>
+                
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="text-center mb-6">
+                        <div class="text-sm font-semibold text-primary mb-2">PROFESSIONAL</div>
+                        <div class="text-4xl font-bold text-heading-1 mb-2">€40</div>
+                        <div class="text-heading-3 mb-1">per 20k LOC/month*</div>
+                        <div class="text-sm text-heading-3">or €400/year*</div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-6 flex-1">
+                        <div class="flex items-start">
+                            <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm text-heading-2">Everything in Starter</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                                                                <span class="text-sm text-heading-2">20k+ lines of code</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm text-heading-2">Prioritized support</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-xs text-heading-3 mb-6">
+                        * Limits for the code repos assignments apply
+                    </div>
+                    
+                    <Button variant="primary" onclick="window.open('https://calendly.com/szymon-noesis/30min', '_blank')" className="w-full">
+                        <span class="font-bold">Get Started</span>
+                    </Button>
+                </div>
+            </div>
+            
+            <!-- Enterprise Plan -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="text-center mb-6">
+                        <div class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">ENTERPRISE</div>
+                        <div class="text-4xl font-bold text-heading-1 mb-2">Custom</div>
+                        <div class="text-heading-3">pricing</div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-6 flex-1">
+                        <div class="flex items-start">
+                            <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm text-heading-2">Everything in Professional</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm text-heading-2">1M+ lines of code</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-4 h-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm text-heading-2">Custom enterprise features</span>
+                        </div>
+                    </div>
+                    
+                    <Button variant="secondary" onclick="window.open('https://tally.so/r/m6gdNP', '_blank')" className="w-full">
+                        <span class="font-bold">Contact Sales</span>
+                    </Button>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
