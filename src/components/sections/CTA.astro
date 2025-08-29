@@ -56,10 +56,11 @@ import BtnLink from "../shared/BtnLink.astro";
             ✅ The chance to <strong>shape the future of AI-assisted programming</strong><br>
         </Paragraph>
         <div class="flex justify-center items-center pt-10">
-            <div class="w-full max-w-md">
-                <div class="newsletter-form-container flex flex-col sm:flex-row gap-4">
-                    <BtnLink variant="primary" href="https://calendly.com/szymon-noesis/30min" text="Book a Demo" target="_blank" />
-                    <Button variant="secondary" className="ml-onclick-form" onclick="ml('show', 'it64wG', true)">Join newsletter/discord</Button>
+            <div class="w-full max-w-4xl">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <BtnLink variant="primary" href="#pricing" text="Join Beta" className="flex-1 sm:flex-none" />
+                    <BtnLink variant="secondary" href="https://discord.gg/QF5PMX4Dqg" text="Discord community" target="_blank" className="flex-1 sm:flex-none" />
+                    <Button variant="secondary" className="ml-onclick-form flex-1 sm:flex-none" onclick="ml('show', 'it64wG', true)">Newsletter</Button>
                 </div>
             </div>
         </div>
