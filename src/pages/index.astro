@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/sections/Hero.astro';
+import HowItWorks from '../components/sections/HowItWorks.astro';
 import Demo from '../components/sections/Demo.astro';
 import Features from '../components/sections/Features.astro';
 import UseCases from '../components/sections/UseCases.astro';
@@ -21,10 +22,11 @@ import Savings from '../components/sections/Savings.astro';
 <Layout title="Understand your system">
 	<main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
 		<Hero/>
-		<Architecture className="mb-8 md:mb-12"/>
-		<Features/>
-		<Determinism/>
+		<Architecture className="mb-0"/>
+		<HowItWorks/>
 		<UseCases/>
+		<Determinism/>
+	
 		<Demo/>
 		<Pricing/>
 		<Savings/>
