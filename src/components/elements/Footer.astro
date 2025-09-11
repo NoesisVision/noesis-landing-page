@@ -5,80 +5,32 @@ import FooterNav from "../shared/FooterNav.astro";
 import Paragraph from "../shared/Paragraph.astro";
 // Import logo
 import noesisLogo from "../../../public/logos/noesis.webp";
-const footerNav1 = [
+const footerResources = [
     {
-        itemText:"Marketing",
-        itemLink:"#"
+        itemText:"Documentation",
+        itemLink:"https://noesisvision.github.io/noesis-docs"
     },
     {
-        itemText:"Analylitics",
-        itemLink:"#"
-    },
-    {
-        itemText:"Commerce",
-        itemLink:"#"
-    },
-    {
-        itemText:"Insights",
-        itemLink:"#"
+        itemText:"GitHub",
+        itemLink:"https://github.com/NoesisVision"
     }
 ]
 
-const footerSupport = [
-    {
-        itemText:"Pricing",
-        itemLink:"#"
-    },
-    {
-        itemText:"Guides",
-        itemLink:"#"
-    },
-    {
-        itemText:"FAQ",
-        itemLink:"#"
-    },
-    {
-        itemText:"Contact",
-        itemLink:"#"
-    }
-]
-
-const footerCompany = [
-    {
-        itemText:"About",
-        itemLink:"/about"
-    },
+const footerSocial = [
     {
         itemText:"Blog",
-        itemLink:"#"
+        itemLink:"https://noesisvision.substack.com/"
     },
     {
-        itemText:"Jobs",
-        itemLink:"#"
+        itemText:"YouTube",
+        itemLink:"https://www.youtube.com/@noesis.vision"
     },
     {
-        itemText:"Parteners",
-        itemLink:"#"
-    },
-    {
-        itemText:"Jobs",
-        itemLink:"#"
+        itemText:"LinkedIn",
+        itemLink:"https://www.linkedin.com/company/noesis-vision"
     }
 ]
-const footerLegal = [
-    {
-        itemText:"Claim",
-        itemLink:"/#"
-    },
-    {
-        itemText:"Privacy",
-        itemLink:"#"
-    },
-    {
-        itemText:"Terms",
-        itemLink:"#"
-    }
-]
+
 ---
 <div class="mt-16"></div>
 <footer class="relative  bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900 dark:to-transparent pt-12 rounded-t-3xl">
@@ -109,10 +61,11 @@ const footerLegal = [
             ></span>
           </div>
       </div>
-    <!-- Company Address Section -->
+    <!-- Main Footer Content -->
     <Container className="pb-6 relative">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-            <div class="flex items-center gap-3">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            <!-- Logo -->
+            <div class="flex justify-center md:justify-start">
                 <a href="/" class="relative flex items-center gap-3">
                     <img src={noesisLogo.src} alt="Noesis logo" class="w-8 h-8"/>
                     <div class="inline-flex text-lg font-semibold text-heading-1">
@@ -120,13 +73,25 @@ const footerLegal = [
                     </div>
                 </a>
             </div>
-            
-            <div class="text-center md:text-right text-base text-heading-3">
-                <div class="font-medium text-heading-1 mb-1">Noesis Vision Sp. z o.o.</div>
-                <div>Fabryka Norblina</div>
-                <div>ul. Żelazna 51/53</div>
-                <div>00-841 Warsaw</div>
-                <div>POLAND</div>
+
+            <!-- Resources -->
+            <div>
+                <FooterNav title="Resources" navItems={footerResources}/>
+            </div>
+
+            <!-- Social Media -->
+            <div>
+                <FooterNav title="Social Media" navItems={footerSocial}/>
+            </div>
+
+            <!-- Company Address -->
+            <div>
+                <h2 class="capitalize font-semibold text-heading-1 text-xl mb-6">Contact</h2>
+                <div class="space-y-3 font-medium md:text-lg text-heading-3">
+                    <div class="font-medium text-heading-1">Noesis Vision Sp. z o.o.</div>
+                    <div>ul. Żelazna 51/53</div>
+                    <div>00-841 Warsaw - Poland</div>
+                </div>
             </div>
         </div>
     </Container>
