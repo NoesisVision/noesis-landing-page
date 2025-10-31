@@ -4,6 +4,7 @@ import Button from "../shared/Button.astro";
 // Import videos
 import demoVideoWebm from "../../../public/videos/noesis-demo-optimized.webm";
 import demoVideoMp4 from "../../../public/videos/noesis-demo-optimized.mp4";
+import codeClarityVideo from "../../../public/videos/code-clarity-ep1-with covers.mp4";
 
 ---
 
@@ -22,6 +23,19 @@ import demoVideoMp4 from "../../../public/videos/noesis-demo-optimized.mp4";
         <source src={demoVideoMp4} type="video/mp4">
         Twoja przeglądarka nie wspiera odtwarzania wideo.
       </video>
+      
+      <video
+        class="w-full h-auto rounded-lg shadow-2xl shadow-gray-400/50 dark:shadow-gray-900/50 cursor-pointer"
+        loop
+        muted
+        playsinline
+        controls
+        preload="metadata"
+      >
+        <source src={codeClarityVideo} type="video/mp4">
+        Twoja przeglądarka nie wspiera odtwarzania wideo.
+      </video>
+      
       <div class="flex justify-center mt-4">
           <Button variant="primary" onclick="window.open('https://tally.so/r/wMWrqY', '_blank')">
               <span class="font-bold text-lg">Join beta!</span>
