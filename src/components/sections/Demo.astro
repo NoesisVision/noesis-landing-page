@@ -2,8 +2,7 @@
 import Button from "../shared/Button.astro";
 
 // Import videos
-import demoVideoWebm from "../../../public/videos/noesis-demo-optimized.webm";
-import demoVideoMp4 from "../../../public/videos/noesis-demo-optimized.mp4";
+import demoVideoMp4 from "../../../public/videos/websummit-demo-short-2.mp4";
 import codeClarityVideo from "../../../public/videos/code-clarity-ep1-with covers.mp4";
 
 ---
@@ -41,9 +40,8 @@ import codeClarityVideo from "../../../public/videos/code-clarity-ep1-with cover
         controls
         preload="metadata"
       >
-        <source src={demoVideoWebm} type="video/webm">
         <source src={demoVideoMp4} type="video/mp4">
-        Twoja przeglądarka nie wspiera odtwarzania wideo.
+        Your browser doesn't support playing video.
       </video>
 
       <video
@@ -55,7 +53,7 @@ import codeClarityVideo from "../../../public/videos/code-clarity-ep1-with cover
         preload="metadata"
       >
         <source src={codeClarityVideo} type="video/mp4">
-        Twoja przeglądarka nie wspiera odtwarzania wideo.
+          Your browser doesn't support playing video.
       </video>
     </div>
   </div>
