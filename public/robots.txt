@@ -1,0 +1,27 @@
+# Noesis Vision - Allow all bots including AI search engines
+User-agent: *
+Allow: /
+
+# AI Search Engine Bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+Sitemap: https://noesisvision.github.io/sitemap.xml

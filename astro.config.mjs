@@ -1,11 +1,10 @@
 import { defineConfig } from 'astro/config';
-
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  // site: 'https://lszydlo.github.io',
+  site: 'https://noesisvision.github.io',
   base: '/',
   build: {
     assets: 'assets'

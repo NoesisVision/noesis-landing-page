@@ -8,9 +8,74 @@ import FAQ from '../components/sections/FAQ.astro';
 import CTA from '../components/sections/CTA.astro';
 import Architecture from '../components/sections/Architecture.astro';
 import Determinism from '../components/sections/Determinism.astro';
+
+const schema = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "SoftwareApplication",
+			"name": "Noesis Vision",
+			"description": "Automated architecture visualization and documentation from code. Deterministic static analysis creates a shared knowledge layer for humans and AI agents.",
+			"applicationCategory": "DeveloperApplication",
+			"operatingSystem": "Cross-platform",
+			"url": "https://noesisvision.github.io/vision",
+			"featureList": [
+				"Automated architecture visualization from code",
+				"Deterministic static analysis",
+				"Multi-repository support",
+				"Exportable documentation (PDF, Markdown)",
+				"AI agent integration via MCP",
+				"Knowledge graph generation"
+			],
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD",
+				"availability": "https://schema.org/PreOrder"
+			}
+		},
+		{
+			"@type": "FAQPage",
+			"mainEntity": [
+				{
+					"@type": "Question",
+					"name": "Can Noesis handle multiple repositories for libraries and microservices?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Yes. Noesis seamlessly scans multiple repositories and creates a unified, consistent model that gives you a complete view of your entire system architecture."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Does Noesis Vision hallucinate like other AI tools?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "No. Noesis builds answers from deterministic code graphs first, then enriches with AI, so every fact is traceable to source code."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Can a pure AI solution replace Noesis?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Pure AI solutions struggle with determinism and cost efficiency. LLMs can't guarantee consistent, repeatable results across multiple scans, and using them for repetitive code analysis becomes prohibitively expensive. Noesis combines deterministic static analysis with selective AI enhancement, ensuring reliable results at a fraction of the cost."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Is my code safe with Noesis?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Yes. Noesis primarily supports the on-premises deployment model. Your code never leaves your environment."
+					}
+				}
+			]
+		}
+	]
+};
 ---
 
-<Layout title="Visualize. Understand. Accelerate." description="Noesis Vision — automated architecture visualization and documentation from code. Deterministic static analysis for humans and AI agents.">
+<Layout title="Visualize. Understand. Accelerate." description="Noesis Vision — automated architecture visualization and documentation from code. Deterministic static analysis for humans and AI agents." schema={schema}>
 	<main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
 		<Hero/>
 		<Architecture className="mb-0"/>

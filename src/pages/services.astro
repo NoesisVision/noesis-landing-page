@@ -7,9 +7,26 @@ import Verification from '../components/sections/Verification.astro';
 import MeetingToSpec from '../components/sections/MeetingToSpec.astro';
 import WhoIsThisFor from '../components/sections/WhoIsThisFor.astro';
 import ServicesCTA from '../components/sections/ServicesCTA.astro';
+
+const schema = {
+	"@context": "https://schema.org",
+	"@type": "Service",
+	"name": "SDLC Transformation for Agentic Development",
+	"description": "We help engineering teams redesign their software development lifecycle for reliable human-AI collaboration — from collaborative specification to autonomous implementation with deterministic verification.",
+	"provider": {
+		"@type": "Organization",
+		"name": "Noesis Vision"
+	},
+	"serviceType": "Software Development Consulting",
+	"areaServed": "Worldwide",
+	"audience": {
+		"@type": "Audience",
+		"audienceType": "CTOs, VP Engineering, Engineering Directors, Tech Leads"
+	}
+};
 ---
 
-<Layout title="Your SDLC, Redesigned for the AI Era" description="Noesis Vision SDLC Transformation — from collaborative specification to autonomous implementation with deterministic verification.">
+<Layout title="Your SDLC, Redesigned for the AI Era" description="We help engineering teams redesign their development lifecycle for reliable human-AI collaboration — from collaborative specification to autonomous implementation with deterministic verification." schema={schema}>
 	<main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
 		<ServicesHero/>
 		<TheProblem/>
