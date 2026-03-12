@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/sections/Hero.astro';
+import HowItWorks from '../components/sections/HowItWorks.astro';
+import Demo from '../components/sections/Demo.astro';
+import UseCases from '../components/sections/UseCases.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import CTA from '../components/sections/CTA.astro';
+import Architecture from '../components/sections/Architecture.astro';
+import Determinism from '../components/sections/Determinism.astro';
+---
+
+<Layout title="Visualize. Understand. Accelerate." description="Noesis Vision — automated architecture visualization and documentation from code. Deterministic static analysis for humans and AI agents.">
+	<main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
+		<Hero/>
+		<Architecture className="mb-0"/>
+		<HowItWorks/>
+		<UseCases/>
+		<Determinism/>
+		<Demo/>
+		<!--<Pricing/>-->
+		<FAQ/>
+		<CTA/>
+	</main>
+</Layout>

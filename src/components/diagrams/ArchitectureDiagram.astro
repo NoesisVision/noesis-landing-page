@@ -1,0 +1,194 @@
+---
+// Architecture Diagram — scroll-driven animated SVG
+// Replaces the static PNG: noesis-architecture-2-4-more-pro.png
+---
+
+<div id="architecture-diagram" class="w-full">
+  <!-- Desktop SVG -->
+  <svg viewBox="0 0 1200 500" class="w-full h-auto hidden md:block" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="ah-d" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" class="fill-heading-3" />
+      </marker>
+    </defs>
+
+    <!-- INPUT NODES (left) -->
+    <g data-animate="input-1" transform="translate(20, 160)">
+      <rect x="0" y="0" width="200" height="70" rx="12" ry="12" class="fill-box-bg" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="100" y="28" text-anchor="middle" dominant-baseline="middle" class="fill-heading-1" style="font-family:Raleway,sans-serif;font-size:13px;font-weight:600">Code Repositories</text>
+      <text x="100" y="50" text-anchor="middle" dominant-baseline="middle" class="fill-heading-3" style="font-family:Raleway,sans-serif;font-size:11px">C# · Java · TypeScript · Go</text>
+    </g>
+
+    <g data-animate="input-2" transform="translate(20, 270)">
+      <rect x="0" y="0" width="200" height="70" rx="12" ry="12" class="fill-box-bg" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="100" y="28" text-anchor="middle" dominant-baseline="middle" class="fill-heading-1" style="font-family:Raleway,sans-serif;font-size:13px;font-weight:600">Architecture</text>
+      <text x="100" y="50" text-anchor="middle" dominant-baseline="middle" class="fill-heading-3" style="font-family:Raleway,sans-serif;font-size:11px">Conventions DSL</text>
+    </g>
+
+    <!-- INPUT ARROWS -->
+    <path data-animate="arrow-in-1" d="M 220 195 L 420 230" fill="none" class="stroke-heading-3" stroke-width="1.5" stroke-dasharray="1000" stroke-dashoffset="1000" marker-end="url(#ah-d)"/>
+    <path data-animate="arrow-in-2" d="M 220 305 L 420 270" fill="none" class="stroke-heading-3" stroke-width="1.5" stroke-dasharray="1000" stroke-dashoffset="1000" marker-end="url(#ah-d)"/>
+
+    <!-- CENTER: Noesis Engine -->
+    <g data-animate="center-box">
+      <rect x="430" y="180" width="340" height="90" rx="16" ry="16" fill="#1d4ed8" opacity="0.1" stroke="#1d4ed8" stroke-width="2"/>
+      <text x="600" y="218" text-anchor="middle" dominant-baseline="middle" fill="#1d4ed8" style="font-family:Raleway,sans-serif;font-size:18px;font-weight:700">Noesis</text>
+      <text x="600" y="245" text-anchor="middle" dominant-baseline="middle" class="fill-heading-2" style="font-family:Raleway,sans-serif;font-size:12px;font-weight:500">Knowledge Extraction Engine</text>
+    </g>
+
+    <!-- Knowledge Graph (below center) -->
+    <g data-animate="knowledge-graph" transform="translate(480, 290)">
+      <rect x="0" y="0" width="240" height="55" rx="12" ry="12" class="fill-box-bg" stroke="#1d4ed8" stroke-width="1.5"/>
+      <text x="120" y="22" text-anchor="middle" dominant-baseline="middle" fill="#1d4ed8" style="font-family:Raleway,sans-serif;font-size:13px;font-weight:600">Knowledge Graph</text>
+      <text x="120" y="42" text-anchor="middle" dominant-baseline="middle" class="fill-heading-3" style="font-family:Raleway,sans-serif;font-size:11px">P3 Model · Deterministic</text>
+    </g>
+
+    <!-- OUTPUT ARROWS -->
+    <path data-animate="arrow-out-1" d="M 770 210 L 920 130" fill="none" class="stroke-heading-3" stroke-width="1.5" stroke-dasharray="1000" stroke-dashoffset="1000" marker-end="url(#ah-d)"/>
+    <path data-animate="arrow-out-2" d="M 770 240 L 920 250" fill="none" class="stroke-heading-3" stroke-width="1.5" stroke-dasharray="1000" stroke-dashoffset="1000" marker-end="url(#ah-d)"/>
+    <path data-animate="arrow-out-3" d="M 770 260 L 920 360" fill="none" class="stroke-heading-3" stroke-width="1.5" stroke-dasharray="1000" stroke-dashoffset="1000" marker-end="url(#ah-d)"/>
+
+    <!-- OUTPUT NODES (right) -->
+    <g data-animate="output-1" transform="translate(930, 90)">
+      <rect x="0" y="0" width="240" height="70" rx="12" ry="12" class="fill-box-bg" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="120" y="28" text-anchor="middle" dominant-baseline="middle" class="fill-heading-1" style="font-family:Raleway,sans-serif;font-size:13px;font-weight:600">Noesis UI</text>
+      <text x="120" y="50" text-anchor="middle" dominant-baseline="middle" class="fill-heading-3" style="font-family:Raleway,sans-serif;font-size:11px">Interactive exploration</text>
+    </g>
+
+    <g data-animate="output-2" transform="translate(930, 210)">
+      <rect x="0" y="0" width="240" height="70" rx="12" ry="12" class="fill-box-bg" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="120" y="28" text-anchor="middle" dominant-baseline="middle" class="fill-heading-1" style="font-family:Raleway,sans-serif;font-size:13px;font-weight:600">Documentation</text>
+      <text x="120" y="50" text-anchor="middle" dominant-baseline="middle" class="fill-heading-3" style="font-family:Raleway,sans-serif;font-size:11px">Exportable · Always up to date</text>
+    </g>
+
+    <g data-animate="output-3" transform="translate(930, 330)">
+      <rect x="0" y="0" width="240" height="70" rx="12" ry="12" class="fill-box-bg" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="120" y="28" text-anchor="middle" dominant-baseline="middle" class="fill-heading-1" style="font-family:Raleway,sans-serif;font-size:13px;font-weight:600">AI Agents (MCP)</text>
+      <text x="120" y="50" text-anchor="middle" dominant-baseline="middle" class="fill-heading-3" style="font-family:Raleway,sans-serif;font-size:11px">Context-aware AI integration</text>
+    </g>
+  </svg>
+
+  <!-- Mobile SVG -->
+  <svg viewBox="0 0 400 850" class="w-full h-auto md:hidden" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="ah-m" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" class="fill-heading-3" />
+      </marker>
+    </defs>
+
+    <!-- INPUT NODES -->
+    <g data-animate="input-1" transform="translate(40, 20)">
+      <rect x="0" y="0" width="320" height="60" rx="12" ry="12" class="fill-box-bg" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="160" y="24" text-anchor="middle" dominant-baseline="middle" class="fill-heading-1" style="font-family:Raleway,sans-serif;font-size:13px;font-weight:600">Code Repositories</text>
+      <text x="160" y="44" text-anchor="middle" dominant-baseline="middle" class="fill-heading-3" style="font-family:Raleway,sans-serif;font-size:11px">C# · Java · TypeScript · Go</text>
+    </g>
+
+    <g data-animate="input-2" transform="translate(40, 100)">
+      <rect x="0" y="0" width="320" height="60" rx="12" ry="12" class="fill-box-bg" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="160" y="24" text-anchor="middle" dominant-baseline="middle" class="fill-heading-1" style="font-family:Raleway,sans-serif;font-size:13px;font-weight:600">Architecture Conventions DSL</text>
+    </g>
+
+    <!-- INPUT ARROWS -->
+    <path data-animate="arrow-in-1" d="M 200 80 L 200 185" fill="none" class="stroke-heading-3" stroke-width="1.5" stroke-dasharray="1000" stroke-dashoffset="1000" marker-end="url(#ah-m)"/>
+
+    <!-- CENTER -->
+    <g data-animate="center-box">
+      <rect x="40" y="195" width="320" height="80" rx="16" ry="16" fill="#1d4ed8" opacity="0.1" stroke="#1d4ed8" stroke-width="2"/>
+      <text x="200" y="228" text-anchor="middle" dominant-baseline="middle" fill="#1d4ed8" style="font-family:Raleway,sans-serif;font-size:18px;font-weight:700">Noesis</text>
+      <text x="200" y="253" text-anchor="middle" dominant-baseline="middle" class="fill-heading-2" style="font-family:Raleway,sans-serif;font-size:12px;font-weight:500">Knowledge Extraction Engine</text>
+    </g>
+
+    <g data-animate="knowledge-graph" transform="translate(60, 295)">
+      <rect x="0" y="0" width="280" height="50" rx="12" ry="12" class="fill-box-bg" stroke="#1d4ed8" stroke-width="1.5"/>
+      <text x="140" y="20" text-anchor="middle" dominant-baseline="middle" fill="#1d4ed8" style="font-family:Raleway,sans-serif;font-size:13px;font-weight:600">Knowledge Graph</text>
+      <text x="140" y="38" text-anchor="middle" dominant-baseline="middle" class="fill-heading-3" style="font-family:Raleway,sans-serif;font-size:11px">P3 Model · Deterministic</text>
+    </g>
+
+    <!-- OUTPUT ARROWS -->
+    <path data-animate="arrow-out-1" d="M 200 345 L 200 400" fill="none" class="stroke-heading-3" stroke-width="1.5" stroke-dasharray="1000" stroke-dashoffset="1000" marker-end="url(#ah-m)"/>
+
+    <!-- OUTPUT NODES -->
+    <g data-animate="output-1" transform="translate(40, 410)">
+      <rect x="0" y="0" width="320" height="60" rx="12" ry="12" class="fill-box-bg" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="160" y="24" text-anchor="middle" dominant-baseline="middle" class="fill-heading-1" style="font-family:Raleway,sans-serif;font-size:13px;font-weight:600">Noesis UI</text>
+      <text x="160" y="44" text-anchor="middle" dominant-baseline="middle" class="fill-heading-3" style="font-family:Raleway,sans-serif;font-size:11px">Interactive exploration</text>
+    </g>
+
+    <g data-animate="output-2" transform="translate(40, 490)">
+      <rect x="0" y="0" width="320" height="60" rx="12" ry="12" class="fill-box-bg" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="160" y="24" text-anchor="middle" dominant-baseline="middle" class="fill-heading-1" style="font-family:Raleway,sans-serif;font-size:13px;font-weight:600">Documentation</text>
+      <text x="160" y="44" text-anchor="middle" dominant-baseline="middle" class="fill-heading-3" style="font-family:Raleway,sans-serif;font-size:11px">Exportable · Always up to date</text>
+    </g>
+
+    <g data-animate="output-3" transform="translate(40, 570)">
+      <rect x="0" y="0" width="320" height="60" rx="12" ry="12" class="fill-box-bg" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="160" y="24" text-anchor="middle" dominant-baseline="middle" class="fill-heading-1" style="font-family:Raleway,sans-serif;font-size:13px;font-weight:600">AI Agents (MCP)</text>
+      <text x="160" y="44" text-anchor="middle" dominant-baseline="middle" class="fill-heading-3" style="font-family:Raleway,sans-serif;font-size:11px">Context-aware AI integration</text>
+    </g>
+  </svg>
+</div>
+
+<style>
+  #architecture-diagram [data-animate] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    #architecture-diagram [data-animate] { opacity: 1 !important; }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.set('#architecture-diagram [data-animate]', { opacity: 1 });
+      return;
+    }
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#architecture-diagram',
+        start: 'top 75%',
+        end: 'bottom 25%',
+        scrub: 1,
+      }
+    });
+
+    // Input nodes fade in from left
+    tl.fromTo('[data-animate="input-1"]',
+      { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.2 }, 0);
+    tl.fromTo('[data-animate="input-2"]',
+      { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.2 }, 0.05);
+
+    // Input arrows draw
+    tl.fromTo('[data-animate="arrow-in-1"]',
+      { strokeDashoffset: 1000 }, { strokeDashoffset: 0, duration: 0.2 }, 0.15);
+    tl.fromTo('[data-animate="arrow-in-2"]',
+      { strokeDashoffset: 1000 }, { strokeDashoffset: 0, duration: 0.2 }, 0.18);
+
+    // Center box scales up
+    tl.fromTo('[data-animate="center-box"]',
+      { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.2, transformOrigin: 'center center' }, 0.3);
+
+    // Knowledge graph slides up
+    tl.fromTo('[data-animate="knowledge-graph"]',
+      { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2 }, 0.45);
+
+    // Output arrows draw
+    tl.fromTo('[data-animate="arrow-out-1"]',
+      { strokeDashoffset: 1000 }, { strokeDashoffset: 0, duration: 0.15 }, 0.55);
+    tl.fromTo('[data-animate="arrow-out-2"]',
+      { strokeDashoffset: 1000 }, { strokeDashoffset: 0, duration: 0.15 }, 0.58);
+    tl.fromTo('[data-animate="arrow-out-3"]',
+      { strokeDashoffset: 1000 }, { strokeDashoffset: 0, duration: 0.15 }, 0.61);
+
+    // Output nodes fade in with stagger
+    tl.fromTo('[data-animate="output-1"]',
+      { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.15 }, 0.7);
+    tl.fromTo('[data-animate="output-2"]',
+      { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.15 }, 0.75);
+    tl.fromTo('[data-animate="output-3"]',
+      { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.15 }, 0.8);
+  });
+</script>

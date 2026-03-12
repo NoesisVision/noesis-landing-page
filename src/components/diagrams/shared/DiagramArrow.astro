@@ -1,0 +1,19 @@
+---
+export interface Props {
+  path: string;
+  dataAnimate?: string;
+  dashed?: boolean;
+  markerId?: string;
+}
+const { path, dataAnimate, dashed = false, markerId = "arrowhead" } = Astro.props;
+---
+<path
+  d={path}
+  data-animate={dataAnimate}
+  fill="none"
+  class="stroke-heading-3"
+  stroke-width="1.5"
+  stroke-dasharray={dashed ? "6,4" : "1000"}
+  stroke-dashoffset={dashed ? "0" : "1000"}
+  marker-end={`url(#${markerId})`}
+/>
