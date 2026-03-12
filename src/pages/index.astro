@@ -1,38 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/sections/Hero.astro';
-import HowItWorks from '../components/sections/HowItWorks.astro';
-import Demo from '../components/sections/Demo.astro';
-import Features from '../components/sections/Features.astro';
-import UseCases from '../components/sections/UseCases.astro';
-
-import FAQ from '../components/sections/FAQ.astro';
+import HomeHero from '../components/sections/HomeHero.astro';
+import Philosophy from '../components/sections/Philosophy.astro';
+import TwoPillars from '../components/sections/TwoPillars.astro';
 import Founders from '../components/sections/Founders.astro';
-import CTA from '../components/sections/CTA.astro';
-import Brands from '../components/sections/Brands.astro';
-import Architecture from '../components/sections/Architecture.astro';
-import AIFuture from '../components/sections/AIFuture.astro';
-import Determinism from '../components/sections/Determinism.astro';
-import KnowledgeModeling from '../components/sections/KnowledgeModeling.astro';
-import Pricing from '../components/sections/Pricing.astro';
-import Savings from '../components/sections/Savings.astro';
-
+import HomeCTA from '../components/sections/HomeCTA.astro';
 ---
 
-<Layout title="Visualize. Understand. Accelerate.">
+<Layout title="Engineer the Future of Software Delivery" description="Noesis Vision — tools and practices that make agentic development reliable, verifiable, and production-ready.">
 	<main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
-		<Hero/>
-		<Architecture className="mb-0"/>
-		<HowItWorks/>
-		<UseCases/>
-		<Determinism/>
-	
-		<Demo/>
-		<!--<Pricing/>-->
-		<!--<Savings/>-->
-		<FAQ/>
+		<HomeHero/>
+		<Philosophy/>
+		<TwoPillars/>
 		<Founders/>
-		<CTA/>
-		<!-- <Brands/> -->
+		<HomeCTA/>
 	</main>
 </Layout>
