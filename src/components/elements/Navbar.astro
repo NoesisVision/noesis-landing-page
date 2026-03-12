@@ -6,21 +6,22 @@ import  Navitem from "../shared/Navitem.astro";
 // Import logo
 import noesisLogo from "../../../public/logos/noesis.webp";
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const navItems = [
     {
-        href:"/vision",
+        href:`${base}/vision`,
         text:"Vision"
     },
     {
-        href:"/services",
+        href:`${base}/services`,
         text:"Services"
     },
     {
-        href:"/#founders",
+        href:`${base}/#founders`,
         text:"Founders"
     },
     {
-        href:"/#cta",
+        href:`${base}/#cta`,
         text:"Community"
     }
 ]
@@ -31,7 +32,7 @@ const navItems = [
         <nav class="w-full flex justify-between gap-6 relative">
             <!-- logo -->
             <div class="min-w-max inline-flex relative">
-                <a href="/" class="relative flex items-center gap-3">
+                <a href={`${base}/`} class="relative flex items-center gap-3">
                     <!--<div class="relative w-7 h-7 overflow-hidden flex rounded-xl">-->
                     <!--    <span class="absolute w-4 h-4 -top-1 -right-1 bg-green-500 rounded-md rotate-45"></span>-->
                     <!--    <span class="absolute w-4 h-4 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"></span>-->
@@ -55,7 +56,7 @@ const navItems = [
                 </ul>
 
                 <div class="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-box-bg lg:border-0 px-6 lg:px-0">
-                    <BtnLink text="Contact Us" href="/#cta" className="flex justify-center w-full sm:w-max" variant="primary"/>
+                    <BtnLink text="Contact Us" href={`${base}/#cta`} className="flex justify-center w-full sm:w-max" variant="primary"/>
                 </div>
             </div>
 
