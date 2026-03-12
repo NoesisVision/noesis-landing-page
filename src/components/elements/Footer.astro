@@ -16,6 +16,17 @@ const footerResources = [
     }
 ]
 
+const footerPages = [
+    {
+        itemText:"Vision",
+        itemLink:"/vision"
+    },
+    {
+        itemText:"Services",
+        itemLink:"/services"
+    }
+]
+
 const footerSocial = [
     {
         itemText:"Blog",
@@ -63,7 +74,7 @@ const footerSocial = [
       </div>
     <!-- Main Footer Content -->
     <Container className="pb-6 relative">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
             <!-- Logo -->
             <div class="flex justify-center md:justify-start">
                 <a href="/" class="relative flex items-center gap-3">
@@ -72,6 +83,11 @@ const footerSocial = [
                         Noesis
                     </div>
                 </a>
+            </div>
+
+            <!-- Pages -->
+            <div>
+                <FooterNav title="Pages" navItems={footerPages}/>
             </div>
 
             <!-- Resources -->
