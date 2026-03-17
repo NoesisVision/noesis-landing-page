@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "skills": {
+    "content-creation": {
+      "source": "anthropics/knowledge-work-plugins",
+      "sourceType": "github",
+      "computedHash": "8569dc4fa15d44ffa35ba69028af05845c06f398b746cc9095a36d140c4a528a"
+    },
+    "google-analytics": {
+      "source": "davila7/claude-code-templates",
+      "sourceType": "github",
+      "computedHash": "c7a60543ca235c272d002f0dd6e1370c9cc37f4df604d9f9d75daefaa31ef89a"
+    },
+    "seo-geo": {
+      "source": "resciencelab/opc-skills",
+      "sourceType": "github",
+      "computedHash": "56f90ba46b36563bb5461feb8462aed9283e74dfc4cdac2a98c42c4bc86a95be"
+    }
+  }
+}

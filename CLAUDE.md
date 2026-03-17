@@ -2,6 +2,11 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Git Workflow
+
+- **Always present the commit message to the user before committing** — never commit without explicit approval.
+- Never push without being asked.
+
 ## Project Overview
 
 Landing page for **Noesis Vision** — tools and practices for agentic development. Built with Astro 3 + TailwindCSS 3, multi-page static site.
