@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ServicesHero from '../components/sections/ServicesHero.astro';
 import TheProblem from '../components/sections/TheProblem.astro';
-import TwoPhaseSDLC from '../components/sections/TwoPhaseSDLC.astro';
+import OurServices from '../components/sections/OurServices.astro';
 import Verification from '../components/sections/Verification.astro';
 import MeetingToSpec from '../components/sections/MeetingToSpec.astro';
 import WhoIsThisFor from '../components/sections/WhoIsThisFor.astro';
@@ -11,13 +11,13 @@ import ServicesCTA from '../components/sections/ServicesCTA.astro';
 const schema = {
 	"@context": "https://schema.org",
 	"@type": "Service",
-	"name": "SDLC Transformation for Agentic Development",
-	"description": "We help engineering teams redesign their software development lifecycle for reliable human-AI collaboration — from collaborative specification to autonomous implementation with deterministic verification.",
+	"name": "AI Excellence Services — Harness Engineering, Skills, Measurement",
+	"description": "We help engineering teams build the right AI development harness — tools, skills, and measurement — for production-grade agentic development.",
 	"provider": {
 		"@type": "Organization",
 		"name": "Noesis Vision"
 	},
-	"serviceType": "Software Development Consulting",
+	"serviceType": "AI Engineering Consulting",
 	"areaServed": "Worldwide",
 	"audience": {
 		"@type": "Audience",
@@ -26,11 +26,11 @@ const schema = {
 };
 ---
 
-<Layout title="Your SDLC, Redesigned for the AI Era" description="We help engineering teams redesign their development lifecycle for reliable human-AI collaboration — from collaborative specification to autonomous implementation with deterministic verification." schema={schema}>
+<Layout title="AI Excellence as a Service" description="We help engineering teams build the right AI development harness — tools, skills, and measurement — for production-grade agentic development." schema={schema}>
 	<main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
 		<ServicesHero/>
 		<TheProblem/>
-		<TwoPhaseSDLC/>
+		<OurServices/>
 		<Verification/>
 		<MeetingToSpec/>
 		<WhoIsThisFor/>

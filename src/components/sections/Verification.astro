@@ -2,18 +2,16 @@
 import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
-
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<section class="relative py-16 md:py-20" id="verification">
+<section class="relative py-16 md:py-20" id="measurement">
     <Container className="space-y-8">
         <div class="text-center max-w-4xl mx-auto space-y-4">
             <Title>
-                Deterministic Verification: Your Safety Net
+                Measurement & Evaluation
             </Title>
             <Paragraph>
-                Autonomous AI work demands autonomous verification. Our approach ensures every change is validated against architectural rules, test suites, and acceptance criteria — before any human review.
+                If you can't measure it, you can't improve it. Our evaluation methodology scores AI agent output across multiple dimensions — on real tasks from real codebases.
             </Paragraph>
         </div>
 
@@ -25,10 +23,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-heading-1">Automated Test Suites</h3>
+                    <h3 class="text-xl font-semibold text-heading-1">Real-World Benchmarks</h3>
                 </div>
                 <p class="text-heading-3 text-sm leading-relaxed">
-                    Tests generated from acceptance criteria run automatically on every change. Not just unit tests — integration tests that verify real behavior against the specification.
+                    Tasks derived from actual git history and production codebases — not synthetic toy problems. We measure agent performance on the work your team actually does.
                 </p>
             </div>
 
@@ -39,10 +37,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                             <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-heading-1">Static Analysis Gates</h3>
+                    <h3 class="text-xl font-semibold text-heading-1">Multi-Dimensional Scoring</h3>
                 </div>
                 <p class="text-heading-3 text-sm leading-relaxed">
-                    Code quality, security, and architectural compliance checked deterministically. No subjective review — binary pass/fail against defined standards.
+                    Not just 'does it compile' — we score architecture compliance, code quality, test coverage, domain modeling, and adherence to team conventions.
                 </p>
             </div>
 
@@ -53,10 +51,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 018.25 20.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-heading-1">Architectural Compliance</h3>
+                    <h3 class="text-xl font-semibold text-heading-1">Baseline & Progress</h3>
                 </div>
                 <p class="text-heading-3 text-sm leading-relaxed">
-                    Every change validated against your architecture model — powered by <a href={`${base}/vision`} class="text-primary hover:underline">Noesis Vision</a>. Ensures AI-generated code respects module boundaries, dependency rules, and design patterns.
+                    Establish where your team's AI setup performs today and track improvement over time as harness and skills evolve. Data-driven optimization, not guesswork.
                 </p>
             </div>
 
@@ -70,7 +68,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                     <h3 class="text-xl font-semibold text-heading-1">Feedback Loop</h3>
                 </div>
                 <p class="text-heading-3 text-sm leading-relaxed">
-                    When verification fails, AI agents receive precise, structured feedback and iterate autonomously. Human intervention only when verification passes or the agent escalates.
+                    Evaluation results feed directly into harness and skill improvements. Every benchmark run reveals what to optimize next — creating a continuous improvement cycle.
                 </p>
             </div>
         </div>

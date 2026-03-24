@@ -10,7 +10,7 @@ export interface Props {
 }
 
 const { title, description, schema, ogImage } = Astro.props;
-const metaDescription = description ?? "Noesis Vision — tools and practices that make agentic development reliable, verifiable, and production-ready.";
+const metaDescription = description ?? "Noesis — harness engineering, skills development, and AI measurement for production-grade agentic development.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://noesisvision.github.io");
 const ogImageURL = ogImage ?? "/images/noesis-architecture-2-4-more-pro.png";
 const fullTitle = `${title} | Noesis Vision`;
@@ -21,7 +21,7 @@ const organizationSchema = {
   "@type": "Organization",
   "name": "Noesis Vision",
   "url": "https://noesisvision.github.io",
-  "description": "Tools and practices that make agentic development reliable, verifiable, and production-ready.",
+  "description": "Harness engineering, skills development, and AI measurement for production-grade agentic development.",
   "foundingDate": "2024",
   "founders": [
     { "@type": "Person", "name": "Marcin Markowski" },

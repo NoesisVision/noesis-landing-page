@@ -2,15 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import HomeHero from '../components/sections/HomeHero.astro';
 import Philosophy from '../components/sections/Philosophy.astro';
-import TwoPillars from '../components/sections/TwoPillars.astro';
+import WhatWeDo from '../components/sections/WhatWeDo.astro';
 import Founders from '../components/sections/Founders.astro';
 import HomeCTA from '../components/sections/HomeCTA.astro';
 
 const webPageSchema = {
 	"@context": "https://schema.org",
 	"@type": "WebPage",
-	"name": "Engineer the Future of Software Delivery",
-	"description": "Noesis Vision — tools and practices that make agentic development reliable, verifiable, and production-ready.",
+	"name": "Coding Is Solved. Engineering It Isn't.",
+	"description": "Noesis — harness engineering, skills development, and AI measurement for production-grade agentic development.",
 	"url": "https://noesisvision.github.io",
 	"speakable": {
 		"@type": "SpeakableSpecification",
@@ -19,10 +19,10 @@ const webPageSchema = {
 };
 ---
 
-<Layout title="Engineer the Future of Software Delivery" description="Noesis Vision — tools and practices that make agentic development reliable, verifiable, and production-ready." schema={webPageSchema}>
+<Layout title="Coding Is Solved. Engineering It Isn't." description="Noesis — harness engineering, skills development, and AI measurement for production-grade agentic development." schema={webPageSchema}>
 	<main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
 		<HomeHero/>
-		<TwoPillars/>
+		<WhatWeDo/>
 		<Philosophy/>
 		<Founders/>
 		<HomeCTA/>
