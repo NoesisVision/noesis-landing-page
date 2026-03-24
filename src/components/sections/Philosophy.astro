@@ -2,30 +2,87 @@
 import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
+import BtnLink from "../shared/BtnLink.astro";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<section class="relative py-16 md:py-20" id="philosophy">
-    <Container className="space-y-8">
-        <div class="max-w-3xl mx-auto space-y-8">
-        <div class="text-center space-y-4">
+<section class="relative py-16 md:py-20" id="why-us">
+    <Container className="space-y-10">
+        <div class="text-center max-w-4xl mx-auto space-y-4">
             <Title>
-                Why Harness Engineering Matters
+                AI Needs an Architect, Not Just an API Key
             </Title>
-        </div>
-        <div class="space-y-6">
             <Paragraph>
-                Most teams focus on choosing the right LLM. That's the wrong variable. The <strong>harness</strong> — tools, instructions, and context — is what determines outcomes. A well-configured harness turns an average model into an exceptional engineering partner.
-            </Paragraph>
-            <Paragraph>
-                Skills are the new unit of engineering excellence. Custom instructions, workflows, and domain knowledge need to be built, tested, versioned, and measured like any other software artifact. Having a skill available doesn't mean it works — activation and outcome testing close that gap.
-            </Paragraph>
-            <Paragraph>
-                Real measurement requires real tasks. We evaluate agent performance on challenges derived from actual git history and production codebases — not synthetic benchmarks. Multi-dimensional scoring across architecture, code quality, tests, and team conventions reveals what truly works.
-            </Paragraph>
-            <Paragraph>
-                We're also experimenting with shortening the path from team discussions to design documents with sound architectural decisions, and with organizing knowledge through knowledge graphs (GraphRAG). More on this soon.
+                An experienced engineer who understands <strong>architecture, domain modeling, and team dynamics</strong> — equipped with deep AI knowledge — should be the one configuring AI in your project. That's exactly who we are.
             </Paragraph>
         </div>
+
+        <!-- Bottega credibility -->
+        <div class="max-w-4xl mx-auto">
+            <div class="p-8 lg:p-10 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow text-center space-y-6">
+                <!-- Logo -->
+                <div class="flex justify-center mb-2">
+                    <div class="dark:bg-white/90 dark:rounded-2xl dark:px-8 dark:py-5 inline-flex">
+                        <img
+                            src="/images/logo-bottega-transparent.png"
+                            alt="Bottega IT Minds"
+                            class="w-48 md:w-64 h-auto"
+                        />
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="space-y-2">
+                    <p class="text-heading-1 font-semibold text-lg">
+                        Trainers & consultants at Bottega IT Minds
+                    </p>
+                    <p class="text-heading-3 text-sm leading-relaxed max-w-2xl mx-auto">
+                        Poland's leading software architecture consultancy — think of it as the Polish ThoughtWorks. We've been training and consulting on <strong>Domain-Driven Design</strong>, software architecture, and engineering excellence for years.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div class="text-center p-4">
+                <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600 mb-2">
+                    100s
+                </div>
+                <p class="text-heading-3 text-sm font-medium">Engineers trained in DDD & architecture</p>
+            </div>
+            <div class="text-center p-4">
+                <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600 mb-2">
+                    10s
+                </div>
+                <p class="text-heading-3 text-sm font-medium">Consulting engagements delivered</p>
+            </div>
+            <div class="text-center p-4">
+                <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600 mb-2">
+                    10+ yrs
+                </div>
+                <p class="text-heading-3 text-sm font-medium">Of hands-on architecture & DDD practice</p>
+            </div>
+            <div class="text-center p-4">
+                <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600 mb-2">
+                    Now
+                </div>
+                <p class="text-heading-3 text-sm font-medium">Applying that expertise to AI engineering</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <BtnLink variant="primary" href="https://tally.so/r/wMWrqY" text="Book a Consultation" target="_blank" className="text-base" />
+            <BtnLink variant="secondary" href={`${base}/services`} text="See Our Services" className="text-base" />
+        </div>
+
+        <!-- Key message -->
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-heading-3 text-sm leading-relaxed italic">
+                We believe the fusion of deep architectural expertise, domain knowledge from real projects, and years of teaching engineers how to think in systems — is a uniquely powerful combination for building AI development harnesses that actually deliver.
+            </p>
         </div>
     </Container>
 </section>
