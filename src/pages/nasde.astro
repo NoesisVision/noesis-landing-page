@@ -1,0 +1,219 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/shared/Container.astro';
+import Title from '../components/shared/Title.astro';
+import Paragraph from '../components/shared/Paragraph.astro';
+import BtnLink from '../components/shared/BtnLink.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "NASDE — Noesis Agentic Software Development Evals",
+    "description": "Multi-dimensional evaluation framework for AI coding agents. Score agent output across architecture, code quality, tests, and team conventions using real tasks from real codebases.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Cross-platform",
+    "provider": {
+        "@type": "Organization",
+        "name": "Noesis Vision"
+    }
+};
+---
+
+<Layout title="NASDE — AI Agent Evaluation Framework" description="Multi-dimensional evaluation framework for AI coding agents. Score agent output across architecture, code quality, tests, and team conventions." schema={schema}>
+    <main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
+
+        <!-- Hero Section -->
+        <section id="nasde-hero" class="relative pt-24 lg:pt-36">
+            <Container className="flex flex-col items-center text-center">
+                <div class="absolute w-full lg:w-1/2 inset-y-0 lg:right-0">
+                    <span class="absolute -left-6 md:left-4 top-8 lg:top-12 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-green-400 blur-xl opacity-60 lg:opacity-95 lg:block hidden"></span>
+                    <span class="absolute right-4 bottom-8 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80"></span>
+                </div>
+                <span class="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90"></span>
+                <div class="relative flex flex-col items-center text-center py-1 lg:py-3 xl:py-4 max-w-3xl mx-auto px-4 sm:px-6 lg:px-0">
+                    <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-bold text-heading-1">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">Measure</span> What Matters. <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">Prove</span> What Works.
+                    </h1>
+                    <Paragraph className="mt-3 lg:mt-4 text-base text-center">
+                        NASDE is our multi-dimensional evaluation framework for AI coding agents. We score agent output across architecture compliance, code quality, domain modeling, test coverage, and team conventions — on real tasks from real codebases.
+                    </Paragraph>
+                    <div class="mt-8 lg:mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                        <BtnLink variant="primary" href="https://tally.so/r/wMWrqY" text="Book a Consultation" className="text-base" target="_blank" />
+                        <BtnLink variant="secondary" href={`${base}/services`} text="See Our Services" className="text-base" />
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Beyond Pass/Fail Section -->
+        <section class="relative py-16 md:py-20" id="beyond-pass-fail">
+            <Container className="space-y-8">
+                <div class="text-center max-w-4xl mx-auto space-y-4">
+                    <Title>
+                        Beyond Pass/Fail
+                    </Title>
+                    <Paragraph>
+                        Traditional evals check if code compiles. NASDE scores how well it's engineered.
+                    </Paragraph>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- Card 1: Real-World Tasks -->
+                    <div class="bg-box-bg p-6 rounded-xl border border-box-border">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-heading-1">Real-World Tasks</h3>
+                        </div>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            Evaluation tasks derived from actual git history and production codebases — not synthetic toy problems. We measure agent performance on the work your team actually does.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Multi-Dimensional Scoring -->
+                    <div class="bg-box-bg p-6 rounded-xl border border-box-border">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-heading-1">Multi-Dimensional Scoring</h3>
+                        </div>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            Every task scored across multiple dimensions: architecture compliance, code quality, domain modeling, test coverage, and adherence to team conventions.
+                        </p>
+                    </div>
+
+                    <!-- Card 3: Agent-Agnostic Comparison -->
+                    <div class="bg-box-bg p-6 rounded-xl border border-box-border">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-purple-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 018.25 20.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-heading-1">Agent-Agnostic Comparison</h3>
+                        </div>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            Compare Claude Code vs Codex, vanilla vs custom skills, different tool configurations — all on the same tasks with the same scoring criteria.
+                        </p>
+                    </div>
+
+                    <!-- Card 4: Harness Optimization Loop -->
+                    <div class="bg-box-bg p-6 rounded-xl border border-box-border">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-heading-1">Harness Optimization Loop</h3>
+                        </div>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            Every benchmark run reveals what to optimize next in your agent's harness — tools, skills, context. Data-driven improvement, not guesswork.
+                        </p>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="relative py-16 md:py-20" id="how-it-works">
+            <Container className="space-y-12">
+                <div class="text-center max-w-4xl mx-auto space-y-4">
+                    <Title>
+                        How It Works
+                    </Title>
+                </div>
+
+                <div class="flex flex-col gap-8 max-w-5xl mx-auto">
+                    <!-- Step 1: Define Tasks -->
+                    <div class="p-5 sm:p-6 lg:p-8 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow relative overflow-hidden">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center">
+                                <span class="text-xl font-bold text-indigo-600">1</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-heading-1">Define Tasks</h3>
+                        </div>
+                        <p class="text-heading-3 text-sm leading-relaxed pl-15">
+                            Extract evaluation tasks from your git history using our benchmark-from-history pipeline, or use curated public repository challenges. Real work, real complexity.
+                        </p>
+                    </div>
+
+                    <!-- Step 2: Run Evaluations -->
+                    <div class="p-5 sm:p-6 lg:p-8 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow relative overflow-hidden">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                                <span class="text-xl font-bold text-green-600">2</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-heading-1">Run Evaluations</h3>
+                        </div>
+                        <p class="text-heading-3 text-sm leading-relaxed pl-15">
+                            Execute tasks across different agent configurations — varying tools, skills, and context. Each variant runs independently with full deterministic scoring.
+                        </p>
+                    </div>
+
+                    <!-- Step 3: Analyze & Iterate -->
+                    <div class="p-5 sm:p-6 lg:p-8 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow relative overflow-hidden">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+                                <span class="text-xl font-bold text-blue-600">3</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-heading-1">Analyze & Iterate</h3>
+                        </div>
+                        <p class="text-heading-3 text-sm leading-relaxed pl-15">
+                            Multi-dimensional results reveal exactly where each configuration excels or falls short. Feed insights back into harness and skill improvements.
+                        </p>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="nasde-cta" class="pb-20">
+            <Container>
+                <div class="w-full relative py-8 md:py-10 px-6 md:px-8 rounded-2xl bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900 dark:to-transparent">
+                    <div class="absolute right-0 top-0 h-full w-full flex justify-end">
+                        <div class="w-28 h-28 overflow-auto flex rounded-xl relative blur-2xl">
+                            <span class="absolute w-16 h-16 -top-1 -right-1 bg-green-500 rounded-md rotate-45"></span>
+                            <span class="absolute w-16 h-16 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"></span>
+                            <span class="absolute w-16 h-16 -bottom-1 -left-1 bg-primary rounded-md rotate-45"></span>
+                        </div>
+                    </div>
+                    <div class="absolute left-0 bottom-0 h-full w-full flex items-end">
+                        <div class="w-28 h-28 overflow-auto flex rounded-xl relative blur-2xl">
+                            <span class="absolute w-16 h-16 -top-1 -right-1 bg-green-500 rounded-md rotate-45"></span>
+                            <span class="absolute w-16 h-16 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"></span>
+                            <span class="absolute w-16 h-16 -bottom-1 -left-1 bg-primary rounded-md rotate-45"></span>
+                        </div>
+                    </div>
+                    <div class="mx-auto text-center max-w-xl sm:max-w-2xl md:max-w-3xl relative">
+                        <h1 class="text-3xl/tight sm:text-4xl/tight md:text-4xl/tight font-bold text-heading-1">
+                            Ready to <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">measure what matters</span>?
+                        </h1>
+
+                        <Paragraph className="pt-10">
+                            Let us show you how NASDE can reveal the real performance of your AI development setup — and what to optimize next.
+                        </Paragraph>
+
+                        <div class="flex justify-center items-center pt-10">
+                            <div class="w-full max-w-4xl">
+                                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                                    <BtnLink variant="primary" href="https://tally.so/r/wMWrqY" text="Book a Consultation" target="_blank" className="flex-1 sm:flex-none" />
+                                    <BtnLink variant="secondary" href="https://tally.so/r/wMWrqY" text="Contact Us" target="_blank" className="flex-1 sm:flex-none" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+    </main>
+</Layout>

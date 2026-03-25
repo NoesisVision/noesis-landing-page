@@ -7,14 +7,14 @@ import BtnLink from "../shared/BtnLink.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<section class="relative py-16 md:py-20" id="why-us">
-    <Container className="space-y-10">
+<section class="relative py-10 md:py-14" id="why-us">
+    <Container className="space-y-8">
         <div class="text-center max-w-4xl mx-auto space-y-4">
             <Title>
                 AI Needs an Architect, Not Just an API Key
             </Title>
             <Paragraph>
-                An experienced engineer who understands <strong>architecture, domain modeling, and team dynamics</strong> — equipped with deep AI knowledge — should be the one configuring AI in your project. That's exactly who we are.
+                An experienced engineer who understands <strong>architecture, domain modeling, and team dynamics</strong> — equipped with deep AI knowledge — should be the one co-creating the AI harness for your project. That's exactly who we are.
             </Paragraph>
         </div>
 
@@ -25,7 +25,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                 <div class="flex justify-center mb-2">
                     <div class="dark:bg-white/90 dark:rounded-2xl dark:px-8 dark:py-5 inline-flex">
                         <img
-                            src="/images/logo-bottega-transparent.png"
+                            src={`${base}/images/logo-bottega-transparent.png`}
                             alt="Bottega IT Minds"
                             class="w-48 md:w-64 h-auto"
                         />
@@ -38,7 +38,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                         Trainers & consultants at Bottega IT Minds
                     </p>
                     <p class="text-heading-3 text-sm leading-relaxed max-w-2xl mx-auto">
-                        Poland's leading software architecture consultancy — think of it as the Polish ThoughtWorks. We've been training and consulting on <strong>Domain-Driven Design</strong>, software architecture, and engineering excellence for years.
+                        Over a decade of expert workshops, corporate training, and consulting across <strong>software architecture</strong>, <strong>Domain-Driven Design</strong>, <strong>distributed systems</strong>, and <strong>engineering leadership</strong> — for enterprise teams across Poland and Europe.
                     </p>
                 </div>
             </div>
@@ -50,7 +50,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                 <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600 mb-2">
                     100s
                 </div>
-                <p class="text-heading-3 text-sm font-medium">Engineers trained in DDD & architecture</p>
+                <p class="text-heading-3 text-sm font-medium">Engineers trained in architecture & DDD</p>
             </div>
             <div class="text-center p-4">
                 <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600 mb-2">
@@ -62,7 +62,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                 <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600 mb-2">
                     10+ yrs
                 </div>
-                <p class="text-heading-3 text-sm font-medium">Of hands-on architecture & DDD practice</p>
+                <p class="text-heading-3 text-sm font-medium">Of hands-on architecture practice</p>
             </div>
             <div class="text-center p-4">
                 <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600 mb-2">
