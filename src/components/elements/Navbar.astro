@@ -9,6 +9,10 @@ import noesisLogo from "../../../public/logos/noesis.webp";
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const navItems = [
     {
+        href:`${base}/`,
+        text:"Home"
+    },
+    {
         href:`${base}/services`,
         text:"Services"
     },
@@ -46,23 +50,23 @@ const productItems = [
             </div>
 
             <div data-nav-overlay aria-hidden="true" class="fixed hidden inset-0 lg:!hidden bg-box-bg bg-opacity-50 backdrop-filter backdrop-blur-xl"></div>
-            <div data-navbar class="flex h-0 overflow-hidden lg:!h-auto lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-body lg:bg-transparent border-x border-x-box-border lg:border-x-0">
+            <div data-navbar class="flex h-0 overflow-hidden lg:!h-auto lg:!overflow-visible lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-body lg:bg-transparent border-x border-x-box-border lg:border-x-0">
                 <ul class="border-t border-box-border lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 w-full lg:justify-center lg:items-center">
                     {navItems.map(item=>{
                         return <Navitem {...item}/>
                     })
                     }
                     <!-- Products dropdown -->
-                    <li class="relative group">
+                    <li class="relative" data-dropdown>
                         <button class="duration-300 font-medium ease-linear hover:text-primary py-3 flex items-center gap-1" data-products-toggle>
                             Products
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180 lg:group-hover:rotate-180">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 transition-transform duration-200" data-dropdown-arrow>
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
-                        <!-- Desktop dropdown -->
-                        <div class="hidden lg:group-hover:block lg:absolute lg:top-full lg:left-0 lg:pt-2 lg:min-w-[240px] z-50" data-products-dropdown>
-                            <div class="bg-box-bg border border-box-border rounded-xl shadow-lg shadow-box-shadow p-2">
+                        <!-- Dropdown panel (works for both desktop and mobile) -->
+                        <div class="hidden lg:absolute lg:top-full lg:left-0 lg:pt-2 lg:min-w-[240px] z-50" data-products-panel>
+                            <div class="lg:bg-box-bg lg:border lg:border-box-border lg:rounded-xl lg:shadow-lg lg:shadow-box-shadow lg:p-2">
                                 {productItems.map(item => (
                                     <a href={item.href} class="block px-4 py-3 rounded-lg hover:bg-primary/10 transition-colors duration-200">
                                         <span class="block text-sm font-semibold text-heading-1">{item.text}</span>
@@ -70,15 +74,6 @@ const productItems = [
                                     </a>
                                 ))}
                             </div>
-                        </div>
-                        <!-- Mobile: shown inline when toggled -->
-                        <div class="lg:hidden hidden pl-4 space-y-2 pb-2" data-products-mobile>
-                            {productItems.map(item => (
-                                <a href={item.href} class="block py-2">
-                                    <span class="block text-base font-medium text-heading-2 hover:text-primary duration-300">{item.text}</span>
-                                    <span class="block text-xs text-heading-3">{item.description}</span>
-                                </a>
-                            ))}
                         </div>
                     </li>
                 </ul>
@@ -113,16 +108,31 @@ const productItems = [
 </header>
 
 <script>
-    // Products dropdown toggle for mobile
+    // Products dropdown - click to toggle (works on both mobile and desktop)
     document.addEventListener('DOMContentLoaded', () => {
+        const dropdown = document.querySelector('[data-dropdown]');
         const toggle = document.querySelector('[data-products-toggle]');
-        const mobileDropdown = document.querySelector('[data-products-mobile]');
+        const panel = document.querySelector('[data-products-panel]');
+        const arrow = document.querySelector('[data-dropdown-arrow]');
 
-        if (toggle && mobileDropdown) {
+        if (toggle && panel) {
             toggle.addEventListener('click', (e) => {
-                // Only toggle on mobile
-                if (window.innerWidth < 1024) {
-                    mobileDropdown.classList.toggle('hidden');
+                e.stopPropagation();
+                const isOpen = !panel.classList.contains('hidden');
+                if (isOpen) {
+                    panel.classList.add('hidden');
+                    arrow?.classList.remove('rotate-180');
+                } else {
+                    panel.classList.remove('hidden');
+                    arrow?.classList.add('rotate-180');
+                }
+            });
+
+            // Close when clicking outside
+            document.addEventListener('click', (e) => {
+                if (dropdown && !dropdown.contains(e.target)) {
+                    panel.classList.add('hidden');
+                    arrow?.classList.remove('rotate-180');
                 }
             });
         }
