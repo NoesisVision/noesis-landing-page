@@ -11,8 +11,8 @@ export interface Props {
 
 const { title, description, schema, ogImage } = Astro.props;
 const metaDescription = description ?? "Noesis — harness engineering, skills development, and AI measurement for production-grade agentic development.";
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://noesisvision.github.io");
-const ogImageURL = ogImage ?? "/images/noesis-architecture-2-4-more-pro.png";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://noesis.vision");
+const ogImageURL = new URL(ogImage ?? "/images/noesis-architecture-2-4-more-pro.png", Astro.site ?? "https://noesis.vision").href;
 const fullTitle = `${title} | Noesis Vision`;
 
 // Default Organization schema - always present
@@ -20,7 +20,7 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Noesis Vision",
-  "url": "https://noesisvision.github.io",
+  "url": "https://noesis.vision",
   "description": "Harness engineering, skills development, and AI measurement for production-grade agentic development.",
   "foundingDate": "2024",
   "founders": [

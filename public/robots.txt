@@ -24,4 +24,4 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-Sitemap: https://noesisvision.github.io/sitemap.xml
+Sitemap: https://noesis.vision/sitemap.xml
