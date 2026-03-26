@@ -99,6 +99,20 @@ const organizationSchema = {
       ml('account', '1381617');
     </script>
     <!-- End MailerLite Universal -->
+
+    <!-- GA4 Event Tracking -->
+    <script>
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-track]');
+        if (el && typeof gtag === 'function') {
+          gtag('event', el.dataset.track, {
+            page: window.location.pathname,
+            section: el.dataset.trackSection || '',
+            cta_text: el.textContent.trim()
+          });
+        }
+      });
+    </script>
   </head>
   <body class="overflow-hidden overflow-y-auto bg-body">
     <Navbar />
