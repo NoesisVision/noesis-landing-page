@@ -15,7 +15,10 @@ const navItems = [
     {
         href:`${base}/services`,
         text:"Services"
-    },
+    }
+]
+
+const navItemsAfterProducts = [
     {
         href:`${base}/#founders`,
         text:"Founders"
@@ -24,14 +27,14 @@ const navItems = [
 
 const productItems = [
     {
-        href:`${base}/vision`,
-        text:"Noesis Vision",
-        description:"Architecture visualization from code"
-    },
-    {
         href:`${base}/nasde`,
         text:"NASDE",
         description:"AI agent evaluation framework"
+    },
+    {
+        href:`${base}/vision`,
+        text:"Noesis Vision",
+        description:"Architecture visualization from code"
     }
 ]
 ---
@@ -64,11 +67,11 @@ const productItems = [
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
-                        <!-- Dropdown panel (works for both desktop and mobile) -->
+                        <!-- Dropdown panel -->
                         <div class="hidden lg:absolute lg:top-full lg:left-0 lg:pt-2 lg:min-w-[240px] z-50" data-products-panel>
-                            <div class="lg:bg-box-bg lg:border lg:border-box-border lg:rounded-xl lg:shadow-lg lg:shadow-box-shadow lg:p-2">
+                            <div class="pl-4 py-2 lg:pl-0 lg:py-0 lg:bg-box-bg lg:border lg:border-box-border lg:rounded-xl lg:shadow-lg lg:shadow-box-shadow lg:p-2">
                                 {productItems.map(item => (
-                                    <a href={item.href} class="block px-4 py-3 rounded-lg hover:bg-primary/10 transition-colors duration-200">
+                                    <a href={item.href} class="block px-4 py-2 lg:py-3 rounded-lg hover:bg-primary/10 transition-colors duration-200">
                                         <span class="block text-sm font-semibold text-heading-1">{item.text}</span>
                                         <span class="block text-xs text-heading-3 mt-0.5">{item.description}</span>
                                     </a>
@@ -76,10 +79,14 @@ const productItems = [
                             </div>
                         </div>
                     </li>
+                    {navItemsAfterProducts.map(item=>{
+                        return <Navitem {...item}/>
+                    })
+                    }
                 </ul>
 
                 <div class="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-box-bg lg:border-0 px-6 lg:px-0">
-                    <BtnLink text="Contact Us" href="https://tally.so/r/wMWrqY" className="flex justify-center w-full sm:w-max" variant="primary" target="_blank"/>
+                    <BtnLink text="Contact Us" href="https://calendly.com/szymon-noesis/noesis-free-consultations" className="flex justify-center w-full sm:w-max" variant="primary" target="_blank"/>
                 </div>
             </div>
 
