@@ -34,8 +34,8 @@ import BtnLink from "../shared/BtnLink.astro";
         <div class="flex justify-center items-center pt-10">
             <div class="w-full max-w-4xl">
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <BtnLink variant="primary" href="https://calendly.com/szymon-noesis/noesis-free-consultations" text="Contact Us" target="_blank" className="flex-1 sm:flex-none" />
-                    <Button variant="secondary" className="ml-onclick-form flex-1 sm:flex-none" onclick="ml('show', 'it64wG', true)">Newsletter</Button>
+                    <BtnLink variant="primary" href="https://calendly.com/szymon-noesis/noesis-free-consultations" text="Contact Us" target="_blank" className="flex-1 sm:flex-none" data-track="cta_calendly" data-track-section="home-cta" />
+                    <Button variant="secondary" className="ml-onclick-form flex-1 sm:flex-none" onclick="ml('show', 'it64wG', true)" data-track="newsletter_open" data-track-section="home-cta">Newsletter</Button>
                 </div>
             </div>
         </div>
