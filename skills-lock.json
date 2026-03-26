@@ -4,7 +4,7 @@
     "content-creation": {
       "source": "anthropics/knowledge-work-plugins",
       "sourceType": "github",
-      "computedHash": "8569dc4fa15d44ffa35ba69028af05845c06f398b746cc9095a36d140c4a528a"
+      "computedHash": "012ed09d491de22ef3d2697e7f268597353711b8c17d72ce013c4a6e396df970"
     },
     "google-analytics": {
       "source": "davila7/claude-code-templates",
