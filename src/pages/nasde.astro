@@ -236,13 +236,16 @@ const schema = {
                     <div class="p-6 rounded-2xl border border-box-border bg-box-bg">
                         <h3 class="text-xl font-bold text-heading-1 mb-3">2. Multi-dimensional assessment — reviewer agent scores the produced results</h3>
                         <p class="text-heading-3 text-sm leading-relaxed mb-3">
-                            These rough tests only catch black-and-white failures. They don't tell you whether the produced workspace is well-structured, respects your architecture, whether tests are meaningful (not just coverage padding), whether a generated document is clear, whether a migration is reversible. For that, NASDE runs a <strong>second agent</strong> on the produced workspace.
+                            Rough tests only catch black-and-white failures. They don't tell you whether the produced workspace is well-structured, respects your architecture, whether tests are meaningful (not just coverage padding), whether a generated document is clear, whether a migration is reversible. For that, NASDE runs a <strong>second agent</strong> (<code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">claude</code> or <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">codex</code>) on the produced workspace.
                         </p>
                         <p class="text-heading-3 text-sm leading-relaxed mb-2 font-semibold">The reviewer's reference point is two files you write:</p>
                         <ul class="text-heading-3 text-sm leading-relaxed space-y-2 pl-5 list-disc">
                             <li><code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">assessment_dimensions.json</code> — the dimensions and their max scores (shared across the benchmark).</li>
                             <li><code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">assessment_criteria.md</code> — per task, in plain prose: for each dimension, what a low score looks like, what a high score looks like, what specific things to check.</li>
                         </ul>
+                        <p class="text-heading-3 text-sm leading-relaxed mt-3">
+                            The workspace also contains the agent's full trace — tool-call trajectory, token usage, wall-clock duration — so your criteria can cover those too, alongside the produced artifacts. One local <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">nasde run</code> handles all of it, no separate LLM-as-a-judge stack required.
+                        </p>
                         <p class="text-heading-3 text-sm leading-relaxed mt-3">
                             The criteria can be as strict or as loose as you want: spell out a ground-truth structure, enumerate exact checks, or leave room for judgment — whatever gives you signal you trust.
                         </p>
