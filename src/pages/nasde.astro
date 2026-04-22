@@ -11,7 +11,7 @@ const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "NASDE — Noesis Agentic Software Development Evals",
-    "description": "A CLI toolkit for evaluating AI coding agents with multi-dimensional, agentic code review. Deploys a reviewer agent that navigates produced codebases and scores them across custom dimensions.",
+    "description": "Open-source CLI toolkit for running AI coding agents on realistic tasks inside isolated containers, then scoring the produced results against criteria you define. Lets you compare skill/CLAUDE.md/MCP configurations objectively.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Cross-platform",
     "offers": {
@@ -26,7 +26,7 @@ const schema = {
 };
 ---
 
-<Layout title="NASDE — AI Agent Evaluation Toolkit" description="A CLI toolkit for evaluating AI coding agents with multi-dimensional, agentic code review. Score agent output across custom dimensions using real tasks from real codebases." schema={schema}>
+<Layout title="NASDE — Evals for AI Coding Agents" description="Open-source CLI toolkit for running AI coding agents on realistic tasks in isolated containers, then scoring the produced results against criteria you define. Compare skill/CLAUDE.md/MCP configurations objectively." schema={schema}>
     <main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
 
         <!-- Hero Section -->
@@ -46,10 +46,10 @@ const schema = {
                         />
                     </div>
                     <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-bold text-heading-1">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">Measure</span> What Matters. <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">Prove</span> What Works.
+                        Evaluate AI coding agents on <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">your own work</span>, with <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">your own criteria</span>.
                     </h1>
                     <Paragraph className="mt-3 lg:mt-4 text-base text-center">
-                        NASDE stands for <strong>Noesis Agentic Software Development Evals</strong> — a <strong>CLI toolkit</strong> for evaluating AI coding agents beyond pass/fail. Built as a <strong>wrapper layer</strong> over <a href="https://github.com/cased/harbor" target="_blank" rel="noopener noreferrer" class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-400 hover:underline font-semibold">Harbor</a> (sandboxed execution) and <a href="https://github.com/comet-ml/opik" target="_blank" rel="noopener noreferrer" class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-400 hover:underline font-semibold">Opik</a> (observability &amp; tracking), NASDE adds an <strong>agentic code review stage</strong> — a separate <strong>"nasty" reviewer agent</strong> navigates the produced codebase and scores it across <strong>custom quality dimensions</strong>.
+                        NASDE is an open-source CLI toolkit that runs an AI coding agent on a task you already understand, inside an isolated container, and scores the produced results against criteria <strong>you</strong> write. It exists so you can answer <em>"did my new skill / <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">CLAUDE.md</code> / MCP setup actually help?"</em> with numbers instead of vibes.
                     </Paragraph>
                     <div class="mt-8 lg:mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                         <BtnLink variant="primary" href="https://github.com/NoesisVision/nasde-toolkit" text="View on GitHub" className="text-base" target="_blank" data-track="cta_github" data-track-section="nasde-hero" />
@@ -59,33 +59,236 @@ const schema = {
             </Container>
         </section>
 
+        <!-- What it does — three sentences -->
+        <section class="relative py-10 md:py-14" id="three-sentences">
+            <Container className="space-y-8">
+                <div class="text-center max-w-4xl mx-auto space-y-4">
+                    <Title>What NASDE does — in four steps</Title>
+                    <Paragraph>
+                        One <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">nasde run</code> command executes the whole chain.
+                    </Paragraph>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                    <!-- Step 1 -->
+                    <div class="p-6 rounded-2xl border border-box-border bg-box-bg">
+                        <div class="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center mb-4">
+                            <span class="font-bold text-indigo-600">1</span>
+                        </div>
+                        <h3 class="font-bold text-heading-1 mb-2">You describe a task you already understand</h3>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            An instruction, a repo snapshot, and the assessment criteria describing what a good solution looks like. The output can be anything the agent writes into its workspace — code, a migration plan, an ADR, a SQL script, updated docs.
+                        </p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="p-6 rounded-2xl border border-box-border bg-box-bg">
+                        <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-4">
+                            <span class="font-bold text-green-600">2</span>
+                        </div>
+                        <h3 class="font-bold text-heading-1 mb-2">The agent solves it in a sandbox</h3>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            The agent works in a safe, isolated environment — it can't touch your machine or your real code. Every run starts from the same clean state, so different configurations get a fair comparison. Powered by <a href="https://github.com/cased/harbor" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Harbor</a>, runs locally on Docker or in the cloud.
+                        </p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="p-6 rounded-2xl border border-box-border bg-box-bg">
+                        <div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-4">
+                            <span class="font-bold text-red-600">3</span>
+                        </div>
+                        <h3 class="font-bold text-heading-1 mb-2">A reviewer agent assesses the result against your criteria</h3>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            After functional tests pass or fail, a second coding agent (<code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">claude</code> or <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">codex</code>) navigates the workspace and scores your chosen dimensions (e.g. <em>domain modeling</em>, <em>test quality</em>) on whatever scale you picked. The review stays token-efficient even on large codebases.
+                        </p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="p-6 rounded-2xl border border-box-border bg-box-bg/50 border-dashed">
+                        <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
+                            <span class="font-bold text-blue-600">4</span>
+                        </div>
+                        <h3 class="font-bold text-heading-1 mb-2">Results land in a dashboard <span class="text-xs font-normal text-heading-3">(optional)</span></h3>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            Browse scores, compare variants, and track how your agent setup evolves over time — optionally via <a href="https://www.comet.com/site/products/opik/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Opik</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <Paragraph className="text-center max-w-3xl mx-auto text-sm italic">
+                    You are the one defining "what good looks like." NASDE automates running the experiment and grading it the same way every time.
+                </Paragraph>
+            </Container>
+        </section>
+
+        <!-- What do I use it for -->
+        <section class="relative py-10 md:py-14" id="use-for">
+            <Container className="space-y-8">
+                <div class="text-center max-w-4xl mx-auto space-y-4">
+                    <Title>What do I actually use it for?</Title>
+                    <Paragraph>
+                        Anyone working with AI coding agents eventually hits the same wall: <em>"I changed my skill / <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">CLAUDE.md</code> / MCP setup — is the agent actually better now, or does it just feel that way?"</em> NASDE turns that gut feeling into a repeatable measurement.
+                    </Paragraph>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                    <div class="p-6 rounded-xl border border-box-border bg-box-bg">
+                        <h3 class="font-semibold text-heading-1 mb-2">🧪 Run an agent safely on a realistic task</h3>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            Sandboxed container = the agent can't wreck your laptop. Useful on its own, even before you start comparing configurations.
+                        </p>
+                    </div>
+                    <div class="p-6 rounded-xl border border-box-border bg-box-bg">
+                        <h3 class="font-semibold text-heading-1 mb-2">⚖️ Compare two configurations of the same agent</h3>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            Baseline vs. "with my new skill." See whether the skill moves scores up or down — and on which specific dimensions.
+                        </p>
+                    </div>
+                    <div class="p-6 rounded-xl border border-box-border bg-box-bg">
+                        <h3 class="font-semibold text-heading-1 mb-2">🔄 Compare different agents on the same task</h3>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            Claude Code vs. Codex vs. Gemini CLI on <em>your</em> workspace, <em>your</em> criteria. The same skill can help one agent and hurt another — see example 2 below.
+                        </p>
+                    </div>
+                    <div class="p-6 rounded-xl border border-box-border bg-box-bg">
+                        <h3 class="font-semibold text-heading-1 mb-2">🛡️ Build a regression suite for your AI setup</h3>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            Once a task set exists, re-run it every time someone tweaks prompts/skills/MCP. Catch regressions before they ship.
+                        </p>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- Quick start -->
+        <section class="relative py-10 md:py-14" id="quick-start">
+            <Container className="space-y-8">
+                <div class="text-center max-w-4xl mx-auto space-y-4">
+                    <Title>Getting started (three steps)</Title>
+                    <Paragraph>
+                        The fastest path from zero to a working benchmark built from <strong>your own git history</strong>.
+                    </Paragraph>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <div class="p-5 md:p-6 rounded-xl bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto leading-relaxed">
+                        <div class="text-gray-500"># 1. install the CLI</div>
+                        <div>uv tool install git+https://github.com/NoesisVision/nasde-toolkit.git</div>
+                        <div>nasde --version</div>
+                        <br/>
+                        <div class="text-gray-500"># 2. install the authoring skills for Claude Code</div>
+                        <div class="text-gray-500">#    (use --scope project for ./.claude/skills, --force to overwrite)</div>
+                        <div>nasde install-skills</div>
+                        <br/>
+                        <div class="text-gray-500"># 3. from inside your own repo, open Claude Code and ask:</div>
+                        <div class="text-gray-500">#    "Create a NASDE benchmark with a single task, based on a recent</div>
+                        <div class="text-gray-500">#     piece of work from this repo — a commit, a range, or a merged PR."</div>
+                        <div class="text-gray-500">#    The nasde-benchmark-from-history skill scaffolds one task directory.</div>
+                        <br/>
+                        <div class="text-gray-500"># then run it (runs every variant the skill scaffolded):</div>
+                        <div>nasde run --all-variants -C path/to/generated-benchmark</div>
+                    </div>
+                </div>
+
+                <div class="max-w-3xl mx-auto grid sm:grid-cols-3 gap-4 text-sm text-heading-3">
+                    <div class="p-4 rounded-lg border border-box-border">
+                        <p class="font-semibold text-heading-1 mb-1">Start small</p>
+                        <p>One task is enough to validate the loop. Scale up once it works end to end.</p>
+                    </div>
+                    <div class="p-4 rounded-lg border border-box-border">
+                        <p class="font-semibold text-heading-1 mb-1">Your subscription covers it</p>
+                        <p>Runs use your <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">claude</code> / <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">codex</code> CLI auth — Claude Max or ChatGPT Plus works out of the box.</p>
+                    </div>
+                    <div class="p-4 rounded-lg border border-box-border">
+                        <p class="font-semibold text-heading-1 mb-1">More in the README</p>
+                        <p>Full CLI reference, cloud sandbox options, and the authoring guide: <a href="https://github.com/NoesisVision/nasde-toolkit" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">github.com/NoesisVision/nasde-toolkit</a>.</p>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        <!-- How does the scoring actually work -->
+        <section class="relative py-10 md:py-14 bg-gray-50/50 dark:bg-gray-900/30 rounded-2xl mx-4 md:mx-8" id="how-scoring-works">
+            <Container className="space-y-10">
+                <div class="text-center max-w-4xl mx-auto space-y-4">
+                    <Title>How does the scoring actually work?</Title>
+                    <Paragraph>
+                        <em>"If there's a test, there has to be an expected result, right?"</em> — yes, and there are two independent kinds, answering two different questions.
+                    </Paragraph>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                    <!-- Functional tests -->
+                    <div class="p-6 rounded-2xl border border-box-border bg-box-bg">
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">1. Functional tests — deterministic pass/fail</h3>
+                        <p class="text-heading-3 text-sm leading-relaxed mb-3">
+                            This is the standard verifier pattern used by <a href="https://github.com/cased/harbor" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Harbor</a> and other coding-agent benchmarks — every task has a <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">tests/test.sh</code> script that runs inside the container after the agent is done. Either it passes (reward = 1) or it doesn't (reward = 0). Nothing AI about this step.
+                        </p>
+                        <p class="text-heading-3 text-sm leading-relaxed mb-2 font-semibold">What "passing" means is up to you:</p>
+                        <ul class="text-heading-3 text-sm leading-relaxed space-y-1 pl-5 list-disc">
+                            <li><strong>Bug fix:</strong> the regression test that was failing now passes.</li>
+                            <li><strong>Refactor:</strong> the existing test suite still passes.</li>
+                            <li><strong>Feature:</strong> a new integration test you wrote passes.</li>
+                        </ul>
+                        <p class="text-heading-3 text-sm leading-relaxed mt-3 italic">
+                            Hard yes/no on correctness. Says nothing about <em>how</em> the code got there.
+                        </p>
+                    </div>
+
+                    <!-- Multi-dimensional assessment -->
+                    <div class="p-6 rounded-2xl border border-box-border bg-box-bg">
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">2. Multi-dimensional assessment — reviewer agent scores the produced results</h3>
+                        <p class="text-heading-3 text-sm leading-relaxed mb-3">
+                            Functional tests only catch black-and-white failures. They don't tell you whether the produced workspace is well-structured, respects your architecture, whether tests are meaningful (not just coverage padding), whether a generated document is clear, whether a migration is reversible. For that, NASDE runs a <strong>second agent</strong> on the produced workspace.
+                        </p>
+                        <p class="text-heading-3 text-sm leading-relaxed mb-2 font-semibold">The reviewer's reference point is two files you write:</p>
+                        <ul class="text-heading-3 text-sm leading-relaxed space-y-2 pl-5 list-disc">
+                            <li><code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">assessment_dimensions.json</code> — the dimensions and their max scores (shared across the benchmark).</li>
+                            <li><code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">assessment_criteria.md</code> — per task, in plain prose: for each dimension, what a low score looks like, what a high score looks like, what specific things to check.</li>
+                        </ul>
+                        <p class="text-heading-3 text-sm leading-relaxed mt-3">
+                            The criteria can be as strict or as loose as you want: spell out a ground-truth structure, enumerate exact checks, or leave room for judgment — whatever gives you signal you trust.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Why this stays cheap even on large codebases -->
+                <div class="max-w-5xl mx-auto p-6 rounded-2xl border border-primary/30 bg-primary/5">
+                    <h3 class="text-lg font-bold text-heading-1 mb-3">Why this stays token-efficient on large codebases</h3>
+                    <p class="text-heading-3 text-sm leading-relaxed mb-3">
+                        The reviewer is a <strong>full coding agent</strong> (<code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">claude</code> or <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">codex</code>), not a one-shot prompt. That's a deliberate design choice and the single biggest reason NASDE scales to real repositories:
+                    </p>
+                    <ul class="text-heading-3 text-sm leading-relaxed space-y-2 pl-5 list-disc">
+                        <li><strong>The repo never goes into the prompt.</strong> The reviewer navigates the workspace with <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">Read</code>, <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">Glob</code>, <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">Grep</code> (and optionally MCP analysis servers), pulling only the files it actually needs to judge each dimension.</li>
+                        <li><strong>Context window isn't the limit.</strong> A 500k-LOC codebase is reviewed the same way a 5k-LOC one is — by reading the relevant slices on demand.</li>
+                    </ul>
+                </div>
+
+            </Container>
+        </section>
+
         <!-- Pipeline Diagram Section -->
         <section class="relative py-10 md:py-14" id="pipeline">
             <Container className="space-y-10">
                 <div class="text-center max-w-4xl mx-auto space-y-4">
-                    <Title>
-                        The NASDE Pipeline
-                    </Title>
+                    <Title>The full pipeline, end to end</Title>
                     <Paragraph>
-                        Standard evals give you pass/fail. NASDE gives you a multi-dimensional quality map.
+                        One command (<code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">nasde run</code>) executes this whole chain and writes results to disk.
                     </Paragraph>
                 </div>
 
                 <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-1 max-w-5xl mx-auto px-2">
                     <!-- Step 1: Task Definition -->
-                    <div class="flex-shrink-0 w-full md:w-auto md:min-w-[120px] md:max-w-[150px] rounded-xl p-4 bg-indigo-100 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800/40 text-center">
-                        <p class="font-semibold text-sm text-heading-1">Task Definition</p>
-                        <p class="text-xs text-heading-3 mt-1">+ assessment criteria + scoring dimensions</p>
+                    <div class="flex-shrink-0 w-full md:w-auto md:min-w-[120px] md:max-w-[160px] rounded-xl p-4 bg-indigo-100 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800/40 text-center">
+                        <p class="font-semibold text-sm text-heading-1">Task</p>
+                        <p class="text-xs text-heading-3 mt-1">instruction + test.sh + assessment criteria</p>
                     </div>
                     <!-- Arrow -->
-                    <div class="flex items-center justify-center text-heading-3 md:rotate-0">
+                    <div class="flex items-center justify-center text-heading-3">
                         <svg class="w-6 h-6 hidden md:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                         <svg class="w-6 h-6 md:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6l0 12m0 0l-5-5m5 5l5-5" /></svg>
                     </div>
-                    <!-- Step 2: Harbor -->
-                    <div class="flex-shrink-0 w-full md:w-auto md:min-w-[120px] md:max-w-[150px] rounded-xl p-4 bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/40 text-center">
-                        <p class="font-semibold text-sm text-heading-1"><a href="https://harborframework.com/" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Harbor</a>: Agent Solves Task</p>
-                        <p class="text-xs text-heading-3 mt-1">in sandbox (Docker / cloud)</p>
+                    <!-- Step 2: Coding agent in sandbox -->
+                    <div class="flex-shrink-0 w-full md:w-auto md:min-w-[120px] md:max-w-[160px] rounded-xl p-4 bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/40 text-center">
+                        <p class="font-semibold text-sm text-heading-1">Coding agent</p>
+                        <p class="text-xs text-heading-3 mt-1">isolated container (Docker / cloud)</p>
                     </div>
                     <!-- Arrow -->
                     <div class="flex items-center justify-center text-heading-3">
@@ -93,39 +296,179 @@ const schema = {
                         <svg class="w-6 h-6 md:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6l0 12m0 0l-5-5m5 5l5-5" /></svg>
                     </div>
                     <!-- Step 3: Functional Tests -->
-                    <div class="flex-shrink-0 w-full md:w-auto md:min-w-[120px] md:max-w-[150px] rounded-xl p-4 bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/40 text-center">
-                        <p class="font-semibold text-sm text-heading-1">test.sh: Functional Tests</p>
+                    <div class="flex-shrink-0 w-full md:w-auto md:min-w-[120px] md:max-w-[160px] rounded-xl p-4 bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/40 text-center">
+                        <p class="font-semibold text-sm text-heading-1">Functional tests</p>
+                        <p class="text-xs text-heading-3 mt-1">reward 0 / 1</p>
                     </div>
                     <!-- Arrow -->
                     <div class="flex items-center justify-center text-heading-3">
                         <svg class="w-6 h-6 hidden md:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                         <svg class="w-6 h-6 md:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6l0 12m0 0l-5-5m5 5l5-5" /></svg>
                     </div>
-                    <!-- Step 4: Binary Reward -->
-                    <div class="flex-shrink-0 w-full md:w-auto md:min-w-[120px] md:max-w-[150px] rounded-xl p-4 bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/40 text-center">
-                        <p class="font-semibold text-sm text-heading-1">Binary Reward</p>
-                        <p class="text-xs text-heading-3 mt-1">0 or 1</p>
+                    <!-- Step 4: Reviewer Agent (HIGHLIGHTED) -->
+                    <div class="flex-shrink-0 w-full md:w-auto md:min-w-[120px] md:max-w-[160px] rounded-xl p-4 bg-red-700 text-white border border-red-600 text-center shadow-lg shadow-red-500/20">
+                        <p class="font-bold text-sm">Reviewer agent</p>
+                        <p class="text-xs mt-1 text-red-100">reads produced workspace + trajectory, scores vs. your criteria</p>
                     </div>
                     <!-- Arrow -->
                     <div class="flex items-center justify-center text-heading-3">
                         <svg class="w-6 h-6 hidden md:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                         <svg class="w-6 h-6 md:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6l0 12m0 0l-5-5m5 5l5-5" /></svg>
                     </div>
-                    <!-- Step 5: NASDE Reviewer Agent (HIGHLIGHTED) -->
-                    <div class="flex-shrink-0 w-full md:w-auto md:min-w-[120px] md:max-w-[150px] rounded-xl p-4 bg-red-700 text-white border border-red-600 text-center shadow-lg shadow-red-500/20">
-                        <p class="font-bold text-sm">NASDE Reviewer Agent</p>
-                        <p class="text-xs mt-1 text-red-100">navigates the codebase</p>
+                    <!-- Step 5: Scores -->
+                    <div class="flex-shrink-0 w-full md:w-auto md:min-w-[120px] md:max-w-[160px] rounded-xl p-4 bg-indigo-100 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800/40 text-center">
+                        <p class="font-semibold text-sm text-heading-1">Per-dimension scores</p>
+                        <p class="text-xs text-heading-3 mt-1">logged locally + optional experiment tracker</p>
                     </div>
-                    <!-- Arrow -->
-                    <div class="flex items-center justify-center text-heading-3">
-                        <svg class="w-6 h-6 hidden md:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                        <svg class="w-6 h-6 md:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6l0 12m0 0l-5-5m5 5l5-5" /></svg>
+                </div>
+
+                <Paragraph className="text-center max-w-3xl mx-auto text-sm">
+                    NASDE is the glue that connects sandbox execution, functional tests, the reviewer agent, and experiment tracking — all invoked by a single <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">nasde run</code>.
+                </Paragraph>
+            </Container>
+        </section>
+
+        <!-- A concrete task, end to end -->
+        <section class="relative py-10 md:py-14" id="example-task">
+            <Container className="space-y-10">
+                <div class="text-center max-w-4xl mx-auto space-y-4">
+                    <Title>What a real task looks like</Title>
+                    <Paragraph>
+                        Everything above is easier to grasp on a concrete example. Here's one benchmark task from the repo — <a href="https://github.com/NoesisVision/nasde-toolkit/tree/main/examples/ddd-architectural-challenges/tasks/ddd-weather-discount" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold"><code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">examples/ddd-architectural-challenges/tasks/ddd-weather-discount</code></a> — shown end to end: the agent's instruction, the assessment criteria, and the resulting scores.
+                    </Paragraph>
+                </div>
+
+                <div class="max-w-5xl mx-auto space-y-6">
+
+                    <!-- Task instruction -->
+                    <div class="bg-box-bg rounded-2xl border border-box-border overflow-hidden">
+                        <div class="px-5 md:px-6 py-3 border-b border-box-border bg-gray-50 dark:bg-gray-900/40 flex items-center gap-3">
+                            <span class="text-xs font-mono px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300">instruction.md</span>
+                            <span class="text-sm text-heading-3">what the coding agent is asked to do</span>
+                        </div>
+                        <div class="p-5 md:p-6 text-heading-3 text-sm leading-relaxed space-y-3">
+                            <p><strong class="text-heading-1">Task — Implement a weather-based discount.</strong></p>
+                            <p>You are working on an e-commerce system built using <strong>Domain-Driven Design</strong> and <strong>hexagonal architecture</strong> (.NET 8, C#). Implement a discount that:</p>
+                            <ul class="pl-5 list-disc space-y-1">
+                                <li>Checks current weather in Warsaw via the Open-Meteo API.</li>
+                                <li>Applies a <strong>10% discount</strong> when <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">precipitation &gt; 0</code>.</li>
+                                <li>Must be <strong>extensible</strong>: more weather-based discounts (temperature, wind, UV, humidity) will follow and should plug in without rewrites.</li>
+                            </ul>
+                            <p><strong class="text-heading-1">Quality expectations:</strong> fit into the existing DDD architecture · handle API failures gracefully (do not break order processing) · write unit and integration tests · follow codebase conventions.</p>
+                        </div>
                     </div>
-                    <!-- Step 6: Multi-dimensional Scores -->
-                    <div class="flex-shrink-0 w-full md:w-auto md:min-w-[120px] md:max-w-[150px] rounded-xl p-4 bg-indigo-100 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800/40 text-center">
-                        <p class="font-semibold text-sm text-heading-1">Multi-dimensional Scores</p>
-                        <p class="text-xs text-heading-3 mt-1">N dimensions &times; 0-25 pts</p>
+
+                    <!-- Assessment criteria excerpt -->
+                    <div class="bg-box-bg rounded-2xl border border-box-border overflow-hidden">
+                        <div class="px-5 md:px-6 py-3 border-b border-box-border bg-gray-50 dark:bg-gray-900/40 flex items-center gap-3">
+                            <span class="text-xs font-mono px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300">assessment_criteria.md</span>
+                            <span class="text-sm text-heading-3">what the reviewer agent scores against (excerpt: the author's Domain Modeling ladder)</span>
+                        </div>
+                        <div class="p-5 md:p-6 text-heading-3 text-sm leading-relaxed space-y-4">
+                            <p>The criteria spell out what each score means for each dimension. Extract from the <em>Domain Modeling</em> dimension — the benchmark author chose a 0–25 scale here; your own criteria can use any scale that fits (0–5, 0–10, named levels, pass/fail, whatever):</p>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm">
+                                    <thead>
+                                        <tr class="border-b border-box-border text-heading-1">
+                                            <th class="text-center py-2 px-3 font-semibold w-16">Score</th>
+                                            <th class="text-left py-2 px-3 font-semibold">Criteria</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b border-box-border/50 align-top">
+                                            <td class="text-center py-2 px-3 font-mono font-semibold text-red-600">0</td>
+                                            <td class="py-2 px-3">No domain types for weather — raw HTTP responses or primitives used directly in domain logic.</td>
+                                        </tr>
+                                        <tr class="border-b border-box-border/50 align-top">
+                                            <td class="text-center py-2 px-3 font-mono font-semibold">10</td>
+                                            <td class="py-2 px-3">Domain types exist for weather, but they leak infrastructure concerns (JSON annotations, HTTP status codes).</td>
+                                        </tr>
+                                        <tr class="border-b border-box-border/50 align-top">
+                                            <td class="text-center py-2 px-3 font-mono font-semibold">15</td>
+                                            <td class="py-2 px-3">Clean domain types (precipitation as a value object), but discount logic is <em>not</em> modeled as a domain service or policy.</td>
+                                        </tr>
+                                        <tr class="border-b border-box-border/50 align-top">
+                                            <td class="text-center py-2 px-3 font-mono font-semibold">20</td>
+                                            <td class="py-2 px-3">Good domain modeling and discount as a domain service, but error handling uses infrastructure exceptions instead of domain-appropriate patterns.</td>
+                                        </tr>
+                                        <tr class="align-top">
+                                            <td class="text-center py-2 px-3 font-mono font-semibold text-green-600">25</td>
+                                            <td class="py-2 px-3">Weather modeled as value objects · discount encapsulated in a domain service/policy · failures handled via domain patterns (Result type, domain exceptions, safe defaults) · domain layer has <strong>zero</strong> infrastructure dependencies.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pt-2 text-heading-3">
+                                <p class="font-semibold text-heading-1 mb-1">Key checks for the reviewer agent:</p>
+                                <ul class="pl-5 list-disc space-y-1">
+                                    <li>Is there a port / interface for weather data in the <em>domain</em> layer?</li>
+                                    <li>Does that port use domain types (not <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">HttpResponseMessage</code>, <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">JsonElement</code>)?</li>
+                                    <li>Is the discount rule inside a domain service / policy, or living in the HTTP adapter?</li>
+                                    <li>Are failure modes (API down) handled with domain-appropriate defaults?</li>
+                                </ul>
+                            </div>
+                            <p class="text-xs italic text-heading-3 pt-2 border-t border-box-border/60">
+                                The full assessment covers four more dimensions the benchmark author picked for this task (Encapsulation · Architecture Compliance · Extensibility · Test Quality), each with its own ladder and checks. Another author would have chosen different dimensions or different scales for the same task.
+                            </p>
+                        </div>
                     </div>
+
+                    <!-- Results table for this specific task -->
+                    <div class="bg-box-bg rounded-2xl border border-box-border overflow-hidden">
+                        <div class="px-5 md:px-6 py-3 border-b border-box-border bg-gray-50 dark:bg-gray-900/40 flex items-center gap-3">
+                            <span class="text-xs font-mono px-2 py-0.5 rounded bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300">results</span>
+                            <span class="text-sm text-heading-3">four agent configurations scored against the same criteria</span>
+                        </div>
+                        <div class="p-5 md:p-6">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm">
+                                    <thead>
+                                        <tr class="border-b border-box-border text-heading-1">
+                                            <th class="text-left py-2 pr-3 font-semibold">Variant</th>
+                                            <th class="text-center py-2 px-2 font-semibold">Pass</th>
+                                            <th class="text-center py-2 px-2 font-semibold">Domain<br/><span class="text-xs font-normal text-heading-3">/25</span></th>
+                                            <th class="text-center py-2 px-2 font-semibold">Encap.<br/><span class="text-xs font-normal text-heading-3">/20</span></th>
+                                            <th class="text-center py-2 px-2 font-semibold">Arch.<br/><span class="text-xs font-normal text-heading-3">/20</span></th>
+                                            <th class="text-center py-2 px-2 font-semibold">Ext.<br/><span class="text-xs font-normal text-heading-3">/15</span></th>
+                                            <th class="text-center py-2 px-2 font-semibold">Tests<br/><span class="text-xs font-normal text-heading-3">/20</span></th>
+                                            <th class="text-center py-2 pl-2 font-semibold">Total<br/><span class="text-xs font-normal text-heading-3">/100</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-heading-3">
+                                        <tr class="border-b border-box-border/50"><td class="py-1.5 pr-3 font-mono text-xs">claude-vanilla</td><td class="text-center py-1.5 px-2">75%</td><td class="text-center py-1.5 px-2">17.1</td><td class="text-center py-1.5 px-2">11.2</td><td class="text-center py-1.5 px-2">16.1</td><td class="text-center py-1.5 px-2">9.5</td><td class="text-center py-1.5 px-2">7.7</td><td class="text-center py-1.5 pl-2 font-semibold">61.6</td></tr>
+                                        <tr class="border-b border-box-border/50"><td class="py-1.5 pr-3 font-mono text-xs">claude-guided</td><td class="text-center py-1.5 px-2">75%</td><td class="text-center py-1.5 px-2">17.4</td><td class="text-center py-1.5 px-2">12.4</td><td class="text-center py-1.5 px-2">16.6</td><td class="text-center py-1.5 px-2">10.0</td><td class="text-center py-1.5 px-2">8.7</td><td class="text-center py-1.5 pl-2 font-semibold text-green-600">65.1</td></tr>
+                                        <tr class="border-b border-box-border/50"><td class="py-1.5 pr-3 font-mono text-xs">codex-vanilla</td><td class="text-center py-1.5 px-2">89%</td><td class="text-center py-1.5 px-2">18.8</td><td class="text-center py-1.5 px-2">13.8</td><td class="text-center py-1.5 px-2">16.8</td><td class="text-center py-1.5 px-2">11.4</td><td class="text-center py-1.5 px-2">8.7</td><td class="text-center py-1.5 pl-2 font-semibold">69.4</td></tr>
+                                        <tr><td class="py-1.5 pr-3 font-mono text-xs">codex-guided</td><td class="text-center py-1.5 px-2">50%</td><td class="text-center py-1.5 px-2">11.5</td><td class="text-center py-1.5 px-2">9.6</td><td class="text-center py-1.5 px-2">12.9</td><td class="text-center py-1.5 px-2">7.4</td><td class="text-center py-1.5 px-2">6.0</td><td class="text-center py-1.5 pl-2 font-semibold text-red-600">47.4</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-heading-3 text-sm leading-relaxed mt-4">
+                                <strong class="text-heading-1">The insight:</strong> the same "DDD guidance" skill helps Claude a little (+3.5) and <em>badly</em> hurts Codex (-22). The per-dimension breakdown pinpoints <em>where</em> Codex regresses — domain modeling, encapsulation, extensibility — which would be invisible without this assessment. Skill optimization is agent-specific.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More examples as light cards -->
+                <div class="max-w-5xl mx-auto pt-4 space-y-4">
+                    <h3 class="text-lg font-bold text-heading-1 text-center">More benchmarks in the repo</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <a href="https://github.com/NoesisVision/nasde-toolkit/tree/main/examples/refactoring-skill" target="_blank" rel="noopener noreferrer" class="block p-5 rounded-xl border border-box-border bg-box-bg hover:border-primary/50 transition-colors">
+                            <p class="font-semibold text-heading-1 mb-1 text-sm">Refactoring katas (Java + Python) →</p>
+                            <p class="text-heading-3 text-sm leading-relaxed">
+                                Four classic refactorings (Extract Hierarchy, Break Dependency, Polymorphism, Extract Method) scored on behavior preservation, clarity, technique, scope discipline. <strong class="text-heading-1">Takeaway:</strong> a candidate "refactoring skill" didn't move the score — shipping it would have been based on vibes.
+                            </p>
+                        </a>
+                        <a href="https://github.com/NoesisVision/nasde-toolkit/tree/main/examples/nasde-dev-skill" target="_blank" rel="noopener noreferrer" class="block p-5 rounded-xl border border-box-border bg-box-bg hover:border-primary/50 transition-colors">
+                            <p class="font-semibold text-heading-1 mb-1 text-sm">Project-specific skill validation (NASDE's own repo) →</p>
+                            <p class="text-heading-3 text-sm leading-relaxed">
+                                One task pulled from NASDE's git history; four skill combinations tested. <strong class="text-heading-1">Takeaway:</strong> the testing-discipline skill alone raised pass rate from 67% → 100%; the "full-stack, everything-on" variant scored <em>worse</em> than vanilla.
+                            </p>
+                        </a>
+                    </div>
+                    <p class="text-center text-sm text-heading-3 pt-2">
+                        Full numbers and methodology: <a href="https://github.com/NoesisVision/nasde-toolkit/blob/main/docs/benchmark-results.md" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">docs/benchmark-results.md</a>.
+                    </p>
                 </div>
             </Container>
         </section>
@@ -134,11 +477,9 @@ const schema = {
         <section class="relative py-10 md:py-14" id="opik-dashboard">
             <Container className="space-y-8">
                 <div class="text-center max-w-4xl mx-auto space-y-4">
-                    <Title>
-                        Every Dimension, Beautifully Tracked
-                    </Title>
+                    <Title>Results dashboard (optional)</Title>
                     <Paragraph>
-                        Scores are logged to <a href="https://www.comet.com/site/products/opik/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Opik</a> for experiment tracking, comparison, and visualization. Each dimension is a separate feedback score — easy to filter, compare, and trend over time.
+                        Scores land in local JSON files by default. Pass <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">--with-opik</code> and they also flow into <a href="https://www.comet.com/site/products/opik/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Opik</a> for experiment tracking, comparison, and visualization. Each dimension becomes a separate feedback score — easy to filter, compare, and trend over time.
                     </Paragraph>
                 </div>
 
@@ -147,211 +488,6 @@ const schema = {
                     <p class="text-center text-sm text-heading-3">
                         Opik dashboard showing dimension scores across different agent configurations and variants.
                     </p>
-                </div>
-            </Container>
-        </section>
-
-        <!-- CLI & Skills Section -->
-        <section class="relative py-10 md:py-14" id="cli">
-            <Container className="space-y-8">
-                <div class="text-center max-w-4xl mx-auto space-y-4">
-                    <Title>
-                        Built for the CLI Era
-                    </Title>
-                    <Paragraph>
-                        NASDE is a single <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">nasde</code> command on your PATH. No web dashboards to configure, no complex setup. Just a CLI that agents and humans both use naturally.
-                    </Paragraph>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                    <div class="p-5 sm:p-6 rounded-2xl border border-box-border bg-box-bg">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-indigo-600">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-heading-1 mb-1">One Command to Run</h3>
-                                <p class="text-heading-3 text-sm leading-relaxed">
-                                    <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">nasde run --variant vanilla -C my-benchmark</code> — that's it. Harbor, sandbox, scoring, and Opik logging all handled automatically.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-5 sm:p-6 rounded-2xl border border-box-border bg-box-bg">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-green-600">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-heading-1 mb-1">Ships with Built-in Skills</h3>
-                                <p class="text-heading-3 text-sm leading-relaxed">
-                                    Built-in skills guide you through creating benchmarks, mining git history for tasks, curating public repos, and running evaluations. Describe what you want — the skills take it from there.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-5 sm:p-6 rounded-2xl border border-box-border bg-box-bg">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-purple-600">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-heading-1 mb-1">Agent-Friendly by Design</h3>
-                                <p class="text-heading-3 text-sm leading-relaxed">
-                                    CLI + skills means AI agents can operate NASDE as naturally as a human. Your coding agent can scaffold benchmarks, run evaluations, and analyze results — all through the same interface.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-5 sm:p-6 rounded-2xl border border-box-border bg-box-bg">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-amber-600">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-heading-1 mb-1">Zero Infrastructure Overhead</h3>
-                                <p class="text-heading-3 text-sm leading-relaxed">
-                                    Install with <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">uv tool install .</code> — Harbor, Opik, and Claude Code SDK are bundled. One install, everything on PATH, ready to go.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </Container>
-        </section>
-
-        <!-- Beyond Pass/Fail Section -->
-        <section class="relative py-10 md:py-14" id="beyond-pass-fail">
-            <Container className="space-y-8">
-                <div class="text-center max-w-4xl mx-auto space-y-4">
-                    <Title>
-                        Beyond Pass/Fail
-                    </Title>
-                    <Paragraph>
-                        Traditional evals check if code compiles. NASDE scores how well it's engineered.
-                    </Paragraph>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    <!-- Card 1: Real-World Tasks -->
-                    <div class="bg-box-bg p-6 rounded-xl border border-box-border">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-600">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold text-heading-1">Real-World Tasks</h3>
-                        </div>
-                        <p class="text-heading-3 text-sm leading-relaxed">
-                            Extract evaluation tasks from your git history with <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">benchmark-from-history</code>, or curate diverse public repos with <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">benchmark-from-public-repos</code>. Real work from real codebases.
-                        </p>
-                    </div>
-
-                    <!-- Card 2: Multi-Dimensional Scoring -->
-                    <div class="bg-box-bg p-6 rounded-xl border border-box-border">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold text-heading-1">Multi-Dimensional Scoring</h3>
-                        </div>
-                        <p class="text-heading-3 text-sm leading-relaxed">
-                            Custom scoring dimensions defined in <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">assessment_dimensions.json</code>. Each task gets a detailed rubric (<code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">assessment_criteria.md</code>). The reviewer agent freely navigates the workspace and scores against your criteria.
-                        </p>
-                    </div>
-
-                    <!-- Card 3: Agent-Agnostic Comparison -->
-                    <div class="bg-box-bg p-6 rounded-xl border border-box-border">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-purple-600">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 018.25 20.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold text-heading-1">Agent-Agnostic Comparison</h3>
-                        </div>
-                        <p class="text-heading-3 text-sm leading-relaxed">
-                            Compare Claude Code vs Codex, vanilla vs custom skills, different tool configurations. NASDE supports any agent via Harbor — isolated Docker or cloud sandbox per trial.
-                        </p>
-                    </div>
-
-                    <!-- Card 4: Configuration Testing -->
-                    <div class="bg-box-bg p-6 rounded-xl border border-box-border">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-600">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold text-heading-1">Configuration Testing, Not Just Skill Testing</h3>
-                        </div>
-                        <p class="text-heading-3 text-sm leading-relaxed">
-                            Built-in evals test if a skill triggers correctly. NASDE tests whether your complete setup — skills, CLAUDE.md, MCP servers — produces better code. The difference: activation vs outcome.
-                        </p>
-                    </div>
-                </div>
-            </Container>
-        </section>
-
-        <!-- How It Works Section -->
-        <section class="relative py-10 md:py-14" id="how-it-works">
-            <Container className="space-y-12">
-                <div class="text-center max-w-4xl mx-auto space-y-4">
-                    <Title>
-                        How It Works
-                    </Title>
-                </div>
-
-                <div class="flex flex-col gap-8 max-w-5xl mx-auto">
-                    <!-- Step 1: Define Tasks & Criteria -->
-                    <div class="p-5 sm:p-6 lg:p-8 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow relative overflow-hidden">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center">
-                                <span class="text-xl font-bold text-indigo-600">1</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-heading-1">Define Tasks & Criteria</h3>
-                        </div>
-                        <p class="text-heading-3 text-sm leading-relaxed pl-15">
-                            Scaffold with <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">nasde init</code>, define assessment dimensions (e.g. domain modeling, error handling, code quality), and write per-task rubrics. Or auto-generate from git history.
-                        </p>
-                    </div>
-
-                    <!-- Step 2: Run in Sandboxed Environments -->
-                    <div class="p-5 sm:p-6 lg:p-8 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow relative overflow-hidden">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
-                                <span class="text-xl font-bold text-green-600">2</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-heading-1">Run in Sandboxed Environments</h3>
-                        </div>
-                        <p class="text-heading-3 text-sm leading-relaxed pl-15">
-                            <a href="https://harborframework.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Harbor</a> executes agents in isolated Docker or cloud sandboxes (Daytona, Modal, E2B). Then NASDE's reviewer agent — powered by Claude Code SDK — navigates the codebase and scores it.
-                        </p>
-                    </div>
-
-                    <!-- Step 3: Track & Compare in Opik -->
-                    <div class="p-5 sm:p-6 lg:p-8 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow relative overflow-hidden">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
-                                <span class="text-xl font-bold text-blue-600">3</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-heading-1">Track & Compare in <a href="https://www.comet.com/site/products/opik/" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Opik</a></h3>
-                        </div>
-                        <p class="text-heading-3 text-sm leading-relaxed pl-15">
-                            Every run is logged with dimension scores, traces, and rewards. Compare variants, track progress over time, and feed insights back into your agent configuration.
-                        </p>
-                    </div>
                 </div>
             </Container>
         </section>
@@ -376,11 +512,11 @@ const schema = {
                     </div>
                     <div class="mx-auto text-center max-w-xl sm:max-w-2xl md:max-w-3xl relative">
                         <h1 class="text-3xl/tight sm:text-4xl/tight md:text-4xl/tight font-bold text-heading-1">
-                            Ready to <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">measure what matters</span>?
+                            Try it on a <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">real problem you've already solved</span>
                         </h1>
 
                         <Paragraph className="pt-10">
-                            NASDE is open-source and ready to use. Clone the repo, scaffold your first benchmark, and start measuring what actually matters in your AI development setup.
+                            NASDE is open-source and MIT-licensed. Clone the repo, pick one of the example benchmarks to see how the pieces fit together, then point it at a task from your own git history.
                         </Paragraph>
 
                         <div class="flex justify-center items-center pt-10">
