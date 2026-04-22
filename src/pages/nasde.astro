@@ -87,7 +87,7 @@ const schema = {
                         </div>
                         <h3 class="font-bold text-heading-1 mb-2">The agent solves it in a sandbox</h3>
                         <p class="text-heading-3 text-sm leading-relaxed">
-                            The agent works in a safe, isolated environment — it can't touch your machine or your real code. Every run starts from the same clean state, so different configurations get a fair comparison. Powered by <a href="https://github.com/cased/harbor" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Harbor</a>, runs locally on Docker or in the cloud.
+                            The agent works in a safe, isolated environment — it can't touch your machine or your real code. Every run starts from the same clean state, so different configurations get a fair comparison. When it's done, a quick <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">test.sh</code> check gives a rough pass/fail signal. Powered by <a href="https://github.com/cased/harbor" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Harbor</a>, runs locally on Docker or in the cloud.
                         </p>
                     </div>
                     <!-- Step 3 -->
@@ -97,7 +97,7 @@ const schema = {
                         </div>
                         <h3 class="font-bold text-heading-1 mb-2">A reviewer agent assesses the result against your criteria</h3>
                         <p class="text-heading-3 text-sm leading-relaxed">
-                            After functional tests pass or fail, a second coding agent (<code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">claude</code> or <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">codex</code>) navigates the workspace and scores your chosen dimensions (e.g. <em>domain modeling</em>, <em>test quality</em>) on whatever scale you picked. The review stays token-efficient even on large codebases.
+                            After initial rough tests pass or fail, a second coding agent (<code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">claude</code> or <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">codex</code>) navigates the workspace and scores your chosen dimensions (e.g. <em>domain modeling</em>, <em>test quality</em>) on whatever scale you picked. The review stays token-efficient even on large codebases.
                         </p>
                     </div>
                     <!-- Step 4 -->
@@ -215,9 +215,9 @@ const schema = {
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                    <!-- Functional tests -->
+                    <!-- Initial rough tests -->
                     <div class="p-6 rounded-2xl border border-box-border bg-box-bg">
-                        <h3 class="text-xl font-bold text-heading-1 mb-3">1. Functional tests — deterministic pass/fail</h3>
+                        <h3 class="text-xl font-bold text-heading-1 mb-3">1. Initial rough tests — deterministic pass/fail</h3>
                         <p class="text-heading-3 text-sm leading-relaxed mb-3">
                             This is the standard verifier pattern used by <a href="https://github.com/cased/harbor" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Harbor</a> and other coding-agent benchmarks — every task has a <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">tests/test.sh</code> script that runs inside the container after the agent is done. Either it passes (reward = 1) or it doesn't (reward = 0). Nothing AI about this step.
                         </p>
@@ -236,7 +236,7 @@ const schema = {
                     <div class="p-6 rounded-2xl border border-box-border bg-box-bg">
                         <h3 class="text-xl font-bold text-heading-1 mb-3">2. Multi-dimensional assessment — reviewer agent scores the produced results</h3>
                         <p class="text-heading-3 text-sm leading-relaxed mb-3">
-                            Functional tests only catch black-and-white failures. They don't tell you whether the produced workspace is well-structured, respects your architecture, whether tests are meaningful (not just coverage padding), whether a generated document is clear, whether a migration is reversible. For that, NASDE runs a <strong>second agent</strong> on the produced workspace.
+                            These rough tests only catch black-and-white failures. They don't tell you whether the produced workspace is well-structured, respects your architecture, whether tests are meaningful (not just coverage padding), whether a generated document is clear, whether a migration is reversible. For that, NASDE runs a <strong>second agent</strong> on the produced workspace.
                         </p>
                         <p class="text-heading-3 text-sm leading-relaxed mb-2 font-semibold">The reviewer's reference point is two files you write:</p>
                         <ul class="text-heading-3 text-sm leading-relaxed space-y-2 pl-5 list-disc">
@@ -295,9 +295,9 @@ const schema = {
                         <svg class="w-6 h-6 hidden md:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                         <svg class="w-6 h-6 md:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6l0 12m0 0l-5-5m5 5l5-5" /></svg>
                     </div>
-                    <!-- Step 3: Functional Tests -->
+                    <!-- Step 3: Rough Tests -->
                     <div class="flex-shrink-0 w-full md:w-auto md:min-w-[120px] md:max-w-[160px] rounded-xl p-4 bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/40 text-center">
-                        <p class="font-semibold text-sm text-heading-1">Functional tests</p>
+                        <p class="font-semibold text-sm text-heading-1">Rough tests</p>
                         <p class="text-xs text-heading-3 mt-1">reward 0 / 1</p>
                     </div>
                     <!-- Arrow -->
@@ -323,7 +323,7 @@ const schema = {
                 </div>
 
                 <Paragraph className="text-center max-w-3xl mx-auto text-sm">
-                    NASDE is the glue that connects sandbox execution, functional tests, the reviewer agent, and experiment tracking — all invoked by a single <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">nasde run</code>.
+                    NASDE is the glue that connects sandbox execution, rough tests, the reviewer agent, and experiment tracking — all invoked by a single <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">nasde run</code>.
                 </Paragraph>
             </Container>
         </section>
