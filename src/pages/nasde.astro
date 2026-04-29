@@ -87,7 +87,7 @@ const schema = {
                         </div>
                         <h3 class="font-bold text-heading-1 mb-2">The agent solves it in a sandbox</h3>
                         <p class="text-heading-3 text-sm leading-relaxed">
-                            The agent works in a safe, isolated environment — it can't touch your machine or your real code. Every run starts from the same clean state, so different configurations get a fair comparison. When it's done, a quick <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">test.sh</code> check gives a rough pass/fail signal. Powered by <a href="https://github.com/cased/harbor" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Harbor</a>, runs locally on Docker or in the cloud.
+                            The agent works in a safe, isolated environment — it can't touch your machine or your real code. Every run starts from the same clean state, so different configurations get a fair comparison. When it's done, a quick <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">test.sh</code> check gives a rough pass/fail signal. Powered by <a href="https://www.harborframework.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Harbor</a>, runs locally on Docker or in the cloud.
                         </p>
                     </div>
                     <!-- Step 3 -->
@@ -219,7 +219,7 @@ const schema = {
                     <div class="p-6 rounded-2xl border border-box-border bg-box-bg">
                         <h3 class="text-xl font-bold text-heading-1 mb-3">1. Initial rough tests — deterministic pass/fail</h3>
                         <p class="text-heading-3 text-sm leading-relaxed mb-3">
-                            This is the standard verifier pattern used by <a href="https://github.com/cased/harbor" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Harbor</a> and other coding-agent benchmarks — every task has a <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">tests/test.sh</code> script that runs inside the container after the agent is done. Either it passes (reward = 1) or it doesn't (reward = 0). Nothing AI about this step.
+                            This is the standard verifier pattern used by <a href="https://www.harborframework.com/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Harbor</a> and other coding-agent benchmarks — every task has a <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">tests/test.sh</code> script that runs inside the container after the agent is done. Either it passes (reward = 1) or it doesn't (reward = 0). Nothing AI about this step.
                         </p>
                         <p class="text-heading-3 text-sm leading-relaxed mb-2 font-semibold">What "passing" means is up to you:</p>
                         <ul class="text-heading-3 text-sm leading-relaxed space-y-1 pl-5 list-disc">
