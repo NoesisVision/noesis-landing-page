@@ -1,23 +1,12 @@
 ---
 import Container from "../shared/Container.astro";
-import Paragraph from "../shared/Paragraph.astro";
-import Title from "../shared/Title.astro";
 import BtnLink from "../shared/BtnLink.astro";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<section class="relative pt-12 pb-6 md:pt-16 md:pb-8" id="what-we-do">
+<section class="relative pt-4 pb-6 md:pt-6 md:pb-8" id="what-we-do">
     <Container>
-        <div class="text-center max-w-4xl mx-auto space-y-4 mb-12">
-            <Title>
-                What We Do
-            </Title>
-            <Paragraph>
-                We help engineering teams build, test, and optimize AI development — from agent tooling to skills to measurement.
-            </Paragraph>
-        </div>
-
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Development Process Design -->
             <div class="p-5 sm:p-6 lg:p-8 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow relative overflow-hidden group hover:shadow-xl transition-shadow duration-300">
