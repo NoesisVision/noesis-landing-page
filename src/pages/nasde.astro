@@ -38,13 +38,6 @@ const schema = {
                 </div>
                 <span class="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90"></span>
                 <div class="relative flex flex-col items-center text-center py-1 lg:py-3 xl:py-4 max-w-3xl mx-auto px-4 sm:px-6 lg:px-0">
-                    <div class="w-44 md:w-56 aspect-square rounded-2xl shadow-lg mb-10 lg:mb-14 overflow-hidden bg-white">
-                        <img
-                            src={`${base}/images/nasde-toolkit-logo.png`}
-                            alt="Nasde — the nasty code reviewer"
-                            class="w-full h-full object-cover"
-                        />
-                    </div>
                     <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-bold text-heading-1">
                         Switch agents and models with <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">numbers, not vibes</span>.
                     </h1>
@@ -193,6 +186,13 @@ const schema = {
                     </div>
                 </div>
 
+                <div class="max-w-3xl mx-auto space-y-3">
+                    <img src={`${base}/images/nasde-cli-run.png`} alt="nasde run in the terminal — the Benchmark Runner banner showing agent, variant, model, attempts, Opik and assessment status, then trials starting" class="rounded-xl border border-box-border shadow-lg w-full" />
+                    <p class="text-center text-sm text-heading-3">
+                        A real <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">nasde run</code> — it echoes the exact configuration under test, then streams each trial as it executes.
+                    </p>
+                </div>
+
                 <div class="max-w-3xl mx-auto grid sm:grid-cols-3 gap-4 text-sm text-heading-3">
                     <div class="p-4 rounded-lg border border-box-border">
                         <p class="font-semibold text-heading-1 mb-1">Start small</p>
@@ -288,9 +288,15 @@ const schema = {
                     <p class="text-heading-3 text-sm leading-relaxed mb-3">
                         Each trial reports <strong>tokens and dollars</strong> next to the quality score — per model, per provider — so a quality number is always paired with what it costs to reach it. That turns the AI-coding line item into something you can actually reason about: <strong>quality per dollar</strong>, on your own tasks.
                     </p>
-                    <p class="text-heading-3 text-sm leading-relaxed">
+                    <p class="text-heading-3 text-sm leading-relaxed mb-5">
                         Nasde plots models and variants on a <strong>quality-vs-cost Pareto frontier</strong> — the view a budget owner needs: where the best value sits, where you're overpaying, and the point that matches your quality bar and your spend. It's how you choose where to invest and when a switch is worth it. See <a href="https://noesisvision.github.io/nasde-toolkit/concepts/token-cost/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">Token &amp; Cost</a> in the docs.
                     </p>
+                    <div class="max-w-2xl mx-auto space-y-2">
+                        <img src={`${base}/images/nasde-pareto.png`} alt="Quality vs. cost for coding agents on a DDD task — Claude and OpenAI models, with and without a skill, plotted by rubric score against USD per task" class="rounded-xl border border-box-border bg-white shadow-lg w-full" />
+                        <p class="text-center text-sm text-heading-3">
+                            One real task: rubric score against dollars per task. Color = provider, shape = model vs. model + skill. The same skill nudges Claude's quality up and pushes some OpenAI runs down — and the best value isn't the priciest point.
+                        </p>
+                    </div>
                 </div>
 
             </Container>
@@ -515,8 +521,8 @@ const schema = {
                     </Paragraph>
                 </div>
 
-                <div class="max-w-5xl mx-auto space-y-4">
-                    <img src={`${base}/images/opik-visualization.png`} alt="Nasde scores visualized in Opik dashboard" class="rounded-2xl border border-box-border shadow-lg" />
+                <div class="max-w-4xl mx-auto space-y-3">
+                    <img src={`${base}/images/opik-visualization.png`} alt="Nasde scores visualized in Opik dashboard" class="rounded-xl border border-box-border shadow-lg w-full" />
                     <p class="text-center text-sm text-heading-3">
                         Opik dashboard showing dimension scores across different agent configurations and variants.
                     </p>
