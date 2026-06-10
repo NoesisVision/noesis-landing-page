@@ -10,8 +10,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "NASDE — Noesis Agentic Software Development Evals",
-    "description": "Open-source CLI toolkit for running AI coding agents on realistic tasks inside isolated containers, then scoring the produced results against criteria you define. Lets you compare skill/CLAUDE.md/MCP configurations objectively.",
+    "name": "Nasde — Noesis Agentic Software Development Evals",
+    "description": "Open-source CLI toolkit that measures how your whole AI coding setup performs — quality of output plus tokens and dollars per model and provider — so you can decide which agent, model, and configuration to standardize on, and when a migration pays off.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Cross-platform",
     "offers": {
@@ -26,7 +26,7 @@ const schema = {
 };
 ---
 
-<Layout title="NASDE — Evals for AI Coding Agents" description="Open-source CLI toolkit for running AI coding agents on realistic tasks in isolated containers, then scoring the produced results against criteria you define. Compare skill/CLAUDE.md/MCP configurations objectively." schema={schema}>
+<Layout title="Nasde — Measure your AI coding setup's quality and cost" description="Open-source CLI toolkit that measures how your whole AI coding setup performs — quality plus tokens and dollars per model and provider — so you can pick which agent and model to standardize on and when a migration pays off." schema={schema}>
     <main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
 
         <!-- Hero Section -->
@@ -41,19 +41,19 @@ const schema = {
                     <div class="w-44 md:w-56 aspect-square rounded-2xl shadow-lg mb-10 lg:mb-14 overflow-hidden bg-white">
                         <img
                             src={`${base}/images/nasde-toolkit-logo.png`}
-                            alt="NASDE — the nasty code reviewer"
+                            alt="Nasde — the nasty code reviewer"
                             class="w-full h-full object-cover"
                         />
                     </div>
                     <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-bold text-heading-1">
-                        Evaluate AI coding agents on <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">your own work</span>, with <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">your own criteria</span>.
+                        Switch agents and models with <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">numbers, not vibes</span>.
                     </h1>
                     <Paragraph className="mt-3 lg:mt-4 text-base text-center">
-                        NASDE is an open-source CLI toolkit that runs an AI coding agent on a task you already understand, inside an isolated container, and scores the produced results against criteria <strong>you</strong> write. It exists so you can answer <em>"did my new skill / <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">CLAUDE.md</code> / MCP setup actually help?"</em> with numbers instead of vibes.
+                        Nasde measures how your <strong>whole AI coding setup</strong> performs — the agent, its skills, its MCP servers, against <strong>your</strong> tasks — and reports not just how good the output is, but <strong>how many tokens and dollars</strong> it took, per model and per provider. It's how you decide which agent and model to standardize on, and <strong>when a migration actually pays off</strong>.
                     </Paragraph>
                     <div class="mt-8 lg:mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                         <BtnLink variant="primary" href="https://github.com/NoesisVision/nasde-toolkit" text="View on GitHub" className="text-base" target="_blank" data-track="cta_github" data-track-section="nasde-hero" />
-                        <BtnLink variant="secondary" href="https://discord.gg/QF5PMX4Dqg" text="Join Discord Community" className="text-base" target="_blank" data-track="cta_discord" data-track-section="nasde-hero" />
+                        <BtnLink variant="secondary" href="https://noesisvision.github.io/nasde-toolkit/" text="Read the Docs" className="text-base" target="_blank" data-track="cta_docs" data-track-section="nasde-hero" />
                     </div>
                 </div>
             </Container>
@@ -63,7 +63,7 @@ const schema = {
         <section class="relative py-10 md:py-14" id="three-sentences">
             <Container className="space-y-8">
                 <div class="text-center max-w-4xl mx-auto space-y-4">
-                    <Title>What NASDE does — in four steps</Title>
+                    <Title>What Nasde does — in four steps</Title>
                     <Paragraph>
                         One <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">nasde run</code> command executes the whole chain.
                     </Paragraph>
@@ -101,19 +101,19 @@ const schema = {
                         </p>
                     </div>
                     <!-- Step 4 -->
-                    <div class="p-6 rounded-2xl border border-box-border bg-box-bg/50 border-dashed">
+                    <div class="p-6 rounded-2xl border border-box-border bg-box-bg">
                         <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
                             <span class="font-bold text-blue-600">4</span>
                         </div>
-                        <h3 class="font-bold text-heading-1 mb-2">Results land in a dashboard <span class="text-xs font-normal text-heading-3">(optional)</span></h3>
+                        <h3 class="font-bold text-heading-1 mb-2">You get scores <em>and</em> the cost to reach them</h3>
                         <p class="text-heading-3 text-sm leading-relaxed">
-                            Browse scores, compare variants, and track how your agent setup evolves over time — optionally via <a href="https://www.comet.com/site/products/opik/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Opik</a>.
+                            Every trial lands locally with per-dimension scores, the reviewer's reasoning, and the <strong>tokens and USD</strong> it took — and a summary table compares each agent/model side by side. Push to <a href="https://www.comet.com/site/products/opik/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Opik</a> for cross-run dashboards, or plot a <strong>quality-vs-cost Pareto frontier</strong> to pick the best value for your budget.
                         </p>
                     </div>
                 </div>
 
                 <Paragraph className="text-center max-w-3xl mx-auto text-sm italic">
-                    You are the one defining "what good looks like." NASDE automates running the experiment and grading it the same way every time.
+                    You are the one defining "what good looks like." Nasde automates running the experiment and grading it the same way every time.
                 </Paragraph>
             </Container>
         </section>
@@ -124,33 +124,39 @@ const schema = {
                 <div class="text-center max-w-4xl mx-auto space-y-4">
                     <Title>What do I actually use it for?</Title>
                     <Paragraph>
-                        Anyone working with AI coding agents eventually hits the same wall: <em>"I changed my skill / <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">CLAUDE.md</code> / MCP setup — is the agent actually better now, or does it just feel that way?"</em> NASDE turns that gut feeling into a repeatable measurement.
+                        The core use is a <strong>cost-and-quality decision</strong> about your AI coding stack: <em>which agent, which model, which provider, which configuration — for our codebase and our budget?</em> Nasde answers it with numbers instead of vibes. Typical things you'd do with it:
                     </Paragraph>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                     <div class="p-6 rounded-xl border border-box-border bg-box-bg">
-                        <h3 class="font-semibold text-heading-1 mb-2">🧪 Run an agent safely on a realistic task</h3>
+                        <h3 class="font-semibold text-heading-1 mb-2">Compare providers and models on quality <em>and</em> cost</h3>
                         <p class="text-heading-3 text-sm leading-relaxed">
-                            Sandboxed container = the agent can't wreck your laptop. Useful on its own, even before you start comparing configurations.
+                            Claude Code vs. Codex vs. Gemini, Sonnet vs. Opus — against <em>your</em> tasks. See the score <em>and</em> the tokens and dollars each one spends, and pick the best quality-per-dollar for your budget.
                         </p>
                     </div>
                     <div class="p-6 rounded-xl border border-box-border bg-box-bg">
-                        <h3 class="font-semibold text-heading-1 mb-2">⚖️ Compare two configurations of the same agent</h3>
+                        <h3 class="font-semibold text-heading-1 mb-2">Decide whether a migration pays off</h3>
                         <p class="text-heading-3 text-sm leading-relaxed">
-                            Baseline vs. "with my new skill." See whether the skill moves scores up or down — and on which specific dimensions.
+                            Before standardizing on a new agent or model, measure what actually changes — in output quality and in spend — instead of switching on hype.
                         </p>
                     </div>
                     <div class="p-6 rounded-xl border border-box-border bg-box-bg">
-                        <h3 class="font-semibold text-heading-1 mb-2">🔄 Compare different agents on the same task</h3>
+                        <h3 class="font-semibold text-heading-1 mb-2">Measure your whole harness, not just one skill</h3>
                         <p class="text-heading-3 text-sm leading-relaxed">
-                            Claude Code vs. Codex vs. Gemini CLI on <em>your</em> workspace, <em>your</em> criteria. The same skill can help one agent and hurt another — see example 2 below.
+                            Run your real <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">CLAUDE.md</code> + skills + MCP servers as a unit and see how the full configuration performs — not just one piece in isolation.
                         </p>
                     </div>
                     <div class="p-6 rounded-xl border border-box-border bg-box-bg">
-                        <h3 class="font-semibold text-heading-1 mb-2">🛡️ Build a regression suite for your AI setup</h3>
+                        <h3 class="font-semibold text-heading-1 mb-2">Tune a single skill or config</h3>
                         <p class="text-heading-3 text-sm leading-relaxed">
-                            Once a task set exists, re-run it every time someone tweaks prompts/skills/MCP. Catch regressions before they ship.
+                            Baseline vs. "with my new skill." See whether it moves scores up or down — and on which specific dimensions. The same skill can help one agent and hurt another — see the worked example below.
+                        </p>
+                    </div>
+                    <div class="p-6 rounded-xl border border-box-border bg-box-bg md:col-span-2">
+                        <h3 class="font-semibold text-heading-1 mb-2">Build a regression suite for your AI setup</h3>
+                        <p class="text-heading-3 text-sm leading-relaxed">
+                            Once a task set exists, re-run it whenever someone tweaks the prompt / skills / MCP / model — and catch quality <em>or</em> cost regressions before they ship.
                         </p>
                     </div>
                 </div>
@@ -178,7 +184,7 @@ const schema = {
                         <div>nasde install-skills</div>
                         <br/>
                         <div class="text-gray-500"># 3. from inside your own repo, open Claude Code and ask:</div>
-                        <div class="text-gray-500">#    "Create a NASDE benchmark with a single task, based on a recent</div>
+                        <div class="text-gray-500">#    "Create a Nasde benchmark with a single task, based on a recent</div>
                         <div class="text-gray-500">#     piece of work from this repo — a commit, a range, or a merged PR."</div>
                         <div class="text-gray-500">#    The nasde-benchmark-from-history skill scaffolds one task directory.</div>
                         <br/>
@@ -197,8 +203,20 @@ const schema = {
                         <p>Runs use your <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">claude</code> / <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">codex</code> CLI auth — Claude Max or ChatGPT Plus works out of the box.</p>
                     </div>
                     <div class="p-4 rounded-lg border border-box-border">
-                        <p class="font-semibold text-heading-1 mb-1">More in the README</p>
-                        <p>Full CLI reference, cloud sandbox options, and the authoring guide: <a href="https://github.com/NoesisVision/nasde-toolkit" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">github.com/NoesisVision/nasde-toolkit</a>.</p>
+                        <p class="font-semibold text-heading-1 mb-1">More in the docs</p>
+                        <p>Full CLI reference, cloud sandbox options, the cost/Pareto story, and the authoring guide: <a href="https://noesisvision.github.io/nasde-toolkit/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">noesisvision.github.io/nasde-toolkit</a>.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <p class="text-center text-sm text-heading-3 mb-3">Jump straight into the docs:</p>
+                    <div class="flex flex-wrap justify-center gap-2 text-sm">
+                        <a href="https://noesisvision.github.io/nasde-toolkit/getting-started/overview/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border border-box-border text-heading-1 hover:border-primary/50 transition-colors">Overview</a>
+                        <a href="https://noesisvision.github.io/nasde-toolkit/getting-started/quick-start/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border border-box-border text-heading-1 hover:border-primary/50 transition-colors">Quick Start</a>
+                        <a href="https://noesisvision.github.io/nasde-toolkit/concepts/how-it-works/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border border-box-border text-heading-1 hover:border-primary/50 transition-colors">How it works</a>
+                        <a href="https://noesisvision.github.io/nasde-toolkit/concepts/token-cost/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border border-box-border text-heading-1 hover:border-primary/50 transition-colors">Token &amp; Cost</a>
+                        <a href="https://noesisvision.github.io/nasde-toolkit/guides/use-cases/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border border-box-border text-heading-1 hover:border-primary/50 transition-colors">Use Cases</a>
+                        <a href="https://noesisvision.github.io/nasde-toolkit/guides/benchmark-results/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full border border-box-border text-heading-1 hover:border-primary/50 transition-colors">Benchmark Results</a>
                     </div>
                 </div>
             </Container>
@@ -236,7 +254,7 @@ const schema = {
                     <div class="p-6 rounded-2xl border border-box-border bg-box-bg">
                         <h3 class="text-xl font-bold text-heading-1 mb-3">2. Multi-dimensional assessment — reviewer agent scores the produced results</h3>
                         <p class="text-heading-3 text-sm leading-relaxed mb-3">
-                            Rough tests only catch black-and-white failures. They don't tell you whether the produced workspace is well-structured, respects your architecture, whether tests are meaningful (not just coverage padding), whether a generated document is clear, whether a migration is reversible. For that, NASDE runs a <strong>second agent</strong> (<code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">claude</code> or <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">codex</code>) on the produced workspace.
+                            Rough tests only catch black-and-white failures. They don't tell you whether the produced workspace is well-structured, respects your architecture, whether tests are meaningful (not just coverage padding), whether a generated document is clear, whether a migration is reversible. For that, Nasde runs a <strong>second agent</strong> (<code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">claude</code> or <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">codex</code>) on the produced workspace.
                         </p>
                         <p class="text-heading-3 text-sm leading-relaxed mb-2 font-semibold">The reviewer's reference point is two files you write:</p>
                         <ul class="text-heading-3 text-sm leading-relaxed space-y-2 pl-5 list-disc">
@@ -256,12 +274,23 @@ const schema = {
                 <div class="max-w-5xl mx-auto p-6 rounded-2xl border border-primary/30 bg-primary/5">
                     <h3 class="text-lg font-bold text-heading-1 mb-3">Why this stays token-efficient on large codebases</h3>
                     <p class="text-heading-3 text-sm leading-relaxed mb-3">
-                        The reviewer is a <strong>full coding agent</strong> (<code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">claude</code> or <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">codex</code>), not a one-shot prompt. That's a deliberate design choice and the single biggest reason NASDE scales to real repositories:
+                        The reviewer is a <strong>full coding agent</strong> (<code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">claude</code> or <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">codex</code>), not a one-shot prompt. That's a deliberate design choice and the single biggest reason Nasde scales to real repositories:
                     </p>
                     <ul class="text-heading-3 text-sm leading-relaxed space-y-2 pl-5 list-disc">
                         <li><strong>The repo never goes into the prompt.</strong> The reviewer navigates the workspace with <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">Read</code>, <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">Glob</code>, <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded font-mono">Grep</code> (and optionally MCP analysis servers), pulling only the files it actually needs to judge each dimension.</li>
                         <li><strong>Context window isn't the limit.</strong> A 500k-LOC codebase is reviewed the same way a 5k-LOC one is — by reading the relevant slices on demand.</li>
                     </ul>
+                </div>
+
+                <!-- Cost as a budget-decision signal -->
+                <div class="max-w-5xl mx-auto p-6 rounded-2xl border border-primary/30 bg-primary/5">
+                    <h3 class="text-lg font-bold text-heading-1 mb-3">Every score comes with its price tag</h3>
+                    <p class="text-heading-3 text-sm leading-relaxed mb-3">
+                        Each trial reports <strong>tokens and dollars</strong> next to the quality score — per model, per provider — so a quality number is always paired with what it costs to reach it. That turns the AI-coding line item into something you can actually reason about: <strong>quality per dollar</strong>, on your own tasks.
+                    </p>
+                    <p class="text-heading-3 text-sm leading-relaxed">
+                        Nasde plots models and variants on a <strong>quality-vs-cost Pareto frontier</strong> — the view a budget owner needs: where the best value sits, where you're overpaying, and the point that matches your quality bar and your spend. It's how you choose where to invest and when a switch is worth it. See <a href="https://noesisvision.github.io/nasde-toolkit/concepts/token-cost/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">Token &amp; Cost</a> in the docs.
+                    </p>
                 </div>
 
             </Container>
@@ -326,7 +355,7 @@ const schema = {
                 </div>
 
                 <Paragraph className="text-center max-w-3xl mx-auto text-sm">
-                    NASDE is the glue that connects sandbox execution, rough tests, the reviewer agent, and experiment tracking — all invoked by a single <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">nasde run</code>.
+                    Nasde is the glue that connects sandbox execution, rough tests, the reviewer agent, and experiment tracking — all invoked by a single <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">nasde run</code>.
                 </Paragraph>
             </Container>
         </section>
@@ -463,14 +492,14 @@ const schema = {
                             </p>
                         </a>
                         <a href="https://github.com/NoesisVision/nasde-toolkit/tree/main/examples/nasde-dev-skill" target="_blank" rel="noopener noreferrer" class="block p-5 rounded-xl border border-box-border bg-box-bg hover:border-primary/50 transition-colors">
-                            <p class="font-semibold text-heading-1 mb-1 text-sm">Project-specific skill validation (NASDE's own repo) →</p>
+                            <p class="font-semibold text-heading-1 mb-1 text-sm">Project-specific skill validation (Nasde's own repo) →</p>
                             <p class="text-heading-3 text-sm leading-relaxed">
-                                One task pulled from NASDE's git history; four skill combinations tested. <strong class="text-heading-1">Takeaway:</strong> the testing-discipline skill alone raised pass rate from 67% → 100%; the "full-stack, everything-on" variant scored <em>worse</em> than vanilla.
+                                One task pulled from Nasde's git history; four skill combinations tested. <strong class="text-heading-1">Takeaway:</strong> the testing-discipline skill alone raised pass rate from 67% → 100%; the "full-stack, everything-on" variant scored <em>worse</em> than vanilla.
                             </p>
                         </a>
                     </div>
                     <p class="text-center text-sm text-heading-3 pt-2">
-                        Full numbers and methodology: <a href="https://github.com/NoesisVision/nasde-toolkit/blob/main/docs/benchmark-results.md" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">docs/benchmark-results.md</a>.
+                        Full numbers and methodology: <a href="https://noesisvision.github.io/nasde-toolkit/guides/benchmark-results/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">Benchmark Results</a>.
                     </p>
                 </div>
             </Container>
@@ -480,14 +509,14 @@ const schema = {
         <section class="relative py-10 md:py-14" id="opik-dashboard">
             <Container className="space-y-8">
                 <div class="text-center max-w-4xl mx-auto space-y-4">
-                    <Title>Results dashboard (optional)</Title>
+                    <Title>Results dashboard</Title>
                     <Paragraph>
                         Scores land in local JSON files by default. Pass <code class="text-xs bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded font-mono">--with-opik</code> and they also flow into <a href="https://www.comet.com/site/products/opik/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Opik</a> for experiment tracking, comparison, and visualization. Each dimension becomes a separate feedback score — easy to filter, compare, and trend over time.
                     </Paragraph>
                 </div>
 
                 <div class="max-w-5xl mx-auto space-y-4">
-                    <img src={`${base}/images/opik-visualization.png`} alt="NASDE scores visualized in Opik dashboard" class="rounded-2xl border border-box-border shadow-lg" />
+                    <img src={`${base}/images/opik-visualization.png`} alt="Nasde scores visualized in Opik dashboard" class="rounded-2xl border border-box-border shadow-lg" />
                     <p class="text-center text-sm text-heading-3">
                         Opik dashboard showing dimension scores across different agent configurations and variants.
                     </p>
@@ -519,7 +548,7 @@ const schema = {
                         </h1>
 
                         <Paragraph className="pt-10">
-                            NASDE is open-source and MIT-licensed. Clone the repo, pick one of the example benchmarks to see how the pieces fit together, then point it at a task from your own git history.
+                            Nasde is open-source and MIT-licensed. Clone the repo, pick one of the example benchmarks to see how the pieces fit together, then point it at a task from your own git history.
                         </Paragraph>
 
                         <div class="flex justify-center items-center pt-10">
