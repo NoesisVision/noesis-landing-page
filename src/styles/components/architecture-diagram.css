@@ -1,0 +1,375 @@
+/*
+ * ArchitectureDiagram: a fixed 1920×1080 canvas. The page scales it to fit
+ * its frame via --diagScale (set by src/scripts/page.js).
+ */
+
+/* ---------- Canvas & connectors ---------- */
+.arch-canvas {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+  background: #1f2130;
+  color: #fff;
+  font-family: "Raleway Variable", Raleway, sans-serif;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}
+.arch-wires {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.arch-wire {
+  stroke: #7ee3e8;
+  stroke-width: 2.5;
+}
+/* Source → engine */
+.arch-wire--input {
+  stroke-opacity: 0.8;
+  marker-end: url(#ah);
+}
+/* Engine → output */
+.arch-wire--out {
+  marker-end: url(#ah);
+}
+/* Engine ⇄ output */
+.arch-wire--both {
+  marker-start: url(#ah);
+  marker-end: url(#ah);
+}
+
+/* ---------- Sources (left column) ---------- */
+.arch-repos {
+  position: absolute;
+  left: 80px;
+  top: 250px;
+  width: 340px;
+  height: 260px;
+}
+/* Stacked cards behind the repos card */
+.arch-repos-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+}
+.arch-repos-layer--back {
+  transform: translate(-16px, -16px);
+  border: 1px solid rgba(126, 227, 232, 0.18);
+  background: #25283a;
+}
+.arch-repos-layer--mid {
+  transform: translate(-8px, -8px);
+  border: 1px solid rgba(126, 227, 232, 0.25);
+  background: #282b3e;
+}
+.arch-source-card {
+  border-radius: 28px;
+  background: #2b2d3c;
+  border: 1px solid rgba(126, 227, 232, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px;
+  box-sizing: border-box;
+}
+.arch-repos-front {
+  position: absolute;
+  inset: 0;
+}
+.arch-conventions {
+  position: absolute;
+  left: 80px;
+  top: 590px;
+  width: 340px;
+  height: 260px;
+}
+.arch-source-title {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.arch-source-title--multiline {
+  line-height: 1.15;
+}
+.arch-chips {
+  display: flex;
+  gap: 12px;
+}
+.arch-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(126, 227, 232, 0.1);
+  font-size: 17px;
+  font-weight: 600;
+  color: #e6fbfc;
+}
+
+/* ---------- Noesis engine (centre column) ---------- */
+.arch-engine {
+  position: absolute;
+  left: 580px;
+  top: 110px;
+  width: 330px;
+  height: 860px;
+  border-radius: 36px;
+  background: #2b2d3c;
+  border: 1.5px solid #7ee3e8;
+  box-shadow:
+    0 0 0 10px rgba(126, 227, 232, 0.06),
+    0 40px 90px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 64px 32px 40px;
+  box-sizing: border-box;
+}
+.arch-engine-name {
+  margin-top: 56px;
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.arch-engine-tagline {
+  margin-top: 20px;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 600;
+  color: #7ee3e8;
+  text-wrap: balance;
+}
+.arch-spacer {
+  flex: 1;
+}
+.arch-graph {
+  width: 100%;
+  border-radius: 24px;
+  background: #1f2130;
+  border: 1px solid rgba(126, 227, 232, 0.3);
+  padding: 28px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.arch-graph-label {
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+/* ---------- Outputs (right-centre column) ---------- */
+.arch-output {
+  position: absolute;
+  left: 1080px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.arch-output--ui {
+  top: 150px;
+  height: 224px;
+}
+.arch-output--docs {
+  top: 440px;
+}
+.arch-output--mcp {
+  top: 740px;
+}
+.arch-output-label {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.arch-output-label--multiline {
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Miniature Noesis UI window */
+.arch-ui {
+  position: relative;
+  width: 260px;
+  height: 150px;
+}
+.arch-ui-window-back {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 220px;
+  height: 124px;
+  border-radius: 12px;
+  background: #25283a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.arch-ui-window {
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 220px;
+  height: 124px;
+  border-radius: 12px;
+  background: #14151e;
+  border: 1px solid rgba(126, 227, 232, 0.45);
+  overflow: hidden;
+}
+.arch-ui-titlebar {
+  height: 16px;
+  background: #1a1c29;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.arch-ui-sidebar {
+  position: absolute;
+  left: 0;
+  top: 16px;
+  bottom: 0;
+  width: 50px;
+  background: #1a1c29;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+.arch-ui-nav-item {
+  position: absolute;
+  left: 8px;
+  height: 5px;
+  border-radius: 3px;
+  background: #3a3d50;
+}
+.arch-ui-nav-item--active {
+  top: 26px;
+  width: 34px;
+  background: rgba(126, 227, 232, 0.5);
+}
+.arch-ui-nav-item--second {
+  top: 38px;
+  width: 28px;
+}
+.arch-ui-nav-item--third {
+  top: 50px;
+  width: 30px;
+}
+.arch-ui-node-focus {
+  position: absolute;
+  left: 112px;
+  top: 62px;
+  width: 46px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1.5px solid #7ee3e8;
+  background: #25303d;
+}
+/* Satellite nodes around the focused one */
+.arch-ui-node {
+  position: absolute;
+  width: 38px;
+  height: 16px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.arch-ui-node--tl {
+  left: 66px;
+  top: 30px;
+}
+.arch-ui-node--tr {
+  left: 170px;
+  top: 30px;
+}
+.arch-ui-node--bl {
+  left: 66px;
+  top: 98px;
+}
+.arch-ui-node--br {
+  left: 170px;
+  top: 98px;
+}
+/* Elbow connectors from the focused node to the satellites */
+.arch-ui-link {
+  position: absolute;
+  height: 30px;
+}
+.arch-ui-link--tl {
+  left: 104px;
+  top: 38px;
+  width: 8px;
+  border-top: 1px solid rgba(126, 227, 232, 0.6);
+  border-right: 1px solid rgba(126, 227, 232, 0.6);
+}
+.arch-ui-link--tr {
+  left: 158px;
+  top: 38px;
+  width: 12px;
+  border-top: 1px solid rgba(126, 227, 232, 0.6);
+  border-left: 1px solid rgba(126, 227, 232, 0.6);
+}
+.arch-ui-link--bl {
+  left: 104px;
+  top: 76px;
+  width: 8px;
+  border-bottom: 1px solid rgba(126, 227, 232, 0.6);
+  border-right: 1px solid rgba(126, 227, 232, 0.6);
+}
+.arch-ui-link--br {
+  left: 158px;
+  top: 76px;
+  width: 12px;
+  border-bottom: 1px solid rgba(126, 227, 232, 0.6);
+  border-left: 1px solid rgba(126, 227, 232, 0.6);
+}
+
+/* Icon tiles */
+.arch-doc-icons {
+  display: flex;
+  gap: 20px;
+}
+.arch-tile {
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  background: #2b2d3c;
+  border: 1px solid rgba(126, 227, 232, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.arch-tile--lg {
+  width: 116px;
+  height: 116px;
+  border-radius: 28px;
+}
+
+/* ---------- Captions (right column) ---------- */
+.arch-captions {
+  position: absolute;
+  left: 1440px;
+  top: 0;
+  width: 420px;
+  height: 1080px;
+}
+.arch-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-size: 30px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: #e6e7ec;
+  text-wrap: balance;
+}
+.arch-caption--ui {
+  top: 200px;
+}
+.arch-caption--docs {
+  top: 470px;
+}
+.arch-caption--mcp {
+  top: 772px;
+}

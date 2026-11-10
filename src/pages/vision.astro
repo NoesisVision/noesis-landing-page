@@ -1,90 +1,1356 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/sections/Hero.astro';
-import HowItWorks from '../components/sections/HowItWorks.astro';
-import Demo from '../components/sections/Demo.astro';
-import UseCases from '../components/sections/UseCases.astro';
-import FAQ from '../components/sections/FAQ.astro';
-import CTA from '../components/sections/CTA.astro';
-import Architecture from '../components/sections/Architecture.astro';
-import Determinism from '../components/sections/Determinism.astro';
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import NewsletterModal from "../components/NewsletterModal.astro";
+import Button from "../components/Button.astro";
+import Icon from "../components/Icon.astro";
+import data from "../data/vision.json";
+import ButtonRow from "../components/ui/ButtonRow.astro";
+import Card from "../components/ui/Card.astro";
+import CardCorner from "../components/ui/CardCorner.astro";
+import CardGrid from "../components/ui/CardGrid.astro";
+import CardTitle from "../components/ui/CardTitle.astro";
+import Container from "../components/ui/Container.astro";
+import CtaBlock from "../components/ui/CtaBlock.astro";
+import Eyebrow from "../components/ui/Eyebrow.astro";
+import Heading from "../components/ui/Heading.astro";
+import Highlight from "../components/ui/Highlight.astro";
+import Lead from "../components/ui/Lead.astro";
+import Page from "../components/ui/Page.astro";
+import PageHero from "../components/ui/PageHero.astro";
+import RailDot from "../components/ui/RailDot.astro";
+import Section from "../components/ui/Section.astro";
+import SectionHead from "../components/ui/SectionHead.astro";
+import StepNumber from "../components/ui/StepNumber.astro";
+import Text from "../components/ui/Text.astro";
+import WindowBar from "../components/ui/WindowBar.astro";
+import ArchitectureDiagram from "../components/ArchitectureDiagram.astro";
+import "../styles/pages/vision.css";
+import { url } from "../config/paths.js";
+import {
+  DISCORD_URL,
+  TALLY_BETA_URL,
+  VISION_DEMO_URL,
+} from "../config/integrations.js";
+const { apps, faq, pillars, steps, uses, videos } = data;
 
-const schema = {
-	"@context": "https://schema.org",
-	"@graph": [
-		{
-			"@type": "SoftwareApplication",
-			"name": "Noesis Vision",
-			"description": "Automated architecture visualization and documentation from code. Deterministic static analysis creates a shared knowledge layer for humans and AI agents.",
-			"applicationCategory": "DeveloperApplication",
-			"operatingSystem": "Cross-platform",
-			"url": "https://noesis.vision/vision",
-			"featureList": [
-				"Automated architecture visualization from code",
-				"Deterministic static analysis",
-				"Multi-repository support",
-				"Exportable documentation (PDF, Markdown)",
-				"AI agent integration via MCP",
-				"Knowledge graph generation"
-			],
-			"offers": {
-				"@type": "Offer",
-				"price": "0",
-				"priceCurrency": "USD",
-				"availability": "https://schema.org/PreOrder"
-			}
-		},
-		{
-			"@type": "FAQPage",
-			"mainEntity": [
-				{
-					"@type": "Question",
-					"name": "Can Noesis handle multiple repositories for libraries and microservices?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Yes. Noesis seamlessly scans multiple repositories and creates a unified, consistent model that gives you a complete view of your entire system architecture."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "Does Noesis Vision hallucinate like other AI tools?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "No. Noesis builds answers from deterministic code graphs first, then enriches with AI, so every fact is traceable to source code."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "Can a pure AI solution replace Noesis?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Pure AI solutions struggle with determinism and cost efficiency. LLMs can't guarantee consistent, repeatable results across multiple scans, and using them for repetitive code analysis becomes prohibitively expensive. Noesis combines deterministic static analysis with selective AI enhancement, ensuring reliable results at a fraction of the cost."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "Is my code safe with Noesis?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Yes. Noesis primarily supports the on-premises deployment model. Your code never leaves your environment."
-					}
-				}
-			]
-		}
-	]
-};
+// schema.org for search engines (reused from the previous noesis.vision). The FAQ entries
+// are built from the FAQ shown on this page, so they always match what visitors see.
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Noesis Vision",
+    description:
+      "Automated architecture visualization and documentation from code. Deterministic static analysis creates a shared knowledge layer for humans and AI agents.",
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Cross-platform",
+    url: "https://noesis.vision/vision/",
+    featureList: [
+      "Automated architecture visualization from code",
+      "Deterministic static analysis",
+      "Multi-repository support",
+      "Exportable documentation (PDF, Markdown)",
+      "AI agent integration via MCP",
+      "Knowledge graph generation",
+    ],
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/PreOrder",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a.replace(/<[^>]+>/g, ""),
+      },
+    })),
+  },
+];
 ---
 
-<Layout title="Visualize. Understand. Accelerate." description="Noesis Vision — automated architecture visualization and documentation from code. Deterministic static analysis for humans and AI agents." schema={schema}>
-	<main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
-		<Hero/>
-		<Architecture className="mb-0"/>
-		<HowItWorks/>
-		<UseCases/>
-		<Determinism/>
-		<Demo/>
-		<!--<Pricing/>-->
-		<FAQ/>
-		<CTA/>
-	</main>
-</Layout>
+<Base
+  title="Visualize. Understand. Accelerate. | Noesis Vision"
+  description="Noesis Vision — automated architecture visualization and documentation from code. Deterministic static analysis for humans and AI agents."
+  jsonLd={jsonLd}
+>
+  <Page data-ref="root">
+    <Nav current="vision" />
+
+    <main id="main">
+      <PageHero>
+        <div class="vision-hero-grid"></div>
+        <CtaBlock>
+          <Eyebrow>Noesis Vision</Eyebrow>
+          <Heading as="h1" size="xl">
+            Visualize. Understand. Accelerate.
+          </Heading>
+          <Lead width={760}>
+            <Highlight>
+              Visualize and auto-document your REAL architecture
+            </Highlight>
+            , mapping it automatically from code — so humans and AI can finally
+            understand software the same way and deliver faster, with precision.
+          </Lead>
+          <ButtonRow snug>
+            <Button
+              track="cta_tally_beta"
+              trackSection="vision-hero"
+              variant="light"
+              size="lg"
+              href={TALLY_BETA_URL}
+              target="_blank"
+              arrow
+            >
+              Join Beta!
+            </Button>
+            <Button
+              track="scroll_to_section"
+              trackSection="vision-hero"
+              variant="outline"
+              size="lg"
+              href="#demo"
+              arrow
+            >
+              Live demo &amp; videos
+            </Button>
+          </ButtonRow>
+        </CtaBlock>
+        <div data-reveal="1" class="vision-hero-frame">
+          <WindowBar>
+            <div class="vision-window-title">System model · Exploration</div>
+          </WindowBar>
+          <div class="vision-diagram-frame">
+            <div data-ref="diag" class="vision-diagram-viewport">
+              <div class="vision-diagram-scaler">
+                <ArchitectureDiagram />
+              </div>
+            </div>
+          </div>
+        </div>
+      </PageHero>
+
+      <Section id="how">
+        <Container>
+          <SectionHead data-reveal="1">
+            <Heading class="vision-h2-plain">How It Works</Heading>
+            <Lead class="vision-lead-640">
+              Noesis automates the process of understanding system architecture
+              in four simple steps
+            </Lead>
+          </SectionHead>
+          <div class="vision-steps">
+            {steps.map((s, i) => (
+              <>
+                <div
+                  data-reveal="1"
+                  class:list={[
+                    "vision-step",
+                    { "vision-step--first": i === 0 },
+                  ]}
+                >
+                  <StepNumber>{s.n}</StepNumber>
+                  <div class="vision-step-body">
+                    <CardTitle size="lg">{s.title}</CardTitle>
+                    <Text size="lg">{s.body}</Text>
+                  </div>
+                </div>
+              </>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <SectionHead data-reveal="1">
+            <Eyebrow>Your system map</Eyebrow>
+            <Heading>Multiple Ways to Use Your System Map</Heading>
+          </SectionHead>
+          <CardGrid>
+            {uses.map((u) => (
+              <>
+                <Card data-reveal="1" class="vision-use-card">
+                  <div class="vision-use-shot">
+                    {u.isUi && (
+                      <>
+                        <svg
+                          viewBox="0 0 694 520"
+                          preserveAspectRatio="xMidYMid slice"
+                          class="vision-map"
+                        >
+                          <defs>
+                            <pattern
+                              id="nvgrid"
+                              width="22"
+                              height="22"
+                              patternUnits="userSpaceOnUse"
+                            >
+                              <circle
+                                cx="1"
+                                cy="1"
+                                r="0.9"
+                                fill="rgba(255,255,255,0.06)"
+                              ></circle>
+                            </pattern>
+                          </defs>
+                          <rect width="694" height="520" fill="#1F2130"></rect>
+                          <rect
+                            width="694"
+                            height="520"
+                            fill="url(#nvgrid)"
+                          ></rect>
+                          <rect
+                            x="300"
+                            y="-14"
+                            width="375"
+                            height="321"
+                            rx="14"
+                            fill="rgba(126,227,232,0.03)"
+                            stroke="rgba(126,227,232,0.4)"
+                            class="vision-map-stroke"
+                          ></rect>
+                          <text
+                            x="349"
+                            y="15"
+                            fill="#9a9eae"
+                            class="vision-map-node-kind"
+                          >
+                            Value Object
+                          </text>
+                          <rect
+                            x="337"
+                            y="-14"
+                            width="328"
+                            height="132"
+                            rx="12"
+                            fill="rgba(255,255,255,0.015)"
+                            stroke="rgba(255,255,255,0.12)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <rect
+                            x="342"
+                            y="157"
+                            width="318"
+                            height="119"
+                            rx="12"
+                            fill="rgba(255,255,255,0.015)"
+                            stroke="rgba(255,255,255,0.12)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <path
+                            d="M355 168 l5 5 -5 5 -5 -5Z"
+                            fill="none"
+                            stroke="#c9ccd6"
+                            class="vision-map-vo-icon"
+                          ></path>
+                          <text
+                            x="368"
+                            y="177"
+                            fill="#fff"
+                            class="vision-map-node-title"
+                          >
+                            ValueDiscount
+                          </text>
+                          <text
+                            x="355"
+                            y="192"
+                            fill="#9a9eae"
+                            class="vision-map-node-kind"
+                          >
+                            Value Object
+                          </text>
+                          <text
+                            x="602"
+                            y="175"
+                            fill="#6f7387"
+                            class="vision-map-node-menu"
+                          >
+                            ···
+                          </text>
+                          <text
+                            x="642"
+                            y="176"
+                            fill="#6f7387"
+                            class="vision-map-node-close"
+                          >
+                            ×
+                          </text>
+                          <path
+                            d="M120 170 C 120 300, 172 380, 172 456"
+                            fill="none"
+                            stroke="rgba(126,227,232,0.45)"
+                            class="vision-map-edge"
+                          ></path>
+                          <rect
+                            x="126"
+                            y="308"
+                            width="38"
+                            height="14"
+                            rx="5"
+                            fill="#1F2130"
+                            stroke="rgba(126,227,232,0.3)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <text
+                            x="145"
+                            y="318"
+                            fill="#c9ccd6"
+                            class="vision-map-edge-label"
+                          >
+                            uses
+                          </text>
+                          <path
+                            d="M168 454 L172 460 L176 454"
+                            fill="none"
+                            stroke="rgba(126,227,232,0.7)"
+                            class="vision-map-arrowhead"
+                          ></path>
+                          <path
+                            d="M320 378 C 300 430, 230 440, 210 460"
+                            fill="none"
+                            stroke="rgba(126,227,232,0.45)"
+                            class="vision-map-edge"
+                          ></path>
+                          <rect
+                            x="253"
+                            y="411"
+                            width="38"
+                            height="14"
+                            rx="5"
+                            fill="#1F2130"
+                            stroke="rgba(126,227,232,0.3)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <text
+                            x="272"
+                            y="421"
+                            fill="#c9ccd6"
+                            class="vision-map-edge-label"
+                          >
+                            uses
+                          </text>
+                          <path
+                            d="M206 455 L210 461 L214 455"
+                            fill="none"
+                            stroke="rgba(126,227,232,0.7)"
+                            class="vision-map-arrowhead"
+                          ></path>
+                          <path
+                            d="M520 378 C 430 400, 300 440, 250 460"
+                            fill="none"
+                            stroke="rgba(126,227,232,0.45)"
+                            class="vision-map-edge"
+                          ></path>
+                          <rect
+                            x="363"
+                            y="414"
+                            width="38"
+                            height="14"
+                            rx="5"
+                            fill="#1F2130"
+                            stroke="rgba(126,227,232,0.3)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <text
+                            x="382"
+                            y="424"
+                            fill="#c9ccd6"
+                            class="vision-map-edge-label"
+                          >
+                            uses
+                          </text>
+                          <path
+                            d="M254 457 L248 461 L254 465"
+                            fill="none"
+                            stroke="rgba(126,227,232,0.7)"
+                            class="vision-map-arrowhead"
+                          ></path>
+                          <path
+                            d="M520 466 C 420 470, 320 476, 248 478"
+                            fill="none"
+                            stroke="rgba(126,227,232,0.45)"
+                            class="vision-map-edge"
+                          ></path>
+                          <rect
+                            x="362"
+                            y="463"
+                            width="38"
+                            height="14"
+                            rx="5"
+                            fill="#1F2130"
+                            stroke="rgba(126,227,232,0.3)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <text
+                            x="381"
+                            y="473"
+                            fill="#c9ccd6"
+                            class="vision-map-edge-label"
+                          >
+                            uses
+                          </text>
+                          <path
+                            d="M254 474 L248 478 L254 482"
+                            fill="none"
+                            stroke="rgba(126,227,232,0.7)"
+                            class="vision-map-arrowhead"
+                          ></path>
+                          <path
+                            d="M420 88 V200"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-edge-invokes"
+                          ></path>
+                          <rect
+                            x="401"
+                            y="137"
+                            width="38"
+                            height="14"
+                            rx="5"
+                            fill="#1F2130"
+                            stroke="rgba(126,227,232,0.3)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <text
+                            x="420"
+                            y="147"
+                            fill="#c9ccd6"
+                            class="vision-map-edge-label"
+                          >
+                            invokes
+                          </text>
+                          <path
+                            d="M416 196 L420 202 L424 196"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-arrowhead"
+                          ></path>
+                          <path
+                            d="M580 88 V200"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-edge-invokes"
+                          ></path>
+                          <rect
+                            x="560"
+                            y="138"
+                            width="38"
+                            height="14"
+                            rx="5"
+                            fill="#1F2130"
+                            stroke="rgba(126,227,232,0.3)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <text
+                            x="579"
+                            y="148"
+                            fill="#c9ccd6"
+                            class="vision-map-edge-label"
+                          >
+                            invokes
+                          </text>
+                          <path
+                            d="M576 196 L580 202 L584 196"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-arrowhead"
+                          ></path>
+                          <path
+                            d="M580 248 V333"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-edge-invokes"
+                          ></path>
+                          <rect
+                            x="565"
+                            y="284"
+                            width="38"
+                            height="14"
+                            rx="5"
+                            fill="#1F2130"
+                            stroke="rgba(126,227,232,0.3)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <text
+                            x="584"
+                            y="294"
+                            fill="#c9ccd6"
+                            class="vision-map-edge-label"
+                          >
+                            invokes
+                          </text>
+                          <path
+                            d="M576 329 L580 335 L584 329"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-arrowhead"
+                          ></path>
+                          <rect
+                            x="350"
+                            y="44"
+                            width="138"
+                            height="42"
+                            rx="12"
+                            fill="#2B2D3C"
+                            stroke="rgba(255,255,255,0.08)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <circle
+                            cx="370"
+                            cy="58"
+                            r="5.5"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-cmd-icon"
+                          ></circle>
+                          <path
+                            d="M372 56 a2.6 2.6 0 1 0 0 4"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-stroke"
+                          ></path>
+                          <text
+                            x="382"
+                            y="62"
+                            fill="#fff"
+                            class="vision-map-node-title"
+                          >
+                            Value
+                          </text>
+                          <text
+                            x="364"
+                            y="77"
+                            fill="#9a9eae"
+                            class="vision-map-node-kind"
+                          >
+                            Command
+                          </text>
+                          <text
+                            x="446"
+                            y="61"
+                            fill="#6f7387"
+                            class="vision-map-node-menu"
+                          >
+                            ···
+                          </text>
+                          <text
+                            x="466"
+                            y="62"
+                            fill="#6f7387"
+                            class="vision-map-node-close"
+                          >
+                            ×
+                          </text>
+                          <rect
+                            x="514"
+                            y="44"
+                            width="138"
+                            height="42"
+                            rx="12"
+                            fill="#2B2D3C"
+                            stroke="rgba(255,255,255,0.08)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <circle
+                            cx="534"
+                            cy="58"
+                            r="5.5"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-cmd-icon"
+                          ></circle>
+                          <path
+                            d="M536 56 a2.6 2.6 0 1 0 0 4"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-stroke"
+                          ></path>
+                          <text
+                            x="546"
+                            y="62"
+                            fill="#fff"
+                            class="vision-map-node-title"
+                          >
+                            ApplyOn
+                          </text>
+                          <text
+                            x="528"
+                            y="77"
+                            fill="#9a9eae"
+                            class="vision-map-node-kind"
+                          >
+                            Command
+                          </text>
+                          <text
+                            x="610"
+                            y="61"
+                            fill="#6f7387"
+                            class="vision-map-node-menu"
+                          >
+                            ···
+                          </text>
+                          <text
+                            x="630"
+                            y="62"
+                            fill="#6f7387"
+                            class="vision-map-node-close"
+                          >
+                            ×
+                          </text>
+                          <rect
+                            x="355"
+                            y="204"
+                            width="138"
+                            height="42"
+                            rx="12"
+                            fill="#2B2D3C"
+                            stroke="rgba(255,255,255,0.08)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <circle
+                            cx="375"
+                            cy="218"
+                            r="5.5"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-cmd-icon"
+                          ></circle>
+                          <path
+                            d="M377 216 a2.6 2.6 0 1 0 0 4"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-stroke"
+                          ></path>
+                          <text
+                            x="387"
+                            y="222"
+                            fill="#fff"
+                            class="vision-map-node-title"
+                          >
+                            Of
+                          </text>
+                          <text
+                            x="369"
+                            y="237"
+                            fill="#9a9eae"
+                            class="vision-map-node-kind"
+                          >
+                            Command
+                          </text>
+                          <text
+                            x="451"
+                            y="221"
+                            fill="#6f7387"
+                            class="vision-map-node-menu"
+                          >
+                            ···
+                          </text>
+                          <text
+                            x="471"
+                            y="222"
+                            fill="#6f7387"
+                            class="vision-map-node-close"
+                          >
+                            ×
+                          </text>
+                          <rect
+                            x="510"
+                            y="204"
+                            width="138"
+                            height="42"
+                            rx="12"
+                            fill="#2B2D3C"
+                            stroke="rgba(255,255,255,0.08)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <circle
+                            cx="530"
+                            cy="218"
+                            r="5.5"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-cmd-icon"
+                          ></circle>
+                          <path
+                            d="M532 216 a2.6 2.6 0 1 0 0 4"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-stroke"
+                          ></path>
+                          <text
+                            x="542"
+                            y="222"
+                            fill="#fff"
+                            class="vision-map-node-title"
+                          >
+                            ApplyOn
+                          </text>
+                          <text
+                            x="524"
+                            y="237"
+                            fill="#9a9eae"
+                            class="vision-map-node-kind"
+                          >
+                            Command
+                          </text>
+                          <text
+                            x="606"
+                            y="221"
+                            fill="#6f7387"
+                            class="vision-map-node-menu"
+                          >
+                            ···
+                          </text>
+                          <text
+                            x="626"
+                            y="222"
+                            fill="#6f7387"
+                            class="vision-map-node-close"
+                          >
+                            ×
+                          </text>
+                          <rect
+                            x="43"
+                            y="128"
+                            width="147"
+                            height="42"
+                            rx="12"
+                            fill="#2B2D3C"
+                            stroke="rgba(255,255,255,0.08)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <circle
+                            cx="63"
+                            cy="142"
+                            r="5.5"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-cmd-icon"
+                          ></circle>
+                          <path
+                            d="M65 140 a2.6 2.6 0 1 0 0 4"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-stroke"
+                          ></path>
+                          <text
+                            x="75"
+                            y="146"
+                            fill="#fff"
+                            class="vision-map-node-title"
+                          >
+                            FromQuot…
+                          </text>
+                          <text
+                            x="57"
+                            y="161"
+                            fill="#9a9eae"
+                            class="vision-map-node-kind"
+                          >
+                            Command
+                          </text>
+                          <text
+                            x="148"
+                            y="145"
+                            fill="#6f7387"
+                            class="vision-map-node-menu"
+                          >
+                            ···
+                          </text>
+                          <text
+                            x="168"
+                            y="146"
+                            fill="#6f7387"
+                            class="vision-map-node-close"
+                          >
+                            ×
+                          </text>
+                          <rect
+                            x="301"
+                            y="334"
+                            width="138"
+                            height="42"
+                            rx="12"
+                            fill="#2B2D3C"
+                            stroke="rgba(255,255,255,0.08)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <circle
+                            cx="321"
+                            cy="348"
+                            r="5.5"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-cmd-icon"
+                          ></circle>
+                          <path
+                            d="M323 346 a2.6 2.6 0 1 0 0 4"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-stroke"
+                          ></path>
+                          <text
+                            x="333"
+                            y="352"
+                            fill="#fff"
+                            class="vision-map-node-title"
+                          >
+                            Of
+                          </text>
+                          <text
+                            x="315"
+                            y="367"
+                            fill="#9a9eae"
+                            class="vision-map-node-kind"
+                          >
+                            Command
+                          </text>
+                          <text
+                            x="397"
+                            y="351"
+                            fill="#6f7387"
+                            class="vision-map-node-menu"
+                          >
+                            ···
+                          </text>
+                          <text
+                            x="417"
+                            y="352"
+                            fill="#6f7387"
+                            class="vision-map-node-close"
+                          >
+                            ×
+                          </text>
+                          <rect
+                            x="521"
+                            y="337"
+                            width="138"
+                            height="42"
+                            rx="12"
+                            fill="#2B2D3C"
+                            stroke="rgba(255,255,255,0.08)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <circle
+                            cx="541"
+                            cy="351"
+                            r="5.5"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-cmd-icon"
+                          ></circle>
+                          <path
+                            d="M543 349 a2.6 2.6 0 1 0 0 4"
+                            fill="none"
+                            stroke="#7EE3E8"
+                            class="vision-map-stroke"
+                          ></path>
+                          <text
+                            x="553"
+                            y="355"
+                            fill="#fff"
+                            class="vision-map-node-title"
+                          >
+                            Zero
+                          </text>
+                          <text
+                            x="535"
+                            y="370"
+                            fill="#9a9eae"
+                            class="vision-map-node-kind"
+                          >
+                            Command
+                          </text>
+                          <text
+                            x="617"
+                            y="354"
+                            fill="#6f7387"
+                            class="vision-map-node-menu"
+                          >
+                            ···
+                          </text>
+                          <text
+                            x="637"
+                            y="355"
+                            fill="#6f7387"
+                            class="vision-map-node-close"
+                          >
+                            ×
+                          </text>
+                          <rect
+                            x="106"
+                            y="462"
+                            width="138"
+                            height="40"
+                            rx="12"
+                            fill="#2B2D3C"
+                            stroke="rgba(255,255,255,0.08)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <path
+                            d="M126 470.5 l5.5 5.5 -5.5 5.5 -5.5 -5.5Z"
+                            fill="none"
+                            stroke="#c9ccd6"
+                            class="vision-map-vo-icon"
+                          ></path>
+                          <text
+                            x="138"
+                            y="480"
+                            fill="#fff"
+                            class="vision-map-node-title"
+                          >
+                            Currency
+                          </text>
+                          <text
+                            x="120"
+                            y="495"
+                            fill="#9a9eae"
+                            class="vision-map-node-kind"
+                          >
+                            Value Object
+                          </text>
+                          <text
+                            x="202"
+                            y="479"
+                            fill="#6f7387"
+                            class="vision-map-node-menu"
+                          >
+                            ···
+                          </text>
+                          <text
+                            x="222"
+                            y="480"
+                            fill="#6f7387"
+                            class="vision-map-node-close"
+                          >
+                            ×
+                          </text>
+                          <rect
+                            x="520"
+                            y="436"
+                            width="160"
+                            height="41"
+                            rx="12"
+                            fill="#2B2D3C"
+                            stroke="rgba(255,255,255,0.08)"
+                            class="vision-map-stroke-thin"
+                          ></rect>
+                          <path
+                            d="M540 444.5 l5.5 5.5 -5.5 5.5 -5.5 -5.5Z"
+                            fill="none"
+                            stroke="#c9ccd6"
+                            class="vision-map-vo-icon"
+                          ></path>
+                          <text
+                            x="552"
+                            y="454"
+                            fill="#fff"
+                            class="vision-map-node-title"
+                          >
+                            ExchangeRate
+                          </text>
+                          <text
+                            x="534"
+                            y="469"
+                            fill="#9a9eae"
+                            class="vision-map-node-kind"
+                          >
+                            Value Object
+                          </text>
+                          <text
+                            x="638"
+                            y="453"
+                            fill="#6f7387"
+                            class="vision-map-node-menu"
+                          >
+                            ···
+                          </text>
+                          <text
+                            x="658"
+                            y="454"
+                            fill="#6f7387"
+                            class="vision-map-node-close"
+                          >
+                            ×
+                          </text>
+                          <circle
+                            cx="501"
+                            cy="118"
+                            r="7"
+                            fill="#1F2130"
+                            stroke="rgba(255,255,255,0.18)"
+                            class="vision-map-stroke-thin"
+                          ></circle>
+                          <path
+                            d="M498 118H504M501 115V121"
+                            stroke="#9a9eae"
+                            class="vision-map-stroke"
+                          ></path>
+                          <circle
+                            cx="488"
+                            cy="307"
+                            r="7"
+                            fill="#1F2130"
+                            stroke="rgba(255,255,255,0.18)"
+                            class="vision-map-stroke-thin"
+                          ></circle>
+                          <path
+                            d="M485 307H491M488 304V310"
+                            stroke="#9a9eae"
+                            class="vision-map-stroke"
+                          ></path>
+                          <circle
+                            cx="600"
+                            cy="478"
+                            r="7"
+                            fill="#1F2130"
+                            stroke="rgba(255,255,255,0.18)"
+                            class="vision-map-stroke-thin"
+                          ></circle>
+                          <path
+                            d="M597 478H603M600 475V481"
+                            stroke="#9a9eae"
+                            class="vision-map-stroke"
+                          ></path>
+                        </svg>
+                      </>
+                    )}
+                    {u.isDocs && (
+                      <>
+                        <div class="vision-docs">
+                          <div class="vision-docs-sheet-back"></div>
+                          <div class="vision-docs-sheet">
+                            <div class="vision-docs-header">
+                              <div class="vision-docs-file">orders.md</div>
+                              <div class="vision-docs-meta">
+                                Generated by Noesis · v2.4
+                              </div>
+                            </div>
+                            <div class="vision-docs-h1"># Orders</div>
+                            <div class="vision-docs-para">
+                              <div class="vision-docs-line vision-w96"></div>
+                              <div class="vision-docs-line vision-w88"></div>
+                              <div class="vision-docs-line vision-w54"></div>
+                            </div>
+                            <div class="vision-docs-h2">## Dependencies</div>
+                            <div class="vision-mock-stack">
+                              <div class="vision-docs-dep">
+                                <div class="vision-docs-bullet"></div>
+                                <span class="vision-docs-tag">Payments</span>
+                                <div class="vision-docs-line vision-w40"></div>
+                              </div>
+                              <div class="vision-docs-dep">
+                                <div class="vision-docs-bullet"></div>
+                                <span class="vision-docs-tag">Catalog</span>
+                                <div class="vision-docs-line vision-w32"></div>
+                              </div>
+                            </div>
+                            <div class="vision-docs-h2">## Entry points</div>
+                            <div class="vision-docs-table">
+                              <div class="vision-docs-th">Endpoint</div>
+                              <div class="vision-docs-th">Handler</div>
+                              <div class="vision-docs-td vision-docs-td--code">
+                                POST /orders
+                              </div>
+                              <div class="vision-docs-td vision-docs-td--line">
+                                <div class="vision-docs-line vision-w70"></div>
+                              </div>
+                              <div class="vision-docs-td vision-docs-td--code">
+                                GET /orders/:id
+                              </div>
+                              <div class="vision-docs-td vision-docs-td--line">
+                                <div class="vision-docs-line vision-w56"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                    {u.isAi && (
+                      <>
+                        <div class="vision-ai">
+                          <div class="vision-ai-header">
+                            <div class="vision-ai-session">
+                              <div class="vision-ai-live-dot"></div>
+                              <span class="vision-ai-session-name">
+                                Agent session
+                              </span>
+                            </div>
+                            <div class="vision-ai-badge">MCP · noesis map</div>
+                          </div>
+                          <div class="vision-ai-question">
+                            Which modules depend on Payments?
+                          </div>
+                          <div class="vision-ai-trace">
+                            <div class="vision-ai-trace-line"></div>
+                            Read system model · 3 modules
+                          </div>
+                          <div class="vision-ai-answer">
+                            <div>Three modules call Payments directly:</div>
+                            <div class="vision-ai-chips">
+                              <div class="vision-ai-chip">Orders</div>
+                              <div class="vision-ai-chip">Checkout</div>
+                              <div class="vision-ai-chip">Subscriptions</div>
+                            </div>
+                            <div class="vision-mock-stack">
+                              <div class="vision-ai-line vision-w90"></div>
+                              <div class="vision-ai-line vision-w66"></div>
+                            </div>
+                          </div>
+                          <div class="vision-ai-input">
+                            <div class="vision-ai-placeholder">
+                              Ask about your architecture…
+                            </div>
+                            <div class="vision-ai-send">↑</div>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  <div class="vision-use-caption">
+                    <div class="vision-use-title">{u.title}</div>
+                    <Text>{u.body}</Text>
+                  </div>
+                </Card>
+              </>
+            ))}
+          </CardGrid>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <SectionHead data-reveal="1">
+            <Heading class="vision-h2-plain">Real-World Applications</Heading>
+            <Lead width={720}>
+              Noesis transforms how teams approach complex software challenges.
+              Discover how our platform addresses critical scenarios in modern
+              software development and delivery.
+            </Lead>
+          </SectionHead>
+          <CardGrid>
+            {apps.map((a) => (
+              <>
+                <Card data-reveal="1" class="vision-app-card">
+                  <CardCorner>
+                    <Icon
+                      name={a.icon}
+                      size={30}
+                      stroke={1.5}
+                      color="#45495F"
+                    />
+                  </CardCorner>
+                  <CardTitle class="vision-app-title">{a.title}</CardTitle>
+                  <Text>{a.body}</Text>
+                </Card>
+              </>
+            ))}
+          </CardGrid>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <SectionHead data-reveal="1">
+            <Heading>Reliable Foundation, Smart AI Usage</Heading>
+            <Lead class="vision-lead-800">
+              Our deterministic static analysis creates precise system maps
+              without AI, providing a solid foundation. This reliable approach
+              allows you to use AI intelligently and efficiently only where it
+              adds real value - giving you full control over costs and quality.
+            </Lead>
+          </SectionHead>
+          <div class="vision-pillars">
+            <div class="vision-pillar-list">
+              {pillars.map((p) => (
+                <>
+                  <div data-reveal="1" class="vision-pillar">
+                    <div class="vision-pillar-head">
+                      <div class="vision-pillar-bullet"></div>
+                      <div class="vision-pillar-title">{p.title}</div>
+                    </div>
+                    <Text>{p.body}</Text>
+                  </div>
+                </>
+              ))}
+              <a
+                href="https://github.com/NoesisVision/P3-model/blob/main/Elements.md"
+                class="vision-p3-link"
+              >
+                Read about the P3 model{" "}
+                <Icon name="ArrowUpRight" size={16} stroke={2} />
+              </a>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section id="demo">
+        <Container center class="vision-demo-container">
+          <Heading data-reveal="1" class="vision-h2-plain">
+            See Noesis Vision in Action
+          </Heading>
+          <Lead data-reveal="1" class="vision-lead-640">
+            Experience the clarity of well-structured, visual code insights and
+            join our beta program!
+          </Lead>
+          <ButtonRow class="vision-btn-row-flush">
+            <Button
+              track="cta_demo"
+              trackSection="demo"
+              variant="light"
+              size="lg"
+              href={VISION_DEMO_URL}
+              target="_blank"
+              arrow
+            >
+              Try Live Demo Now
+            </Button>
+            <Button
+              track="cta_tally_beta"
+              trackSection="demo"
+              variant="outline"
+              size="lg"
+              href={TALLY_BETA_URL}
+              target="_blank"
+              arrow
+            >
+              Join Beta Program
+            </Button>
+          </ButtonRow>
+          <div class="vision-videos">
+            {/* Cover with our play button; src/scripts/video.js swaps it for the
+                browser's player on click. Without JS the native controls stay. */}
+            {videos.map((v) => (
+              <div data-reveal="1" class="vision-video" data-video>
+                <video
+                  src={url(v.src)}
+                  poster={url(v.poster)}
+                  aria-label={v.label}
+                  controls
+                  playsinline
+                  preload="none"
+                />
+                <button
+                  class="vision-video-cover"
+                  type="button"
+                  aria-label={`Play video: ${v.label} (${v.duration})`}
+                  hidden
+                >
+                  <span class="vision-video-bar">
+                    <span class="vision-video-play">
+                      <Icon name="PlayerPlayFilled" size={22} color="#7EE3E8" />
+                    </span>
+                    <span class="vision-video-text">
+                      <span class="vision-video-label">{v.label}</span>
+                      <span class="vision-video-duration">{v.duration}</span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container class="vision-container-tight">
+          <Heading data-reveal="1" class="vision-h2-plain vision-faq-title">
+            FAQ
+          </Heading>
+          <div data-reveal="1">
+            <div class="acc" data-accordion>
+              {faq.map((q) => (
+                <>
+                  <div class="acc-item">
+                    <button
+                      type="button"
+                      class="acc-control"
+                      aria-expanded="false"
+                    >
+                      <span class="acc-label">
+                        <span class="vision-faq-q">{q.q}</span>
+                      </span>
+                      <span class="acc-chevron">
+                        <Icon name="ChevronDown" size={16} />
+                      </span>
+                    </button>
+                    <div class="acc-panel">
+                      <div class="acc-panel-inner">
+                        <div class="acc-content">
+                          <p class="vision-faq-a">{q.a}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section size="lg">
+        <Container center>
+          <RailDot data-ref="endDot" />
+          <div data-reveal="1" class="vision-closing">
+            <Heading size="lg">
+              Knowledge is power and Noesis is here to put it at your
+              fingertips.
+            </Heading>
+            <Lead width={760}>
+              Be part of the{" "}
+              <Highlight>future of software development!</Highlight> We're
+              building <Highlight>Noesis</Highlight> to revolutionize how teams
+              understand and navigate complex systems and their codebases. If
+              you see the power of{" "}
+              <Highlight>
+                instant insights, automated visualizations, and deep system
+                analysis
+              </Highlight>
+              , we need you in our community!
+            </Lead>
+            <ButtonRow>
+              <Button
+                track="cta_discord"
+                trackSection="vision-cta"
+                variant="light"
+                size="xl"
+                href={DISCORD_URL}
+                target="_blank"
+                arrow
+              >
+                Discord community
+              </Button>
+              <Button
+                track="newsletter_open"
+                trackSection="vision-cta"
+                variant="outline"
+                size="xl"
+                arrow
+                open="news"
+              >
+                Newsletter
+              </Button>
+            </ButtonRow>
+          </div>
+        </Container>
+      </Section>
+    </main>
+    <Footer />
+    <NewsletterModal />
+  </Page>
+  <script>
+    import "../scripts/page.js";
+    import "../scripts/video.js";
+  </script>
+</Base>

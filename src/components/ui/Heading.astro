@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes, HTMLTag } from "astro/types";
+import "../../styles/components/ui/typography.css";
+
+interface Props extends HTMLAttributes<"h2"> {
+  /** Element to render; defaults to h2 */
+  as?: HTMLTag;
+  /** xl = page title, lg = closing/CTA title, md = section heading */
+  size?: "xl" | "lg" | "md";
+}
+
+const SIZES = { xl: "title-xl", lg: "title-lg", md: "h2" };
+const { as: Tag = "h2", size = "md", class: className, ...rest } = Astro.props;
+// The slot is rendered to a string so no whitespace ends up inside the element.
+const html = await Astro.slots.render("default");
+---
+
+<Tag class:list={[SIZES[size], className]} {...rest} set:html={html} />

@@ -1,0 +1,49 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import Button from "../components/Button.astro";
+import Page from "../components/ui/Page.astro";
+import PageHero from "../components/ui/PageHero.astro";
+import Heading from "../components/ui/Heading.astro";
+import Lead from "../components/ui/Lead.astro";
+import ButtonRow from "../components/ui/ButtonRow.astro";
+import "../styles/pages/not-found.css";
+import { url } from "../config/paths.js";
+---
+
+<Base
+  title="Page not found | Noesis Vision"
+  description="This page doesn't exist on the Noesis Vision website."
+  noindex
+>
+  <Page class="not-found-page">
+    <Nav current="none" />
+    <main id="main" class="not-found-main">
+      <PageHero class="not-found">
+        {/* Decorative: the heading below says the same for screen readers */}
+        <div class="not-found-code" aria-hidden="true">
+          404
+        </div>
+        <Heading as="h1" size="md">
+          Page not found
+        </Heading>
+        <Lead class="not-found-lead">
+          The page you're looking for doesn't exist or has moved.
+        </Lead>
+        <ButtonRow>
+          <Button variant="light" size="lg" href={url("/")} arrow>
+            Go to homepage
+          </Button>
+          <Button variant="outline" size="lg" href={url("/services")}>
+            See our services
+          </Button>
+        </ButtonRow>
+      </PageHero>
+    </main>
+    <Footer />
+  </Page>
+  <script>
+    import "../scripts/nav.js";
+  </script>
+</Base>

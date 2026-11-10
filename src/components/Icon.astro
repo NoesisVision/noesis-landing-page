@@ -1,0 +1,52 @@
+---
+// Tabler icons (MIT), kept as plain SVG data so no icon library ships to the browser.
+import icons from "../data/icons.json";
+
+interface Props {
+  name: string;
+  size?: number;
+  stroke?: number;
+  color?: string;
+}
+
+const { name, size = 24, stroke = 2, color = "currentColor" } = Astro.props;
+const icon = (
+  icons as Record<
+    string,
+    { type: string; nodes: [string, Record<string, string>][] }
+  >
+)[name];
+if (!icon) throw new Error(`Unknown icon: ${name}`);
+const filled = icon.type === "filled";
+const svgAttrs = filled
+  ? { fill: color }
+  : {
+      fill: "none",
+      stroke: color,
+      "stroke-width": stroke,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+    };
+const body = icon.nodes
+  .map(([tag, attrs]) => {
+    const list = Object.entries(attrs)
+      .filter(([k]) => k !== "key")
+      .map(
+        ([k, v]) =>
+          `${k.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`)}="${v}"`,
+      )
+      .join(" ");
+    return `<${tag} ${list} />`;
+  })
+  .join("");
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  width={size}
+  height={size}
+  aria-hidden="true"
+  {...svgAttrs}
+  set:html={body}
+/>

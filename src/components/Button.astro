@@ -1,0 +1,79 @@
+---
+import "../styles/components/button.css";
+import Icon from "./Icon.astro";
+
+interface Props {
+  /** Other attributes (data-*, aria-*, id) are passed to the element */
+  [attr: string]: unknown;
+  variant?: "light" | "outline" | "subtle";
+  size?: "xs" | "lg" | "xl";
+  href?: string;
+  target?: string;
+  type?: "button" | "submit";
+  arrow?: boolean;
+  /** id of the modal this button opens */
+  open?: string;
+  /** closes the modal it sits in */
+  close?: boolean;
+  /** Analytics event name sent on click (see src/scripts/analytics.js) */
+  track?: string;
+  /** Where on the page the button is, sent with the event */
+  trackSection?: string;
+}
+
+const {
+  variant = "light",
+  size = "lg",
+  href,
+  target,
+  type = "button",
+  arrow = false,
+  open,
+  close = false,
+  track,
+  trackSection,
+  ...rest
+} = Astro.props;
+const classes = ["btn", `btn-${variant}`, `btn-${size}`, arrow && "btn-arrow"];
+const rel = target === "_blank" ? "noopener" : undefined;
+---
+
+{href ? (
+  <a
+    class:list={classes}
+    href={href}
+    target={target}
+    rel={rel}
+    data-track={track}
+    data-track-section={trackSection}
+    {...rest}
+  >
+    <span class="btn-label">
+      <slot />
+    </span>
+    {arrow && (
+      <span class="btn-section">
+        <Icon name="ArrowRight" size={16} />
+      </span>
+    )}
+  </a>
+) : (
+  <button
+    class:list={classes}
+    type={type}
+    data-open={open}
+    data-close={close ? "" : undefined}
+    data-track={track}
+    data-track-section={trackSection}
+    {...rest}
+  >
+    <span class="btn-label">
+      <slot />
+    </span>
+    {arrow && (
+      <span class="btn-section">
+        <Icon name="ArrowRight" size={16} />
+      </span>
+    )}
+  </button>
+)}

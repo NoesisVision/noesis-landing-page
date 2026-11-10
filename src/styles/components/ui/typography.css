@@ -1,0 +1,63 @@
+/* Text styles (Eyebrow, Heading, Lead, Text). .hl lives in global.css because data HTML uses it too. */
+/* In the "ui" cascade layer: any unlayered page or component CSS overrides these,
+   regardless of the order Astro bundles the stylesheets in. */
+@layer ui {
+  .eyebrow {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7ee3e8;
+  }
+  .title-xl {
+    margin: 0;
+    font-size: clamp(44px, 7vw, 96px);
+    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .title-lg {
+    margin: 0;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .h2 {
+    margin: 0;
+    font-size: clamp(36px, 5.2vw, 68px);
+    line-height: 1.04;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  .lead {
+    margin: 0;
+    font-size: clamp(17px, 1.6vw, 21px);
+    line-height: 1.55;
+    color: #c9ccd6;
+    text-wrap: pretty;
+  }
+  .lead-720 {
+    max-width: 720px;
+  }
+  .lead-760 {
+    max-width: 760px;
+  }
+  .body-text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #c9ccd6;
+    text-wrap: pretty;
+  }
+  .body-text-lg {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #c9ccd6;
+    text-wrap: pretty;
+  }
+}

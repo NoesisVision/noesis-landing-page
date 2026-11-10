@@ -1,30 +1,688 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HomeHero from '../components/sections/HomeHero.astro';
-import Philosophy from '../components/sections/Philosophy.astro';
-import WhatWeDo from '../components/sections/WhatWeDo.astro';
-import Founders from '../components/sections/Founders.astro';
-import HomeCTA from '../components/sections/HomeCTA.astro';
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import Button from "../components/Button.astro";
+import Icon from "../components/Icon.astro";
+import Logo from "../components/Logo.astro";
+import NewsletterModal from "../components/NewsletterModal.astro";
+import { contactLink } from "../config/integrations.js";
+import data from "../data/index.json";
+import ButtonRow from "../components/ui/ButtonRow.astro";
+import Container from "../components/ui/Container.astro";
+import CtaBlock from "../components/ui/CtaBlock.astro";
+import Eyebrow from "../components/ui/Eyebrow.astro";
+import Heading from "../components/ui/Heading.astro";
+import Highlight from "../components/ui/Highlight.astro";
+import Lead from "../components/ui/Lead.astro";
+import Page from "../components/ui/Page.astro";
+import Text from "../components/ui/Text.astro";
+import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import "../styles/pages/index.css";
+import { url } from "../config/paths.js";
+const { founders, services, stats } = data;
 
-const webPageSchema = {
-	"@context": "https://schema.org",
-	"@type": "WebPage",
-	"name": "AI Is Changing How You Ship. Make Sure It's an Upgrade.",
-	"description": "Noesis — harness engineering, skills development, and AI measurement for production-grade agentic development.",
-	"url": "https://noesis.vision",
-	"speakable": {
-		"@type": "SpeakableSpecification",
-		"cssSelector": ["h1", ".philosophy-summary"]
-	}
-};
+// Founder photos are CSS backgrounds, so they go through getImage() rather than <Image>.
+// The source is 550px wide and is shown up to ~630px (cover), so it keeps full size and only changes format.
+const photos = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/images/founders/*.{png,jpg,jpeg,webp}",
+  { eager: true },
+);
+const founderPhotos = await Promise.all(
+  founders.map(async (f) => {
+    const file = Object.keys(photos).find((k) =>
+      k.includes(`/founders/${f.photo}.`),
+    );
+    if (!file) throw new Error(`Missing founder photo: ${f.photo}`);
+    const img = await getImage({ src: photos[file].default, format: "webp" });
+    return {
+      url: `url(${img.src})`,
+      backgroundPosition: f.backgroundPosition,
+    };
+  }),
+);
+
+// schema.org for search engines (reused from the previous noesis.vision)
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "AI Is Changing How You Ship. Make Sure It's an Upgrade.",
+    description:
+      "Noesis — harness engineering, skills development, and AI measurement for production-grade agentic development.",
+    url: "https://noesis.vision/",
+  },
+];
 ---
 
-<Layout title="AI Is Changing How You Ship. Make Sure It's an Upgrade." description="Noesis — harness engineering, skills development, and AI measurement for production-grade agentic development." schema={webPageSchema}>
-	<main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
-		<HomeHero/>
-		<WhatWeDo/>
-		<Philosophy/>
-		<Founders/>
-		<HomeCTA/>
-	</main>
-</Layout>
+<Base
+  title="AI Is Changing How You Ship. Make Sure It's an Upgrade. | Noesis Vision"
+  description="Noesis — harness engineering, skills development, and AI measurement for production-grade agentic development."
+  jsonLd={jsonLd}
+>
+  <Page data-ref="root">
+    <div data-ref="bg" class="index-bg"></div>
+    <svg data-ref="svg" class="index-flow-svg" width="10" height="10">
+      <defs>
+        <filter id="nx-glow" x="-200%" y="-200%" width="500%" height="500%">
+          <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+        </filter>
+      </defs>
+      <path
+        class="index-flow-track"
+        data-ref="track"
+        fill="none"
+        stroke="rgba(255,255,255,0.07)"
+      ></path>
+      <g data-ref="sub"></g>
+      <path
+        class="index-flow-line"
+        data-ref="line"
+        fill="none"
+        stroke="#7EE3E8"
+      ></path>
+      <circle
+        data-ref="halo"
+        r="14"
+        fill="#7EE3E8"
+        opacity="0.55"
+        filter="url(#nx-glow)"
+        cx="-100"
+        cy="-100"
+      ></circle>
+      <circle data-ref="dot" r="5" fill="#E6FBFC" cx="-100" cy="-100"></circle>
+    </svg>
+
+    <Nav current="index" />
+
+    <main id="main">
+      <header id="top" class="index-hero">
+        <div class="index-hero-grid"></div>
+
+        <canvas data-ref="canvas" class="index-hero-canvas"></canvas>
+        <CtaBlock>
+          <div data-ref="heroLogo">
+            <Logo size={260} class="index-hero-logo" />
+          </div>
+          <Eyebrow>Noesis Vision</Eyebrow>
+          <h1 class="index-hero-title">
+            AI Is Changing How You Ship. Make Sure It's an Upgrade.
+          </h1>
+          <Lead width={720}>
+            We help engineering teams build the right AI development process —
+            from <Highlight>domain knowledge extraction</Highlight> to{" "}
+            <Highlight>tools</Highlight>, <Highlight>skills</Highlight>, and{" "}
+            <Highlight>measurement</Highlight> — for production-grade{" "}
+            <Highlight>agentic development</Highlight>.
+          </Lead>
+          <ButtonRow snug>
+            <Button
+              track="internal_nav"
+              trackSection="home-hero"
+              variant="light"
+              size="lg"
+              href="#services"
+              arrow
+            >
+              Explore Our Services
+            </Button>
+            <Button
+              track="internal_nav"
+              trackSection="home-hero"
+              variant="outline"
+              size="lg"
+              href={url("/nasde")}
+              arrow
+            >
+              Check Our Eval Toolkit
+            </Button>
+          </ButtonRow>
+        </CtaBlock>
+        <div class="index-hero-dot-anchor">
+          <div data-node="1" data-dot="main" class="index-hero-dot"></div>
+        </div>
+      </header>
+
+      <section id="services" class="index-services">
+        <Container class="index-services-container">
+          <div data-reveal="1" class="index-services-head index-reveal">
+            <Eyebrow>Services</Eyebrow>
+            <h2 class="index-services-title">
+              From domain knowledge to measurable outcomes.
+            </h2>
+          </div>
+          {services.map((s) => (
+            <>
+              <div class="index-rail-row">
+                <div class="index-rail-cell">
+                  <div
+                    data-node={s.node}
+                    data-dot="main"
+                    class="index-dot"
+                  ></div>
+                </div>
+                <div data-reveal="1" class="index-service-card index-reveal">
+                  <div class="wide-only">
+                    <div class="index-service-icon">
+                      <Icon
+                        name={s.icon}
+                        size={28}
+                        stroke={1.5}
+                        color="#7EE3E8"
+                      />
+                    </div>
+                  </div>
+                  <div class="narrow-only">
+                    <div class="index-service-icon-narrow">
+                      <Icon
+                        name={s.icon}
+                        size={30}
+                        stroke={1.5}
+                        color="#45495F"
+                      />
+                    </div>
+                  </div>
+                  <div class="index-service-body">
+                    <div class="index-kicker">{s.title}</div>
+                    <div class="index-tagline index-service-tagline">
+                      {s.tagline}
+                    </div>
+                    <Text size="lg">{s.body}</Text>
+                    <a href={url(s.href)} class="index-service-link">
+                      Learn more
+                      <span class="visually-hidden"> about {s.title}</span>{" "}
+                      <Icon name="ChevronRight" size={16} stroke={2} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </>
+          ))}
+          <div class="index-rail-row">
+            <div class="index-rail-cell index-rail-cell--vision">
+              <div data-node="6" data-dot="main" class="index-dot"></div>
+            </div>
+            <div data-reveal="1" class="index-vision-card index-reveal">
+              <div class="index-vision-head">
+                <div class="index-kicker">Noesis Vision</div>
+                <div class="index-tagline">
+                  Architecture visualization from code.
+                </div>
+              </div>
+              <div class="index-vision-frame">
+                <div data-ref="vidAnim" class="index-vision-anim">
+                  <svg
+                    viewBox="0 0 800 450"
+                    preserveAspectRatio="xMidYMid meet"
+                    class="index-vision-svg"
+                  >
+                    <rect
+                      x="64"
+                      y="84"
+                      width="300"
+                      height="282"
+                      rx="16"
+                      fill="#2B2D3C"
+                      stroke="rgba(255,255,255,0.06)"
+                      class="index-vid-panel"
+                    ></rect>
+                    <circle
+                      cx="88"
+                      cy="104"
+                      r="4"
+                      fill="rgba(255,255,255,0.18)"
+                    ></circle>
+                    <circle
+                      cx="102"
+                      cy="104"
+                      r="4"
+                      fill="rgba(255,255,255,0.18)"
+                    ></circle>
+                    <circle
+                      cx="116"
+                      cy="104"
+                      r="4"
+                      fill="rgba(255,255,255,0.18)"
+                    ></circle>
+                    <text
+                      x="344"
+                      y="108"
+                      fill="#9a9eae"
+                      class="index-vid-path-label"
+                    >
+                      src/orders
+                    </text>
+                    <rect
+                      x="92"
+                      y="128"
+                      width="140"
+                      height="7"
+                      rx="3.5"
+                      fill="rgba(255,255,255,0.14)"
+                    ></rect>
+                    <rect
+                      x="92"
+                      y="154"
+                      width="190"
+                      height="7"
+                      rx="3.5"
+                      fill="rgba(126,227,232,0.45)"
+                    ></rect>
+                    <rect
+                      x="110"
+                      y="180"
+                      width="110"
+                      height="7"
+                      rx="3.5"
+                      fill="rgba(255,255,255,0.14)"
+                    ></rect>
+                    <rect
+                      x="92"
+                      y="206"
+                      width="210"
+                      height="7"
+                      rx="3.5"
+                      fill="rgba(255,255,255,0.14)"
+                    ></rect>
+                    <rect
+                      x="92"
+                      y="232"
+                      width="160"
+                      height="7"
+                      rx="3.5"
+                      fill="rgba(126,227,232,0.45)"
+                    ></rect>
+                    <rect
+                      x="110"
+                      y="258"
+                      width="90"
+                      height="7"
+                      rx="3.5"
+                      fill="rgba(255,255,255,0.14)"
+                    ></rect>
+                    <rect
+                      x="92"
+                      y="284"
+                      width="180"
+                      height="7"
+                      rx="3.5"
+                      fill="rgba(255,255,255,0.14)"
+                    ></rect>
+                    <rect
+                      x="92"
+                      y="310"
+                      width="130"
+                      height="7"
+                      rx="3.5"
+                      fill="rgba(255,255,255,0.14)"
+                    ></rect>
+                    <rect
+                      data-a="scan"
+                      x="76"
+                      y="120"
+                      width="276"
+                      height="22"
+                      rx="6"
+                      fill="rgba(126,227,232,0.10)"
+                      stroke="rgba(126,227,232,0.35)"
+                      class="index-vid-scan"
+                    ></rect>
+                    <path
+                      data-a="link"
+                      d="M364 225H400"
+                      pathLength="1"
+                      fill="none"
+                      stroke="#7EE3E8"
+                      class="index-vid-link"
+                    ></path>
+                    <path
+                      data-a="edge"
+                      data-k="0"
+                      d="M532 112H568"
+                      pathLength="1"
+                      fill="none"
+                      stroke="rgba(126,227,232,0.6)"
+                      class="index-vid-edge"
+                    ></path>
+                    <path
+                      data-a="edge"
+                      data-k="1"
+                      d="M470 132V212"
+                      pathLength="1"
+                      fill="none"
+                      stroke="rgba(126,227,232,0.6)"
+                      class="index-vid-edge"
+                    ></path>
+                    <path
+                      data-a="edge"
+                      data-k="2"
+                      d="M630 132V212"
+                      pathLength="1"
+                      fill="none"
+                      stroke="rgba(126,227,232,0.6)"
+                      class="index-vid-edge"
+                    ></path>
+                    <path
+                      data-a="edge"
+                      data-k="3"
+                      d="M532 232H568"
+                      pathLength="1"
+                      fill="none"
+                      stroke="rgba(126,227,232,0.6)"
+                      class="index-vid-edge"
+                    ></path>
+                    <path
+                      data-a="edge"
+                      data-k="4"
+                      d="M470 252V332H488"
+                      pathLength="1"
+                      fill="none"
+                      stroke="rgba(126,227,232,0.6)"
+                      class="index-vid-edge"
+                    ></path>
+                    <path
+                      data-a="edge"
+                      data-k="5"
+                      d="M630 252V332H612"
+                      pathLength="1"
+                      fill="none"
+                      stroke="rgba(126,227,232,0.6)"
+                      class="index-vid-edge"
+                    ></path>
+                    <g data-a="node" data-k="0" class="index-vid-node">
+                      <rect
+                        x="408"
+                        y="92"
+                        width="124"
+                        height="40"
+                        rx="12"
+                        fill="#2B2D3C"
+                        stroke="#7EE3E8"
+                        class="index-vid-node-box"
+                      ></rect>
+                      <circle cx="426" cy="112" r="4" fill="#7EE3E8"></circle>
+                      <text
+                        x="438"
+                        y="116"
+                        fill="#fff"
+                        class="index-vid-node-label"
+                      >
+                        Orders
+                      </text>
+                    </g>
+                    <g data-a="node" data-k="1" class="index-vid-node">
+                      <rect
+                        x="568"
+                        y="92"
+                        width="124"
+                        height="40"
+                        rx="12"
+                        fill="#2B2D3C"
+                        stroke="rgba(255,255,255,0.12)"
+                        class="index-vid-node-box"
+                      ></rect>
+                      <circle cx="586" cy="112" r="4" fill="#7EE3E8"></circle>
+                      <text
+                        x="598"
+                        y="116"
+                        fill="#fff"
+                        class="index-vid-node-label"
+                      >
+                        Payments
+                      </text>
+                    </g>
+                    <g data-a="node" data-k="2" class="index-vid-node">
+                      <rect
+                        x="408"
+                        y="212"
+                        width="124"
+                        height="40"
+                        rx="12"
+                        fill="#2B2D3C"
+                        stroke="rgba(255,255,255,0.12)"
+                        class="index-vid-node-box"
+                      ></rect>
+                      <circle cx="426" cy="232" r="4" fill="#7EE3E8"></circle>
+                      <text
+                        x="438"
+                        y="236"
+                        fill="#fff"
+                        class="index-vid-node-label"
+                      >
+                        Catalog
+                      </text>
+                    </g>
+                    <g data-a="node" data-k="3" class="index-vid-node">
+                      <rect
+                        x="568"
+                        y="212"
+                        width="124"
+                        height="40"
+                        rx="12"
+                        fill="#2B2D3C"
+                        stroke="rgba(255,255,255,0.12)"
+                        class="index-vid-node-box"
+                      ></rect>
+                      <circle cx="586" cy="232" r="4" fill="#7EE3E8"></circle>
+                      <text
+                        x="598"
+                        y="236"
+                        fill="#fff"
+                        class="index-vid-node-label"
+                      >
+                        Shipping
+                      </text>
+                    </g>
+                    <g data-a="node" data-k="4" class="index-vid-node">
+                      <rect
+                        x="488"
+                        y="312"
+                        width="124"
+                        height="40"
+                        rx="12"
+                        fill="#2B2D3C"
+                        stroke="rgba(255,255,255,0.12)"
+                        class="index-vid-node-box"
+                      ></rect>
+                      <circle cx="506" cy="332" r="4" fill="#7EE3E8"></circle>
+                      <text
+                        x="518"
+                        y="336"
+                        fill="#fff"
+                        class="index-vid-node-label"
+                      >
+                        Customers
+                      </text>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section class="index-arch">
+        <Container center>
+          <div class="narrow-only">
+            <div class="index-arch-divider">
+              <div
+                data-dot="sub"
+                data-shape="diamond"
+                data-divider-m="1"
+                class="index-dot index-dot--diamond"
+              ></div>
+            </div>
+          </div>
+          <div data-reveal="1" class="index-arch-head index-reveal">
+            <Heading>AI Needs an Architect, Not Just an API Key</Heading>
+            <Lead width={760}>
+              An experienced engineer who understands{" "}
+              <Highlight>
+                architecture, domain modeling, and team dynamics
+              </Highlight>{" "}
+              — equipped with deep AI knowledge — should be the one co-creating
+              the AI harness for your project. That's exactly who we are.
+            </Lead>
+          </div>
+          <div class="index-hub-wrap">
+            <div
+              data-node="7"
+              data-route="end"
+              data-src="hub"
+              data-gap-start="1"
+              data-dot="main"
+              class="index-dot index-dot--hub"
+            ></div>
+          </div>
+          <div class="index-stats">
+            {stats.map((st) => (
+              <>
+                <div class="index-stat">
+                  <div
+                    data-dst="hub"
+                    data-dot="sub"
+                    class="index-dot index-dot--stat"
+                  ></div>
+                  <div data-reveal="1" class="index-stat-body index-reveal">
+                    <div class="index-stat-value">{st.value}</div>
+                    <div class="index-stat-label">{st.label}</div>
+                  </div>
+                </div>
+              </>
+            ))}
+          </div>
+          <ButtonRow data-reveal="1" class="index-reveal index-arch-cta">
+            <Button
+              track="cta_contact_form"
+              trackSection="philosophy"
+              variant="light"
+              size="lg"
+              arrow
+              {...contactLink}
+            >
+              Request Contact
+            </Button>
+            <Button
+              track="internal_nav"
+              trackSection="philosophy"
+              variant="outline"
+              size="lg"
+              href={url("/services")}
+              arrow
+            >
+              See Our Services
+            </Button>
+          </ButtonRow>
+          <div
+            data-node="7.5"
+            data-gap-end="1"
+            data-dot="main"
+            class="index-dot index-dot--gap-end"
+          ></div>
+        </Container>
+      </section>
+
+      <section id="founders" class="index-founders">
+        <div class="index-founders-container">
+          <div
+            data-node="7.6"
+            data-stop="1"
+            data-dot="main"
+            class="index-dot index-dot--stop"
+          ></div>
+          <div data-reveal="1" class="index-founders-head index-reveal">
+            <Heading class="index-founders-title">Our Founders</Heading>
+            <div data-ref="underline" class="index-founders-underline"></div>
+            <p class="index-founders-intro">
+              We believe the fusion of deep architectural expertise, domain
+              modeling that extracts real business knowledge, and years of
+              teaching engineers how to think in systems — is a uniquely
+              powerful foundation for designing AI development processes that
+              actually deliver.
+            </p>
+          </div>
+
+          <div class="index-founders-list">
+            {founders.map((f, i) => (
+              <>
+                <div
+                  data-reveal="1"
+                  class:list={[
+                    "index-founder index-reveal",
+                    { "index-founder--reverse": f.reverse },
+                  ]}
+                >
+                  <div class="index-founder-photo">
+                    <div
+                      role="img"
+                      aria-label={f.name}
+                      class="index-founder-img"
+                      style={`--bg:${founderPhotos[i].url}; --bg-position: ${founderPhotos[i].backgroundPosition}`}
+                    ></div>
+                  </div>
+                  <div class="index-founder-text">
+                    <Eyebrow>Co-founder</Eyebrow>
+                    <div class="index-founder-name">{f.name}</div>
+                    <p class="index-founder-bio">{f.bio}</p>
+                  </div>
+                </div>
+              </>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="index-cta">
+        <Container center>
+          <div
+            data-node="9"
+            data-dot="main"
+            class="index-dot index-dot--cta"
+          ></div>
+          <div data-reveal="1" class="index-cta-block index-reveal">
+            <Heading size="lg">
+              Ready to engineer AI excellence with us?
+            </Heading>
+            {/* prettier-ignore */}
+            <Lead width={720}>
+            Whether you're rethinking your AI development strategy or ready to
+            optimize your team's agent setup —{" "}
+            <Highlight>let's talk</Highlight>. We help engineering leaders turn
+            AI potential into measurable engineering outcomes.
+          </Lead>
+            <ButtonRow>
+              <Button
+                track="cta_contact_form"
+                trackSection="home-cta"
+                variant="light"
+                size="xl"
+                arrow
+                {...contactLink}
+              >
+                Request Contact
+              </Button>
+              <Button
+                track="newsletter_open"
+                trackSection="home-cta"
+                variant="outline"
+                size="xl"
+                arrow
+                open="news"
+              >
+                Newsletter
+              </Button>
+            </ButtonRow>
+          </div>
+        </Container>
+      </section>
+    </main>
+    <Footer />
+
+    <NewsletterModal />
+  </Page>
+  <script>
+    import "../scripts/home.js";
+  </script>
+</Base>

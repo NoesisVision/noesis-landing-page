@@ -1,0 +1,139 @@
+{
+  "apps": [
+    {
+      "icon": "ArrowsExchange",
+      "title": "Project Takeover",
+      "body": "Accelerate onboarding when taking over existing projects. Noesis provides instant visibility into system architecture, dependencies, and business logic, reducing ramp-up time from weeks to days."
+    },
+    {
+      "icon": "FileText",
+      "title": "Delivering Documented Software",
+      "body": "Deliver comprehensive documentation alongside your software. Generate up-to-date system documentation automatically, ensuring clients receive complete technical and business context."
+    },
+    {
+      "icon": "ZoomCode",
+      "title": "Architecture Audit/Review",
+      "body": "Conduct thorough architecture reviews with complete system visibility. Identify technical debt, dependency issues, and optimization opportunities through visual analysis."
+    },
+    {
+      "icon": "ListCheck",
+      "title": "Requirements Preparation",
+      "body": "Bridge technical and business requirements with clear system understanding. Translate complex technical constraints into business-friendly documentation for stakeholders."
+    },
+    {
+      "icon": "GitMerge",
+      "title": "Refactoring Planning",
+      "body": "Plan refactoring initiatives with confidence. Understand impact analysis, identify dependencies, and create safe migration strategies with comprehensive system mapping."
+    },
+    {
+      "icon": "UsersGroup",
+      "title": "Knowledge Transfer",
+      "body": "Facilitate smooth knowledge transfer between team members. Create living documentation that evolves with your codebase, ensuring institutional knowledge is preserved."
+    }
+  ],
+  "faq": [
+    {
+      "id": "q1",
+      "q": "Can Noesis handle multiple repositories for my libraries and microservices?",
+      "a": "Absolutely! Noesis seamlessly scans multiple repositories and creates a unified, consistent model that gives you a complete view of your entire system architecture."
+    },
+    {
+      "id": "q2",
+      "q": "Does it hallucinate like other AI tools?",
+      "a": "No. We build answers from deterministic code graphs first, then enrich with AI, so every fact is traceable."
+    },
+    {
+      "id": "q3",
+      "q": "Isn't it easy to replace Noesis with pure AI-based solution?",
+      "a": "Pure AI solutions struggle with determinism and cost efficiency. LLMs can’t guarantee consistent, repeatable results across multiple scans, and using them for repetitive code analysis becomes prohibitively expensive. Noesis combines deterministic static analysis with selective AI enhancement, ensuring reliable results at a fraction of the cost while maintaining full traceability of every architectural insight."
+    },
+    {
+      "id": "q4",
+      "q": "Is my code safe?",
+      "a": "Absolutely. Currently we primarly support the on‑prem deployment model; your code never leaves your environment."
+    }
+  ],
+  "pillars": [
+    {
+      "title": "Precise System Map Creation",
+      "body": "Static code analysis extracts complete system map structures according to the P3 model - encompassing Domain, Technology, People perspectives and their relationships with mathematical precision. P3 focuses on the most essential concepts in software development and system architecture, making system understanding easier and more accessible."
+    },
+    {
+      "title": "AI-Enhanced Element Descriptions",
+      "body": "Once the system map structure is established, AI generates contextual descriptions for map elements. These descriptions leverage deterministic relationships to provide deeper insights into system components and their roles, making them understandable for both business stakeholders and development teams."
+    },
+    {
+      "title": "Comparable & Repeatable Analysis",
+      "body": "Code can be scanned multiple times with consistent, comparable results. Our deep, comprehensive analysis is fully repeatable - allowing you to track architectural changes over time and compare results across different scans. This systematic approach sets us apart from AI-only competitors."
+    },
+    {
+      "title": "Cost-Optimized AI Usage",
+      "body": "Critical analysis fragments are processed using inexpensive static code analysis, avoiding expensive AI costs. AI is applied selectively only where it adds value, giving you full control over costs while maintaining intelligent insights."
+    }
+  ],
+  "steps": [
+    {
+      "n": "1",
+      "title": "Select your repositories",
+      "body": "Point Noesis to the codebase you want to explore."
+    },
+    {
+      "n": "2",
+      "title": "Define conventions with DSL",
+      "body": "Specify your architectural rules and conventions in a lightweight domain-specific language."
+    },
+    {
+      "n": "3",
+      "title": "Run deterministic static analysis",
+      "body": "Noesis scans the code using static analysis and generates a repeatable map of the system's essential building blocks."
+    },
+    {
+      "n": "4",
+      "title": "Use the map in multiple ways",
+      "body": "Navigate, document, and integrate with AI for comprehensive system understanding."
+    }
+  ],
+  "uses": [
+    {
+      "slot": "vision-use-ui",
+      "ph": "Drop app screen: Noesis UI — module navigation",
+      "title": "Noesis UI",
+      "body": "Navigate interactively through AI-described modules, entry points, and key components to visually explore their connections and analyze your system.",
+      "isDocs": false,
+      "isAi": false,
+      "isUi": true
+    },
+    {
+      "slot": "vision-use-docs",
+      "ph": "Drop app screen: exported documentation",
+      "title": "Documentation",
+      "body": "Export Noesis map content to clear, static documentation - share it with clients or integrate with your internal wiki.",
+      "isDocs": true,
+      "isAi": false,
+      "isUi": false
+    },
+    {
+      "slot": "vision-use-ai",
+      "ph": "Drop app screen: AI integration",
+      "title": "AI Integration",
+      "body": "Expose the map or documentation to AI agents for more meaningful, context-aware conversations.",
+      "isDocs": false,
+      "isAi": true,
+      "isUi": false
+    }
+  ],
+  "videos": [
+    {
+      "label": "Noesis Vision demo",
+      "duration": "1:37",
+      "src": "/videos/vision-demo.mp4",
+      "poster": "/videos/vision-demo.jpg"
+    },
+    {
+      "label": "Code Clarity, episode 1",
+      "duration": "6:54",
+      "src": "/videos/code-clarity-ep1.mp4",
+      "poster": "/videos/code-clarity-ep1.jpg"
+    }
+  ]
+}

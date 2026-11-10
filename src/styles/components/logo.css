@@ -1,0 +1,15 @@
+/* Noesis mark (Logo.astro). Geometry from the brand book, Księga znaku v4. */
+.logo {
+  display: block;
+  flex: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.logo-outline,
+.logo-n {
+  stroke-width: 1.5;
+}
+/* Small-size version (< 24 px): heavier outline keeps the hexagon readable */
+.logo--small .logo-outline {
+  stroke-width: 2;
+}

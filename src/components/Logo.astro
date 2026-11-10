@@ -1,0 +1,52 @@
+---
+import "../styles/components/logo.css";
+
+/**
+ * The Noesis mark, as specified in the brand book (Księga znaku v4).
+ * 24 × 24 unit grid: hexagon outline and N strokes 1.5 units, nodes r 1.5.
+ * Below 24 px the brand book's small-size version is used (outline 2, nodes r 1.6),
+ * which keeps the hexagon's silhouette at favicon sizes.
+ */
+interface Props {
+  /** Rendered size in px; CSS on `class` may override it */
+  size?: number;
+  /** Force the small-size version; defaults to size < 24 */
+  small?: boolean;
+  /** Line colour; cyan is the brand colour on dark backgrounds */
+  color?: string;
+  class?: string;
+}
+
+const {
+  size = 24,
+  small = size < 24,
+  color = "#7EE3E8",
+  class: className,
+} = Astro.props;
+const r = small ? 1.6 : 1.5;
+const nodes = [
+  [8.5, 8.5],
+  [8.5, 15.5],
+  [15.5, 8.5],
+  [15.5, 15.5],
+];
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  class:list={["logo", small && "logo--small", className]}
+  aria-hidden="true"
+>
+  <path
+    class="logo-outline"
+    d="M12 1.75L20.75 6.75V17.25L12 22.25L3.25 17.25V6.75Z"
+    stroke={color}
+  ></path>
+  <path class="logo-n" d="M8.5 15.5V8.5L15.5 15.5V8.5" stroke={color}></path>
+  {nodes.map(([cx, cy]) => (
+    <circle cx={cx} cy={cy} r={r} fill={color} />
+  ))}
+</svg>

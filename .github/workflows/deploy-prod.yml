@@ -1,5 +1,6 @@
 name: Deploy Astro site to S3 on tag
 
+# Production: https://noesis.vision (S3 bucket behind CloudFront). Runs on any pushed tag.
 on:
   push:
     tags:
@@ -22,7 +23,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          # Astro 7 needs Node 22.23.4 or newer
+          node-version: "24"
+          cache: npm
 
       - run: npm ci
       - run: npm run build
@@ -33,9 +36,10 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
 
+      # Astro puts content-hashed JS, CSS and images in dist/_astro/
       - name: Sync hashed assets to S3 (immutable, 1 year cache)
         run: |
-          aws s3 sync ./dist/assets s3://$S3_BUCKET/assets \
+          aws s3 sync ./dist/_astro s3://$S3_BUCKET/_astro \
             --cache-control "public, max-age=31536000, immutable" \
             --delete
 
@@ -46,10 +50,16 @@ jobs:
             --include "*.html" \
             --cache-control "public, max-age=0, must-revalidate"
 
+      # Also removes files that are no longer in the build (e.g. the previous site's
+      # assets/, images/, logos/, videos/). serve.* are the local preview server
+      # that every build adds to dist/; they don't belong on the site.
       - name: Sync remaining files to S3 (24h cache)
         run: |
           aws s3 sync ./dist s3://$S3_BUCKET \
-            --exclude "assets/*" \
+            --exclude "_astro/*" \
             --exclude "*.html" \
+            --exclude "serve.mjs" \
+            --exclude "serve.command" \
+            --exclude "serve.cmd" \
             --cache-control "public, max-age=86400" \
             --delete

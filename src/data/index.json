@@ -1,0 +1,83 @@
+{
+  "founders": [
+    {
+      "key": "f1",
+      "node": 8.1,
+      "photo": "szymon-janikowski",
+      "name": "Szymon Janikowski",
+      "bio": "Experienced software engineer, analyst and architect with strong background in Java technologies and system design. Passionate about thorough domain analysis and understanding business context before implementing technical solutions.",
+      "reverse": false,
+      "backgroundPosition": "left top"
+    },
+    {
+      "key": "f2",
+      "node": 8.2,
+      "photo": "marcin-markowski",
+      "name": "Marcin Markowski",
+      "bio": "Entrepreneur and seasoned software architect, consultant and trainer with deep knowledge of Domain Driven Design and .NET technologies. Focused on delivering high-quality solutions through efficient development practices.",
+      "reverse": true,
+      "backgroundPosition": "center top"
+    },
+    {
+      "key": "f3",
+      "node": 8.3,
+      "photo": "lukasz-szydlo",
+      "name": "Łukasz Szydło",
+      "bio": "Renowned speaker, trainer and consultant with extensive experience in software architecture and JVM technologies. Expert in conducting technical audits, establishing effective development practices and building high-performing teams. Passionate about clear technical documentation and knowledge sharing.",
+      "reverse": false,
+      "backgroundPosition": "center top"
+    }
+  ],
+  "services": [
+    {
+      "node": 2,
+      "icon": "Sitemap",
+      "title": "Development Process Design",
+      "tagline": "Tools without process are just expensive toys.",
+      "body": "We design how your team works with AI — from extracting domain knowledge to structuring agent workflows. Our domain modelers turn business expertise into AI-ready context that generic tools can't replicate.",
+      "href": "/services#process"
+    },
+    {
+      "node": 3,
+      "icon": "Plug",
+      "title": "Harness Engineering",
+      "tagline": "The agent isn't the variable — its tools are.",
+      "body": "We configure and optimize the complete AI development harness: tools, MCP servers, context management. The right harness turns an average agent into an exceptional one.",
+      "href": "/services#harness"
+    },
+    {
+      "node": 4,
+      "icon": "Puzzle",
+      "title": "Skills Development",
+      "tagline": "Skills are software. They need testing and measurement.",
+      "body": "We build, test, and iterate on custom skills — from team-specific domain knowledge to universal coding patterns. Treated as first-class software artifacts, not throwaway prompts.",
+      "href": "/services#skills"
+    },
+    {
+      "node": 5,
+      "icon": "ChartDots3",
+      "title": "Measurement & Evaluation",
+      "tagline": "If you can't measure it, you can't improve it.",
+      "body": "Multi-dimensional evaluation on tasks from real codebases. We prove what works — architecture, code quality, tests, team conventions — through rigorous benchmarks, not demos on toy projects.",
+      "href": "/services#measurement"
+    }
+  ],
+  "stats": [
+    {
+      "value": "2,000+",
+      "label": "Engineers & architects trained"
+    },
+    {
+      "value": "20+",
+      "label": "Consulting projects delivered"
+    },
+    {
+      "value": "10+ yrs",
+      "label": "Of hands-on architecture practice"
+    },
+    {
+      "value": "Now",
+      "label": "Applying that expertise to AI engineering"
+    }
+  ]
+}

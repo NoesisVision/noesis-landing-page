@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes, HTMLTag } from "astro/types";
+import "../../styles/components/ui/card.css";
+
+interface Props extends HTMLAttributes<"div"> {
+  as?: HTMLTag;
+  /** Wider minimum column (420px instead of 300px) */
+  wide?: boolean;
+}
+
+const {
+  as: Tag = "div",
+  wide = false,
+  class: className,
+  ...rest
+} = Astro.props;
+// The slot is rendered to a string so no whitespace ends up inside the element.
+const html = await Astro.slots.render("default");
+---
+
+<Tag
+  class:list={[wide ? "grid-cards-wide" : "grid-cards", className]}
+  {...rest}
+  set:html={html}
+/>

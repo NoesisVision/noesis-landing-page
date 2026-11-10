@@ -1,0 +1,55 @@
+/* Burger.astro */
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+}
+.burger-lines,
+.burger-lines::before,
+.burger-lines::after {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: currentColor;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+.burger-lines {
+  position: relative;
+}
+.burger-lines::before,
+.burger-lines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.burger-lines::before {
+  top: -6px;
+}
+.burger-lines::after {
+  top: 6px;
+}
+.burger[aria-expanded="true"] .burger-lines {
+  background: transparent;
+}
+.burger[aria-expanded="true"] .burger-lines::before {
+  transform: translateY(6px) rotate(45deg);
+}
+.burger[aria-expanded="true"] .burger-lines::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .burger-lines,
+  .burger-lines::before,
+  .burger-lines::after {
+    transition: none;
+  }
+}

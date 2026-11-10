@@ -1,0 +1,138 @@
+---
+import Button from "./Button.astro";
+import Burger from "./Burger.astro";
+import Icon from "./Icon.astro";
+import Logo from "./Logo.astro";
+import ContactModal from "./ContactModal.astro";
+import { contactLink } from "../config/integrations.js";
+import { url } from "../config/paths.js";
+import "../styles/components/nav.css";
+
+interface Props {
+  current: "index" | "services" | "vision" | "nasde" | "privacy" | "none";
+}
+
+const { current } = Astro.props;
+const onHome = current === "index";
+const inProducts = current === "vision" || current === "nasde";
+
+const products = [
+  {
+    label: "Nasde",
+    sub: "AI agent evaluation framework",
+    href: url("/nasde"),
+    active: current === "nasde",
+  },
+  {
+    label: "Noesis Vision",
+    sub: "Architecture visualization from code",
+    href: url("/vision"),
+    active: current === "vision",
+  },
+];
+const foundersHref = onHome ? "#founders" : url("/#founders");
+const mobile = [
+  { label: "Home", href: url("/"), active: onHome, nav: "home" },
+  {
+    label: "Services",
+    href: url("/services"),
+    active: current === "services",
+  },
+  ...products,
+  { label: "Founders", href: foundersHref, active: false, nav: "founders" },
+];
+---
+
+<nav class="nav">
+  <div class="nav-bar">
+    <div class="nav-inner">
+      <a class="nav-brand" href={onHome ? "#top" : url("/")}>
+        <Logo />
+        <span class="nav-brand-text">Noesis</span>
+      </a>
+      <div>
+        <div class="wide-only">
+          <div class="nav-links">
+            <a
+              class:list={["nav-link hover-cyan", onHome && "is-active"]}
+              data-nav="home"
+              href={url("/")}
+            >
+              Home
+            </a>
+            <a
+              class:list={[
+                "nav-link hover-cyan",
+                current === "services" && "is-active",
+              ]}
+              href={url("/services")}
+            >
+              Services
+            </a>
+            <div class="products">
+              <span
+                tabindex="0"
+                class:list={["nav-products-toggle", inProducts && "is-active"]}
+              >
+                Products <Icon name="ChevronDown" size={14} stroke={1.75} />
+              </span>
+              <div class="products-menu">
+                <div class="nav-products-panel">
+                  {products.map((p) => (
+                    <a
+                      class:list={[
+                        "nav-product",
+                        p.active ? "is-active" : "hover-surface",
+                      ]}
+                      href={p.href}
+                    >
+                      <span class="nav-product-label">{p.label}</span>
+                      <span class="nav-product-sub">{p.sub}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <a
+              class="nav-link hover-cyan"
+              data-nav="founders"
+              href={foundersHref}
+            >
+              Founders
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-cta">
+        <Button
+          track="cta_contact_form"
+          trackSection="navbar"
+          variant="light"
+          size="xs"
+          {...contactLink}
+        >
+          Request Contact
+        </Button>
+        <div class="narrow-only">
+          <Burger />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="narrow-only" data-mobile-menu hidden>
+    <div class="nav-mobile-panel">
+      {mobile.map((m) => (
+        <a
+          href={m.href}
+          data-action="closeMenu"
+          data-nav={m.nav}
+          class:list={["nav-mobile-link", m.active && "is-active"]}
+        >
+          {m.label}
+          {m.sub && <span class="nav-mobile-sub">{m.sub}</span>}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+<ContactModal />

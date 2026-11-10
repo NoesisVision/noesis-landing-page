@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes, HTMLTag } from "astro/types";
+import "../../styles/components/ui/card.css";
+
+interface Props extends HTMLAttributes<"div"> {
+  as?: HTMLTag;
+}
+
+const { as: Tag = "div", class: className, ...rest } = Astro.props;
+// The slot is rendered to a string so no whitespace ends up inside the element.
+const html = await Astro.slots.render("default");
+---
+
+<Tag class:list={["step-num", className]} {...rest} set:html={html} />

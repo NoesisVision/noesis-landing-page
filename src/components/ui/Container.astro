@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes, HTMLTag } from "astro/types";
+import "../../styles/components/ui/layout.css";
+
+interface Props extends HTMLAttributes<"div"> {
+  as?: HTMLTag;
+  /** Centred column without the default 56px gap between children */
+  center?: boolean;
+}
+
+const {
+  as: Tag = "div",
+  center = false,
+  class: className,
+  ...rest
+} = Astro.props;
+// The slot is rendered to a string so no whitespace ends up inside the element.
+const html = await Astro.slots.render("default");
+---
+
+<Tag
+  class:list={[center ? "container-center" : "container", className]}
+  {...rest}
+  set:html={html}
+/>

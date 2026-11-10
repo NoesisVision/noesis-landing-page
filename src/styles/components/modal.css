@@ -1,0 +1,49 @@
+/* Modal.astro */
+.modal {
+  width: min(var(--modal-size), calc(100vw - 10vw));
+  max-height: 90dvh;
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  color: #fff;
+  background: #1f2130;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+.modal[open][data-shown] {
+  opacity: 1;
+  transform: none;
+}
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+.modal[open][data-shown]::backdrop {
+  opacity: 1;
+}
+.modal-body {
+  padding: 36px;
+}
+@media (max-width: 480px) {
+  .modal {
+    width: calc(100vw - 32px);
+  }
+  .modal-body {
+    padding: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .modal,
+  .modal::backdrop {
+    transition: none;
+  }
+}

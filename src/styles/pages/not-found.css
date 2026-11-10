@@ -1,0 +1,40 @@
+/* 404 page (404.astro): fills the window, footer at the bottom */
+.not-found-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+.not-found-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.not-found {
+  flex: 1;
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 80px;
+}
+.not-found-lead {
+  max-width: 560px;
+}
+/* Huge "404": brand cyan fading into the page background */
+.not-found-code {
+  font-size: clamp(144px, 30vw, 380px);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  /* Optical centring: the negative tracking leaves space after the last digit */
+  padding-right: 0.06em;
+  margin-bottom: 8px;
+  background: linear-gradient(
+    180deg,
+    #7ee3e8 0%,
+    rgba(126, 227, 232, 0.55) 55%,
+    rgba(126, 227, 232, 0.08) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  user-select: none;
+}

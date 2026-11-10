@@ -1,0 +1,18 @@
+/* Web3Form.astro */
+.web3form-trap {
+  display: none;
+}
+/* Shown by modal.js when sending fails */
+.web3form-error {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 138, 128, 0.35);
+  background: rgba(255, 138, 128, 0.08);
+  color: #ffb4ab;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.web3form-error[hidden] {
+  display: none;
+}

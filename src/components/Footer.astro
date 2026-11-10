@@ -1,0 +1,79 @@
+---
+import Icon from "./Icon.astro";
+import Logo from "./Logo.astro";
+import "../styles/components/footer.css";
+import { url } from "../config/paths.js";
+import {
+  GITHUB_URL,
+  LINKEDIN_URL,
+  SUBSTACK_URL,
+  YOUTUBE_URL,
+} from "../config/integrations.js";
+
+const links = [
+  { label: "Services", href: url("/services") },
+  { label: "Nasde", href: url("/nasde") },
+  { label: "Vision", href: url("/vision") },
+  { label: "Vision Docs", href: "https://noesisvision.github.io/noesis-docs" },
+  {
+    label: "Nasde Docs",
+    href: "https://noesisvision.github.io/nasde-toolkit/",
+  },
+  { label: "Privacy & cookies", href: url("/privacy") },
+];
+const social = [
+  { label: "Blog", icon: "Rss", href: SUBSTACK_URL },
+  {
+    label: "YouTube",
+    icon: "BrandYoutube",
+    href: YOUTUBE_URL,
+  },
+  {
+    label: "LinkedIn",
+    icon: "BrandLinkedin",
+    href: LINKEDIN_URL,
+  },
+  {
+    label: "GitHub",
+    icon: "BrandGithub",
+    href: GITHUB_URL,
+  },
+];
+const copyright = "© Noesis Vision Sp. z o.o. All right reserved";
+---
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-row">
+      <div class="site-footer-group site-footer-brand-group">
+        <div class="site-footer-brand">
+          <Logo size={20} />
+          <span class="site-footer-brand-text">Noesis</span>
+        </div>
+        <span class="site-footer-copy">{copyright}</span>
+      </div>
+      <div class="site-footer-group site-footer-nav">
+        <div class="site-footer-group site-footer-links">
+          {links.map((l) => (
+            <a class="site-footer-link hover-white" href={l.href}>
+              {l.label}
+            </a>
+          ))}
+        </div>
+        <div class="site-footer-rule"></div>
+        <div class="site-footer-social">
+          {social.map((s) => (
+            <a
+              class="site-footer-social-link hover-icon"
+              href={s.href}
+              aria-label={s.label}
+            >
+              <Icon name={s.icon} size={18} stroke={1.75} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="site-footer-copy-m">{copyright}</div>
+  </div>
+</footer>
