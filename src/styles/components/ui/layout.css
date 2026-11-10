@@ -1,0 +1,74 @@
+/* Page shell, sections and containers (Page, PageHero, Section, Container, SectionHead, CtaBlock, ButtonRow) */
+/* In the "ui" cascade layer: any unlayered page or component CSS overrides these,
+   regardless of the order Astro bundles the stylesheets in. */
+@layer ui {
+  .page {
+    position: relative;
+    background: #1f2130;
+    color: #fff;
+    font-family: "Raleway Variable", Raleway, sans-serif;
+    overflow: hidden;
+  }
+  .page-hero {
+    position: relative;
+    padding: clamp(120px, 16vw, 150px) 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .section {
+    position: relative;
+    padding: clamp(80px, 12vw, 140px) 0 40px;
+  }
+  .section-lg {
+    position: relative;
+    padding: clamp(96px, 14vw, 160px) 0;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+  .container-center {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .section-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  .cta-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    max-width: 1000px;
+  }
+  .btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .btn-row-snug {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 4px;
+  }
+}

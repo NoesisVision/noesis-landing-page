@@ -1,0 +1,124 @@
+---
+import Icon from "./Icon.astro";
+import "../styles/components/architecture-diagram.css";
+import Logo from "./Logo.astro";
+---
+
+<div class="arch-canvas">
+  <svg width="1920" height="1080" viewBox="0 0 1920 1080" class="arch-wires">
+    <defs>
+      <marker
+        id="ah"
+        viewBox="0 0 12 12"
+        refX="10"
+        refY="6"
+        markerWidth="12"
+        markerHeight="12"
+        orient="auto-start-reverse"
+      >
+        <path d="M1 1 L11 6 L1 11 Z" fill="#7EE3E8"></path>
+      </marker>
+    </defs>
+    <path d="M440 380 H560" class="arch-wire arch-wire--input"></path>
+    <circle cx="440" cy="380" r="5" fill="#7EE3E8"></circle>
+    <path d="M440 720 H560" class="arch-wire arch-wire--input"></path>
+    <circle cx="440" cy="720" r="5" fill="#7EE3E8"></circle>
+    <path d="M928 262 H1052" class="arch-wire arch-wire--both"></path>
+    <path d="M928 540 H1052" class="arch-wire arch-wire--out"></path>
+    <path d="M928 820 H1052" class="arch-wire arch-wire--both"></path>
+  </svg>
+
+  <div class="arch-repos">
+    <div class="arch-repos-layer arch-repos-layer--back"></div>
+    <div class="arch-repos-layer arch-repos-layer--mid"></div>
+    <div class="arch-source-card arch-repos-front">
+      <div></div>
+      <div class="arch-source-title">Code repos</div>
+      <div class="arch-chips">
+        <div class="arch-chip">
+          <Icon name="BrandCSharp" size={26} stroke={1.6} color="#7EE3E8" />
+        </div>
+        <div class="arch-chip">
+          <Icon name="Coffee" size={22} stroke={1.6} color="#7EE3E8" />
+          Java
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arch-source-card arch-conventions">
+    <div></div>
+    <div class="arch-source-title arch-source-title--multiline">
+      Architecture conventions
+    </div>
+    <div></div>
+  </div>
+
+  <div class="arch-engine">
+    <Logo size={168} />
+    <div class="arch-engine-name">Noesis</div>
+    <div class="arch-engine-tagline">Knowledge Extraction Engine</div>
+    <div class="arch-spacer"></div>
+    <div class="arch-graph">
+      <Icon name="Affiliate" size={44} stroke={1.4} color="#7EE3E8" />
+      <div class="arch-graph-label">Knowledge Graph</div>
+    </div>
+  </div>
+
+  <div class="arch-output arch-output--ui">
+    <div class="arch-ui">
+      <div class="arch-ui-window-back"></div>
+      <div class="arch-ui-window">
+        <div class="arch-ui-titlebar"></div>
+        <div class="arch-ui-sidebar"></div>
+        <div class="arch-ui-nav-item arch-ui-nav-item--active"></div>
+        <div class="arch-ui-nav-item arch-ui-nav-item--second"></div>
+        <div class="arch-ui-nav-item arch-ui-nav-item--third"></div>
+        <div class="arch-ui-node-focus"></div>
+        <div class="arch-ui-node arch-ui-node--tl"></div>
+        <div class="arch-ui-node arch-ui-node--tr"></div>
+        <div class="arch-ui-node arch-ui-node--bl"></div>
+        <div class="arch-ui-node arch-ui-node--br"></div>
+        <div class="arch-ui-link arch-ui-link--tl"></div>
+        <div class="arch-ui-link arch-ui-link--tr"></div>
+        <div class="arch-ui-link arch-ui-link--bl"></div>
+        <div class="arch-ui-link arch-ui-link--br"></div>
+      </div>
+    </div>
+    <div class="arch-output-label">Noesis UI</div>
+  </div>
+
+  <div class="arch-output arch-output--docs">
+    <div class="arch-doc-icons">
+      <div class="arch-tile">
+        <Icon name="FileTypePdf" size={48} stroke={1.4} color="#7EE3E8" />
+      </div>
+      <div class="arch-tile">
+        <Icon name="Markdown" size={48} stroke={1.4} color="#7EE3E8" />
+      </div>
+    </div>
+    <div class="arch-output-label arch-output-label--multiline">
+      Exportable Documentation
+    </div>
+  </div>
+
+  <div class="arch-output arch-output--mcp">
+    <div class="arch-tile arch-tile--lg">
+      <Icon name="Cpu" size={56} stroke={1.4} color="#7EE3E8" />
+    </div>
+    <div class="arch-output-label">AI agents (MCP)</div>
+  </div>
+
+  <div class="arch-captions">
+    <div class="arch-caption arch-caption--ui">
+      Up-to date, interactive architecture diagrams
+    </div>
+    <div class="arch-caption arch-caption--docs">
+      Documentation pages you can share — as PDF deliverables or Markdown in
+      your wiki
+    </div>
+    <div class="arch-caption arch-caption--mcp">
+      Deterministic system knowledge for your agents
+    </div>
+  </div>
+</div>

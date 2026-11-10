@@ -1,0 +1,492 @@
+/* Home page (/) */
+
+/* ---------- Scroll-flow backdrop ---------- */
+/* Darker backdrop faded in behind the founders section; script sets top/opacity */
+.index-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  background: #14151e;
+  opacity: 0;
+}
+/* SVG overlay the scroll-driven flow line is drawn into */
+.index-flow-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+.index-flow-track {
+  stroke-width: 2;
+}
+.index-flow-line {
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* Reveal-on-scroll blocks (script drives opacity/transform) */
+.index-reveal {
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+/* ---------- Flow dots ---------- */
+.index-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 2px solid rgba(126, 227, 232, 0.45);
+  background: #1f2130;
+  transition:
+    background 0.6s,
+    box-shadow 0.6s,
+    border-color 0.6s;
+}
+.index-dot--stat {
+  width: 14px;
+  height: 14px;
+}
+.index-dot--cta {
+  width: 20px;
+  height: 20px;
+}
+.index-dot--hub {
+  width: 22px;
+  height: 22px;
+}
+.index-dot--diamond {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  transform: rotate(45deg);
+}
+.index-dot--gap-end {
+  margin-top: 56px;
+}
+.index-dot--stop {
+  margin-bottom: 36px;
+}
+
+/* ---------- Hero ---------- */
+.index-hero {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 96px 24px var(--heroPadB);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+/* Dotted backdrop fading out from the hero centre */
+.index-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 42% 46% at 50% 40%,
+    #000 30%,
+    transparent 85%
+  );
+  mask-image: radial-gradient(
+    ellipse 42% 46% at 50% 40%,
+    #000 30%,
+    transparent 85%
+  );
+}
+.index-hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.index-hero-logo {
+  display: block;
+  width: min(260px, 30vh);
+  height: min(260px, 30vh);
+  margin: 8px 0;
+}
+.index-hero-title {
+  margin: 0;
+  font-size: clamp(40px, 6.2vw, 80px);
+  line-height: 1.04;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.index-hero-dot-anchor {
+  position: absolute;
+  left: 50%;
+  bottom: 56px;
+  transform: translateX(-50%);
+}
+.index-hero-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 2px solid #7ee3e8;
+  background: #1f2130;
+  transition:
+    background 0.6s,
+    box-shadow 0.6s;
+}
+
+/* ---------- Services ---------- */
+.index-services {
+  position: relative;
+  z-index: 2;
+  padding: var(--servicesPadT) 0 var(--servicesPadB);
+}
+.index-services-container {
+  gap: 40px;
+}
+.index-services-head {
+  padding-left: var(--headPad);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 860px;
+}
+.index-services-title {
+  margin: 0;
+  font-size: clamp(34px, 4.6vw, 60px);
+  line-height: 1.06;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+/* Row with the flow rail on the left and a card on the right */
+.index-rail-row {
+  display: grid;
+  grid-template-columns: var(--railCols);
+  gap: var(--railGap);
+  align-items: start;
+}
+.index-rail-cell {
+  display: flex;
+  justify-content: center;
+  padding-top: calc(clamp(24px, 4vw, 44px) + 20px);
+  transform: var(--railShift);
+}
+.index-rail-cell--vision {
+  padding-top: calc(clamp(24px, 4vw, 44px) + 2px);
+}
+.index-service-card {
+  background: #2b2d3c;
+  border-radius: 28px;
+  position: relative;
+  padding: clamp(24px, 4vw, 44px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: clamp(18px, 3vw, 32px);
+  max-width: 880px;
+}
+.index-service-icon {
+  width: 56px;
+  height: 56px;
+  flex: none;
+  border-radius: 16px;
+  background: rgba(126, 227, 232, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.index-service-icon-narrow {
+  position: absolute;
+  top: calc(clamp(24px, 4vw, 44px) - 5px);
+  right: 20px;
+  display: flex;
+}
+.index-service-body {
+  flex: 1 1 220px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: var(--svcTextPadR);
+}
+.index-kicker {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #7ee3e8;
+}
+.index-tagline {
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.index-service-tagline {
+  text-wrap: balance;
+}
+.index-service-link {
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+/* ---------- Noesis Vision card & animation ---------- */
+.index-vision-card {
+  background: #2b2d3c;
+  border-radius: 28px;
+  padding: clamp(24px, 4vw, 44px);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.index-vision-head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 720px;
+}
+.index-vision-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #1f2130;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.index-vision-anim {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+.index-vision-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: "Raleway Variable", Raleway, sans-serif;
+}
+.index-vid-panel {
+  stroke-width: 1;
+}
+.index-vid-path-label {
+  font-size: 10px;
+  text-anchor: end;
+  font-family: ui-monospace, Menlo, monospace;
+}
+/* Animated parts start hidden; home.js animates them */
+.index-vid-scan {
+  stroke-width: 1;
+  opacity: 0;
+}
+.index-vid-link,
+.index-vid-edge {
+  stroke-width: 1.4;
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 1;
+}
+.index-vid-edge {
+  stroke-linecap: round;
+}
+.index-vid-node {
+  opacity: 0;
+}
+.index-vid-node-box {
+  stroke-width: 1.2;
+}
+.index-vid-node-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+.index-vid-caption {
+  font-size: 11px;
+  text-anchor: middle;
+}
+
+/* ---------- Architect section & stats ---------- */
+.index-arch {
+  position: relative;
+  z-index: 2;
+  padding: var(--archPadT) 0 100px;
+}
+.index-arch-divider {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+.index-arch-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 900px;
+}
+.index-hub-wrap {
+  padding-top: var(--hubPadT);
+  display: flex;
+  justify-content: center;
+}
+.index-stats {
+  width: 100%;
+  max-width: 1040px;
+  margin-top: var(--statsMarT);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 48px 24px;
+}
+.index-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.index-stat-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.index-stat-value {
+  font-size: clamp(44px, 5vw, 64px);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.index-stat-label {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #9a9eae;
+  max-width: 200px;
+  text-wrap: balance;
+}
+.index-arch-cta {
+  margin-top: 72px;
+}
+
+/* ---------- Founders ---------- */
+.index-founders {
+  position: relative;
+  z-index: 2;
+  padding: 120px 0 48px;
+}
+.index-founders-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.index-founders-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+  max-width: 860px;
+}
+.index-founders-title {
+  text-wrap: wrap;
+}
+/* Underline grows when the flow line reaches it (script sets width) */
+.index-founders-underline {
+  height: 3px;
+  width: 0;
+  border-radius: 2px;
+  background: #7ee3e8;
+  margin-top: -8px;
+  transition: width 2.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.index-founders-intro {
+  margin: 0;
+  font-size: clamp(17px, 1.5vw, 19px);
+  line-height: 1.6;
+  color: #c9ccd6;
+  text-wrap: pretty;
+}
+.index-founders-list {
+  width: 100%;
+  max-width: 1040px;
+  margin-top: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+.index-founder {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+}
+.index-founder--reverse {
+  flex-direction: row-reverse;
+}
+.index-founder-photo {
+  flex: 1 1 300px;
+  max-width: 440px;
+  aspect-ratio: 4 / 5;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #2b2d3c;
+}
+/* --bg: background-image value from data */
+.index-founder-img {
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: var(--bg-position);
+}
+.index-founder-text {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.index-founder-name {
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.index-founder-bio {
+  margin: 0;
+  font-size: clamp(17px, 1.5vw, 19px);
+  line-height: 1.65;
+  color: #c9ccd6;
+  text-wrap: pretty;
+}
+
+/* ---------- Closing CTA ---------- */
+.index-cta {
+  position: relative;
+  z-index: 2;
+  padding: 32px 0 160px;
+}
+.index-cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  max-width: 900px;
+  margin-top: 62px;
+}

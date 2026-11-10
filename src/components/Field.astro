@@ -1,0 +1,52 @@
+---
+import "../styles/components/field.css";
+interface Props {
+  label: string;
+  name: string;
+  placeholder?: string;
+  type?: string;
+  required?: boolean;
+  autofocus?: boolean;
+  multiline?: boolean;
+}
+
+const {
+  label,
+  name,
+  placeholder,
+  type = "text",
+  required = false,
+  autofocus = false,
+  multiline = false,
+} = Astro.props;
+---
+
+<label class="field">
+  <span class="field-label">
+    {label}
+    {required && (
+      <span class="field-required" aria-hidden="true">
+        {" "}
+        *
+      </span>
+    )}
+  </span>
+  {multiline ? (
+    <textarea
+      class="field-input field-area"
+      name={name}
+      placeholder={placeholder}
+      required={required}
+      rows="4"
+    ></textarea>
+  ) : (
+    <input
+      class="field-input"
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      required={required}
+      autofocus={autofocus}
+    />
+  )}
+</label>

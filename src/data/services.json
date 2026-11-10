@@ -1,0 +1,182 @@
+{
+  "audience": [
+    {
+      "title": "Product Companies",
+      "roles": "CTOs · VP Engineering · Engineering Directors",
+      "points": [
+        "Teams of 20–200 developers",
+        "Want to measure and optimize AI developer productivity",
+        "Need custom skills for their domain and codebase"
+      ]
+    },
+    {
+      "title": "Software Houses",
+      "roles": "Managing Directors · Delivery Managers · Tech Leads",
+      "points": [
+        "Want repeatable AI excellence across client projects",
+        "Need to prove ROI of AI tooling with real benchmarks",
+        "Looking for competitive edge through measurable engineering quality"
+      ]
+    }
+  ],
+  "flowItems": [
+    {
+      "icon": "Microphone",
+      "title": "Meeting Recording",
+      "body": "Team discussion, design review, or planning session",
+      "highlight": false,
+      "arrow": false
+    },
+    {
+      "icon": "Sparkles",
+      "title": "AI Extraction",
+      "body": "Decisions, requirements, and action items identified",
+      "highlight": false,
+      "arrow": true
+    },
+    {
+      "icon": "FileText",
+      "title": "Design Document",
+      "body": "Structured design document with architectural decisions, ready for agent execution",
+      "highlight": true,
+      "arrow": true
+    }
+  ],
+  "measures": [
+    {
+      "icon": "GitBranch",
+      "title": "Real-World Benchmarks",
+      "body": "Tasks derived from actual git history and production codebases — not synthetic toy problems. We measure agent performance on the work your team actually does."
+    },
+    {
+      "icon": "ChartRadar",
+      "title": "Multi-Dimensional Scoring",
+      "body": "Not just 'does it compile' — we score architecture compliance, code quality, test coverage, domain modeling, and adherence to team conventions."
+    },
+    {
+      "icon": "TrendingUp",
+      "title": "Baseline & Progress",
+      "body": "Establish where your team's AI setup performs today and track improvement over time as harness and skills evolve. Data-driven optimization, not guesswork."
+    },
+    {
+      "icon": "Refresh",
+      "title": "Feedback Loop",
+      "body": "Evaluation results feed directly into harness and skill improvements. Every benchmark run reveals what to optimize next — creating a continuous improvement cycle."
+    }
+  ],
+  "pillars": [
+    {
+      "n": "1",
+      "title": "Development Process Design",
+      "tag": "The Right Process Makes Tools Work",
+      "items": [
+        {
+          "t": "Domain knowledge extraction",
+          "d": "Our modelers work with your business experts to identify and structure domain knowledge that AI agents need to produce quality code"
+        },
+        {
+          "t": "Agentic workflow design",
+          "d": "We design how developers, architects, and AI agents collaborate — clear roles, handoff points, and feedback loops"
+        },
+        {
+          "t": "Team adoption & coaching",
+          "d": "Process changes only work when teams adopt them. We coach your developers through the transition to AI-augmented workflows"
+        },
+        {
+          "t": "Continuous process improvement",
+          "d": "Regular retrospectives and measurement to evolve your process as AI capabilities and team maturity grow"
+        }
+      ],
+      "anchor": "process"
+    },
+    {
+      "n": "2",
+      "title": "Harness Engineering",
+      "tag": "Tools + Context + Instructions = Results",
+      "items": [
+        {
+          "t": "Agent environment audit & optimization",
+          "d": "We analyze your current setup and identify configuration gaps that limit agent effectiveness"
+        },
+        {
+          "t": "Tool & MCP server configuration",
+          "d": "The right tools connected the right way — code search, LSP, documentation, custom integrations"
+        },
+        {
+          "t": "Context management strategy",
+          "d": "Agents need the right information at the right time — we design what context flows where"
+        },
+        {
+          "t": "Knowledge graph experiments (GraphRAG)",
+          "d": "Structuring codebase knowledge for more effective agent reasoning"
+        }
+      ],
+      "anchor": "harness"
+    },
+    {
+      "n": "3",
+      "title": "Skills Development",
+      "tag": "Skills Are Software — Build, Test, Iterate",
+      "items": [
+        {
+          "t": "Team-specific skills",
+          "d": "Codified domain knowledge, project conventions, and architectural patterns unique to your codebase"
+        },
+        {
+          "t": "Universal coding skills",
+          "d": "Proven patterns for testing, refactoring, and code quality that work across projects"
+        },
+        {
+          "t": "Skill testing & iteration",
+          "d": "Activation testing confirms a skill loads. Outcome testing proves it works. We do both."
+        },
+        {
+          "t": "Distribution across teams",
+          "d": "Skills versioned, shared, and maintained like any other engineering artifact"
+        }
+      ],
+      "anchor": "skills"
+    },
+    {
+      "n": "4",
+      "title": "From Meeting to Working Software",
+      "tag": "Shorter Path from Decisions to Code",
+      "items": [
+        {
+          "t": "Meeting → Design Document",
+          "d": "We're shortening the path from team discussions to design documents with sound architectural decisions"
+        },
+        {
+          "t": "Autonomous implementation with verification",
+          "d": "AI agents execute from precise specifications with deterministic verification at every step"
+        },
+        {
+          "t": "Deterministic feedback loops",
+          "d": "When verification fails, agents receive structured feedback and iterate autonomously"
+        },
+        {
+          "t": "Continuous quality gates",
+          "d": "Architecture compliance, test suites, and code standards checked on every change"
+        }
+      ],
+      "anchor": "meeting-to-code"
+    }
+  ],
+  "problems": [
+    {
+      "icon": "Target",
+      "title": "Wrong Focus",
+      "body": "Teams obsess over which LLM to use, but the agent is not the variable. Without a deliberate development process — and domain experts who can extract and structure business knowledge for AI — even the best tools underperform."
+    },
+    {
+      "icon": "Puzzle",
+      "title": "Skills Gap",
+      "body": "AI prompts and workflows are treated as throwaway artifacts. No versioning, no testing, no iteration. Teams reinvent the wheel with every project."
+    },
+    {
+      "icon": "ChartLine",
+      "title": "No Measurement",
+      "body": "Teams have no way to know if their AI setup actually works. No baselines, no benchmarks, no feedback loop for improvement. Just vibes."
+    }
+  ]
+}

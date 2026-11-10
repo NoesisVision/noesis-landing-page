@@ -1,0 +1,23 @@
+---
+import "../styles/components/modal.css";
+import "../styles/components/form-modal.css";
+interface Props {
+  id: string;
+  size?: number;
+  /** id of the element that names the dialog (its title) */
+  labelledby?: string;
+}
+
+const { id, size = 620, labelledby } = Astro.props;
+---
+
+<dialog
+  class="modal"
+  id={`modal-${id}`}
+  aria-labelledby={labelledby}
+  style={`--modal-size:${size}px`}
+>
+  <div class="modal-body">
+    <slot />
+  </div>
+</dialog>

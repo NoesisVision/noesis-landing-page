@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import "../../styles/components/ui/decor.css";
+
+/** Title bar with three dots above screenshots and mock windows; slot content goes after the dots. */
+type Props = HTMLAttributes<"div">;
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div class:list={["window-bar", className]} {...rest}>
+  <div class="window-dot"></div>
+  <div class="window-dot"></div>
+  <div class="window-dot"></div>
+  <slot />
+</div>

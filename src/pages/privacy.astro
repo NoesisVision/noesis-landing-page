@@ -1,0 +1,179 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import Page from "../components/ui/Page.astro";
+import PageHero from "../components/ui/PageHero.astro";
+import Eyebrow from "../components/ui/Eyebrow.astro";
+import Heading from "../components/ui/Heading.astro";
+import Lead from "../components/ui/Lead.astro";
+import Text from "../components/ui/Text.astro";
+import Highlight from "../components/ui/Highlight.astro";
+import Button from "../components/Button.astro";
+import "../styles/pages/privacy.css";
+
+import {
+  TALLY_CONTACT_URL,
+  USE_CONTACT_MODAL,
+} from "../config/integrations.js";
+const UPDATED = "5 November 2026";
+const GA_ID = "G-2BF7VRSXYF";
+---
+
+<Base
+  title="Privacy & cookies | Noesis Vision"
+  description="Which cookies the Noesis Vision website uses, what Google Analytics records with your consent, and how to change your choice."
+>
+  <Page>
+    <Nav current="privacy" />
+
+    <main id="main">
+      <PageHero class="privacy-hero">
+        <Eyebrow>Privacy</Eyebrow>
+        <Heading as="h1" size="lg" class="privacy-title">
+          Privacy &amp; cookies
+        </Heading>
+        <Lead class="privacy-lead">
+          The short version: we use <Highlight>Google Analytics</Highlight> only
+          if you allow it, and we never show ads.
+        </Lead>
+      </PageHero>
+
+      <div class="privacy-body">
+        <section class="privacy-block">
+          <h2 class="privacy-heading">Cookies</h2>
+          <Text size="lg">
+            We ask before setting any cookie that isn't needed for the site to
+            work. The consent banner is provided by CookieYes, which also keeps
+            a record of your choice so we can show that consent was given.
+          </Text>
+          <ul class="privacy-list">
+            <li>
+              <code class="code-inline">cookieyes-consent</code>: remembers your
+              choice. Always set, because without it we would have to ask on
+              every page.
+            </li>
+            <li>
+              <code class="code-inline">_ga</code> and{" "}
+              <code class="code-inline">_ga_{GA_ID.slice(2)}</code>: Google
+              Analytics, only if you accept analytics. They tell visits apart so
+              we can count them, and last about 13 months.
+            </li>
+          </ul>
+          <div class="privacy-actions">
+            <Button variant="outline" size="lg" data-consent-settings>
+              Cookie settings
+            </Button>
+            <p class="privacy-note" data-consent-unavailable hidden>
+              The cookie settings couldn't be opened, probably because a content
+              blocker stops the consent banner. With it, no analytics cookies
+              are set.
+            </p>
+          </div>
+        </section>
+
+        <section class="privacy-block">
+          <h2 class="privacy-heading">Analytics</h2>
+          <Text size="lg">
+            If you accept analytics, Google Analytics 4 records which pages you
+            visit and which main buttons you use, such as "Request Contact",
+            along with the device, browser and approximate location Google
+            derives from the request. We use it only to understand how the site
+            is used. Nothing from Google loads until you accept, and you can
+            withdraw at any time with Cookie settings above.
+          </Text>
+        </section>
+
+        <section class="privacy-block">
+          <h2 class="privacy-heading">Storage in your browser</h2>
+          <Text size="lg">
+            One small, temporary entry helps navigation work. When you follow a
+            link from another page to a section of the homepage (such as
+            Founders), your browser briefly remembers which section to scroll
+            to. It is kept in <code class="code-inline">sessionStorage</code>{" "}
+            under the key <code class="code-inline">noesis-scroll-target</code>{" "}
+            and is deleted on the next page load. It never leaves your device
+            and holds no personal information.
+          </Text>
+        </section>
+
+        <section class="privacy-block">
+          <h2 class="privacy-heading">Forms</h2>
+          {USE_CONTACT_MODAL && (
+            <Text size="lg">
+              The contact form sends what you type into it (name, email, company
+              and message) to Web3Forms, a form service that forwards it to us
+              by email. We use it to reply to your request.
+            </Text>
+          )}
+          <Text size="lg">
+            The newsletter form sends your email address to MailerLite, the
+            service we use to manage the subscriber list and send the
+            newsletter. You can unsubscribe at any time with the link in every
+            email.
+          </Text>
+          <Text size="lg">
+            Nothing you type is sent until you press the button. When you open
+            the newsletter form, your browser makes one empty request to
+            MailerLite to check that signups aren't blocked on your device. It
+            carries no form data, only what every web request includes, such as
+            your IP address.
+          </Text>
+        </section>
+
+        <section class="privacy-block">
+          <h2 class="privacy-heading">Links to other sites</h2>
+          <Text size="lg">
+            Some links take you to services run by others, for example Tally (
+            {USE_CONTACT_MODAL ? "beta sign-up" : "contact and beta forms"}),
+            Substack (newsletter), YouTube, LinkedIn, GitHub, Discord and our
+            documentation on GitHub Pages. Once you are on those sites, their
+            own privacy and cookie policies apply.
+          </Text>
+        </section>
+
+        <section class="privacy-block">
+          <h2 class="privacy-heading">Changes</h2>
+          <Text size="lg">
+            If we add any other cookies, trackers or services that receive your
+            data, we will update this page first.
+          </Text>
+        </section>
+
+        <section class="privacy-block">
+          <h2 class="privacy-heading">Who we are</h2>
+          <Text size="lg">
+            This website is run by Noesis Vision Sp.&nbsp;z&nbsp;o.o. If you
+            have questions,
+            {USE_CONTACT_MODAL ? (
+              <a href="#contact" data-open="contact">
+                get in touch
+              </a>
+            ) : (
+              <a href={TALLY_CONTACT_URL} target="_blank" rel="noopener">
+                get in touch
+              </a>
+            )}{" "}
+            with us through our contact form.
+          </Text>
+        </section>
+
+        <p class="privacy-updated">Last updated: {UPDATED}</p>
+      </div>
+    </main>
+    <Footer />
+  </Page>
+  <script>
+    import "../scripts/nav.js";
+
+    // "Cookie settings": reopen the CookieYes banner. If CookieYes never loaded (blocked,
+    // or a dev/preview build without it), say so instead of doing nothing.
+    const button = document.querySelector("[data-consent-settings]");
+    const note = document.querySelector("[data-consent-unavailable]");
+    button?.addEventListener("click", () => {
+      if (typeof window.revisitCkyConsent === "function")
+        window.revisitCkyConsent();
+      else if (note) note.hidden = false;
+    });
+  </script>
+</Base>

@@ -1,0 +1,98 @@
+---
+import Button from "./Button.astro";
+import Field from "./Field.astro";
+import Icon from "./Icon.astro";
+import Modal from "./Modal.astro";
+import Web3Form from "./Web3Form.astro";
+import { USE_CONTACT_MODAL } from "../config/integrations.js";
+
+/**
+ * Contact request dialog (Web3Forms). Rendered once per page by Nav.astro and opened by
+ * any <Button {...contactLink}>. Renders nothing when src/config/integrations.js is set to
+ * the Tally form.
+ */
+---
+
+{USE_CONTACT_MODAL && (
+  <Modal id="contact" size={620} labelledby="contact-title">
+    <div data-view="form">
+      <Web3Form
+        class="form-modal-form"
+        subject="New contact request (noesis.vision)"
+      >
+        <div class="form-modal-head">
+          <h2 id="contact-title" class="form-modal-title">
+            Request Contact
+          </h2>
+          <button
+            class="hover-close form-modal-close"
+            type="button"
+            data-action="closeModal"
+            aria-label="Close"
+          >
+            <Icon name="X" size={18} stroke={1.75} />
+          </button>
+        </div>
+        <p class="form-modal-lead">
+          Tell us about your team and where AI fits in your development process.
+        </p>
+        <div class="form-modal-fields">
+          <Field
+            label="Name"
+            name="name"
+            placeholder="Jane Doe"
+            required
+            autofocus
+          />
+          <Field
+            label="Work email"
+            name="email"
+            placeholder="jane@company.com"
+            type="email"
+            required
+          />
+        </div>
+        <Field label="Company" name="company" placeholder="Company name" />
+        <Field
+          label="What would you like to discuss?"
+          name="message"
+          placeholder="A few words about your team and goals"
+          multiline
+        />
+        <p class="web3form-error" data-form-error role="alert" hidden></p>
+        <div class="form-modal-actions">
+          <Button variant="light" size="lg" type="submit" arrow>
+            Send request
+          </Button>
+          <Button variant="subtle" size="lg" close>
+            Cancel
+          </Button>
+        </div>
+      </Web3Form>
+    </div>
+    <div data-view="sent" hidden>
+      <div class="form-modal-close-row">
+        <button
+          class="hover-close form-modal-close"
+          type="button"
+          data-action="closeModal"
+          aria-label="Close"
+        >
+          <Icon name="X" size={18} stroke={1.75} />
+        </button>
+      </div>
+      <div class="form-modal-sent">
+        <div class="form-modal-sent-icon">
+          <Icon name="Check" size={28} stroke={2} color="#7EE3E8" />
+        </div>
+        <div class="form-modal-sent-title">Thanks — we'll be in touch.</div>
+        <p class="form-modal-sent-text">
+          Your request reached the Noesis team.
+        </p>
+        <Button variant="outline" size="lg" close>
+          Close
+        </Button>
+      </div>
+    </div>
+  </Modal>
+)}

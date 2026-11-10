@@ -1,64 +1,43 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code in this repository: the noesis.vision website (Astro, static).
 
-## Git Workflow
+## Git workflow
 
-- **Always present the commit message to the user before committing** — never commit without explicit approval.
-- Never push without being asked.
-
-## Project Overview
-
-Landing page for **Noesis Vision** — tools and practices for agentic development. Built with Astro 3 + TailwindCSS 3, multi-page static site.
+- Always present the commit message to the user before committing. Never commit without explicit approval.
+- Never push without being asked. Pushing to `main` deploys staging; pushing a tag deploys production.
 
 ## Commands
 
-- `npm run dev` — Start dev server (localhost:4321)
-- `npm run build` — Production build to `./dist/`
-- `npm run build:github` — Build for GitHub Pages deployment (uses `astro.config.github.mjs` with `/noesis-landing-page/` base path)
-- `npm run preview` — Preview production build locally
+See the README. The ones used most:
 
-No test framework or linter is configured.
+- `npm run dev`: local dev server
+- `npm run build`: production build (`dist/`)
+- `npm run build:github`: staging build for GitHub Pages, under `/noesis-landing-page/`
+- `npm run format && npm run lint`: Prettier and ESLint, run before finishing
+- `npm run check:adblock`: after adding class names or third-party requests
 
-## Architecture
+## Internal links: base path
 
-- **Multi-page site**:
-  - `src/pages/index.astro` — Homepage (company vision, two pillars, founders)
-  - `src/pages/vision.astro` — Product page (architecture visualization tool)
-  - `src/pages/services.astro` — SDLC transformation services
-- **Layout**: `src/layouts/Layout.astro` wraps all pages with head (SEO meta, JSON-LD schema, OG tags), nav, and footer
-- **Components hierarchy**:
-  - `sections/` — Full page sections imported into page files
-  - `shared/` — Reusable UI primitives (Button, Container, Title, Paragraph, BtnLink, etc.)
-  - `blocks/` — Composite sub-components (e.g., GroupFooterNav)
-  - `cards/` and `elements/` — Smaller building blocks (Navbar, Footer)
-  - `diagrams/` — SVG diagram components (currently unused, PNG restored)
-- **Data**: `src/utils/data.ts` exports `services` and `useCases` arrays consumed by section components
-- **Styling**: TailwindCSS with CSS custom properties for theming (dark mode via `class` strategy). Theme colors defined in `tailwind.config.cjs` reference CSS variables from Layout.astro global styles
+The same code is built for two places: production at `https://noesis.vision/` and staging at `https://noesisvision.github.io/noesis-landing-page/`. **Every link or path to our own pages or `public/` files goes through `url()` from `src/config/paths.js`.** Never hard-code a root path such as `href="/services"` or `src="/videos/…"`.
 
-## Internal Links — Base Path Awareness
-
-**CRITICAL**: All internal links must use `import.meta.env.BASE_URL` prefix to work on both local dev (`base: '/'`) and GitHub Pages (`base: '/noesis-landing-page/'`).
-
-Pattern used in components:
 ```astro
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-// Then: href={`${base}/vision`}
+import {url} from "../config/paths.js";
+<a href={url("/services")}>…</a>
+<video src={url(v.src)} />
 ```
 
-Never hardcode absolute paths like `href="/vision"` — they will break on GitHub Pages.
+- Root paths stored in `src/data/*.json` are fine. Wrap them with `url()` where they're rendered.
+- Images imported from `src/assets`, and `url(/…)` in CSS, are prefixed by Astro and Vite automatically.
+- The staging build is `noindex` and loads no consent banner or Google Analytics (`IS_STAGING`).
 
 ## Deployment
 
-- **GitHub Pages** (staging): https://noesisvision.github.io/noesis-landing-page/
-  - Workflow: `deploy.yml` (uses `build:github` script)
-  - Config: `astro.config.github.mjs` with `site: 'https://noesisvision.github.io'` and `base: '/noesis-landing-page/'`
-- **Production**: `deploy-prod.yml` workflow, config `astro.config.mjs` with `base: '/'`
-- **Remote**: `git@github.com:NoesisVision/noesis-landing-page.git`
+- **Staging**: every push to `main` → `.github/workflows/deploy.yml` → GitHub Pages.
+- **Production**: pushing any tag (for example `2026-11-10-1800`) → `.github/workflows/deploy-prod.yml` → S3 bucket behind CloudFront (noesis.vision). Hashed files in `_astro/` are cached for a year, HTML always revalidates, and everything else is cached for 24 hours. Files missing from the build are deleted from the bucket.
+- **Hosting settings** that aren't in the workflow (www redirect, 404 error document): `infra/README.md`.
 
-## SEO/GEO
+## Where to look
 
-- `robots.txt` — explicitly allows AI search engine bots (GPTBot, ClaudeBot, PerplexityBot, etc.)
-- `sitemap.xml` — static, must be updated manually when pages change
-- JSON-LD structured data per page (Organization global, SoftwareApplication + FAQPage on /vision, Service on /services)
-- Open Graph + Twitter Card meta tags in Layout
+- `README.md`: project layout, SEO, forms, consent, what's left before going live.
+- `.claude/skills/`: `seo`, `integrations`, `styling`, `content` (this site's conventions), plus third-party `seo-geo`, `google-analytics` and `content-creation`.

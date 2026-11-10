@@ -1,0 +1,646 @@
+/* Vision page (/vision/) */
+
+/* ---------- Shared-class tweaks ---------- */
+.vision-lead-640 {
+  max-width: 640px;
+}
+.vision-lead-800 {
+  max-width: 800px;
+}
+.vision-btn-row-flush {
+  margin-top: 0;
+}
+/* Headings that don't balance their lines */
+.vision-h2-plain {
+  text-wrap: wrap;
+}
+.vision-faq-title {
+  text-align: center;
+}
+.vision-container-tight {
+  gap: 48px;
+}
+.vision-demo-container {
+  gap: 28px;
+}
+
+/* ---------- Hero ---------- */
+.vision-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 50% 40% at 50% 20%,
+    #000 30%,
+    transparent 85%
+  );
+  mask-image: radial-gradient(
+    ellipse 50% 40% at 50% 20%,
+    #000 30%,
+    transparent 85%
+  );
+}
+.vision-hero-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 80px;
+  border-radius: 28px;
+  padding: 10px;
+  background: #2b2d3c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 60px 120px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+}
+.vision-window-title {
+  margin: 0 auto;
+  font-size: 12px;
+  color: #9a9eae;
+}
+.vision-diagram-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #1f2130;
+}
+.vision-diagram-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+/* Fixed 1920×1080 canvas scaled by page.js via --diagScale */
+.vision-diagram-scaler {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: 0 0;
+  transform: scale(var(--diagScale));
+}
+
+/* ---------- How it works (steps) ---------- */
+.vision-steps {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.vision-step {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 28px;
+  padding: 32px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.vision-step--first {
+  border-top-color: transparent;
+}
+.vision-step-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+/* ---------- Uses of the system map ---------- */
+.vision-use-card {
+  padding: 12px;
+  gap: 20px;
+}
+.vision-use-shot {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #1f2130;
+}
+.vision-use-caption {
+  padding: 4px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.vision-use-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #7ee3e8;
+}
+
+/* UI mock: system map SVG */
+.vision-map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: "Raleway Variable", Raleway, sans-serif;
+}
+.vision-map-stroke-thin {
+  stroke-width: 1;
+}
+.vision-map-stroke {
+  stroke-width: 1.2;
+}
+.vision-map-vo-icon {
+  stroke-width: 1.3;
+}
+.vision-map-cmd-icon {
+  stroke-width: 1.4;
+}
+.vision-map-node-title {
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.vision-map-node-kind {
+  font-size: 9.5px;
+}
+.vision-map-node-menu {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.vision-map-node-close {
+  font-size: 11px;
+}
+.vision-map-edge {
+  stroke-width: 1.2;
+  stroke-dasharray: 2 4;
+  stroke-linecap: round;
+}
+.vision-map-edge-invokes {
+  stroke-width: 1.4;
+  stroke-dasharray: 5 4;
+  stroke-linecap: round;
+}
+.vision-map-arrowhead {
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.vision-map-edge-label {
+  font-size: 8.5px;
+  text-anchor: middle;
+}
+
+/* Docs mock: generated markdown page */
+.vision-docs {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1f2130;
+}
+.vision-docs-sheet-back {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 9%;
+  bottom: -6%;
+  background: #262838;
+  border-radius: 6px;
+  transform: rotate(-2.2deg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.vision-docs-sheet {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 7%;
+  bottom: -6%;
+  background: #2b2d3c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  padding: 16px 18px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #fff;
+  font-size: 9px;
+}
+.vision-docs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.vision-docs-file {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 8px;
+  color: #9a9eae;
+}
+.vision-docs-meta {
+  font-size: 7.5px;
+  color: #a3a7b8;
+}
+.vision-docs-h1 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: #fff;
+}
+.vision-docs-h2 {
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 3px;
+}
+.vision-docs-para {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+/* Placeholder text line; width set by a .vision-w* modifier */
+.vision-docs-line {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.14);
+}
+.vision-mock-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.vision-docs-dep {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.vision-docs-bullet {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #7ee3e8;
+}
+.vision-docs-tag {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 8px;
+  background: rgba(126, 227, 232, 0.12);
+  color: #7ee3e8;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.vision-docs-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 7.5px;
+}
+.vision-docs-th {
+  padding: 4px 6px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #c9ccd6;
+  font-weight: 700;
+}
+.vision-docs-td {
+  padding: 4px 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.vision-docs-td--code {
+  font-family: ui-monospace, Menlo, monospace;
+}
+.vision-docs-td--line {
+  display: flex;
+  align-items: center;
+}
+
+/* AI mock: agent chat */
+.vision-ai {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 10.5px;
+  color: #c9ccd6;
+}
+.vision-ai-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.vision-ai-session {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.vision-ai-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7ee3e8;
+  box-shadow: 0 0 8px rgba(126, 227, 232, 0.6);
+}
+.vision-ai-session-name {
+  font-weight: 600;
+  color: #fff;
+}
+.vision-ai-badge {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(126, 227, 232, 0.35);
+  color: #7ee3e8;
+  font-size: 9px;
+  font-weight: 600;
+}
+.vision-ai-question {
+  align-self: flex-end;
+  max-width: 78%;
+  padding: 8px 11px;
+  border-radius: 12px 12px 4px 12px;
+  background: #2b2d3c;
+  color: #fff;
+  line-height: 1.45;
+}
+.vision-ai-trace {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #9a9eae;
+  font-size: 9px;
+}
+.vision-ai-trace-line {
+  width: 12px;
+  height: 1px;
+  background: rgba(126, 227, 232, 0.5);
+}
+.vision-ai-answer {
+  max-width: 88%;
+  padding: 10px 12px;
+  border-radius: 12px 12px 12px 4px;
+  background: #1b1d2a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 1.45;
+}
+.vision-ai-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.vision-ai-chip {
+  padding: 3px 7px;
+  border-radius: 6px;
+  border: 1px solid rgba(126, 227, 232, 0.45);
+  color: #7ee3e8;
+  font-size: 9px;
+  font-weight: 600;
+}
+/* Placeholder text line; width set by a .vision-w* modifier */
+.vision-ai-line {
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.vision-ai-input {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 8px 8px 12px;
+  border-radius: 12px;
+  background: #2b2d3c;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.vision-ai-placeholder {
+  flex: 1;
+  color: #9a9eae;
+  font-size: 10px;
+}
+.vision-ai-send {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: #7ee3e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f2130;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Placeholder line widths */
+.vision-w96 {
+  width: 96%;
+}
+.vision-w90 {
+  width: 90%;
+}
+.vision-w88 {
+  width: 88%;
+}
+.vision-w70 {
+  width: 70%;
+}
+.vision-w66 {
+  width: 66%;
+}
+.vision-w56 {
+  width: 56%;
+}
+.vision-w54 {
+  width: 54%;
+}
+.vision-w40 {
+  width: 40%;
+}
+.vision-w32 {
+  width: 32%;
+}
+
+/* ---------- Real-world applications ---------- */
+.vision-app-card {
+  position: relative;
+}
+/* Leave room for the corner icon */
+.vision-app-title {
+  padding-right: 44px;
+}
+
+/* ---------- Foundation pillars ---------- */
+.vision-pillars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+.vision-pillar-list {
+  flex: 1 1 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.vision-pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.vision-pillar-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.vision-pillar-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  background: #7ee3e8;
+  flex: none;
+}
+.vision-pillar-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.vision-p3-link {
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+/* ---------- Demo videos ---------- */
+.vision-videos {
+  width: 100%;
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 20px;
+}
+.vision-video {
+  --video-radius: 24px;
+  --video-inner-radius: calc(
+    var(--video-radius) - 1px
+  ); /* inside the 1px border */
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--video-radius);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #000;
+}
+.vision-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Rounder than the cover (outer radius vs inner), so the cover always hides the
+     video's corners. Otherwise a hairline of the light poster shows at each corner. */
+  border-radius: var(--video-radius);
+}
+/* Covers the whole frame; the bar along the bottom keeps the poster artwork visible */
+.vision-video-cover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  border: 0;
+  border-radius: var(--video-inner-radius);
+  background: linear-gradient(
+    to top,
+    rgba(19, 20, 30, 0.95) 0%,
+    rgba(19, 20, 30, 0.75) 30%,
+    rgba(19, 20, 30, 0) 62%
+  );
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  font-family: "Raleway Variable", Raleway, sans-serif;
+}
+.vision-video-cover[hidden] {
+  display: none;
+}
+.vision-video-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 22px;
+}
+.vision-video-play {
+  width: 52px;
+  height: 52px;
+  flex: none;
+  border-radius: 50%;
+  background: rgba(19, 20, 30, 0.6);
+  border: 1px solid rgba(126, 227, 232, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+.vision-video-cover:hover .vision-video-play,
+.vision-video-cover:focus-visible .vision-video-play {
+  transform: scale(1.08);
+  background: rgba(126, 227, 232, 0.18);
+  border-color: #7ee3e8;
+}
+.vision-video-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.vision-video-label {
+  font-size: 17px;
+  font-weight: 600;
+}
+.vision-video-duration {
+  font-size: 14px;
+  color: #c9ccd6;
+}
+@media (prefers-reduced-motion: reduce) {
+  .vision-video-play {
+    transition: none;
+  }
+}
+
+/* ---------- FAQ ---------- */
+.vision-faq-q {
+  font-size: 19px;
+  font-weight: 600;
+  color: #fff;
+  font-family: "Raleway Variable", Raleway, sans-serif;
+}
+.vision-faq-a {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #c9ccd6;
+  font-family: "Raleway Variable", Raleway, sans-serif;
+  text-wrap: pretty;
+}
+
+/* ---------- Closing CTA ---------- */
+.vision-closing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  margin-top: 62px;
+}

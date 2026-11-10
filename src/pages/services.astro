@@ -1,39 +1,331 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ServicesHero from '../components/sections/ServicesHero.astro';
-import TheProblem from '../components/sections/TheProblem.astro';
-import OurServices from '../components/sections/OurServices.astro';
-import Verification from '../components/sections/Verification.astro';
-import MeetingToSpec from '../components/sections/MeetingToSpec.astro';
-import WhoIsThisFor from '../components/sections/WhoIsThisFor.astro';
-import ServicesCTA from '../components/sections/ServicesCTA.astro';
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import NewsletterModal from "../components/NewsletterModal.astro";
+import { contactLink } from "../config/integrations.js";
+import Button from "../components/Button.astro";
+import Icon from "../components/Icon.astro";
+import ButtonRow from "../components/ui/ButtonRow.astro";
+import Card from "../components/ui/Card.astro";
+import CardCorner from "../components/ui/CardCorner.astro";
+import CardGrid from "../components/ui/CardGrid.astro";
+import CardTitle from "../components/ui/CardTitle.astro";
+import Container from "../components/ui/Container.astro";
+import CtaBlock from "../components/ui/CtaBlock.astro";
+import Eyebrow from "../components/ui/Eyebrow.astro";
+import Heading from "../components/ui/Heading.astro";
+import Highlight from "../components/ui/Highlight.astro";
+import Lead from "../components/ui/Lead.astro";
+import Page from "../components/ui/Page.astro";
+import PageHero from "../components/ui/PageHero.astro";
+import RailDot from "../components/ui/RailDot.astro";
+import Section from "../components/ui/Section.astro";
+import SectionHead from "../components/ui/SectionHead.astro";
+import StepNumber from "../components/ui/StepNumber.astro";
+import Text from "../components/ui/Text.astro";
+import data from "../data/services.json";
+import "../styles/pages/services.css";
+const { audience, flowItems, measures, pillars, problems } = data;
 
-const schema = {
-	"@context": "https://schema.org",
-	"@type": "Service",
-	"name": "AI Excellence Services — Harness Engineering, Skills, Measurement",
-	"description": "We help engineering teams build the right AI development harness — tools, skills, and measurement — for production-grade agentic development.",
-	"provider": {
-		"@type": "Organization",
-		"name": "Noesis Vision"
-	},
-	"serviceType": "AI Engineering Consulting",
-	"areaServed": "Worldwide",
-	"audience": {
-		"@type": "Audience",
-		"audienceType": "CTOs, VP Engineering, Engineering Directors, Tech Leads"
-	}
-};
+// schema.org for search engines (reused from the previous noesis.vision)
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "AI Excellence Services — Harness Engineering, Skills, Measurement",
+    description:
+      "We help engineering teams build the right AI development harness — tools, skills, and measurement — for production-grade agentic development.",
+    url: "https://noesis.vision/services/",
+    provider: { "@type": "Organization", name: "Noesis Vision" },
+    serviceType: "AI Engineering Consulting",
+    areaServed: "Worldwide",
+    audience: {
+      "@type": "Audience",
+      audienceType: "CTOs, VP Engineering, Engineering Directors, Tech Leads",
+    },
+  },
+];
 ---
 
-<Layout title="AI Excellence as a Service" description="We help engineering teams build the right AI development harness — tools, skills, and measurement — for production-grade agentic development." schema={schema}>
-	<main class="flex flex-col gap-y-2 md:gap-y-6 overflow-hidden">
-		<ServicesHero/>
-		<TheProblem/>
-		<OurServices/>
-		<Verification/>
-		<MeetingToSpec/>
-		<WhoIsThisFor/>
-		<ServicesCTA/>
-	</main>
-</Layout>
+<Base
+  title="AI Excellence as a Service | Noesis Vision"
+  description="We help engineering teams build the right AI development harness — tools, skills, and measurement — for production-grade agentic development."
+  jsonLd={jsonLd}
+>
+  <Page data-ref="root">
+    <Nav current="services" />
+
+    <main id="main">
+      <PageHero class="services-hero">
+        <div class="services-hero-grid"></div>
+        <CtaBlock>
+          <Eyebrow>Services</Eyebrow>
+          <Heading as="h1" size="xl">
+            AI Excellence as a Service
+          </Heading>
+          <Lead width={760}>
+            We help engineering teams design the right{" "}
+            <Highlight>development process</Highlight> for AI — from{" "}
+            <Highlight>domain knowledge extraction</Highlight> through{" "}
+            <Highlight>harness engineering</Highlight> to{" "}
+            <Highlight>skills</Highlight> and <Highlight>measurement</Highlight>
+            . Our domain modelers know how to organize the flow of business
+            knowledge in an AI-driven world.
+          </Lead>
+          <ButtonRow snug>
+            <Button
+              track="cta_contact_form"
+              trackSection="services-hero"
+              variant="light"
+              size="lg"
+              {...contactLink}
+              arrow
+            >
+              Request Contact
+            </Button>
+            <Button
+              track="scroll_to_section"
+              trackSection="services-hero"
+              variant="outline"
+              size="lg"
+              href="#our-services"
+              arrow
+            >
+              See how we help
+            </Button>
+          </ButtonRow>
+        </CtaBlock>
+      </PageHero>
+
+      <Section id="the-problem">
+        <Container>
+          <SectionHead data-reveal="1">
+            <Heading>The Problem with "AI-Enhanced" Development</Heading>
+            <Lead width={720}>
+              Most teams are simply bolting AI tools onto their existing
+              processes. The result? Misconfigured agents, untested skills, and
+              no way to measure what works.
+            </Lead>
+          </SectionHead>
+          <CardGrid>
+            {problems.map((a) => (
+              <>
+                <Card data-reveal="1" class="services-icon-card">
+                  <CardCorner>
+                    <Icon
+                      name={a.icon}
+                      size={30}
+                      stroke={1.5}
+                      color="#45495F"
+                    />
+                  </CardCorner>
+                  <CardTitle class="services-icon-card-title">
+                    {a.title}
+                  </CardTitle>
+                  <Text>{a.body}</Text>
+                </Card>
+              </>
+            ))}
+          </CardGrid>
+        </Container>
+      </Section>
+
+      <Section id="our-services">
+        <Container>
+          <SectionHead data-reveal="1">
+            <Heading>How We Help</Heading>
+            <Lead width={720}>
+              Four pillars of AI excellence — from designing the right
+              development process to configuring tools and measuring real
+              outcomes.
+            </Lead>
+          </SectionHead>
+          <div class="services-pillars">
+            {pillars.map((p) => (
+              <>
+                <div id={p.anchor} data-reveal="1" class="services-pillar">
+                  <div class="services-pillar-head">
+                    <StepNumber>{p.n}</StepNumber>
+                    <div class="services-pillar-title">{p.title}</div>
+                    <div class="services-pillar-tag">{p.tag}</div>
+                  </div>
+                  <div class="services-pillar-items">
+                    {p.items.map((it) => (
+                      <>
+                        <div class="services-item">
+                          <div class="services-item-head">
+                            <div class="services-item-marker"></div>
+                            <div class="services-item-title">{it.t}</div>
+                          </div>
+                          <p class="services-item-body">{it.d}</p>
+                        </div>
+                      </>
+                    ))}
+                  </div>
+                </div>
+              </>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section id="measurement">
+        <Container>
+          <SectionHead data-reveal="1">
+            <Heading>Measurement &amp; Evaluation</Heading>
+            <Lead width={760}>
+              If you can't measure it, you can't improve it. Our evaluation
+              methodology scores AI agent output across multiple dimensions — on
+              real tasks from real codebases.
+            </Lead>
+          </SectionHead>
+          <CardGrid wide>
+            {measures.map((m) => (
+              <>
+                <Card data-reveal="1" class="services-icon-card">
+                  <CardCorner>
+                    <Icon
+                      name={m.icon}
+                      size={30}
+                      stroke={1.5}
+                      color="#45495F"
+                    />
+                  </CardCorner>
+                  <CardTitle class="services-icon-card-title">
+                    {m.title}
+                  </CardTitle>
+                  <Text>{m.body}</Text>
+                </Card>
+              </>
+            ))}
+          </CardGrid>
+        </Container>
+      </Section>
+
+      <Section id="meeting-to-spec">
+        <Container>
+          <SectionHead data-reveal="1">
+            <Eyebrow>R&amp;D · Experiment</Eyebrow>
+            <Heading>From Meeting to Design Document — Automatically</Heading>
+            <Lead class="services-lead-820">
+              We’re exploring how to shorten the path from team discussions to
+              design documents with sound architectural decisions. Our
+              experimental pipeline extracts decisions, requirements, and
+              architectural patterns — and organizes them using knowledge graph
+              techniques (GraphRAG) into structured design documents.
+            </Lead>
+          </SectionHead>
+          <div class="services-flow">
+            {flowItems.map((f) => (
+              <>
+                <div data-reveal="1" class="services-flow-step">
+                  {f.arrow && (
+                    <>
+                      <div class="services-flow-arrow">
+                        <div class="services-flow-arrow-line"></div>
+                        <div class="services-flow-arrow-head"></div>
+                      </div>
+                    </>
+                  )}
+                  <Card
+                    class:list={[
+                      "services-flow-card",
+                      { "services-flow-card--highlight": f.highlight },
+                    ]}
+                  >
+                    <div class="services-flow-icon">
+                      <Icon
+                        name={f.icon}
+                        size={26}
+                        stroke={1.6}
+                        color="#7EE3E8"
+                      />
+                    </div>
+                    <div class="services-flow-title">{f.title}</div>
+                    <Text>{f.body}</Text>
+                  </Card>
+                </div>
+              </>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section id="who-is-this-for">
+        <Container>
+          <SectionHead data-reveal="1">
+            <Heading>Who Is This For?</Heading>
+            <Lead width={760}>
+              Our AI excellence services are designed for engineering leaders
+              ready to move beyond "AI-assisted" to truly "AI-native"
+              development.
+            </Lead>
+          </SectionHead>
+          <div class="services-audience-grid">
+            {audience.map((w) => (
+              <>
+                <Card data-reveal="1" class="services-audience-card">
+                  <div class="services-audience-title">{w.title}</div>
+                  <div class="services-audience-roles">{w.roles}</div>
+                  <div class="services-points">
+                    {w.points.map((pt) => (
+                      <>
+                        <div class="services-point">
+                          <div class="services-point-marker"></div>
+                          <div class="services-point-text">{pt}</div>
+                        </div>
+                      </>
+                    ))}
+                  </div>
+                </Card>
+              </>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section size="lg" id="services-cta">
+        <Container center>
+          <RailDot data-ref="endDot" />
+          <div data-reveal="1" class="services-cta">
+            <Heading size="lg">Let's engineer AI excellence together.</Heading>
+            <Lead width={760}>
+              Whether you're exploring agentic development or ready to optimize
+              your entire AI engineering stack — we'll help you build the right
+              harness, skills, and measurement.{" "}
+              <Highlight>Start with a conversation.</Highlight>
+            </Lead>
+            <ButtonRow>
+              <Button
+                track="cta_contact_form"
+                trackSection="services-cta"
+                variant="light"
+                size="xl"
+                {...contactLink}
+                arrow
+              >
+                Request Contact
+              </Button>
+              <Button
+                track="newsletter_open"
+                trackSection="services-cta"
+                variant="outline"
+                size="xl"
+                arrow
+                open="news"
+              >
+                Newsletter
+              </Button>
+            </ButtonRow>
+          </div>
+        </Container>
+      </Section>
+    </main>
+    <Footer />
+    <NewsletterModal />
+  </Page>
+  <script>
+    import "../scripts/page.js";
+  </script>
+</Base>

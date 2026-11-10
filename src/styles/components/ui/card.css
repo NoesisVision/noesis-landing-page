@@ -1,0 +1,53 @@
+/* Cards and grids (Card, CardTitle, CardCorner, CardGrid, StepNumber) */
+/* In the "ui" cascade layer: any unlayered page or component CSS overrides these,
+   regardless of the order Astro bundles the stylesheets in. */
+@layer ui {
+  .card {
+    background: #2b2d3c;
+    border-radius: 28px;
+    padding: clamp(24px, 3vw, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .card-title {
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .card-title-lg {
+    font-size: clamp(22px, 2.4vw, 28px);
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  .card-corner {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    display: flex;
+  }
+  .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 20px;
+  }
+  .grid-cards-wide {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+    gap: 20px;
+  }
+  .step-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    border: 1px solid rgba(126, 227, 232, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    font-weight: 600;
+    color: #7ee3e8;
+  }
+}

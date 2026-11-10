@@ -1,0 +1,103 @@
+---
+import Button from "./Button.astro";
+import Field from "./Field.astro";
+import Icon from "./Icon.astro";
+import MailerLiteForm from "./MailerLiteForm.astro";
+import Modal from "./Modal.astro";
+import ButtonRow from "./ui/ButtonRow.astro";
+import Eyebrow from "./ui/Eyebrow.astro";
+import "../styles/components/form-modal.css";
+import { DISCORD_URL } from "../config/integrations.js";
+
+/**
+ * Newsletter signup dialog (MailerLite). Opened by any <Button open="news">;
+ * the page must load src/scripts/modal.js.
+ */
+const DISCORD = DISCORD_URL;
+---
+
+<Modal id="news" size={480} labelledby="news-title">
+  <div data-view="form">
+    <MailerLiteForm class="form-modal-form">
+      <div class="form-modal-head form-modal-head--top">
+        <div class="form-modal-heading">
+          <Eyebrow class="form-modal-eyebrow">
+            Ready for the future of software development?
+          </Eyebrow>
+          <h2 id="news-title" class="form-modal-title">
+            Join our newsletter!
+          </h2>
+        </div>
+        <button
+          class="hover-close form-modal-close"
+          type="button"
+          data-action="closeModal"
+          aria-label="Close"
+        >
+          <Icon name="X" size={18} stroke={1.75} />
+        </button>
+      </div>
+      <p class="form-modal-lead">
+        You can also join our{" "}
+        <a href={DISCORD} target="_blank" rel="noopener">
+          Discord
+        </a>{" "}
+        community.
+      </p>
+      <Field
+        label="Email"
+        name="fields.email"
+        placeholder="you@company.com"
+        type="email"
+        required
+        autofocus
+      />
+      <p class="web3form-error" data-form-error role="alert" hidden></p>
+      <div class="form-modal-actions">
+        <Button variant="light" size="lg" type="submit" arrow>
+          Join now!
+        </Button>
+        <Button variant="subtle" size="lg" close>
+          Cancel
+        </Button>
+      </div>
+      <p class="form-modal-note">
+        By submitting this form, you consent to having your email processed by
+        Noesis Vision sp.&nbsp;z&nbsp;o.o. for marketing purposes related to the
+        development of the Noesis tool. You can unsubscribe at any time. We aim
+        to make every email valuable!
+      </p>
+    </MailerLiteForm>
+  </div>
+  <div data-view="sent" hidden>
+    <div class="form-modal-close-row">
+      <button
+        class="hover-close form-modal-close"
+        type="button"
+        data-action="closeModal"
+        aria-label="Close"
+      >
+        <Icon name="X" size={18} stroke={1.75} />
+      </button>
+    </div>
+    <div class="form-modal-sent">
+      <div class="form-modal-sent-icon">
+        <Icon name="MailCheck" size={28} stroke={1.75} color="#7EE3E8" />
+      </div>
+      <div class="form-modal-sent-title">Thank you for joining!</div>
+      <p class="form-modal-sent-text">
+        Consider joining our Discord community as well. This way we can
+        communicate more directly and you will get immediate access to other
+        professionals facing similar challenges.
+      </p>
+      <ButtonRow class="form-modal-sent-actions">
+        <Button variant="light" size="lg" href={DISCORD} target="_blank" arrow>
+          Join our Discord
+        </Button>
+        <Button variant="outline" size="lg" close>
+          Close
+        </Button>
+      </ButtonRow>
+    </div>
+  </div>
+</Modal>

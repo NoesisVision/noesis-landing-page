@@ -1,0 +1,129 @@
+---
+import "../styles/global.css";
+// Restyles the CookieYes banner; only matches its elements, so harmless without it
+import "../styles/components/consent.css";
+import consentMode from "../scripts/consent-mode.js?raw";
+
+import {
+  DEFAULT_DESCRIPTION,
+  OG_IMAGE,
+  OG_IMAGE_ALT,
+  ORGANIZATION,
+  SITE_NAME,
+} from "../config/seo.js";
+import {
+  COOKIEYES_ID as COOKIEYES,
+  GA_ID as GA,
+} from "../config/integrations.js";
+import { IS_STAGING, url } from "../config/paths.js";
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Page-specific schema.org objects (JSON-LD), added after the Organization */
+  jsonLd?: object[];
+  /** Keep the page out of search results (e.g. 404) */
+  noindex?: boolean;
+}
+
+// Consent banner (CookieYes) and Google Analytics (IDs in src/config/integrations.js).
+// Only in production builds of noesis.vision: never in `npm run dev` or the staging build.
+const COOKIEYES_ID = import.meta.env.PROD && !IS_STAGING ? COOKIEYES : "";
+const GA_ID = COOKIEYES_ID ? GA : "";
+// www.noesis.vision serves the same files: send visitors to noesis.vision. The real 301
+// is a CloudFront Function (infra/README.md); this covers the case where it isn't attached.
+const WWW_REDIRECT = import.meta.env.PROD && !IS_STAGING;
+
+const {
+  title,
+  description = DEFAULT_DESCRIPTION,
+  jsonLd = [],
+  noindex: noindexProp = false,
+} = Astro.props;
+// The staging copy (GitHub Pages) must stay out of search results
+const noindex = noindexProp || IS_STAGING;
+
+// Canonical URL with a trailing slash, matching how pages are built (/services/index.html)
+const path = Astro.url.pathname
+  .replace(/\/?$/, "/")
+  .replace(/index\.html\/$/, "");
+const canonical = new URL(path, Astro.site).href;
+const ogImage = new URL(url(OG_IMAGE), Astro.site).href;
+// JSON-LD inside <script>: escape "<" so text can never close the tag
+const ldJson = (data: object) => JSON.stringify(data).replace(/</g, "\\u003c");
+---
+
+<!doctype html>
+<html lang="en" data-ga-id={GA_ID || undefined}>
+  <head>
+    <meta charset="utf-8" />
+    {WWW_REDIRECT && <script is:inline>
+      if (location.hostname.indexOf("www.") === 0)
+        location.replace(
+          location.href.replace(
+            "//" + location.hostname,
+            "//" + location.hostname.slice(4),
+          ),
+        );
+    </script>}
+    {COOKIEYES_ID && (
+      <>
+        {/* Consent Mode v2 + GA loader (src/scripts/consent-mode.js), before CookieYes */}
+        <script is:inline set:html={consentMode} />
+        <script
+          is:inline
+          id="cookieyes"
+          type="text/javascript"
+          src={`https://cdn-cookieyes.com/client_data/${COOKIEYES_ID}/script.js`}
+        />
+      </>
+    )}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    {!noindex && <link rel="canonical" href={canonical} />}
+    <meta name="theme-color" content="#1F2130" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={OG_IMAGE_ALT} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={ldJson(ORGANIZATION)}
+    />
+    {jsonLd.map((data) => (
+      <script is:inline type="application/ld+json" set:html={ldJson(data)} />
+    ))}
+    <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={url("/apple-touch-icon.png")} />
+    <link
+      rel="preload"
+      href={url("/fonts/raleway-latin-wght-normal.woff2")}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
+    <slot />
+    <script>
+      import "../scripts/analytics.js";
+      import "../scripts/consent-text.js";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+/* Field.astro */
+.field {
+  display: block;
+  min-width: 0;
+}
+.field-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #e6e7ec;
+}
+.field-required {
+  color: #e03131;
+}
+.field-input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 0 16.67px;
+  font-size: 17px;
+  color: #c9c9c9;
+  background: #14151e;
+  border: 1px solid #34374d;
+  border-radius: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.field-input:focus {
+  border-color: #7ee3e8;
+}
+.field-input::placeholder {
+  color: #696969;
+}
+.field-area {
+  height: auto;
+  min-height: 125px;
+  padding: 9.5px 16.67px;
+  line-height: 1.55;
+  resize: none;
+  field-sizing: content;
+}

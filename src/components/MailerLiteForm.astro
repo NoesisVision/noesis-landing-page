@@ -1,0 +1,46 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import "../styles/components/web3form.css";
+import { MAILERLITE_FORM_ACTION } from "../config/integrations.js";
+
+/**
+ * A newsletter form sent straight to a MailerLite embedded form by src/scripts/modal.js,
+ * so the design stays ours: no MailerLite iframe, scripts, images or reCAPTCHA.
+ *
+ * MAILERLITE_FORM_ACTION (src/config/integrations.js) is the form's subscribe URL,
+ * including its signature. reCAPTCHA must be turned off for that MailerLite form: its key only
+ * works inside MailerLite's own iframe. Without the URL the form runs in demo mode.
+ *
+ * No "mailerlite" class names on purpose: annoyance filter lists hide `.mailerlite-form`.
+ */
+type Props = HTMLAttributes<"form">;
+
+const action = MAILERLITE_FORM_ACTION.trim();
+if (
+  action &&
+  !/^https:\/\/assets\.mailerlite\.com\/.+\/subscribe/.test(action)
+) {
+  throw new Error(
+    `MAILERLITE_FORM_ACTION doesn't look like a MailerLite subscribe URL: ${action}`,
+  );
+}
+---
+
+<form
+  data-provider="mailerlite"
+  data-action={action || undefined}
+  method="post"
+  {...Astro.props}
+>
+  {/* Spam trap: people never see or tick it; bots that fill everything in do */}
+  <input
+    type="checkbox"
+    name="botcheck"
+    class="web3form-trap"
+    tabindex="-1"
+    autocomplete="off"
+    aria-hidden="true"
+    hidden
+  />
+  <slot />
+</form>

@@ -1,0 +1,109 @@
+/* Button.astro */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: var(--btn-h);
+  padding: 0 var(--btn-x);
+  font-size: var(--btn-fz);
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 32px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-xs {
+  --btn-h: 30px;
+  --btn-x: 14px;
+  --btn-fz: 12px;
+}
+.btn-lg {
+  --btn-h: 50px;
+  --btn-x: 26px;
+  --btn-fz: 18px;
+}
+.btn-xl {
+  --btn-h: 60px;
+  --btn-x: 32px;
+  --btn-fz: 20px;
+}
+.btn-arrow {
+  padding-right: calc(var(--btn-x) / 1.5);
+}
+
+.btn-light {
+  background: rgba(59, 201, 219, 0.15);
+  color: #99e9f2;
+}
+.btn-light:hover {
+  background: rgba(59, 201, 219, 0.22);
+  color: #99e9f2;
+}
+.btn-outline {
+  background: transparent;
+  color: #adb5bd;
+  border-color: #adb5bd;
+}
+.btn-outline:hover {
+  background: rgba(173, 181, 189, 0.05);
+  color: #adb5bd;
+}
+.btn-subtle {
+  background: transparent;
+  color: #ced4da;
+}
+.btn-subtle:hover {
+  background: rgba(206, 212, 218, 0.12);
+  color: #ced4da;
+}
+
+.btn-label {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+}
+.btn-section {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.btn[data-busy] {
+  pointer-events: none;
+}
+.btn[data-busy] .btn-label,
+.btn[data-busy] .btn-section {
+  opacity: 0.2;
+}
+.btn[data-busy]::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: btn-spin 0.7s linear infinite;
+}
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disabled, e.g. the newsletter button when a blocker stops signups */
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}

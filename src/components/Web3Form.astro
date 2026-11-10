@@ -1,0 +1,45 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import "../styles/components/web3form.css";
+import {
+  WEB3FORMS_ACCESS_KEY,
+  WEB3FORMS_ENDPOINT,
+} from "../config/integrations.js";
+
+/**
+ * A form submitted to Web3Forms (https://web3forms.com) by src/scripts/modal.js.
+ *
+ * The access key is WEB3FORMS_ACCESS_KEY in src/config/integrations.js.
+ * Web3Forms keys are public by design, so it is fine for it to end up in the HTML.
+ * Without a key the form runs in demo mode: it shows the "sent" view and sends nothing.
+ */
+interface Props extends HTMLAttributes<"form"> {
+  /** Email subject, used to tell the forms apart in the inbox */
+  subject: string;
+}
+
+const accessKey = WEB3FORMS_ACCESS_KEY.trim();
+const { subject, ...rest } = Astro.props;
+---
+
+<form
+  data-provider="web3forms"
+  method="post"
+  action={accessKey ? WEB3FORMS_ENDPOINT : undefined}
+  {...rest}
+>
+  <input type="hidden" name="access_key" value={accessKey} />
+  <input type="hidden" name="subject" value={subject} />
+  <input type="hidden" name="from_name" value="Noesis website" />
+  {/* Spam trap: people never see or tick it; bots that fill everything in do */}
+  <input
+    type="checkbox"
+    name="botcheck"
+    class="web3form-trap"
+    tabindex="-1"
+    autocomplete="off"
+    aria-hidden="true"
+    hidden
+  />
+  <slot />
+</form>

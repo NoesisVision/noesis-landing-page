@@ -1,0 +1,308 @@
+/*
+ * CookieYes consent banner and preference centre, restyled to match the site.
+ * CookieYes injects its markup into the page and sets colours as inline styles from its
+ * dashboard, so these overrides need !important. Selectors are CookieYes's own classes.
+ * Accept and Reject look the same on purpose: refusing must be as easy as accepting.
+ * Keep the "Powered by CookieYes" line visible (required on their free plan).
+ */
+
+/* ---------- Shared ---------- */
+.cky-consent-container,
+.cky-modal,
+.cky-btn-revisit-wrapper {
+  font-family: "Raleway Variable", Raleway, sans-serif !important;
+}
+.cky-consent-container *:focus-visible,
+.cky-modal *:focus-visible {
+  outline: 2px solid #7ee3e8 !important;
+  outline-offset: 2px !important;
+}
+
+/* Buttons: our pill buttons. Accept and Reject = "light", Customise and Save = "outline" */
+.cky-consent-container .cky-btn,
+.cky-modal .cky-btn {
+  min-height: 44px;
+  padding: 0 20px !important;
+  border: 1px solid transparent !important;
+  border-radius: 32px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  transition: background-color 0.2s ease;
+}
+.cky-consent-container .cky-btn-accept,
+.cky-consent-container .cky-btn-reject,
+.cky-modal .cky-btn-accept,
+.cky-modal .cky-btn-reject {
+  background-color: rgba(59, 201, 219, 0.15) !important;
+  border-color: transparent !important;
+  color: #99e9f2 !important;
+}
+.cky-consent-container .cky-btn-accept:hover,
+.cky-consent-container .cky-btn-reject:hover,
+.cky-modal .cky-btn-accept:hover,
+.cky-modal .cky-btn-reject:hover {
+  background-color: rgba(59, 201, 219, 0.22) !important;
+}
+.cky-consent-container .cky-btn-customize,
+.cky-modal .cky-btn-preferences {
+  background-color: transparent !important;
+  border-color: #adb5bd !important;
+  color: #adb5bd !important;
+}
+.cky-consent-container .cky-btn-customize:hover,
+.cky-modal .cky-btn-preferences:hover {
+  background-color: rgba(173, 181, 189, 0.05) !important;
+}
+
+/* ---------- Banner ---------- */
+.cky-consent-container {
+  width: 420px !important;
+  border-radius: 24px !important;
+}
+.cky-box-bottom-left {
+  bottom: 24px !important;
+  left: 24px !important;
+}
+.cky-consent-container .cky-consent-bar {
+  padding: 24px !important;
+  background-color: #1f2130 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5) !important;
+}
+.cky-consent-container .cky-title {
+  margin: 0 0 10px;
+  color: #fff !important;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.cky-consent-container .cky-notice-des,
+.cky-consent-container .cky-notice-des * {
+  color: #c9ccd6 !important;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.cky-consent-container .cky-notice-des a {
+  color: #7ee3e8 !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cky-consent-container .cky-notice-btn-wrapper {
+  gap: 10px;
+  margin-top: 20px;
+}
+.cky-consent-container .cky-notice-btn-wrapper .cky-btn {
+  margin: 0 !important;
+}
+@media (max-width: 576px) {
+  .cky-box-bottom-left {
+    bottom: 12px !important;
+    left: 12px !important;
+  }
+  .cky-consent-container {
+    width: calc(100% - 24px) !important;
+    max-width: 420px !important;
+  }
+}
+@media (max-width: 440px) {
+  .cky-consent-container .cky-consent-bar {
+    padding: 20px !important;
+  }
+  .cky-consent-container .cky-notice-btn-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* ---------- Preference centre ---------- */
+.cky-overlay {
+  background: #000 !important;
+  opacity: 0.6 !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.cky-modal {
+  background: #1f2130 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px !important;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5) !important;
+  color: #c9ccd6 !important;
+  overflow: hidden;
+}
+.cky-modal .cky-preference-center {
+  background-color: #1f2130 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 28px;
+  color: #c9ccd6 !important;
+}
+.cky-modal .cky-preference-header {
+  padding: 24px 28px !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+.cky-modal .cky-preference-title {
+  color: #fff !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.015em;
+}
+/* Close: like the site's modal close button */
+.cky-modal .cky-btn-close {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 40px !important;
+  height: 40px !important;
+  flex: none;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+.cky-modal .cky-btn-close:hover {
+  border-color: rgba(126, 227, 232, 0.4) !important;
+  background-color: rgba(126, 227, 232, 0.08) !important;
+}
+.cky-modal .cky-btn-close img {
+  width: 12px !important;
+  height: 12px !important;
+  filter: brightness(0) invert(0.8);
+}
+.cky-modal .cky-preference-body-wrapper {
+  padding: 0 28px !important;
+}
+.cky-modal .cky-preference-content-wrapper,
+.cky-modal .cky-preference-content-wrapper * {
+  color: #c9ccd6 !important;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.cky-modal .cky-preference-content-wrapper .cky-show-desc-btn,
+.cky-modal button.cky-show-desc-btn:not(:hover):not(:active) {
+  color: #7ee3e8 !important;
+  font-weight: 600;
+}
+.cky-modal .cky-horizontal-separator {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Categories. Ones with no cookies on this site (CookieYes shows "no cookies" for them:
+   functional, performance, advertisement) are hidden; they come back by themselves if
+   cookies are added to them in the CookieYes dashboard. src/scripts/analytics.js keeps
+   their Google consent signals denied, since visitors never see them. */
+.cky-modal .cky-accordion:has(.cky-empty-cookies-text) {
+  display: none !important;
+}
+.cky-modal .cky-accordion {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+.cky-modal .cky-accordion-header .cky-accordion-btn {
+  color: #fff !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+}
+.cky-modal .cky-accordion-header-des,
+.cky-modal .cky-accordion-header-des * {
+  color: #9a9eae !important;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.cky-modal .cky-accordion-chevron {
+  color: #9a9eae;
+}
+.cky-modal .cky-accordion-header .cky-always-active {
+  color: #7ee3e8 !important;
+  font-weight: 600;
+}
+/* Toggles: dark track, cyan when on (CookieYes sets the colour inline as you switch) */
+.cky-modal .cky-switch input[type="checkbox"] {
+  background-color: #34374d !important;
+}
+.cky-modal .cky-switch input[type="checkbox"]:checked {
+  background-color: #7ee3e8 !important;
+}
+.cky-modal .cky-switch input[type="checkbox"]::before {
+  background-color: #fff !important;
+}
+.cky-modal .cky-switch input[type="checkbox"]:checked::before {
+  background-color: #1f2130 !important;
+}
+/* Cookie tables inside a category */
+.cky-modal .cky-audit-table {
+  background-color: #14151e !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 14px !important;
+  color: #c9ccd6 !important;
+}
+.cky-modal .cky-audit-table .cky-cookie-des-table {
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+.cky-modal .cky-audit-table .cky-cookie-des-table li div:first-child {
+  color: #fff;
+  font-weight: 600;
+}
+.cky-modal .cky-audit-table .cky-empty-cookies-text {
+  color: #9a9eae !important;
+}
+
+/* Footer */
+.cky-modal .cky-footer-wrapper {
+  background-color: #1f2130 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.cky-modal .cky-footer-shadow {
+  background: linear-gradient(
+    180deg,
+    rgba(31, 33, 48, 0) 0%,
+    #1f2130 100%
+  ) !important;
+}
+.cky-modal .cky-prefrence-btn-wrapper {
+  gap: 10px;
+  padding: 20px 28px !important;
+  border-top: 0 !important;
+}
+.cky-modal .cky-prefrence-btn-wrapper .cky-btn {
+  margin: 0 !important;
+}
+/* "Powered by CookieYes": kept, toned down */
+.cky-modal .cky-footer-wrapper > div:not(.cky-prefrence-btn-wrapper) {
+  background-color: #14151e !important;
+  color: #7c8093 !important;
+  border-radius: 0 0 28px 28px !important;
+}
+.cky-modal .cky-footer-wrapper > div:not(.cky-prefrence-btn-wrapper) img {
+  filter: brightness(0) invert(0.6);
+}
+@media (max-width: 576px) {
+  .cky-modal {
+    border-radius: 24px !important;
+  }
+  .cky-modal .cky-preference-header {
+    padding: 20px !important;
+  }
+  .cky-modal .cky-preference-body-wrapper {
+    padding: 0 20px !important;
+  }
+  .cky-modal .cky-prefrence-btn-wrapper {
+    flex-direction: column;
+    padding: 16px 20px !important;
+  }
+}
+
+/* ---------- "Revisit consent" button (after a choice) ---------- */
+.cky-btn-revisit-wrapper {
+  background-color: #2b2d3c !important;
+  border: 1px solid rgba(126, 227, 232, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.2s ease;
+}
+.cky-btn-revisit-wrapper:hover {
+  border-color: #7ee3e8;
+}
+.cky-btn-revisit-wrapper .cky-btn-revisit img {
+  width: 24px !important;
+  height: 24px !important;
+  filter: brightness(0) invert(0.85);
+}
