@@ -1,6 +1,6 @@
 ---
 name: integrations
-description: Third-party services on the Noesis site - Web3Forms contact form, MailerLite newsletter, Tally forms, CookieYes consent banner, Google Analytics 4 (Consent Mode v2) and click tracking, the live demo, Discord/social links. Use when changing a key, ID or service URL, switching the contact form, adding a tracked button, adding a new third-party script or service, or debugging forms, consent or analytics.
+description: Third-party services on the Noesis site - Web3Forms contact and beta forms, MailerLite newsletter, CookieYes consent banner, Google Analytics 4 (Consent Mode v2) and click tracking, the live demo, Discord/social links. Use when changing a key, ID or service URL, switching the contact form, adding a tracked button, adding a new third-party script or service, or debugging forms, consent or analytics.
 ---
 
 # Integrations on the Noesis site
@@ -12,19 +12,19 @@ elsewhere: import from this file in components, pages, browser scripts (`src/scr
 and Node scripts (`scripts/*.mjs`). It's plain ESM with no Astro imports, so all of these
 can use it. Everything in it ends up public, so never put a real secret there.
 
-| Setting                                                                        | Used by                                                                  |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `CONTACT_FORM` (`"web3forms"` / `"tally"`), `contactLink`, `USE_CONTACT_MODAL` | every "Request Contact" button, `ContactModal`, privacy page             |
-| `WEB3FORMS_ACCESS_KEY`, `WEB3FORMS_ENDPOINT`                                   | `Web3Form.astro`, `src/scripts/modal.js`                                 |
-| `TALLY_CONTACT_URL`, `TALLY_BETA_URL`                                          | contact (Tally mode), Vision beta buttons                                |
-| `MAILERLITE_FORM_ACTION`                                                       | `MailerLiteForm.astro` (newsletter)                                      |
-| `COOKIEYES_ID`, `GA_ID`                                                        | `Base.astro`, `src/scripts/consent-mode.js`, `scripts/check-adblock.mjs` |
-| `VISION_DEMO_URL`                                                              | Vision "Try Live Demo Now"                                               |
-| `DISCORD_URL`, `SUBSTACK_URL`, `YOUTUBE_URL`, `LINKEDIN_URL`, `GITHUB_URL`     | footer, CTAs, Organization `sameAs`                                      |
+| Setting                                                                    | Used by                                                                  |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `contactLink`                                                              | every "Request Contact" button                                           |
+| `WEB3FORMS_ACCESS_KEY`, `WEB3FORMS_ENDPOINT`                               | `Web3Form.astro`, `src/scripts/modal.js`                                 |
+| `MAILERLITE_FORM_ACTION`                                                   | `MailerLiteForm.astro` (newsletter)                                      |
+| `COOKIEYES_ID`, `GA_ID`                                                    | `Base.astro`, `src/scripts/consent-mode.js`, `scripts/check-adblock.mjs` |
+| `VISION_DEMO_URL`                                                          | Vision "Try Live Demo Now"                                               |
+| `DISCORD_URL`, `SUBSTACK_URL`, `YOUTUBE_URL`, `LINKEDIN_URL`, `GITHUB_URL` | footer, CTAs, Organization `sameAs`                                      |
 
 ## Forms
 
-- **Contact** (`ContactModal.astro`, rendered by `Nav.astro` on every page): JSON POST to Web3Forms from `modal.js`. An empty key means demo mode: it shows "sent" and sends nothing (a console warning says so). Open it with `<Button {...contactLink}>`. Never write `open="contact"` or the Tally URL directly, or the `CONTACT_FORM` switch stops covering that button.
+- **Contact** (`ContactModal.astro`, rendered by `Nav.astro` on every page): JSON POST to Web3Forms from `modal.js`. An empty key means demo mode: it shows "sent" and sends nothing (a console warning says so). Open it with `<Button {...contactLink}>`. Never write `open="contact"` directly.
+- **Beta** (`BetaModal.astro`, rendered on `/vision`): same Web3Forms key, different subject. Open it with `<Button open="beta">`. Questions are in `src/data/beta-form.json`. `modal.js` joins several ticked answers into one value and shows `data-show-if="name=value"` blocks only while that answer is ticked. The newsletter tick only adds "newsletter: Yes" to the email; it does not subscribe anyone in MailerLite.
 - **Newsletter** (`NewsletterModal.astro`, on Home, Vision, Services, opened by `<Button open="news">`): JSON POST to the MailerLite embedded form's subscribe URL. reCAPTCHA must be off for that MailerLite form. A honeypot (`botcheck`) replaces it. `modal.js` sends a HEAD probe when the popup opens, to warn visitors whose blocker (AdGuard Popups) stops mailerlite.com.
 - Any page with a popup must load `src/scripts/modal.js`. `nav.js` already imports it, so every page that loads `nav.js` or `page.js` has it.
 - After setting a real key or URL: make one real submission and confirm it arrives (Web3Forms email / MailerLite subscriber list).

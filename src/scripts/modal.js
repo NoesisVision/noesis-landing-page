@@ -1,6 +1,6 @@
 // Contact and newsletter dialogs.
 // Each form says where it goes with data-provider:
-// - "web3forms" (Web3Form.astro, contact): JSON to Web3Forms; needs WEB3FORMS_ACCESS_KEY.
+// - "web3forms" (Web3Form.astro, contact and beta): JSON to Web3Forms; needs WEB3FORMS_ACCESS_KEY.
 // - "mailerlite" (MailerLiteForm.astro, newsletter): JSON to a MailerLite embedded form's
 //   subscribe URL (data-action); needs MAILERLITE_FORM_ACTION.
 // Without its key/URL a form runs in demo mode: the "sent" view appears after a short
@@ -107,8 +107,32 @@ const senders = {
   },
 };
 
+// Several answers to one question (checkboxes with the same name) become "A, B"
+const collect = (form) => {
+  const entries = new FormData(form);
+  return Object.fromEntries(
+    [...new Set(entries.keys())].map((name) => [
+      name,
+      entries.getAll(name).join(", "),
+    ]),
+  );
+};
+
+// data-show-if="name=value": shown only while that answer is ticked. Fields inside are
+// disabled while hidden, so they are never sent.
+const syncConditional = (form) => {
+  form.querySelectorAll("[data-show-if]").forEach((el) => {
+    const [name, value] = el.dataset.showIf.split("=");
+    const shown = new FormData(form).getAll(name).includes(value);
+    el.hidden = !shown;
+    el.querySelectorAll("input, textarea").forEach((field) => {
+      field.disabled = !shown;
+    });
+  });
+};
+
 const send = async (form) => {
-  const data = Object.fromEntries(new FormData(form));
+  const data = collect(form);
   // A ticked spam trap means a bot: act as if it worked, send nothing.
   if (data.botcheck) return;
   delete data.botcheck;
@@ -184,6 +208,8 @@ document.querySelectorAll("dialog.modal").forEach((dialog) => {
   });
 
   const form = dialog.querySelector("form[data-provider]");
+  if (form) syncConditional(form);
+  form?.addEventListener("change", () => syncConditional(form));
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const submit = form.querySelector('[type="submit"]');
@@ -194,6 +220,8 @@ document.querySelectorAll("dialog.modal").forEach((dialog) => {
     try {
       await send(form);
       form.reset();
+      syncConditional(form);
+      dialog.scrollTop = 0;
       showView(dialog, "sent");
     } catch (err) {
       console.error("Form submission failed:", err);

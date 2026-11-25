@@ -12,11 +12,7 @@ import Highlight from "../components/ui/Highlight.astro";
 import Button from "../components/Button.astro";
 import "../styles/pages/privacy.css";
 
-import {
-  TALLY_CONTACT_URL,
-  USE_CONTACT_MODAL,
-} from "../config/integrations.js";
-const UPDATED = "5 November 2026";
+const UPDATED = "25 November 2026";
 const GA_ID = "G-2BF7VRSXYF";
 ---
 
@@ -99,13 +95,14 @@ const GA_ID = "G-2BF7VRSXYF";
 
         <section class="privacy-block">
           <h2 class="privacy-heading">Forms</h2>
-          {USE_CONTACT_MODAL && (
-            <Text size="lg">
-              The contact form sends what you type into it (name, email, company
-              and message) to Web3Forms, a form service that forwards it to us
-              by email. We use it to reply to your request.
-            </Text>
-          )}
+          <Text size="lg">
+            The contact form (name, email, company and message) and the Noesis
+            Vision beta form (name, email, company and your questionnaire
+            answers) send what you enter to Web3Forms, a form service that
+            processes it in the United States and forwards it to us by email. We
+            use it to reply to your request and, for the beta form, for the
+            purposes stated in the form.
+          </Text>
           <Text size="lg">
             The newsletter form sends your email address to MailerLite, the
             service we use to manage the subscriber list and send the
@@ -124,9 +121,8 @@ const GA_ID = "G-2BF7VRSXYF";
         <section class="privacy-block">
           <h2 class="privacy-heading">Links to other sites</h2>
           <Text size="lg">
-            Some links take you to services run by others, for example Tally (
-            {USE_CONTACT_MODAL ? "beta sign-up" : "contact and beta forms"}),
-            Substack (newsletter), YouTube, LinkedIn, GitHub, Discord and our
+            Some links take you to services run by others, for example Substack
+            (newsletter), YouTube, LinkedIn, GitHub, Discord and our
             documentation on GitHub Pages. Once you are on those sites, their
             own privacy and cookie policies apply.
           </Text>
@@ -145,15 +141,9 @@ const GA_ID = "G-2BF7VRSXYF";
           <Text size="lg">
             This website is run by Noesis Vision Sp.&nbsp;z&nbsp;o.o. If you
             have questions,
-            {USE_CONTACT_MODAL ? (
-              <a href="#contact" data-open="contact">
-                get in touch
-              </a>
-            ) : (
-              <a href={TALLY_CONTACT_URL} target="_blank" rel="noopener">
-                get in touch
-              </a>
-            )}{" "}
+            <a href="#contact" data-open="contact">
+              get in touch
+            </a>{" "}
             with us through our contact form.
           </Text>
         </section>

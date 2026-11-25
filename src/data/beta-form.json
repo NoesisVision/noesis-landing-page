@@ -1,0 +1,30 @@
+{
+  "steps": [
+    "You submit this form.",
+    "Once your request is accepted, we send you a Noesis license on the agreed terms.",
+    "You configure Noesis using the documentation, with help on our Discord if you need it.",
+    "Scanning and the Vision UI run locally. No code is sent out, and only people from your company can access the UI."
+  ],
+  "technologies": [
+    ".NET",
+    "Java / JVM",
+    "Python",
+    "Node.js / TypeScript / JavaScript",
+    "PHP",
+    "Other"
+  ],
+  "openSource": ["Yes", "No", "It's a mix"],
+  "repositories": ["1-10", "10-100", "100-1000", "1000+", "Other"],
+  "roles": [
+    "Developer",
+    "Architect",
+    "Analyst",
+    "Manager",
+    "Product Owner",
+    "Software Engineer",
+    "Tester",
+    "Infra specialist (DevOps)",
+    "Freelancer",
+    "Other"
+  ]
+}

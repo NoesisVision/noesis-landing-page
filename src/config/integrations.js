@@ -3,19 +3,15 @@
 // Plain ESM with no Astro imports: used by components, browser scripts and scripts/*.mjs.
 
 // ---------------------------------------------------------------------------------------
-// Contact form ("Request Contact" buttons)
+// Contact ("Request Contact") and Vision beta ("Join Beta") forms
 // ---------------------------------------------------------------------------------------
-// "web3forms": the site's own popup (ContactModal.astro), sent through Web3Forms.
-// "tally":     link to the old Tally form in a new tab; the popup is left out.
-export const CONTACT_FORM = "web3forms";
+// Both are the site's own popups (ContactModal.astro, BetaModal.astro), sent through
+// Web3Forms with the same key; the email subject tells them apart.
 
 // Web3Forms access key (https://web3forms.com > your form). Public by design.
-// Empty = demo mode: the popup shows "Thanks" and sends nothing.
+// Empty = demo mode: the popups show "Thanks" and send nothing.
 export const WEB3FORMS_ACCESS_KEY = "";
 export const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-
-// Old contact form, used when CONTACT_FORM = "tally"
-export const TALLY_CONTACT_URL = "https://tally.so/r/vGEdvl";
 
 // ---------------------------------------------------------------------------------------
 // Newsletter (NewsletterModal.astro)
@@ -41,7 +37,6 @@ export const GA_ID = "G-2BF7VRSXYF";
 // Noesis Vision product (vision page)
 // ---------------------------------------------------------------------------------------
 export const VISION_DEMO_URL = "http://98.86.2.2:5000";
-export const TALLY_BETA_URL = "https://tally.so/r/wMWrqY";
 
 // ---------------------------------------------------------------------------------------
 // Community and social profiles (footer, CTAs, schema.org sameAs)
@@ -55,9 +50,5 @@ export const GITHUB_URL = "https://github.com/NoesisVision";
 // ---------------------------------------------------------------------------------------
 // Derived values: nothing to edit below
 // ---------------------------------------------------------------------------------------
-export const USE_CONTACT_MODAL = CONTACT_FORM === "web3forms";
-
 /** Props for a <Button> that opens the contact form: {...contactLink} */
-export const contactLink = USE_CONTACT_MODAL
-  ? { open: "contact" }
-  : { href: TALLY_CONTACT_URL, target: "_blank" };
+export const contactLink = { open: "contact" };

@@ -114,3 +114,25 @@
   color: #c9ccd6;
   max-width: 360px;
 }
+/* Beta form: how it works, and the optional questionnaire */
+.form-modal-steps {
+  margin: -8px 0 4px;
+  padding-left: 22px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #c9ccd6;
+}
+.form-modal-steps li::marker {
+  color: #7ee3e8;
+}
+.form-modal-divider {
+  margin-top: 4px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.form-modal-subtitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}

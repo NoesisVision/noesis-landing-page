@@ -1,0 +1,28 @@
+---
+import "../styles/components/choice-group.css";
+
+/**
+ * A question with predefined answers, shown as chips. Pick several (checkbox) or one
+ * (radio). modal.js joins several answers into one value.
+ */
+interface Props {
+  label: string;
+  name: string;
+  options: string[];
+  type?: "checkbox" | "radio";
+}
+
+const { label, name, options, type = "checkbox" } = Astro.props;
+---
+
+<fieldset class="choice-group">
+  <legend class="choice-group-label">{label}</legend>
+  <div class="choice-group-options">
+    {options.map((option) => (
+      <label class="choice">
+        <input class="choice-input" type={type} name={name} value={option} />
+        <span>{option}</span>
+      </label>
+    ))}
+  </div>
+</fieldset>

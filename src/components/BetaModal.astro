@@ -1,0 +1,149 @@
+---
+import Button from "./Button.astro";
+import ChoiceGroup from "./ChoiceGroup.astro";
+import Field from "./Field.astro";
+import Icon from "./Icon.astro";
+import Modal from "./Modal.astro";
+import Web3Form from "./Web3Form.astro";
+import ButtonRow from "./ui/ButtonRow.astro";
+import data from "../data/beta-form.json";
+import { DISCORD_URL } from "../config/integrations.js";
+
+/**
+ * Noesis Vision beta request dialog (Web3Forms). Opened by any <Button open="beta">;
+ * the page must render it and load src/scripts/modal.js. Questions: src/data/beta-form.json.
+ */
+const { steps, technologies, openSource, repositories, roles } = data;
+---
+
+<Modal id="beta" size={720} labelledby="beta-title">
+  <div data-view="form">
+    <Web3Form
+      class="form-modal-form"
+      subject="New beta request (noesis.vision)"
+    >
+      <div class="form-modal-head">
+        <h2 id="beta-title" class="form-modal-title">
+          Join the Noesis Vision beta
+        </h2>
+        <button
+          class="hover-close form-modal-close"
+          type="button"
+          data-action="closeModal"
+          aria-label="Close"
+        >
+          <Icon name="X" size={18} stroke={1.75} />
+        </button>
+      </div>
+      <ol class="form-modal-steps">
+        {steps.map((step) => (
+          <li>{step}</li>
+        ))}
+      </ol>
+      <div class="form-modal-fields">
+        <Field
+          label="First name / nickname"
+          name="name"
+          placeholder="Jane"
+          required
+          autofocus
+        />
+        <Field
+          label="Email"
+          name="email"
+          placeholder="jane@company.com"
+          type="email"
+          required
+        />
+      </div>
+      <Field label="Company" name="company" placeholder="Company name" />
+      <div class="form-modal-divider">
+        <h3 class="form-modal-subtitle">Questionnaire (optional)</h3>
+      </div>
+      <ChoiceGroup
+        label="What is the technology of the projects you want to scan?"
+        name="technology"
+        options={technologies}
+      />
+      <div data-show-if="technology=.NET" hidden>
+        <Field
+          label="Which .NET versions do the repositories use?"
+          name="dotnet_versions"
+          placeholder=".NET 8, .NET Framework 4.8"
+        />
+      </div>
+      <ChoiceGroup
+        label="Is it open source?"
+        name="open_source"
+        options={openSource}
+      />
+      <ChoiceGroup
+        label="How many repositories would you scan?"
+        name="repositories"
+        options={repositories}
+        type="radio"
+      />
+      <ChoiceGroup label="Your role" name="role" options={roles} />
+      <label class="choice choice--plain">
+        <input
+          class="choice-input"
+          type="checkbox"
+          name="newsletter"
+          value="Yes"
+        />
+        <span>Add me to the newsletter</span>
+      </label>
+      <p class="web3form-error" data-form-error role="alert" hidden></p>
+      <div class="form-modal-actions">
+        <Button variant="light" size="lg" type="submit" arrow>
+          Join Beta
+        </Button>
+        <Button variant="subtle" size="lg" close>
+          Cancel
+        </Button>
+      </div>
+      <p class="form-modal-note">
+        By submitting this form, you consent to having your name and email
+        processed by Noesis Vision sp.&nbsp;z&nbsp;o.o. for marketing purposes
+        related to the development of the Noesis tool. You can unsubscribe at
+        any time. We aim to make every email valuable!
+      </p>
+    </Web3Form>
+  </div>
+  <div data-view="sent" hidden>
+    <div class="form-modal-close-row">
+      <button
+        class="hover-close form-modal-close"
+        type="button"
+        data-action="closeModal"
+        aria-label="Close"
+      >
+        <Icon name="X" size={18} stroke={1.75} />
+      </button>
+    </div>
+    <div class="form-modal-sent">
+      <div class="form-modal-sent-icon">
+        <Icon name="Check" size={28} stroke={2} color="#7EE3E8" />
+      </div>
+      <div class="form-modal-sent-title">Thanks for your request!</div>
+      <p class="form-modal-sent-text">
+        Expect a follow-up email from us with the next steps. In the meantime,
+        you can join our Discord community.
+      </p>
+      <ButtonRow class="form-modal-sent-actions">
+        <Button
+          variant="light"
+          size="lg"
+          href={DISCORD_URL}
+          target="_blank"
+          arrow
+        >
+          Join our Discord
+        </Button>
+        <Button variant="outline" size="lg" close>
+          Close
+        </Button>
+      </ButtonRow>
+    </div>
+  </div>
+</Modal>

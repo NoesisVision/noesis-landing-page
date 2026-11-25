@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import BetaModal from "../components/BetaModal.astro";
 import NewsletterModal from "../components/NewsletterModal.astro";
 import Button from "../components/Button.astro";
 import Icon from "../components/Icon.astro";
@@ -28,11 +29,7 @@ import WindowBar from "../components/ui/WindowBar.astro";
 import ArchitectureDiagram from "../components/ArchitectureDiagram.astro";
 import "../styles/pages/vision.css";
 import { url } from "../config/paths.js";
-import {
-  DISCORD_URL,
-  TALLY_BETA_URL,
-  VISION_DEMO_URL,
-} from "../config/integrations.js";
+import { DISCORD_URL, VISION_DEMO_URL } from "../config/integrations.js";
 const { apps, faq, pillars, steps, uses, videos } = data;
 
 // schema.org for search engines (reused from the previous noesis.vision). The FAQ entries
@@ -106,8 +103,7 @@ const jsonLd = [
               trackSection="vision-hero"
               variant="light"
               size="lg"
-              href={TALLY_BETA_URL}
-              target="_blank"
+              open="beta"
               arrow
             >
               Join Beta!
@@ -1220,8 +1216,7 @@ const jsonLd = [
               trackSection="demo"
               variant="outline"
               size="lg"
-              href={TALLY_BETA_URL}
-              target="_blank"
+              open="beta"
               arrow
             >
               Join Beta Program
@@ -1348,6 +1343,7 @@ const jsonLd = [
     </main>
     <Footer />
     <NewsletterModal />
+    <BetaModal />
   </Page>
   <script>
     import "../scripts/page.js";

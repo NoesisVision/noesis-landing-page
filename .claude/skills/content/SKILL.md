@@ -39,8 +39,8 @@ One-off text (hero, CTA blocks) is written directly in `src/pages/<page>.astro`.
 ## Links and buttons
 
 - **Links to our own pages and `public/` files go through `url()`** from `src/config/paths.js`: `href={url("/services")}`, `src={url(v.src)}`. The site is also built under `/noesis-landing-page/` for staging, where a bare root path breaks. Root paths in `src/data/*.json` are fine as long as the page wraps them with `url()`.
-- External service URLs (Tally, Discord, demo, socials) come from `src/config/integrations.js` (see the `integrations` skill). Docs and article links can stay inline.
-- "Request Contact" buttons: `<Button {...contactLink}>`. Newsletter: `<Button open="news">` and render `<NewsletterModal />` on that page.
+- External service URLs (Discord, demo, socials) come from `src/config/integrations.js` (see the `integrations` skill). Docs and article links can stay inline.
+- "Request Contact" buttons: `<Button {...contactLink}>`. Newsletter: `<Button open="news">` and render `<NewsletterModal />` on that page. Beta: `<Button open="beta">` and `<BetaModal />`.
 - Add `track`/`trackSection` to CTA buttons, reusing the existing event names.
 - Links inside paragraphs are underlined automatically. For extra link context use `.visually-hidden` text, e.g. "Learn more <span class="visually-hidden">about Nasde</span>".
 
