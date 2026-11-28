@@ -5,7 +5,7 @@
       "node": 8.1,
       "photo": "szymon-janikowski",
       "name": "Szymon Janikowski",
-      "bio": "Software engineer, analyst and architect with a background in Java technologies and system design. Starts from thorough domain analysis and the business context before implementing technical solutions.",
+      "bio": "Software engineer and architect with a background in Java technologies and system design. Starts from thorough domain analysis and the business context before implementing technical solutions.",
       "reverse": false,
       "backgroundPosition": "left top"
     },
@@ -42,7 +42,7 @@
       "icon": "Plug",
       "title": "Harness Engineering",
       "tagline": "The agent isn't the variable - its tools are.",
-      "body": "We configure and optimize the complete AI development harness: tools, MCP servers, context management. The same agent performs very differently depending on the harness around it.",
+      "body": "We configure and optimize the complete AI development harness: tools, MCP servers, context management. A well-engineered harness gets production-quality work out of the agent you already have.",
       "href": "/services#harness"
     },
     {
@@ -50,7 +50,7 @@
       "icon": "Puzzle",
       "title": "Skills Development",
       "tagline": "Skills are software. They need testing and measurement.",
-      "body": "We build, test, and iterate on custom skills - from team-specific domain knowledge to universal coding patterns. We version, test, and maintain them like any other software.",
+      "body": "We build, test, and iterate on custom skills - from team-specific domain knowledge to universal coding patterns. We version and test them like any other software, so they keep working as your codebase and models change.",
       "href": "/services#skills"
     },
     {
@@ -58,7 +58,7 @@
       "icon": "ChartDots3",
       "title": "Measurement & Evaluation",
       "tagline": "Without measurement, every change is a guess.",
-      "body": "Multi-dimensional evaluation on tasks from real codebases. We score architecture, code quality, tests, and team conventions, so you can see what works.",
+      "body": "Multi-dimensional evaluation on tasks from real codebases. We score architecture, code quality, tests, and team conventions on your real tasks, so you invest in the setup that is proven to work.",
       "href": "/services#measurement"
     }
   ],

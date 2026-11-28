@@ -68,7 +68,7 @@
     {
       "n": "1",
       "title": "Development Process Design",
-      "tag": "Process Makes the Tools Work",
+      "tag": "Process Is What Makes the Tools Pay Off",
       "items": [
         {
           "t": "Domain knowledge extraction",
@@ -100,11 +100,11 @@
         },
         {
           "t": "Tool & MCP server configuration",
-          "d": "Code search, LSP, documentation, and custom integrations, connected so the agent can use them"
+          "d": "Code search, LSP, documentation, and custom integrations, connected so the agent navigates your codebase the way your engineers do"
         },
         {
           "t": "Context management strategy",
-          "d": "We design what context reaches the agent, and when"
+          "d": "We design what context reaches the agent and when, so it works from your team's knowledge instead of guessing"
         },
         {
           "t": "Knowledge graph experiments (GraphRAG)",
