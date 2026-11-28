@@ -3,39 +3,39 @@
     {
       "icon": "ArrowsExchange",
       "title": "Project Takeover",
-      "body": "Accelerate onboarding when taking over existing projects. Noesis provides instant visibility into system architecture, dependencies, and business logic, reducing ramp-up time from weeks to days."
+      "body": "Taking over an existing project? Noesis shows its architecture, dependencies, and business logic from day one, cutting ramp-up time from weeks to days."
     },
     {
       "icon": "FileText",
       "title": "Delivering Documented Software",
-      "body": "Deliver comprehensive documentation alongside your software. Generate up-to-date system documentation automatically, ensuring clients receive complete technical and business context."
+      "body": "Ship documentation together with the software. Noesis generates it from the code, so what the client receives matches what was built."
     },
     {
       "icon": "ZoomCode",
       "title": "Architecture Audit/Review",
-      "body": "Conduct thorough architecture reviews with complete system visibility. Identify technical debt, dependency issues, and optimization opportunities through visual analysis."
+      "body": "Review an architecture with the whole system in front of you. The map makes technical debt and problematic dependencies visible."
     },
     {
       "icon": "ListCheck",
       "title": "Requirements Preparation",
-      "body": "Bridge technical and business requirements with clear system understanding. Translate complex technical constraints into business-friendly documentation for stakeholders."
+      "body": "See what the system does today before writing requirements. Noesis describes technical constraints in terms business stakeholders can read."
     },
     {
       "icon": "GitMerge",
       "title": "Refactoring Planning",
-      "body": "Plan refactoring initiatives with confidence. Understand impact analysis, identify dependencies, and create safe migration strategies with comprehensive system mapping."
+      "body": "See what a change will touch before you make it. The map shows the dependencies, so you can plan a migration step by step."
     },
     {
       "icon": "UsersGroup",
       "title": "Knowledge Transfer",
-      "body": "Facilitate smooth knowledge transfer between team members. Create living documentation that evolves with your codebase, ensuring institutional knowledge is preserved."
+      "body": "Documentation generated from code stays current as the codebase changes, so knowledge doesn't leave with the people who had it."
     }
   ],
   "faq": [
     {
       "id": "q1",
       "q": "Can Noesis handle multiple repositories for my libraries and microservices?",
-      "a": "Absolutely! Noesis seamlessly scans multiple repositories and creates a unified, consistent model that gives you a complete view of your entire system architecture."
+      "a": "Yes. Noesis scans multiple repositories and combines them into one consistent model of the whole system."
     },
     {
       "id": "q2",
@@ -45,30 +45,30 @@
     {
       "id": "q3",
       "q": "Isn't it easy to replace Noesis with pure AI-based solution?",
-      "a": "Pure AI solutions struggle with determinism and cost efficiency. LLMs can’t guarantee consistent, repeatable results across multiple scans, and using them for repetitive code analysis becomes prohibitively expensive. Noesis combines deterministic static analysis with selective AI enhancement, ensuring reliable results at a fraction of the cost while maintaining full traceability of every architectural insight."
+      "a": "LLMs can’t guarantee the same result from one scan to the next, and running them over a whole codebase again and again gets expensive. Noesis does the structural analysis deterministically and uses AI only where it adds value, so results are repeatable, cheaper, and traceable back to the code."
     },
     {
       "id": "q4",
       "q": "Is my code safe?",
-      "a": "Absolutely. Currently we primarly support the on‑prem deployment model; your code never leaves your environment."
+      "a": "Yes. We currently primarily support the on‑prem deployment model; your code never leaves your environment."
     }
   ],
   "pillars": [
     {
       "title": "Precise System Map Creation",
-      "body": "Static code analysis extracts complete system map structures according to the P3 model - encompassing Domain, Technology, People perspectives and their relationships with mathematical precision. P3 focuses on the most essential concepts in software development and system architecture, making system understanding easier and more accessible."
+      "body": "Static code analysis extracts the system map according to the P3 model: the Domain, Technology, and People perspectives and the relationships between them. P3 covers the essential concepts of software development and system architecture, which keeps the map readable."
     },
     {
       "title": "AI-Enhanced Element Descriptions",
-      "body": "Once the system map structure is established, AI generates contextual descriptions for map elements. These descriptions leverage deterministic relationships to provide deeper insights into system components and their roles, making them understandable for both business stakeholders and development teams."
+      "body": "Once the map structure is in place, AI writes descriptions of its elements. The descriptions build on the deterministic relationships, so both business stakeholders and development teams can read what each component does."
     },
     {
       "title": "Comparable & Repeatable Analysis",
-      "body": "Code can be scanned multiple times with consistent, comparable results. Our deep, comprehensive analysis is fully repeatable - allowing you to track architectural changes over time and compare results across different scans. This systematic approach sets us apart from AI-only competitors."
+      "body": "Scan the same code twice and you get the same result. That lets you track architectural changes over time and compare scans, which AI-only tools can't guarantee."
     },
     {
       "title": "Cost-Optimized AI Usage",
-      "body": "Critical analysis fragments are processed using inexpensive static code analysis, avoiding expensive AI costs. AI is applied selectively only where it adds value, giving you full control over costs while maintaining intelligent insights."
+      "body": "The critical parts of the analysis run as inexpensive static code analysis. AI is applied only where it adds value, so you stay in control of the cost."
     }
   ],
   "steps": [
@@ -90,7 +90,7 @@
     {
       "n": "4",
       "title": "Use the map in multiple ways",
-      "body": "Navigate, document, and integrate with AI for comprehensive system understanding."
+      "body": "Navigate it, export documentation, or expose it to AI agents."
     }
   ],
   "uses": [
@@ -116,7 +116,7 @@
       "slot": "vision-use-ai",
       "ph": "Drop app screen: AI integration",
       "title": "AI Integration",
-      "body": "Expose the map or documentation to AI agents for more meaningful, context-aware conversations.",
+      "body": "Expose the map or documentation to AI agents, so their answers are based on your system.",
       "isDocs": false,
       "isAi": true,
       "isUi": false

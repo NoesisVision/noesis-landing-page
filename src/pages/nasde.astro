@@ -92,11 +92,11 @@ const jsonLd = [
             Nasde measures how your{" "}
             <Highlight> whole AI coding setup </Highlight> performs - the agent,
             its skills, its MCP servers, against <Highlight>your</Highlight>{" "}
-            tasks - and reports not just how good the output is, but{" "}
+            tasks - and reports how good the output is and{" "}
             <Highlight> how many tokens and dollars </Highlight> it took, per
             model and per provider. It's how you decide which agent and model to
             standardize on, and{" "}
-            <Highlight> when a migration actually pays off </Highlight>.
+            <Highlight> when a migration pays off </Highlight>.
           </Lead>
           <ButtonRow snug>
             <Button
@@ -204,7 +204,7 @@ const jsonLd = [
       <Section>
         <Container>
           <SectionHead data-reveal="1">
-            <Heading>What do I actually use it for?</Heading>
+            <Heading>What do I use it for?</Heading>
             <Lead class="nasde-lead-800">
               The core use is a{" "}
               <Highlight> cost-and-quality decision </Highlight> about your AI
@@ -214,8 +214,7 @@ const jsonLd = [
                 which agent, which model, which provider, which configuration -
                 for our codebase and our budget?{" "}
               </em>{" "}
-              Nasde answers it with numbers instead of vibes. Typical things
-              you'd do with it:
+              Nasde answers it with numbers. Typical things you'd do with it:
             </Lead>
           </SectionHead>
           <div class="uses-grid">
@@ -306,7 +305,7 @@ const jsonLd = [
       <Section>
         <Container>
           <SectionHead data-reveal="1">
-            <Heading>How does the scoring actually work?</Heading>
+            <Heading>How does the scoring work?</Heading>
             <Lead width={760}>
               <em>
                 {" "}
@@ -443,8 +442,8 @@ const jsonLd = [
                   <code class="code-inline">Read</code>,{" "}
                   <code class="code-inline">Glob</code>,{" "}
                   <code class="code-inline">Grep</code> (and optionally MCP
-                  analysis servers), pulling only the files it actually needs to
-                  judge each dimension.
+                  analysis servers), pulling only the files it needs to judge
+                  each dimension.
                 </div>
               </div>
               <div class="nasde-check">
@@ -466,9 +465,9 @@ const jsonLd = [
                 Each trial reports <Highlight> tokens and dollars </Highlight>{" "}
                 next to the quality score - per model, per provider - so a
                 quality number is always paired with what it costs to reach it.
-                That turns the AI-coding line item into something you can
-                actually reason about:{" "}
-                <Highlight> quality per dollar </Highlight>, on your own tasks.
+                That turns the AI-coding line item into something you can reason
+                about: <Highlight> quality per dollar </Highlight>, on your own
+                tasks.
               </Text>
               <Text size="lg">
                 Nasde plots models and variants on a{" "}

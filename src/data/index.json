@@ -5,7 +5,7 @@
       "node": 8.1,
       "photo": "szymon-janikowski",
       "name": "Szymon Janikowski",
-      "bio": "Experienced software engineer, analyst and architect with strong background in Java technologies and system design. Passionate about thorough domain analysis and understanding business context before implementing technical solutions.",
+      "bio": "Software engineer and architect with a background in Java technologies and system design. Starts from thorough domain analysis and the business context before implementing technical solutions.",
       "reverse": false,
       "backgroundPosition": "left top"
     },
@@ -14,7 +14,7 @@
       "node": 8.2,
       "photo": "marcin-markowski",
       "name": "Marcin Markowski",
-      "bio": "Entrepreneur and seasoned software architect, consultant and trainer with deep knowledge of Domain Driven Design and .NET technologies. Focused on delivering high-quality solutions through efficient development practices.",
+      "bio": "Entrepreneur, software architect, consultant and trainer specializing in Domain Driven Design and .NET technologies. Focused on efficient development practices.",
       "reverse": true,
       "backgroundPosition": "center top"
     },
@@ -23,7 +23,7 @@
       "node": 8.3,
       "photo": "lukasz-szydlo",
       "name": "Łukasz Szydło",
-      "bio": "Renowned speaker, trainer and consultant with extensive experience in software architecture and JVM technologies. Expert in conducting technical audits, establishing effective development practices and building high-performing teams. Passionate about clear technical documentation and knowledge sharing.",
+      "bio": "Speaker, trainer and consultant in software architecture and JVM technologies. Conducts technical audits and helps teams establish their development practices. Cares about clear technical documentation and knowledge sharing.",
       "reverse": false,
       "backgroundPosition": "center top"
     }
@@ -42,7 +42,7 @@
       "icon": "Plug",
       "title": "Harness Engineering",
       "tagline": "The agent isn't the variable - its tools are.",
-      "body": "We configure and optimize the complete AI development harness: tools, MCP servers, context management. The right harness turns an average agent into an exceptional one.",
+      "body": "We configure and optimize the complete AI development harness: tools, MCP servers, context management. A well-engineered harness gets production-quality work out of the agent you already have.",
       "href": "/services#harness"
     },
     {
@@ -50,15 +50,15 @@
       "icon": "Puzzle",
       "title": "Skills Development",
       "tagline": "Skills are software. They need testing and measurement.",
-      "body": "We build, test, and iterate on custom skills - from team-specific domain knowledge to universal coding patterns. Treated as first-class software artifacts, not throwaway prompts.",
+      "body": "We build, test, and iterate on custom skills - from team-specific domain knowledge to universal coding patterns. We version and test them like any other software, so they keep working as your codebase and models change.",
       "href": "/services#skills"
     },
     {
       "node": 5,
       "icon": "ChartDots3",
       "title": "Measurement & Evaluation",
-      "tagline": "If you can't measure it, you can't improve it.",
-      "body": "Multi-dimensional evaluation on tasks from real codebases. We prove what works - architecture, code quality, tests, team conventions - through rigorous benchmarks, not demos on toy projects.",
+      "tagline": "Without measurement, every change is a guess.",
+      "body": "Multi-dimensional evaluation on tasks from real codebases. We score architecture, code quality, tests, and team conventions on your real tasks, so you invest in the setup that is proven to work.",
       "href": "/services#measurement"
     }
   ],
