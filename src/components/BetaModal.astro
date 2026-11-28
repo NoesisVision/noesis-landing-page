@@ -7,7 +7,10 @@ import Modal from "./Modal.astro";
 import Web3Form from "./Web3Form.astro";
 import ButtonRow from "./ui/ButtonRow.astro";
 import data from "../data/beta-form.json";
-import { DISCORD_URL } from "../config/integrations.js";
+import {
+  DISCORD_URL,
+  WEB3FORMS_BETA_ACCESS_KEY,
+} from "../config/integrations.js";
 
 /**
  * Noesis Vision beta request dialog (Web3Forms). Opened by any <Button open="beta">;
@@ -21,6 +24,7 @@ const { steps, technologies, openSource, repositories, roles } = data;
     <Web3Form
       class="form-modal-form"
       subject="New beta request (noesis.vision)"
+      accessKey={WEB3FORMS_BETA_ACCESS_KEY}
     >
       <div class="form-modal-head">
         <h2 id="beta-title" class="form-modal-title">

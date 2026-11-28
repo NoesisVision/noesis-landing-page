@@ -6,11 +6,13 @@
 // Contact ("Request Contact") and Vision beta ("Join Beta") forms
 // ---------------------------------------------------------------------------------------
 // Both are the site's own popups (ContactModal.astro, BetaModal.astro), sent through
-// Web3Forms with the same key; the email subject tells them apart.
+// Web3Forms. Each has its own Web3Forms form (and key), so their submissions stay
+// apart in the Web3Forms dashboard.
 
-// Web3Forms access key (https://web3forms.com > your form). Public by design.
-// Empty = demo mode: the popups show "Thanks" and send nothing.
-export const WEB3FORMS_ACCESS_KEY = "";
+// Web3Forms access keys (https://app.web3forms.com > the form). Public by design.
+// Empty = demo mode: that popup shows "Thanks" and sends nothing.
+export const WEB3FORMS_ACCESS_KEY = "9e7e863b-656f-4635-9c22-8203d4b24677";
+export const WEB3FORMS_BETA_ACCESS_KEY = "6efe50bf-282c-4b53-b171-93170630b0da";
 export const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
 // ---------------------------------------------------------------------------------------
@@ -22,7 +24,8 @@ export const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 // The form noesis.vision used is:
 //   https://assets.mailerlite.com/public/1381617/forms/148784982943335986/subscribe?signature=7abd42a91e9a728426c14c0e66d845fcb896b2e188896a27843cadc12328bf43
 // Empty = demo mode: the popup shows "Thank you" and sends nothing.
-export const MAILERLITE_FORM_ACTION = "";
+export const MAILERLITE_FORM_ACTION =
+  "https://assets.mailerlite.com/public/1381617/forms/148784982943335986/subscribe?signature=7abd42a91e9a728426c14c0e66d845fcb896b2e188896a27843cadc12328bf43";
 
 // ---------------------------------------------------------------------------------------
 // Consent banner and analytics (Base.astro, src/scripts/consent-mode.js)

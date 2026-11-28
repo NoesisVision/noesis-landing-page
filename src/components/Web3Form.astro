@@ -9,17 +9,20 @@ import {
 /**
  * A form submitted to Web3Forms (https://web3forms.com) by src/scripts/modal.js.
  *
- * The access key is WEB3FORMS_ACCESS_KEY in src/config/integrations.js.
+ * The access key is WEB3FORMS_ACCESS_KEY in src/config/integrations.js unless `accessKey`
+ * is given (each Web3Forms form has its own key and its own list in the dashboard).
  * Web3Forms keys are public by design, so it is fine for it to end up in the HTML.
  * Without a key the form runs in demo mode: it shows the "sent" view and sends nothing.
  */
 interface Props extends HTMLAttributes<"form"> {
   /** Email subject, used to tell the forms apart in the inbox */
   subject: string;
+  /** Web3Forms access key of the form to send to (default: the contact form's) */
+  accessKey?: string;
 }
 
-const accessKey = WEB3FORMS_ACCESS_KEY.trim();
-const { subject, ...rest } = Astro.props;
+const { subject, accessKey: key = WEB3FORMS_ACCESS_KEY, ...rest } = Astro.props;
+const accessKey = key.trim();
 ---
 
 <form

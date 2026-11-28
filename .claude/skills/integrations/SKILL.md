@@ -15,7 +15,7 @@ can use it. Everything in it ends up public, so never put a real secret there.
 | Setting                                                                    | Used by                                                                  |
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
 | `contactLink`                                                              | every "Request Contact" button                                           |
-| `WEB3FORMS_ACCESS_KEY`, `WEB3FORMS_ENDPOINT`                               | `Web3Form.astro`, `src/scripts/modal.js`                                 |
+| `WEB3FORMS_ACCESS_KEY`, `WEB3FORMS_BETA_ACCESS_KEY`, `WEB3FORMS_ENDPOINT`  | `Web3Form.astro`, `src/scripts/modal.js`                                 |
 | `MAILERLITE_FORM_ACTION`                                                   | `MailerLiteForm.astro` (newsletter)                                      |
 | `COOKIEYES_ID`, `GA_ID`                                                    | `Base.astro`, `src/scripts/consent-mode.js`, `scripts/check-adblock.mjs` |
 | `VISION_DEMO_URL`                                                          | Vision "Try Live Demo Now"                                               |
@@ -24,7 +24,7 @@ can use it. Everything in it ends up public, so never put a real secret there.
 ## Forms
 
 - **Contact** (`ContactModal.astro`, rendered by `Nav.astro` on every page): JSON POST to Web3Forms from `modal.js`. An empty key means demo mode: it shows "sent" and sends nothing (a console warning says so). Open it with `<Button {...contactLink}>`. Never write `open="contact"` directly.
-- **Beta** (`BetaModal.astro`, rendered on `/vision`): same Web3Forms key, different subject. Open it with `<Button open="beta">`. Questions are in `src/data/beta-form.json`. `modal.js` joins several ticked answers into one value and shows `data-show-if="name=value"` blocks only while that answer is ticked. The newsletter tick only adds "newsletter: Yes" to the email; it does not subscribe anyone in MailerLite.
+- **Beta** (`BetaModal.astro`, rendered on `/vision`): its own Web3Forms form and key (`WEB3FORMS_BETA_ACCESS_KEY`), so beta requests have their own list in the Web3Forms dashboard. Open it with `<Button open="beta">`. Questions are in `src/data/beta-form.json`. `modal.js` joins several ticked answers into one value and shows `data-show-if="name=value"` blocks only while that answer is ticked. The newsletter tick only adds "newsletter: Yes" to the email; it does not subscribe anyone in MailerLite.
 - **Newsletter** (`NewsletterModal.astro`, on Home, Vision, Services, opened by `<Button open="news">`): JSON POST to the MailerLite embedded form's subscribe URL. reCAPTCHA must be off for that MailerLite form. A honeypot (`botcheck`) replaces it. `modal.js` sends a HEAD probe when the popup opens, to warn visitors whose blocker (AdGuard Popups) stops mailerlite.com.
 - Any page with a popup must load `src/scripts/modal.js`. `nav.js` already imports it, so every page that loads `nav.js` or `page.js` has it.
 - After setting a real key or URL: make one real submission and confirm it arrives (Web3Forms email / MailerLite subscriber list).
