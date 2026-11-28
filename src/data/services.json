@@ -13,7 +13,7 @@
       "title": "Software Houses",
       "roles": "Managing Directors · Delivery Managers · Tech Leads",
       "points": [
-        "Want repeatable AI excellence across client projects",
+        "Want repeatable AI results across client projects",
         "Need to prove ROI of AI tooling with real benchmarks",
         "Looking for competitive edge through measurable engineering quality"
       ]
@@ -46,12 +46,12 @@
     {
       "icon": "GitBranch",
       "title": "Real-World Benchmarks",
-      "body": "Tasks derived from actual git history and production codebases - not synthetic toy problems. We measure agent performance on the work your team actually does."
+      "body": "Tasks derived from git history and production codebases instead of synthetic problems. We measure agent performance on the work your team does."
     },
     {
       "icon": "ChartRadar",
       "title": "Multi-Dimensional Scoring",
-      "body": "Not just 'does it compile' - we score architecture compliance, code quality, test coverage, domain modeling, and adherence to team conventions."
+      "body": "Compiling is the minimum. We score architecture compliance, code quality, test coverage, domain modeling, and adherence to team conventions."
     },
     {
       "icon": "TrendingUp",
@@ -68,7 +68,7 @@
     {
       "n": "1",
       "title": "Development Process Design",
-      "tag": "The Right Process Makes Tools Work",
+      "tag": "Process Makes the Tools Work",
       "items": [
         {
           "t": "Domain knowledge extraction",
@@ -100,11 +100,11 @@
         },
         {
           "t": "Tool & MCP server configuration",
-          "d": "The right tools connected the right way - code search, LSP, documentation, custom integrations"
+          "d": "Code search, LSP, documentation, and custom integrations, connected so the agent can use them"
         },
         {
           "t": "Context management strategy",
-          "d": "Agents need the right information at the right time - we design what context flows where"
+          "d": "We design what context reaches the agent, and when"
         },
         {
           "t": "Knowledge graph experiments (GraphRAG)",
@@ -166,7 +166,7 @@
     {
       "icon": "Target",
       "title": "Wrong Focus",
-      "body": "Teams obsess over which LLM to use, but the agent is not the variable. Without a deliberate development process - and domain experts who can extract and structure business knowledge for AI - even the best tools underperform."
+      "body": "Teams spend their energy choosing an LLM, but the agent is not the variable. Without a deliberate development process - and domain experts who can extract and structure business knowledge for AI - even the best tools underperform."
     },
     {
       "icon": "Puzzle",
@@ -176,7 +176,7 @@
     {
       "icon": "ChartLine",
       "title": "No Measurement",
-      "body": "Teams have no way to know if their AI setup actually works. No baselines, no benchmarks, no feedback loop for improvement. Just vibes."
+      "body": "Teams have no way to know if their AI setup works. No baselines, no benchmarks, no feedback loop for improvement."
     }
   ]
 }

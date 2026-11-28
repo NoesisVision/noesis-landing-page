@@ -26,7 +26,7 @@
     {
       "icon": "ArrowsExchange",
       "title": "Decide whether a migration pays off",
-      "body": "Before standardizing on a new agent or model, measure what actually changes - in output quality and in spend - instead of switching on hype."
+      "body": "Before standardizing on a new agent or model, measure what changes - in output quality and in spend - instead of switching on hype."
     },
     {
       "icon": "Stack2",
@@ -185,7 +185,7 @@
     {
       "title": "Refactoring katas (Java + Python) →",
       "href": "https://github.com/NoesisVision/nasde-toolkit/tree/main/examples/refactoring-skill",
-      "body": "Four classic refactorings (Extract Hierarchy, Break Dependency, Polymorphism, Extract Method) scored on behavior preservation, clarity, technique, scope discipline. <strong class=\"hl\">Takeaway:</strong> a candidate \"refactoring skill\" didn't move the score - shipping it would have been based on vibes."
+      "body": "Four classic refactorings (Extract Hierarchy, Break Dependency, Polymorphism, Extract Method) scored on behavior preservation, clarity, technique, scope discipline. <strong class=\"hl\">Takeaway:</strong> a candidate \"refactoring skill\" didn't move the score - shipping it would have been a guess."
     },
     {
       "title": "Project-specific skill validation (Nasde's own repo) →",
