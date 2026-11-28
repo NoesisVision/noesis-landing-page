@@ -2,11 +2,11 @@
   "steps": [
     {
       "title": "You describe a task you already understand",
-      "body": "An instruction, a repo snapshot, and the assessment criteria describing what a good solution looks like. The output can be anything the agent writes into its workspace — code, a migration plan, an ADR, a SQL script, updated docs."
+      "body": "An instruction, a repo snapshot, and the assessment criteria describing what a good solution looks like. The output can be anything the agent writes into its workspace - code, a migration plan, an ADR, a SQL script, updated docs."
     },
     {
       "title": "The agent solves it in a sandbox",
-      "body": "The agent works in a safe, isolated environment — it can't touch your machine or your real code. Every run starts from the same clean state, so different configurations get a fair comparison. When it's done, a quick <code class=\"code-inline\">test.sh</code> check gives a rough pass/fail signal. Powered by <a href=\"https://www.harborframework.com/\" target=\"_blank\" rel=\"noopener\">Harbor</a>, runs locally on Docker or in the cloud."
+      "body": "The agent works in a safe, isolated environment - it can't touch your machine or your real code. Every run starts from the same clean state, so different configurations get a fair comparison. When it's done, a quick <code class=\"code-inline\">test.sh</code> check gives a rough pass/fail signal. Powered by <a href=\"https://www.harborframework.com/\" target=\"_blank\" rel=\"noopener\">Harbor</a>, runs locally on Docker or in the cloud."
     },
     {
       "title": "A reviewer agent assesses the result against your criteria",
@@ -14,34 +14,34 @@
     },
     {
       "title": "You get scores <em>and</em> the cost to reach them",
-      "body": "Every trial lands locally with per-dimension scores, the reviewer's reasoning, and the <strong class=\"hl\">tokens and USD</strong> it took — and a summary table compares each agent/model side by side. Push to <a href=\"https://www.comet.com/site/products/opik/\" target=\"_blank\" rel=\"noopener\">Opik</a> for cross-run dashboards, or plot a <strong class=\"hl\">quality-vs-cost Pareto frontier</strong> to pick the best value for your budget."
+      "body": "Every trial lands locally with per-dimension scores, the reviewer's reasoning, and the <strong class=\"hl\">tokens and USD</strong> it took - and a summary table compares each agent/model side by side. Push to <a href=\"https://www.comet.com/site/products/opik/\" target=\"_blank\" rel=\"noopener\">Opik</a> for cross-run dashboards, or plot a <strong class=\"hl\">quality-vs-cost Pareto frontier</strong> to pick the best value for your budget."
     }
   ],
   "uses": [
     {
       "icon": "Scale",
       "title": "Compare providers and models on quality <em>and</em> cost",
-      "body": "Claude Code vs. Codex vs. Gemini, Sonnet vs. Opus — against <em>your</em> tasks. See the score <em>and</em> the tokens and dollars each one spends, and pick the best quality-per-dollar for your budget."
+      "body": "Claude Code vs. Codex vs. Gemini, Sonnet vs. Opus - against <em>your</em> tasks. See the score <em>and</em> the tokens and dollars each one spends, and pick the best quality-per-dollar for your budget."
     },
     {
       "icon": "ArrowsExchange",
       "title": "Decide whether a migration pays off",
-      "body": "Before standardizing on a new agent or model, measure what actually changes — in output quality and in spend — instead of switching on hype."
+      "body": "Before standardizing on a new agent or model, measure what actually changes - in output quality and in spend - instead of switching on hype."
     },
     {
       "icon": "Stack2",
       "title": "Measure your whole harness, not just one skill",
-      "body": "Run your real <code class=\"code-inline\">CLAUDE.md</code> + skills + MCP servers as a unit and see how the full configuration performs — not just one piece in isolation."
+      "body": "Run your real <code class=\"code-inline\">CLAUDE.md</code> + skills + MCP servers as a unit and see how the full configuration performs - not just one piece in isolation."
     },
     {
       "icon": "Adjustments",
       "title": "Tune a single skill or config",
-      "body": "Baseline vs. \"with my new skill.\" See whether it moves scores up or down — and on which specific dimensions. The same skill can help one agent and hurt another — see the <a href=\"#example\">worked example below</a>."
+      "body": "Baseline vs. \"with my new skill.\" See whether it moves scores up or down - and on which specific dimensions. The same skill can help one agent and hurt another - see the <a href=\"#example\">worked example below</a>."
     },
     {
       "icon": "ShieldCheck",
       "title": "Build a regression suite for your AI setup",
-      "body": "Once a task set exists, re-run it whenever someone tweaks the prompt / skills / MCP / model — and catch quality <em>or</em> cost regressions before they ship."
+      "body": "Once a task set exists, re-run it whenever someone tweaks the prompt / skills / MCP / model - and catch quality <em>or</em> cost regressions before they ship."
     }
   ],
   "startCards": [
@@ -51,7 +51,7 @@
     },
     {
       "title": "Your subscription covers it",
-      "body": "Runs use your <code class=\"code-inline\">claude</code> / <code class=\"code-inline\">codex</code> CLI auth — Claude Max or ChatGPT Plus works out of the box."
+      "body": "Runs use your <code class=\"code-inline\">claude</code> / <code class=\"code-inline\">codex</code> CLI auth - Claude Max or ChatGPT Plus works out of the box."
     },
     {
       "title": "More in the docs",
@@ -114,7 +114,7 @@
   "ladder": [
     {
       "score": "0",
-      "text": "No domain types for weather — raw HTTP responses or primitives used directly in domain logic."
+      "text": "No domain types for weather - raw HTTP responses or primitives used directly in domain logic."
     },
     {
       "score": "10",
@@ -185,7 +185,7 @@
     {
       "title": "Refactoring katas (Java + Python) →",
       "href": "https://github.com/NoesisVision/nasde-toolkit/tree/main/examples/refactoring-skill",
-      "body": "Four classic refactorings (Extract Hierarchy, Break Dependency, Polymorphism, Extract Method) scored on behavior preservation, clarity, technique, scope discipline. <strong class=\"hl\">Takeaway:</strong> a candidate \"refactoring skill\" didn't move the score — shipping it would have been based on vibes."
+      "body": "Four classic refactorings (Extract Hierarchy, Break Dependency, Polymorphism, Extract Method) scored on behavior preservation, clarity, technique, scope discipline. <strong class=\"hl\">Takeaway:</strong> a candidate \"refactoring skill\" didn't move the score - shipping it would have been based on vibes."
     },
     {
       "title": "Project-specific skill validation (Nasde's own repo) →",
@@ -193,5 +193,5 @@
       "body": "One task pulled from Nasde's git history; four skill combinations tested. <strong class=\"hl\">Takeaway:</strong> the testing-discipline skill alone raised pass rate from 67% → 100%; the \"full-stack, everything-on\" variant scored <em>worse</em> than vanilla."
     }
   ],
-  "startCode": "<span class=\"c\"># 1. install the latest stable release from PyPI</span>\nuv tool install --python 3.13 nasde-toolkit\nnasde --version\n\n<span class=\"c\"># 2. install the authoring skills for Claude Code</span>\n<span class=\"c\"># (use --scope project for ./.claude/skills, --force to overwrite)</span>\nnasde install-skills\n\n<span class=\"c\"># 3. from inside your own repo, open Claude Code and ask:</span>\n<span class=\"c\"># \"Create a Nasde benchmark with a single task, based on a recent</span>\n<span class=\"c\"># piece of work from this repo — a commit, a range, or a merged PR.\"</span>\n<span class=\"c\"># The nasde-benchmark-from-history skill scaffolds one task directory.</span>\n<span class=\"c\"># then run it (runs every variant the skill scaffolded):</span>\nnasde run --all-variants -C path/to/generated-benchmark"
+  "startCode": "<span class=\"c\"># 1. install the latest stable release from PyPI</span>\nuv tool install --python 3.13 nasde-toolkit\nnasde --version\n\n<span class=\"c\"># 2. install the authoring skills for Claude Code</span>\n<span class=\"c\"># (use --scope project for ./.claude/skills, --force to overwrite)</span>\nnasde install-skills\n\n<span class=\"c\"># 3. from inside your own repo, open Claude Code and ask:</span>\n<span class=\"c\"># \"Create a Nasde benchmark with a single task, based on a recent</span>\n<span class=\"c\"># piece of work from this repo - a commit, a range, or a merged PR.\"</span>\n<span class=\"c\"># The nasde-benchmark-from-history skill scaffolds one task directory.</span>\n<span class=\"c\"># then run it (runs every variant the skill scaffolded):</span>\nnasde run --all-variants -C path/to/generated-benchmark"
 }

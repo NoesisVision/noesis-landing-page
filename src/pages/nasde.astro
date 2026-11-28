@@ -60,9 +60,9 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "Nasde — Noesis Agentic Software Development Evals",
+    name: "Nasde - Noesis Agentic Software Development Evals",
     description:
-      "Open-source CLI toolkit that measures how your whole AI coding setup performs — quality of output plus tokens and dollars per model and provider — so you can decide which agent, model, and configuration to standardize on, and when a migration pays off.",
+      "Open-source CLI toolkit that measures how your whole AI coding setup performs - quality of output plus tokens and dollars per model and provider - so you can decide which agent, model, and configuration to standardize on, and when a migration pays off.",
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Cross-platform",
     url: "https://noesis.vision/nasde/",
@@ -73,8 +73,8 @@ const jsonLd = [
 ---
 
 <Base
-  title="Nasde — Measure your AI coding setup's quality and cost | Noesis Vision"
-  description="Open-source CLI toolkit that measures how your whole AI coding setup performs — quality plus tokens and dollars per model and provider — so you can pick which agent and model to standardize on and when a migration pays off."
+  title="Nasde - Measure your AI coding setup's quality and cost | Noesis Vision"
+  description="Open-source CLI toolkit that measures how your whole AI coding setup performs - quality plus tokens and dollars per model and provider - so you can pick which agent and model to standardize on and when a migration pays off."
   jsonLd={jsonLd}
 >
   <Page data-ref="root">
@@ -90,9 +90,9 @@ const jsonLd = [
           </Heading>
           <Lead width={760}>
             Nasde measures how your{" "}
-            <Highlight> whole AI coding setup </Highlight> performs — the agent,
+            <Highlight> whole AI coding setup </Highlight> performs - the agent,
             its skills, its MCP servers, against <Highlight>your</Highlight>{" "}
-            tasks — and reports not just how good the output is, but{" "}
+            tasks - and reports not just how good the output is, but{" "}
             <Highlight> how many tokens and dollars </Highlight> it took, per
             model and per provider. It's how you decide which agent and model to
             standardize on, and{" "}
@@ -166,7 +166,7 @@ const jsonLd = [
       <Section id="steps">
         <Container>
           <SectionHead data-reveal="1">
-            <Heading>What Nasde does — in four steps</Heading>
+            <Heading>What Nasde does - in four steps</Heading>
             <Lead class="nasde-lead-640">
               One <code class="code-inline">nasde run</code> command executes
               the whole chain.
@@ -211,7 +211,7 @@ const jsonLd = [
               coding stack:{" "}
               <em>
                 {" "}
-                which agent, which model, which provider, which configuration —
+                which agent, which model, which provider, which configuration -
                 for our codebase and our budget?{" "}
               </em>{" "}
               Nasde answers it with numbers instead of vibes. Typical things
@@ -269,12 +269,12 @@ const jsonLd = [
                 widths={SHOT_WIDE_WIDTHS}
                 sizes={SHOT_WIDE_SIZES}
                 loading="lazy"
-                alt="nasde run in the terminal — the Benchmark Runner banner showing agent, variant, model, attempts, Opik and assessment status, then trials starting"
+                alt="nasde run in the terminal - the Benchmark Runner banner showing agent, variant, model, attempts, Opik and assessment status, then trials starting"
                 class="nasde-shot"
               />
             </div>
             <figcaption class="nasde-caption">
-              A real <code class="code-inline">nasde run</code> — it echoes the
+              A real <code class="code-inline">nasde run</code> - it echoes the
               exact configuration under test, then streams each trial as it
               executes.
             </figcaption>
@@ -313,7 +313,7 @@ const jsonLd = [
                 "If there's a test, there has to be an expected result,
                 right?"{" "}
               </em>{" "}
-              — yes, and there are two independent kinds, answering two
+              - yes, and there are two independent kinds, answering two
               different questions.
             </Lead>
           </SectionHead>
@@ -321,7 +321,7 @@ const jsonLd = [
             <div data-reveal="1" class="nasde-panel">
               <StepNumber>1</StepNumber>
               <CardTitle size="lg">
-                Initial rough tests — deterministic pass/fail
+                Initial rough tests - deterministic pass/fail
               </CardTitle>
               <Text>
                 This is the standard verifier pattern used by{" "}
@@ -332,7 +332,7 @@ const jsonLd = [
                 >
                   Harbor
                 </a>{" "}
-                and other coding-agent benchmarks — every task has a{" "}
+                and other coding-agent benchmarks - every task has a{" "}
                 <code class="code-inline">tests/test.sh</code> script that runs
                 inside the container after the agent is done. Either it passes
                 (reward = 1) or it doesn't (reward = 0). Nothing AI about this
@@ -370,7 +370,7 @@ const jsonLd = [
             <div data-reveal="1" class="nasde-panel">
               <StepNumber>2</StepNumber>
               <CardTitle size="lg">
-                Multi-dimensional assessment — reviewer agent scores the
+                Multi-dimensional assessment - reviewer agent scores the
                 produced results
               </CardTitle>
               <Text>
@@ -392,14 +392,14 @@ const jsonLd = [
                   <div class="nasde-check-mark"></div>
                   <div>
                     <code class="code-inline">assessment_dimensions.json</code>{" "}
-                    — the dimensions and their max scores (shared across the
+                    - the dimensions and their max scores (shared across the
                     benchmark).
                   </div>
                 </div>
                 <div class="nasde-check">
                   <div class="nasde-check-mark"></div>
                   <div>
-                    <code class="code-inline">assessment_criteria.md</code> —
+                    <code class="code-inline">assessment_criteria.md</code> -
                     per task, in plain prose: for each dimension, what a low
                     score looks like, what a high score looks like, what
                     specific things to check.
@@ -407,8 +407,8 @@ const jsonLd = [
                 </div>
               </div>
               <Text>
-                The workspace also contains the agent's full trace — tool-call
-                trajectory, token usage, wall-clock duration — so your criteria
+                The workspace also contains the agent's full trace - tool-call
+                trajectory, token usage, wall-clock duration - so your criteria
                 can cover those too, alongside the produced artifacts. One local{" "}
                 <code class="code-inline">nasde run</code> handles all of it, no
                 separate LLM-as-a-judge stack required.
@@ -416,7 +416,7 @@ const jsonLd = [
               <Text>
                 The criteria can be as strict or as loose as you want: spell out
                 a ground-truth structure, enumerate exact checks, or leave room
-                for judgment — whatever gives you signal you trust.
+                for judgment - whatever gives you signal you trust.
               </Text>
             </div>
           </CardGrid>
@@ -451,7 +451,7 @@ const jsonLd = [
                 <div class="nasde-check-mark"></div>
                 <div>
                   <Highlight> Context window isn't the limit. </Highlight> A
-                  500k-LOC codebase is reviewed the same way a 5k-LOC one is —
+                  500k-LOC codebase is reviewed the same way a 5k-LOC one is -
                   by reading the relevant slices on demand.
                 </div>
               </div>
@@ -464,7 +464,7 @@ const jsonLd = [
               </div>
               <Text size="lg">
                 Each trial reports <Highlight> tokens and dollars </Highlight>{" "}
-                next to the quality score — per model, per provider — so a
+                next to the quality score - per model, per provider - so a
                 quality number is always paired with what it costs to reach it.
                 That turns the AI-coding line item into something you can
                 actually reason about:{" "}
@@ -472,7 +472,7 @@ const jsonLd = [
               </Text>
               <Text size="lg">
                 Nasde plots models and variants on a{" "}
-                <Highlight> quality-vs-cost Pareto frontier </Highlight> — the
+                <Highlight> quality-vs-cost Pareto frontier </Highlight> - the
                 view a budget owner needs: where the best value sits, where
                 you're overpaying, and the point that matches your quality bar
                 and your spend. It's how you choose where to invest and when a
@@ -495,14 +495,14 @@ const jsonLd = [
                   widths={SHOT_HALF_WIDTHS}
                   sizes={SHOT_HALF_SIZES}
                   loading="lazy"
-                  alt="Quality vs. cost for coding agents on a DDD task — Claude and OpenAI models, with and without a skill, plotted by rubric score against USD per task"
+                  alt="Quality vs. cost for coding agents on a DDD task - Claude and OpenAI models, with and without a skill, plotted by rubric score against USD per task"
                   class="nasde-shot"
                 />
               </div>
               <figcaption class="nasde-caption">
                 One real task: rubric score against dollars per task. Color =
                 provider, shape = model vs. model + skill. The same skill nudges
-                Claude's quality up and pushes some OpenAI runs down — and the
+                Claude's quality up and pushes some OpenAI runs down - and the
                 best value isn't the priciest point.
               </figcaption>
             </figure>
@@ -550,7 +550,7 @@ const jsonLd = [
           </div>
           <Lead width={760} class="nasde-lead-center" data-reveal="1">
             Nasde is the glue that connects sandbox execution, rough tests, the
-            reviewer agent, and experiment tracking — all invoked by a single{" "}
+            reviewer agent, and experiment tracking - all invoked by a single{" "}
             <code class="code-inline">nasde run</code>.
           </Lead>
         </Container>
@@ -562,7 +562,7 @@ const jsonLd = [
             <Heading>What a real task looks like</Heading>
             <Lead class="nasde-lead-820">
               Everything above is easier to grasp on a concrete example. Here's
-              one benchmark task from the repo —{" "}
+              one benchmark task from the repo -{" "}
               <a
                 href="https://github.com/NoesisVision/nasde-toolkit/tree/main/examples/ddd-architectural-challenges/tasks/ddd-weather-discount"
                 target="_blank"
@@ -573,7 +573,7 @@ const jsonLd = [
                   examples/ddd-architectural-challenges/tasks/ddd-weather-discount{" "}
                 </code>
               </a>{" "}
-              — shown end to end: the agent's instruction, the assessment
+              - shown end to end: the agent's instruction, the assessment
               criteria, and the resulting scores.
             </Lead>
           </SectionHead>
@@ -585,7 +585,7 @@ const jsonLd = [
                   what the coding agent is asked to do
                 </span>
               </div>
-              <CardTitle>Task — Implement a weather-based discount.</CardTitle>
+              <CardTitle>Task - Implement a weather-based discount.</CardTitle>
               <Text>
                 You are working on an e-commerce system built using{" "}
                 <Highlight> Domain-Driven Design </Highlight> and{" "}
@@ -633,7 +633,7 @@ const jsonLd = [
               </div>
               <Text>
                 The criteria spell out what each score means for each dimension.
-                Extract from the <em>Domain Modeling</em> dimension — the
+                Extract from the <em>Domain Modeling</em> dimension - the
                 benchmark author chose a 0–25 scale here; your own criteria can
                 use any scale that fits (0–5, 0–10, named levels, pass/fail,
                 whatever):
@@ -760,8 +760,8 @@ const jsonLd = [
               <strong class="nasde-insight-label">The insight:</strong> the same
               "DDD guidance" skill helps Claude a little (+3.5) and{" "}
               <em>badly</em> hurts Codex (-22). The per-dimension breakdown
-              pinpoints <em>where</em> Codex regresses — domain modeling,
-              encapsulation, extensibility — which would be invisible without
+              pinpoints <em>where</em> Codex regresses - domain modeling,
+              encapsulation, extensibility - which would be invisible without
               this assessment. Skill optimization is agent-specific.
             </div>
           </div>
@@ -814,7 +814,7 @@ const jsonLd = [
                 Opik
               </a>{" "}
               for experiment tracking, comparison, and visualization. Each
-              dimension becomes a separate feedback score — easy to filter,
+              dimension becomes a separate feedback score - easy to filter,
               compare, and trend over time.
             </Lead>
           </SectionHead>

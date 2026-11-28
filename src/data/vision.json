@@ -96,7 +96,7 @@
   "uses": [
     {
       "slot": "vision-use-ui",
-      "ph": "Drop app screen: Noesis UI — module navigation",
+      "ph": "Drop app screen: Noesis UI - module navigation",
       "title": "Noesis UI",
       "body": "Navigate interactively through AI-described modules, entry points, and key components to visually explore their connections and analyze your system.",
       "isDocs": false,

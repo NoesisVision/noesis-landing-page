@@ -34,14 +34,14 @@
       "icon": "Sitemap",
       "title": "Development Process Design",
       "tagline": "Tools without process are just expensive toys.",
-      "body": "We design how your team works with AI — from extracting domain knowledge to structuring agent workflows. Our domain modelers turn business expertise into AI-ready context that generic tools can't replicate.",
+      "body": "We design how your team works with AI - from extracting domain knowledge to structuring agent workflows. Our domain modelers turn business expertise into AI-ready context that generic tools can't replicate.",
       "href": "/services#process"
     },
     {
       "node": 3,
       "icon": "Plug",
       "title": "Harness Engineering",
-      "tagline": "The agent isn't the variable — its tools are.",
+      "tagline": "The agent isn't the variable - its tools are.",
       "body": "We configure and optimize the complete AI development harness: tools, MCP servers, context management. The right harness turns an average agent into an exceptional one.",
       "href": "/services#harness"
     },
@@ -50,7 +50,7 @@
       "icon": "Puzzle",
       "title": "Skills Development",
       "tagline": "Skills are software. They need testing and measurement.",
-      "body": "We build, test, and iterate on custom skills — from team-specific domain knowledge to universal coding patterns. Treated as first-class software artifacts, not throwaway prompts.",
+      "body": "We build, test, and iterate on custom skills - from team-specific domain knowledge to universal coding patterns. Treated as first-class software artifacts, not throwaway prompts.",
       "href": "/services#skills"
     },
     {
@@ -58,7 +58,7 @@
       "icon": "ChartDots3",
       "title": "Measurement & Evaluation",
       "tagline": "If you can't measure it, you can't improve it.",
-      "body": "Multi-dimensional evaluation on tasks from real codebases. We prove what works — architecture, code quality, tests, team conventions — through rigorous benchmarks, not demos on toy projects.",
+      "body": "Multi-dimensional evaluation on tasks from real codebases. We prove what works - architecture, code quality, tests, team conventions - through rigorous benchmarks, not demos on toy projects.",
       "href": "/services#measurement"
     }
   ],

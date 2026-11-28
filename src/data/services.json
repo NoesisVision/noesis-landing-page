@@ -46,12 +46,12 @@
     {
       "icon": "GitBranch",
       "title": "Real-World Benchmarks",
-      "body": "Tasks derived from actual git history and production codebases — not synthetic toy problems. We measure agent performance on the work your team actually does."
+      "body": "Tasks derived from actual git history and production codebases - not synthetic toy problems. We measure agent performance on the work your team actually does."
     },
     {
       "icon": "ChartRadar",
       "title": "Multi-Dimensional Scoring",
-      "body": "Not just 'does it compile' — we score architecture compliance, code quality, test coverage, domain modeling, and adherence to team conventions."
+      "body": "Not just 'does it compile' - we score architecture compliance, code quality, test coverage, domain modeling, and adherence to team conventions."
     },
     {
       "icon": "TrendingUp",
@@ -61,7 +61,7 @@
     {
       "icon": "Refresh",
       "title": "Feedback Loop",
-      "body": "Evaluation results feed directly into harness and skill improvements. Every benchmark run reveals what to optimize next — creating a continuous improvement cycle."
+      "body": "Evaluation results feed directly into harness and skill improvements. Every benchmark run reveals what to optimize next - creating a continuous improvement cycle."
     }
   ],
   "pillars": [
@@ -76,7 +76,7 @@
         },
         {
           "t": "Agentic workflow design",
-          "d": "We design how developers, architects, and AI agents collaborate — clear roles, handoff points, and feedback loops"
+          "d": "We design how developers, architects, and AI agents collaborate - clear roles, handoff points, and feedback loops"
         },
         {
           "t": "Team adoption & coaching",
@@ -100,11 +100,11 @@
         },
         {
           "t": "Tool & MCP server configuration",
-          "d": "The right tools connected the right way — code search, LSP, documentation, custom integrations"
+          "d": "The right tools connected the right way - code search, LSP, documentation, custom integrations"
         },
         {
           "t": "Context management strategy",
-          "d": "Agents need the right information at the right time — we design what context flows where"
+          "d": "Agents need the right information at the right time - we design what context flows where"
         },
         {
           "t": "Knowledge graph experiments (GraphRAG)",
@@ -116,7 +116,7 @@
     {
       "n": "3",
       "title": "Skills Development",
-      "tag": "Skills Are Software — Build, Test, Iterate",
+      "tag": "Skills Are Software - Build, Test, Iterate",
       "items": [
         {
           "t": "Team-specific skills",
@@ -166,7 +166,7 @@
     {
       "icon": "Target",
       "title": "Wrong Focus",
-      "body": "Teams obsess over which LLM to use, but the agent is not the variable. Without a deliberate development process — and domain experts who can extract and structure business knowledge for AI — even the best tools underperform."
+      "body": "Teams obsess over which LLM to use, but the agent is not the variable. Without a deliberate development process - and domain experts who can extract and structure business knowledge for AI - even the best tools underperform."
     },
     {
       "icon": "Puzzle",
